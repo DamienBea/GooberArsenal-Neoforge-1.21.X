@@ -57,7 +57,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.SANDVICH.get());
             basicItem(ModItems.CHOCOLATE_CHIP_PANCAKES.get());
             basicItem(ModItems.COPPER_APPLE.get());
-            basicItem(ModItems.SWITCH_CARTRIDGE.get());
+//            basicItem(ModItems.SWITCH_CARTRIDGE.get());
 
 
             //Armor

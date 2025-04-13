@@ -20,6 +20,8 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SLAPSTICK_SWORD.get()))
                     .title(Component.translatable("creativetab.gooberarsenal.gooberarsenal_combat"))
                     .displayItems((itemDisplayParameters, output) -> {
+
+                        //Weapons
                         output.accept(ModItems.WOODEN_BAT.get());
                         output.accept(ModItems.IRON_BAT.get());
                         output.accept(ModItems.GOLDEN_BAT.get());
@@ -55,8 +57,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.KEVIN_BLOCK.get());
                         output.accept(ModBlocks.KEVIN_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_KEVIN_ORE.get());
-
-
                         output.accept(ModBlocks.ANCIENT_CAGITE.get());
                         output.accept(ModBlocks.CAGITE_BLOCK.get());
 

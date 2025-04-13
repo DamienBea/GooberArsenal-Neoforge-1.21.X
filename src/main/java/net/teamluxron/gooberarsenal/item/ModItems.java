@@ -24,6 +24,7 @@ import java.util.List;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(GooberArsenal.MOD_ID);
 
+    //Ingredients
     public static final DeferredItem<Item> OBSIDIAN_HILT = ITEMS.register("obsidian_hilt",
             () -> new Item(new Item.Properties().fireResistant()));
 
@@ -50,7 +51,6 @@ public class ModItems {
 
     public static final DeferredItem<Item> RUBBER_CHICKEN = ITEMS.register("rubber_chicken",
             () -> new Item(new Item.Properties()));
-
 
     public static final DeferredItem<Item> PLASTIC_BAG = ITEMS.register("plastic_bag",
             () -> new Item(new Item.Properties()));
@@ -93,14 +93,14 @@ public class ModItems {
                     super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
                 }
             });
-    public static final DeferredItem<Item>  SWITCH_CARTRIDGE = ITEMS.register("switch_cartridge",
-            () -> new Item(new Item.Properties().food(ModFoodProperties.SWITCH_CARTRIDGE).rarity(Rarity.UNCOMMON)) {
-                @Override
-                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-                    pTooltipComponents.add(Component.translatable("tooltip.gooberarsenal.switch_cartridge"));
-                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
-                }
-            });
+//    public static final DeferredItem<Item>  SWITCH_CARTRIDGE = ITEMS.register("switch_cartridge",
+//            () -> new Item(new Item.Properties().food(ModFoodProperties.SWITCH_CARTRIDGE).rarity(Rarity.UNCOMMON)) {
+//                @Override
+//                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+//                    pTooltipComponents.add(Component.translatable("tooltip.gooberarsenal.switch_cartridge"));
+//                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+//                }
+//            });
 
 
 
