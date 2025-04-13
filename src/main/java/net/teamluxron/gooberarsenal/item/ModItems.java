@@ -14,6 +14,10 @@ public class ModItems {
     public static final DeferredItem<Item> KEVIN_SHARD = ITEMS.register("kevin_shard",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> CAGITE_INGOT = ITEMS.register("cagite_ingot",
+            () -> new Item(new Item.Properties()));
+
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
