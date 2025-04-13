@@ -4,7 +4,6 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
@@ -31,7 +30,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     );
         List<ItemLike> PLASTIC_SMELTABLES =
                 List.of(
-                        ModItems.PLASTIC_BAG
+                        ModItems.PLASTIC_BAG,
+                        ModItems.SWITCH_CARTRIDGE
                 );
         List<ItemLike> CAGITE_SMELTING =
                 List.of(
@@ -137,13 +137,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.LIFE_SABER.get())
-                .pattern("GKB")
+                .pattern("BKB")
                 .pattern("KLK")
-                .pattern("BKG")
+                .pattern("BKB")
                 .define('L', ModItems.LIFE_SAVER.get())
                 .define('K', ModBlocks.KEVIN_BLOCK.get())
-                .define('B', Items.BLUE_DYE)
-                .define('G', Items.GREEN_DYE)
+                .define('B', ModItems.PLASTIC.get())
                 .unlockedBy("has_life_saver", has(ModItems.LIFE_SAVER.get()))
                 .save(recipeOutput);
 
@@ -324,6 +323,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         RecipeCategory.COMBAT, ModItems.SLAPSTICK_SWORD.get())
                 .unlocks("has_rubber_chicken", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RUBBER_CHICKEN.get()))
                 .save(recipeOutput, "slapstick_sword");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.IRON_SWORD),
+                        Ingredient.of(ModItems.SWITCH_CARTRIDGE.get()),
+                        RecipeCategory.COMBAT, ModItems.SWITCH_BLADE.get())
+                .unlocks("has_rubber_chicken", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SWITCH_CARTRIDGE.get()))
+                .save(recipeOutput, "switch_blade");
 
     }
 

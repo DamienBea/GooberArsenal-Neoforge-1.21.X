@@ -76,6 +76,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.IRON_PLATE.get());
                         output.accept(ModItems.LIFE_SAVER.get());
                         output.accept(ModItems.RUBBER_CHICKEN.get());
+                        output.accept(ModItems.PLASTIC_BAG.get());
+                        output.accept(ModItems.PLASTIC.get());
 
                     }).build());
 

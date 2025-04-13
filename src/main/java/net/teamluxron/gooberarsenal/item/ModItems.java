@@ -2,6 +2,8 @@ package net.teamluxron.gooberarsenal.item;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -59,6 +61,31 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
 
+    public static final DeferredItem<Item> SWITCH_CARTRIDGE = ITEMS.register("switch_cartridge",
+            () -> new Item(new Item.Properties()) {
+                @Override
+                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+                    pTooltipComponents.add(Component.translatable("tooltip.gooberarsenal.switch_cartridge"));
+                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+                }
+
+                @Override
+                public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+                    if (!level.isClientSide) {
+                        level.playSound(
+                                null,  // null = heard by all nearby players
+                                player.getX(), player.getY(), player.getZ(),
+                                ModSounds.WEEZER.get(),  // your sound event
+                                SoundSource.PLAYERS,
+                                1.0F,  // volume
+                                1.0F   // pitch
+                        );
+                    }
+                    return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide());
+                }
+            });
+
+
     //Foods
 
     public static final DeferredItem<Item>  ENERGY_BAR = ITEMS.register("energy_bar",
@@ -93,31 +120,23 @@ public class ModItems {
                     super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
                 }
             });
-//    public static final DeferredItem<Item>  SWITCH_CARTRIDGE = ITEMS.register("switch_cartridge",
-//            () -> new Item(new Item.Properties().food(ModFoodProperties.SWITCH_CARTRIDGE).rarity(Rarity.UNCOMMON)) {
-//                @Override
-//                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-//                    pTooltipComponents.add(Component.translatable("tooltip.gooberarsenal.switch_cartridge"));
-//                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
-//                }
-//            });
 
 
 
     //Weapons
-    public static final DeferredItem<Item> FRYING_PAN = ITEMS.register("frying_pan",
+    public static final DeferredItem<SwordItem> FRYING_PAN = ITEMS.register("frying_pan",
             () -> new SwordItem(Tiers.IRON, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.IRON, 9, -3.5f))));
 
-    public static final DeferredItem<Item> STEEL_PIPE = ITEMS.register("steel_pipe",
+    public static final DeferredItem<SwordItem> STEEL_PIPE = ITEMS.register("steel_pipe",
             () -> new SwordItem(Tiers.IRON, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.IRON, 5, -2.6f))));
 
-    public static final DeferredItem<Item> CHAIR = ITEMS.register("chair",
+    public static final DeferredItem<SwordItem> CHAIR = ITEMS.register("chair",
             () -> new SwordItem(ChairMaterial.INSTANCE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(ChairMaterial.INSTANCE, 1, -3f))));
 
-    public static final DeferredItem<Item> BEE_BUNNY_BASHER = ITEMS.register("bee_bunny_basher",
+    public static final DeferredItem<SwordItem> BEE_BUNNY_BASHER = ITEMS.register("bee_bunny_basher",
             () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
                     .fireResistant()
                     .attributes(SwordItem.createAttributes(CagiteMaterial.INSTANCE, 1, -2f))) {
@@ -150,7 +169,7 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> STAHP_SIGN = ITEMS.register("stahp_sign",
+    public static final DeferredItem<SwordItem> STAHP_SIGN = ITEMS.register("stahp_sign",
             () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
                     .fireResistant()
                     .attributes(SwordItem.createAttributes(CagiteMaterial.INSTANCE, 1, -2.5f))) {
@@ -164,7 +183,7 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> WOODEN_BAT = ITEMS.register("wooden_bat",
+    public static final DeferredItem<SwordItem> WOODEN_BAT = ITEMS.register("wooden_bat",
             () -> new SwordItem(Tiers.WOOD, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.WOOD, 2, -2f))) {
                 @Override
@@ -178,7 +197,7 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> IRON_BAT = ITEMS.register("iron_bat",
+    public static final DeferredItem<SwordItem> IRON_BAT = ITEMS.register("iron_bat",
             () -> new SwordItem(Tiers.IRON, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.IRON, 2, -2f))) {
                 @Override
@@ -192,7 +211,7 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> GOLDEN_BAT = ITEMS.register("golden_bat",
+    public static final DeferredItem<SwordItem> GOLDEN_BAT = ITEMS.register("golden_bat",
             () -> new SwordItem(Tiers.GOLD, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.GOLD, 2, -2f))) {
                 @Override
@@ -206,7 +225,7 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> DIAMOND_BAT = ITEMS.register("diamond_bat",
+    public static final DeferredItem<SwordItem> DIAMOND_BAT = ITEMS.register("diamond_bat",
             () -> new SwordItem(Tiers.DIAMOND, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 2, -2f))) {
                 @Override
@@ -220,7 +239,7 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> NETHERITE_BAT = ITEMS.register("netherite_bat",
+    public static final DeferredItem<SwordItem> NETHERITE_BAT = ITEMS.register("netherite_bat",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
                     .fireResistant()
                     .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 2, -2f))) {
@@ -235,7 +254,7 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> OBSIDIAN_SWORD = ITEMS.register("obsidian_sword",
+    public static final DeferredItem<SwordItem> OBSIDIAN_SWORD = ITEMS.register("obsidian_sword",
             () -> new SwordItem(ObsidianSwordMaterial.INSTANCE, new Item.Properties()
                     .fireResistant()
                     .attributes(SwordItem.createAttributes(ObsidianSwordMaterial.INSTANCE, 3, -3f))) {
@@ -256,16 +275,16 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> SPOON = ITEMS.register("spoon",
+    public static final DeferredItem<ShovelItem> SPOON = ITEMS.register("spoon",
             () -> new ShovelItem(Tiers.IRON, new Item.Properties()
                     .fireResistant()
                     .attributes(ShovelItem.createAttributes(Tiers.IRON, 5f, -3f))));
 
-    public static final DeferredItem<Item> SWITCH_BLADE = ITEMS.register("switch_blade",
-            () -> new ShovelItem(Tiers.IRON, new Item.Properties()
+    public static final DeferredItem<SwordItem> SWITCH_BLADE = ITEMS.register("switch_blade",
+            () -> new SwordItem(Tiers.IRON, new Item.Properties()
 
                     .fireResistant()
-                    .attributes(ShovelItem.createAttributes(Tiers.IRON, 5f, -3f)))
+                    .attributes(ShovelItem.createAttributes(Tiers.IRON, 1f, -5f)))
             {
 
                 @Override
@@ -275,7 +294,7 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> FESTIVE_AXE = ITEMS.register("festive_axe",
+    public static final DeferredItem<AxeItem> FESTIVE_AXE = ITEMS.register("festive_axe",
             () -> new AxeItem(Tiers.DIAMOND, new Item.Properties()
                     .attributes(AxeItem.createAttributes(Tiers.DIAMOND, 5f, -3f))) {
                 @Override
@@ -285,7 +304,7 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> LIFE_SABER = ITEMS.register("life_saber",
+    public static final DeferredItem<SwordItem> LIFE_SABER = ITEMS.register("life_saber",
             () -> new SwordItem(KevinMaterial.INSTANCE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(KevinMaterial.INSTANCE, -1, 2f))) {
                 @Override
@@ -298,11 +317,11 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> KENDO_STICK = ITEMS.register("kendo_stick",
+    public static final DeferredItem<SwordItem> KENDO_STICK = ITEMS.register("kendo_stick",
             () -> new SwordItem(KendoStickMaterial.INSTANCE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(KendoStickMaterial.INSTANCE, 0, -2.4f))));
 
-    public static final DeferredItem<Item> SLAPSTICK_SWORD = ITEMS.register("slapstick_sword",
+    public static final DeferredItem<SwordItem> SLAPSTICK_SWORD = ITEMS.register("slapstick_sword",
             () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
                     .fireResistant()
                     .attributes(SwordItem.createAttributes(CagiteMaterial.INSTANCE, 1, -2f))) {

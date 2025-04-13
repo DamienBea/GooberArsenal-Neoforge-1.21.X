@@ -3,10 +3,7 @@
   "category": "misc",
   "key": {
     "B": {
-      "item": "minecraft:blue_dye"
-    },
-    "G": {
-      "item": "minecraft:green_dye"
+      "item": "gooberarsenal:plastic"
     },
     "K": {
       "item": "gooberarsenal:kevin_block"
@@ -16,9 +13,9 @@
     }
   },
   "pattern": [
-    "GKB",
+    "BKB",
     "KLK",
-    "BKG"
+    "BKB"
   ],
   "result": {
     "count": 1,

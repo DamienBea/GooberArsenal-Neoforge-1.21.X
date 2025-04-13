@@ -57,7 +57,9 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.SANDVICH.get());
             basicItem(ModItems.CHOCOLATE_CHIP_PANCAKES.get());
             basicItem(ModItems.COPPER_APPLE.get());
-//            basicItem(ModItems.SWITCH_CARTRIDGE.get());
+            basicItem(ModItems.SWITCH_CARTRIDGE.get());
+            basicItem(ModItems.PLASTIC.get());
+            basicItem(ModItems.PLASTIC_BAG.get());
 
 
             //Armor
@@ -85,6 +87,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.LIFE_SABER);
             handheldItem(ModItems.KENDO_STICK);
             handheldItem(ModItems.SLAPSTICK_SWORD);
+            handheldItem(ModItems.SWITCH_BLADE);
 
         }
 

@@ -1,0 +1,19 @@
+{
+  "type": "gooberarsenal:add_item",
+  "conditions": [
+    {
+      "condition": "minecraft:all_of",
+      "terms": [
+        {
+          "condition": "neoforge:loot_table_id",
+          "loot_table_id": "minecraft:gameplay/fishing/junk"
+        },
+        {
+          "chance": 0.2,
+          "condition": "minecraft:random_chance"
+        }
+      ]
+    }
+  ],
+  "item": "gooberarsenal:plastic_bag"
+}

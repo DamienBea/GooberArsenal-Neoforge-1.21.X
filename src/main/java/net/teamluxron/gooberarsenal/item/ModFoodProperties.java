@@ -29,13 +29,4 @@ public class ModFoodProperties {
             .effect(new MobEffectInstance(MobEffects.HUNGER, 600, 1), 1f)
             .build();
 
-//    public static final FoodProperties SWITCH_CARTRIDGE = new FoodProperties.Builder()
-//            .nutrition(4).saturationModifier(2f)
-//            .effect(new MobEffectInstance(MobEffects.DARKNESS, 600, 2), 0.7f)
-//            .effect(new MobEffectInstance(MobEffects.POISON, 600, 1), 0.7f)
-//            .effect(new MobEffectInstance(MobEffects.BLINDNESS, 600, 1), 0.7f)
-//            .effect(new MobEffectInstance(MobEffects.CONFUSION, 600, 1), 0.7f)
-//            .effect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 600, 1), 0.7f)
-//            .build();
-
 }
