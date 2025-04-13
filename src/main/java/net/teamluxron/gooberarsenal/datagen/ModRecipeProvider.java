@@ -23,10 +23,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput recipeOutput) {List<ItemLike> KEVIN_SMELTABLES = List.of(
+    protected void buildRecipes(RecipeOutput recipeOutput) {
+        List<ItemLike> KEVIN_SMELTABLES =
+                List.of(
             ModBlocks.KEVIN_ORE,
             ModBlocks.DEEPSLATE_KEVIN_ORE
     );
+        List<ItemLike> PLASTIC_SMELTABLES =
+                List.of(
+                        ModItems.PLASTIC_BAG
+                );
+
 
     //Shaped Recipes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_PLATE.get())
@@ -223,7 +230,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
         //Smelting
-        oreSmelting(recipeOutput, ModItems.PLASTIC_BAG, RecipeCategory.MISC, ModItems.PLASTIC.get(), 0.25f, 200, "plastic");
+        oreSmelting(recipeOutput, PLASTIC_SMELTABLES, RecipeCategory.MISC, ModItems.PLASTIC.get(), 0.25f, 200, "plastic");
         oreSmelting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 200, "kevin");
         oreBlasting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 100, "kevin");
 

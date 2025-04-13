@@ -59,6 +59,50 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
 
+    //Foods
+
+    public static final DeferredItem<Item>  ENERGY_BAR = ITEMS.register("energy_bar",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.ENERGY_BAR).rarity(Rarity.EPIC)) {
+                @Override
+                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+                    pTooltipComponents.add(Component.translatable("tooltip.gooberarsenal.energy_bar"));
+                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+                }
+            });
+    public static final DeferredItem<Item>  SANDVICH = ITEMS.register("sandvich",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.SANDVICH)) {
+                @Override
+                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+                    pTooltipComponents.add(Component.translatable("tooltip.gooberarsenal.sandvich"));
+                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+                }
+            });
+    public static final DeferredItem<Item>  CHOCOLATE_CHIP_PANCAKES = ITEMS.register("chocolate_chip_pancakes",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.CHOCOLATE_CHIP_PANCAKES)) {
+                @Override
+                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+                    pTooltipComponents.add(Component.translatable("tooltip.gooberarsenal.chocolate_chip_pancakes"));
+                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+                }
+            });
+    public static final DeferredItem<Item>  COPPER_APPLE = ITEMS.register("copper_apple",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.COPPER_APPLE).rarity(Rarity.UNCOMMON)) {
+                @Override
+                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+                    pTooltipComponents.add(Component.translatable("tooltip.gooberarsenal.copper_apple"));
+                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+                }
+            });
+    public static final DeferredItem<Item>  SWITCH_CARTRIDGE = ITEMS.register("switch_cartridge",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.SWITCH_CARTRIDGE).rarity(Rarity.UNCOMMON)) {
+                @Override
+                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+                    pTooltipComponents.add(Component.translatable("tooltip.gooberarsenal.switch_cartridge"));
+                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+                }
+            });
+
+
 
     //Weapons
     public static final DeferredItem<Item> FRYING_PAN = ITEMS.register("frying_pan",
@@ -273,6 +317,25 @@ public class ModItems {
                     return super.hurtEnemy(stack, target, attacker);
                 }
             });
+
+    //Armor
+    public static final DeferredItem<ArmorItem> CAGITE_HELMET = ITEMS.register("cagite_helmet",
+            () -> new ArmorItem(ModArmorMaterials.CAGITE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(19))));
+
+    public static final DeferredItem<ArmorItem> CAGITE_CHESTPLATE = ITEMS.register("cagite_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.CAGITE_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(19))));
+
+    public static final DeferredItem<ArmorItem> CAGITE_LEGGINGS = ITEMS.register("cagite_leggings",
+            () -> new ArmorItem(ModArmorMaterials.CAGITE_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(19))));
+
+    public static final DeferredItem<ArmorItem> CAGITE_BOOTS = ITEMS.register("cagite_boots",
+            () -> new ArmorItem(ModArmorMaterials.CAGITE_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(19))));
+
+
 
 //    public static final DeferredItem<Item> ROSE_QUARTZ_SHIELD = ITEMS.register("rose_quartz_shield",
 //            () -> new RoseQuartzShield(new Item.Properties().durability(500).fireResistant()));

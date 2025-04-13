@@ -28,6 +28,9 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.BODY, 12);
             }), 15, 3f, 0f, () -> ModItems.CAGITE_INGOT.get());
 
+
+
+
     private static Holder<ArmorMaterial> register(String name, EnumMap<ArmorItem.Type, Integer> typeProtection,
                                                   int enchantability, float toughness, float knockbackResistance,
                                                   Supplier<Item> ingredientItem) {

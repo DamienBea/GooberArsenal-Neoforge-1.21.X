@@ -43,6 +43,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CAGITE_CHESTPLATE.get());
                         output.accept(ModItems.CAGITE_LEGGINGS.get());
                         output.accept(ModItems.CAGITE_BOOTS.get());
+
+
                     }).build());
 
     public static final Supplier<CreativeModeTab> GOOBER_BLOCKS = CREATIVE_MODE_TAB.register("goober_blocks",
