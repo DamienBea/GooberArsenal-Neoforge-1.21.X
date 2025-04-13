@@ -242,7 +242,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         Ingredient.of(ModItems.CAGITE_INGOT.get()),
                         RecipeCategory.COMBAT, ModItems.CAGITE_HELMET.get())
                 .unlocks("has_cagite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CAGITE_INGOT.get()))
-                .save(consumer, new ResourceLocation(GooberArsenal.MOD_ID, "cagite_helmet_smithing"));
+                .save(recipeOutput, "cagite_helmet");
 
     }
 
