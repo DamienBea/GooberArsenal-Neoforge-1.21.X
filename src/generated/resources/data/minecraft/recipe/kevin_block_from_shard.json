@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gooberarsenal:kevin_shard"
+    },
+    {
+      "item": "gooberarsenal:kevin_shard"
+    },
+    {
+      "item": "gooberarsenal:kevin_shard"
+    },
+    {
+      "item": "gooberarsenal:kevin_shard"
+    },
+    {
+      "item": "gooberarsenal:kevin_shard"
+    },
+    {
+      "item": "gooberarsenal:kevin_shard"
+    },
+    {
+      "item": "gooberarsenal:kevin_shard"
+    },
+    {
+      "item": "gooberarsenal:kevin_shard"
+    },
+    {
+      "item": "gooberarsenal:kevin_shard"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:kevin_block"
+  }
+}

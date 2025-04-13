@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "kevin",
+  "ingredient": {
+    "item": "gooberarsenal:kevin_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:kevin_shard"
+  }
+}

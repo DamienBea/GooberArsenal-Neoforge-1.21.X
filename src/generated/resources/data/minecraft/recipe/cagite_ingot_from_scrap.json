@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gooberarsenal:cagite_scrap"
+    },
+    {
+      "item": "gooberarsenal:cagite_scrap"
+    },
+    {
+      "item": "gooberarsenal:cagite_scrap"
+    },
+    {
+      "item": "gooberarsenal:cagite_scrap"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:cagite_ingot"
+  }
+}

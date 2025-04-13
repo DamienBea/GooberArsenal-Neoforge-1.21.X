@@ -1,0 +1,20 @@
+{
+  "entries": [
+    "gooberarsenal:cagite_from_bastion_bridge",
+    "gooberarsenal:cagite_from_bastion_hoglin_stable",
+    "gooberarsenal:cagite_scrap_from_bastion_treasure",
+    "gooberarsenal:energy_bar_from_mineshaft",
+    "gooberarsenal:cagite_from_bastion_treasure",
+    "gooberarsenal:life_saver_from_buried_treasure",
+    "gooberarsenal:energy_bar_from_dungeon",
+    "gooberarsenal:life_saver_from_desert_sand",
+    "gooberarsenal:goober_upgrade_from_bastion_treasure",
+    "gooberarsenal:rubber_chicken_from_chicken",
+    "gooberarsenal:life_saver_from_shipwreck_treasure",
+    "gooberarsenal:copper_apple_from_dungeon",
+    "gooberarsenal:goober_upgrade_from_bastion_hoglin_stable",
+    "gooberarsenal:goober_upgrade_from_bastion_bridge",
+    "gooberarsenal:copper_apple_from_mineshaft"
+  ],
+  "replace": false
+}

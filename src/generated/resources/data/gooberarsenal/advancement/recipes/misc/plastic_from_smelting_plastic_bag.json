@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_plastic_bag": {
+      "conditions": {
+        "items": [
+          {
+            "items": "gooberarsenal:plastic_bag"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gooberarsenal:plastic_from_smelting_plastic_bag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_plastic_bag"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gooberarsenal:plastic_from_smelting_plastic_bag"
+    ]
+  }
+}

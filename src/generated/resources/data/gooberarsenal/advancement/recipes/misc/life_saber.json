@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_life_saver": {
+      "conditions": {
+        "items": [
+          {
+            "items": "gooberarsenal:life_saver"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gooberarsenal:life_saber"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_life_saver"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gooberarsenal:life_saber"
+    ]
+  }
+}
