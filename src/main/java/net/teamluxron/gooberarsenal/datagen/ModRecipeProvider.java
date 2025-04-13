@@ -1,8 +1,10 @@
 package net.teamluxron.gooberarsenal.datagen;
 
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
@@ -235,7 +237,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreBlasting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 100, "kevin");
 
         //Smithing
-
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.DIAMOND_HELMET),
+                        Ingredient.of(ModItems.CAGITE_INGOT.get()),
+                        RecipeCategory.COMBAT, ModItems.CAGITE_HELMET.get())
+                .unlocks("has_cagite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CAGITE_INGOT.get()))
+                .save(consumer, new ResourceLocation(GooberArsenal.MOD_ID, "cagite_helmet_smithing"));
 
     }
 
