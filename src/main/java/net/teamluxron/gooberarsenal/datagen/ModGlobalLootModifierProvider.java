@@ -143,16 +143,6 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 //                                .and(LootItemRandomChanceCondition.randomChance(0.1f)).build(),
 //                }, ModItems.SWITCH_CARTRIDGE.get()));
 
-        //Fishing
-
-        this.add("plastic_bag_from_fishing_junk",
-                new AddItemModifier(new LootItemCondition[] {
-                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("gameplay/fishing/junk"))
-                                .and(LootItemRandomChanceCondition.randomChance(0.2f))  // 20% chance
-                                .build(),
-                }, ModItems.PLASTIC_BAG.get()));
-
-
         //Mob drops
 
         add("rubber_chicken_from_chicken", 

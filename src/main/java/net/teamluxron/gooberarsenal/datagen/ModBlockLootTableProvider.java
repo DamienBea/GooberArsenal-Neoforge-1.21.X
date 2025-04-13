@@ -36,7 +36,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createOreDrop(ModBlocks.KEVIN_ORE.get(), ModItems.KEVIN_SHARDS.get()));
 
         add(ModBlocks.DEEPSLATE_KEVIN_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.DEEPSLATE_KEVIN_ORE.get(), ModItems.KEVIN_SHARDS.get(), 2, 6));
+                block -> createOreDrop(ModBlocks.KEVIN_ORE.get(), ModItems.KEVIN_SHARDS.get()));
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
