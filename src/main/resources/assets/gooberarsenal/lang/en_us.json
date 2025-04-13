@@ -34,6 +34,7 @@
   "item.gooberarsenal.sandvich": "Sandvich",
   "item.gooberarsenal.chocolate_chip_pancakes": "Chocolate Chip Pancakes",
   "item.gooberarsenal.copper_apple": "Copper Apple",
+  "item.gooberarsenal.switch_blade": "Switch Blade",
 
   "block.gooberarsenal.ancient_cagite": "Ancient Cagite",
   "block.gooberarsenal.cagite_block": "Block of Cagite",
@@ -43,9 +44,9 @@
 
 
   "creativetab.gooberarsenal.gooberarsenal_combat": "Goober Arsenal Combat",
-  "creativetab.gooberarsenal.gooberarsenal_items": "Goober Arsenal Items",
-  "creativetab.gooberarsenal.gooberarsenal_blocks": "Goober Arsenal Blocks",
-  "creativetab.gooberarsenal.gooberarsenal_consumables": "Goober Arsenal Consumables",
+  "creativetab.gooberarsenal.goober_items": "Goober Arsenal Items",
+  "creativetab.gooberarsenal.goober_blocks": "Goober Arsenal Blocks",
+  "creativetab.gooberarsenal.goober_consumables": "Goober Arsenal Consumables",
 
 
   "tooltip.gooberarsenal.switch_cartridge": "It's coated in cyanide!",
