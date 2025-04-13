@@ -307,6 +307,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlocks("has_cagite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CAGITE_INGOT.get()))
                 .save(recipeOutput, "stahp_sign");
 
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.DIAMOND_AXE),
+                        Ingredient.of(Items.CAKE),
+                        RecipeCategory.COMBAT, ModItems.FESTIVE_AXE.get())
+                .unlocks("has_diamond_axe", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND_AXE))
+                .save(recipeOutput, "festive_axe");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.NETHERITE_SWORD),
+                        Ingredient.of(ModItems.RUBBER_CHICKEN.get()),
+                        RecipeCategory.COMBAT, ModItems.SLAPSTICK_SWORD.get())
+                .unlocks("has_rubber_chicken", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RUBBER_CHICKEN.get()))
+                .save(recipeOutput, "slapstick_sword");
+
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
