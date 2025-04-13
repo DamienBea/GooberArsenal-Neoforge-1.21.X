@@ -33,6 +33,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 List.of(
                         ModItems.PLASTIC_BAG
                 );
+        List<ItemLike> CAGITE_SMELTING =
+                List.of(
+                        ModBlocks.ANCIENT_CAGITE
+                );
 
 
     //Shaped Recipes
@@ -231,8 +235,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         //Smelting
         oreSmelting(recipeOutput, PLASTIC_SMELTABLES, RecipeCategory.MISC, ModItems.PLASTIC.get(), 0.25f, 200, "plastic");
-        oreSmelting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 200, "kevin");
-        oreBlasting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 100, "kevin");
+        oreSmelting(recipeOutput, CAGITE_SMELTING, RecipeCategory.MISC, ModItems.CAGITE_SCRAP.get(), 0.25f, 200, "cagite_scrap_smelting");
+        oreBlasting(recipeOutput, CAGITE_SMELTING, RecipeCategory.MISC, ModItems.CAGITE_SCRAP.get(), 0.25f, 200, "cagite_scrap_blasting");
+        oreSmelting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 200, "kevin_smelting");
+        oreBlasting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 100, "kevin_blasting");
 
         //Smithing
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),

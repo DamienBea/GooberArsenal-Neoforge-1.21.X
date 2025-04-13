@@ -3,12 +3,12 @@
   "category": "misc",
   "cookingtime": 200,
   "experience": 0.25,
-  "group": "kevin_smelting",
+  "group": "cagite_scrap_smelting",
   "ingredient": {
-    "item": "gooberarsenal:kevin_ore"
+    "item": "gooberarsenal:ancient_cagite"
   },
   "result": {
     "count": 1,
-    "id": "gooberarsenal:kevin_shard"
+    "id": "gooberarsenal:cagite_scrap"
   }
 }

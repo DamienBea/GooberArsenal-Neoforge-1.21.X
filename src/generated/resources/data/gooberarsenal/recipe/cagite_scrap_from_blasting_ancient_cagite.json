@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "cagite_scrap_blasting",
+  "ingredient": {
+    "item": "gooberarsenal:ancient_cagite"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:cagite_scrap"
+  }
+}

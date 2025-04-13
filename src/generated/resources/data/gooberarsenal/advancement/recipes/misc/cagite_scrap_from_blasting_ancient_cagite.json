@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ancient_cagite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "gooberarsenal:ancient_cagite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gooberarsenal:cagite_scrap_from_blasting_ancient_cagite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ancient_cagite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gooberarsenal:cagite_scrap_from_blasting_ancient_cagite"
+    ]
+  }
+}
