@@ -1,5 +1,6 @@
 package net.teamluxron.gooberarsenal;
 
+import net.teamluxron.gooberarsenal.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -33,6 +34,8 @@ public class GooberArsenal {
         modEventBus.addListener(this::addCreative);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        ModItems.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
