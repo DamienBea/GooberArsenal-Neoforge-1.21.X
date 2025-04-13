@@ -1,6 +1,9 @@
 package net.teamluxron.gooberarsenal;
 
+import net.teamluxron.gooberarsenal.blocks.ModBlocks;
+import net.teamluxron.gooberarsenal.item.ModCreativeModeTabs;
 import net.teamluxron.gooberarsenal.item.ModItems;
+import net.teamluxron.gooberarsenal.sound.ModSounds;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -35,7 +38,15 @@ public class GooberArsenal {
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
+
+        ModCreativeModeTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
+        modEventBus.addListener(this::addCreative);
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModSounds.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
