@@ -244,6 +244,69 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlocks("has_cagite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CAGITE_INGOT.get()))
                 .save(recipeOutput, "cagite_helmet");
 
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.DIAMOND_CHESTPLATE),
+                        Ingredient.of(ModItems.CAGITE_INGOT.get()),
+                        RecipeCategory.COMBAT, ModItems.CAGITE_CHESTPLATE.get())
+                .unlocks("has_cagite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CAGITE_INGOT.get()))
+                .save(recipeOutput, "cagite_chesplate");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.DIAMOND_LEGGINGS),
+                        Ingredient.of(ModItems.CAGITE_INGOT.get()),
+                        RecipeCategory.COMBAT, ModItems.CAGITE_LEGGINGS.get())
+                .unlocks("has_cagite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CAGITE_INGOT.get()))
+                .save(recipeOutput, "cagite_leggings");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.DIAMOND_BOOTS),
+                        Ingredient.of(ModItems.CAGITE_INGOT.get()),
+                        RecipeCategory.COMBAT, ModItems.CAGITE_BOOTS.get())
+                .unlocks("has_cagite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CAGITE_INGOT.get()))
+                .save(recipeOutput, "cagite_boots");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(ModItems.NETHERITE_BAT.get()),
+                        Ingredient.of(Items.BEEHIVE),
+                        RecipeCategory.COMBAT, ModItems.BEE_BUNNY_BASHER.get())
+                .unlocks("has_netherite_bat", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NETHERITE_BAT.get()))
+                .save(recipeOutput, "bbb_from_hive");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(ModItems.NETHERITE_BAT.get()),
+                        Ingredient.of(Items.BEE_NEST),
+                        RecipeCategory.COMBAT, ModItems.BEE_BUNNY_BASHER.get())
+                .unlocks("has_netherite_bat", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NETHERITE_BAT.get()))
+                .save(recipeOutput, "bbb_from_nest");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(ModItems.NETHERITE_BAT.get()),
+                        Ingredient.of(Items.RABBIT_FOOT),
+                        RecipeCategory.COMBAT, ModItems.BEE_BUNNY_BASHER.get())
+                .unlocks("has_netherite_bat", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NETHERITE_BAT.get()))
+                .save(recipeOutput, "bbb_from_foot");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(ModItems.OBSIDIAN_HILT.get()),
+                        Ingredient.of(Items.LAVA_BUCKET),
+                        RecipeCategory.COMBAT, ModItems.OBSIDIAN_SWORD.get())
+                .unlocks("has_obsidian_hilt", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.OBSIDIAN_HILT.get()))
+                .save(recipeOutput, "obsidian_sword");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(ModItems.DIAMOND_BAT.get()),
+                        Ingredient.of(Items.NETHERITE_INGOT),
+                        RecipeCategory.COMBAT, ModItems.NETHERITE_BAT.get())
+                .unlocks("has_diamond_bat", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DIAMOND_BAT.get()))
+                .save(recipeOutput, "netherite_bat");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(ModItems.STEEL_PIPE.get()),
+                        Ingredient.of(ModItems.CAGITE_INGOT.get()),
+                        RecipeCategory.COMBAT, ModItems.STAHP_SIGN.get())
+                .unlocks("has_cagite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CAGITE_INGOT.get()))
+                .save(recipeOutput, "stahp_sign");
+
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
