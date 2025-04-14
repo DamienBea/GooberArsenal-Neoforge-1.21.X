@@ -304,9 +304,7 @@ public class ModItems {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
-                        target.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 60));
                         target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60));
-                        target.addEffect(new MobEffectInstance(MobEffects.JUMP, 60, 2));
                         target.level().playSound(null, target.blockPosition(), ModSounds.RUBBER_CHICKEN.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
                         target.setDeltaMovement(direction.x * 0.3, 1, direction.z * 0.3);
