@@ -39,6 +39,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SLAPSTICK_SWORD.get());
                         output.accept(ModItems.STAHP_SIGN.get());
                         output.accept(ModItems.SWITCH_BLADE.get());
+                        output.accept(ModItems.ENDERS_SCRUTINY.get());
 
                         //Armor
                         output.accept(ModItems.CAGITE_HELMET.get());

@@ -9,7 +9,7 @@
           "loot_table_id": "minecraft:gameplay/fishing/junk"
         },
         {
-          "chance": 0.15,
+          "chance": 0.4,
           "condition": "minecraft:random_chance"
         }
       ]

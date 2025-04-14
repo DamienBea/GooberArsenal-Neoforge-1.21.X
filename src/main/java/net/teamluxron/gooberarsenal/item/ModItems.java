@@ -1,6 +1,7 @@
 package net.teamluxron.gooberarsenal.item;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -8,14 +9,21 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.forge.snapshots.ForgeSnapshotsMod;
+import net.neoforged.neoforge.forge.snapshots.ForgeSnapshotsModClient;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
+import net.teamluxron.gooberarsenal.item.custom.EndersScrutinyItem;
 import net.teamluxron.gooberarsenal.item.custom.ModArmorItem;
 import net.teamluxron.gooberarsenal.item.material.*;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
@@ -314,6 +322,23 @@ public class ModItems {
                     return super.hurtEnemy(stack, target, attacker);
                 }
             });
+
+    public static final DeferredItem<Item> ENDERS_SCRUTINY = ITEMS.register("enders_scrutiny",
+            () -> new EndersScrutinyItem(
+                    KevinMaterial.INSTANCE,
+                    new Item.Properties().attributes(
+                            SwordItem.createAttributes(KevinMaterial.INSTANCE, 1, 2f)  // damage=1, speed=2.0
+                                    .withModifierAdded(
+                                            Attributes.ENTITY_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    new ResourceLocation("gooberarsenal:enders_scrutiny_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            )
+                                    ))
+            )
+    );
+
 
     //Armor
     public static final DeferredItem<ArmorItem> CAGITE_HELMET = ITEMS.register("cagite_helmet",

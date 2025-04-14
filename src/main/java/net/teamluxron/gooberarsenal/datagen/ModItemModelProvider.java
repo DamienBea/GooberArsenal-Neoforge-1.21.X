@@ -88,6 +88,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.KENDO_STICK);
             handheldItem(ModItems.SLAPSTICK_SWORD);
             handheldItem(ModItems.SWITCH_BLADE);
+            handheldItem(ModItems.ENDERS_SCRUTINY);
 
         }
 

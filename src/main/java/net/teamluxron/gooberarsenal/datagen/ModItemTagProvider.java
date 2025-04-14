@@ -45,6 +45,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.KENDO_STICK.get())
                 .add(ModItems.CHAIR.get())
                 .add(ModItems.SWITCH_BLADE.get())
+                .add(ModItems.ENDERS_SCRUTINY.get())
                 .add(ModItems.LIFE_SABER.get());
 
 
