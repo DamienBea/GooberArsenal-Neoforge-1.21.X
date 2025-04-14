@@ -1,5 +1,6 @@
 package net.teamluxron.gooberarsenal;
 
+import net.minecraft.resources.ResourceLocation;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.item.ModCreativeModeTabs;
 import net.teamluxron.gooberarsenal.item.ModItems;
@@ -9,7 +10,6 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -28,7 +28,9 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 public class GooberArsenal {
     public static final String MOD_ID = "gooberarsenal";
     private static final Logger LOGGER = LogUtils.getLogger();
-
+    public static ResourceLocation res(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    }
     public GooberArsenal(IEventBus modEventBus, ModContainer modContainer)
     {
         modEventBus.addListener(this::commonSetup);
@@ -57,6 +59,7 @@ public class GooberArsenal {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
     }
+
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
