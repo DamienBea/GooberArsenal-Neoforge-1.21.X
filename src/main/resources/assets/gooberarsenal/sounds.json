@@ -1,0 +1,16 @@
+{
+  "weezer":
+  {
+    "subtitle": "sounds.gobberarsenal.weezer",
+    "sounds": [
+      "gooberarsenal:weezer"
+    ]
+  },
+  "rubber_chicken":
+  {
+    "subtitle": "sounds.gobberarsenal.rubber_chicken",
+    "sounds": [
+      "gooberarsenal:rubber_chicken"
+    ]
+  }
+}

@@ -6,6 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class ModFoodProperties {
     public static final FoodProperties ENERGY_BAR = new FoodProperties.Builder()
+
             .nutrition(6).saturationModifier(1f)
             .effect(new MobEffectInstance(MobEffects.REGENERATION, 400, 1), 1f)
             .effect(new MobEffectInstance(MobEffects.ABSORPTION, 200, 1), 1f)

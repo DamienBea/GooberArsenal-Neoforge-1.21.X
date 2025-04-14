@@ -74,6 +74,7 @@ public class ModItems {
                                 SoundSource.PLAYERS,
                                 1.0F,  // volume
                                 1.0F   // pitch
+
                         );
                     }
                     return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide());
