@@ -164,7 +164,7 @@ public class ModItems {
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.5, 0.1, direction.z * 0.5);
+                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
@@ -178,7 +178,7 @@ public class ModItems {
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.5, 0.1, direction.z * 0.5);
+                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
@@ -192,7 +192,7 @@ public class ModItems {
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.5, 0.1, direction.z * 0.5);
+                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
@@ -206,7 +206,7 @@ public class ModItems {
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.5, 0.1, direction.z * 0.5);
+                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
@@ -221,7 +221,7 @@ public class ModItems {
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.5, 0.1, direction.z * 0.5);
+                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
