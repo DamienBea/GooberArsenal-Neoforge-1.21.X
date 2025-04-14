@@ -78,6 +78,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RUBBER_CHICKEN.get());
                         output.accept(ModItems.PLASTIC_BAG.get());
                         output.accept(ModItems.PLASTIC.get());
+                        output.accept(ModItems.SWITCH_CARTRIDGE.get());
 
                     }).build());
 

@@ -284,7 +284,7 @@ public class ModItems {
             () -> new SwordItem(Tiers.IRON, new Item.Properties()
 
                     .fireResistant()
-                    .attributes(ShovelItem.createAttributes(Tiers.IRON, 1f, -5f)))
+                    .attributes(ShovelItem.createAttributes(Tiers.IRON, 3f, -2f)))
             {
 
                 @Override

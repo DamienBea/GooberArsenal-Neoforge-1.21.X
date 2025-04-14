@@ -90,16 +90,16 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         LootItemRandomChanceCondition.randomChance(0.3f).build()
                 }, ModItems.LIFE_SAVER.get()));
 
-//        this.add("switch_cartridge_from_mineshaft",
-//                new AddItemModifier(new LootItemCondition[] {
-//                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/abandoned_mineshaft")).build(),
-//                        LootItemRandomChanceCondition.randomChance(0.3f).build()
-//                }, ModItems.SWITCH_CARTRIDGE.get()));
+        this.add("switch_cartridge_from_mineshaft",
+                new AddItemModifier(new LootItemCondition[] {
+                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/abandoned_mineshaft")).build(),
+                        LootItemRandomChanceCondition.randomChance(0.3f).build()
+                }, ModItems.SWITCH_CARTRIDGE.get()));
 
         this.add("copper_apple_from_mineshaft",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/abandoned_mineshaft")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.3f).build()
+                        LootItemRandomChanceCondition.randomChance(0.1f).build()
                 }, ModItems.COPPER_APPLE.get()));
 
 
@@ -110,11 +110,11 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                 }, ModItems.ENERGY_BAR.get()));
 
 
-//        this.add("switch_cartridge_from_dungeon",
-//                new AddItemModifier(new LootItemCondition[] {
-//                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/simple_dungeon")).build(),
-//                        LootItemRandomChanceCondition.randomChance(0.3f).build()
-//                }, ModItems.SWITCH_CARTRIDGE.get()));
+        this.add("switch_cartridge_from_dungeon",
+                new AddItemModifier(new LootItemCondition[] {
+                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/simple_dungeon")).build(),
+                        LootItemRandomChanceCondition.randomChance(0.1f).build()
+                }, ModItems.SWITCH_CARTRIDGE.get()));
 
         this.add("copper_apple_from_dungeon",
                 new AddItemModifier(new LootItemCondition[] {
@@ -131,11 +131,11 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
         //Sus Sand
 
-        this.add("life_saver_from_desert_sand",
-                new AddItemModifier(new LootItemCondition[] {
-                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("archaeology/desert_pyramid"))
-                                .and(LootItemRandomChanceCondition.randomChance(0.1f)).build(),
-                }, ModItems.LIFE_SAVER.get()));
+//        this.add("life_saver_from_desert_sand",
+//                new AddItemModifier(new LootItemCondition[] {
+//                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("archaeology/desert_pyramid"))
+//                                .and(LootItemRandomChanceCondition.randomChance(0.1f)).build(),
+//                }, ModItems.LIFE_SAVER.get()));
 
 //        this.add("switch_cartridge_from_desert_sand",
 //                new AddItemModifier(new LootItemCondition[] {
