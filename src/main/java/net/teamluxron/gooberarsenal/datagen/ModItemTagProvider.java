@@ -44,7 +44,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.OBSIDIAN_SWORD.get())
                 .add(ModItems.KENDO_STICK.get())
                 .add(ModItems.CHAIR.get())
-                .add(ModItems.SWITCH_BLADE.get());
+                .add(ModItems.SWITCH_BLADE.get())
+                .add(ModItems.LIFE_SABER.get());
+
 
         tag(ItemTags.AXES)
                 .add(ModItems.FESTIVE_AXE.get());

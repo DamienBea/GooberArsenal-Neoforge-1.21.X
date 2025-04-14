@@ -15,12 +15,12 @@ public class ModFoodProperties {
             .build();
 
     public static final FoodProperties SANDVICH = new FoodProperties.Builder()
-            .nutrition(8).saturationModifier(4f)
+            .nutrition(8).saturationModifier(1f)
             .effect(new MobEffectInstance(MobEffects.HEAL, 1, 20), 1f)
             .build();
 
     public static final FoodProperties CHOCOLATE_CHIP_PANCAKES = new FoodProperties.Builder()
-            .nutrition(6).saturationModifier(3f)
+            .nutrition(6).saturationModifier(1f)
             .build();
 
     public static final FoodProperties COPPER_APPLE = new FoodProperties.Builder()
