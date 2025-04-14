@@ -26,19 +26,19 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
         this.add("goober_upgrade_from_bastion_treasure",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/bastion_treasure")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.5f).build()
+                        LootItemRandomChanceCondition.randomChance(0.2f).build()
                 }, ModItems.GOOBER_UPGRADE_TEMPLATE.get()));
 
         this.add("goober_upgrade_from_bastion_bridge",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/bastion_bridge")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.5f).build()
+                        LootItemRandomChanceCondition.randomChance(0.1f).build()
                 }, ModItems.GOOBER_UPGRADE_TEMPLATE.get()));
 
         this.add("goober_upgrade_from_bastion_hoglin_stable",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/bastion_hoglin_stable")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.5f).build()
+                        LootItemRandomChanceCondition.randomChance(1f).build()
                 }, ModItems.GOOBER_UPGRADE_TEMPLATE.get()));
 
         this.add("cagite_from_bastion_treasure",
@@ -56,14 +56,14 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
         this.add("cagite_from_bastion_hoglin_stable",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/bastion_hoglin_stable")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.1f).build()
+                        LootItemRandomChanceCondition.randomChance(0.5f).build()
                 }, ModItems.CAGITE_INGOT.get()));
 
 
         this.add("cagite_scrap_from_bastion_treasure",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/bastion_treasure")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.2f).build()
+                        LootItemRandomChanceCondition.randomChance(0.4f).build()
                 }, ModItems.CAGITE_SCRAP.get()));
 
         this.add("cagite_from_bastion_bridge",
@@ -75,19 +75,19 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
         this.add("cagite_from_bastion_hoglin_stable",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/bastion_hoglin_stable")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.1f).build()
+                        LootItemRandomChanceCondition.randomChance(0.2f).build()
                 }, ModItems.CAGITE_SCRAP.get()));
 
         this.add("life_saver_from_shipwreck_treasure",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/shipwreck_treasure")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.15f).build()
+                        LootItemRandomChanceCondition.randomChance(0.2f).build()
                 }, ModItems.LIFE_SAVER.get()));
 
         this.add("life_saver_from_buried_treasure",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/buried_treasure")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.3f).build()
+                        LootItemRandomChanceCondition.randomChance(0.5f).build()
                 }, ModItems.LIFE_SAVER.get()));
 
         this.add("switch_cartridge_from_mineshaft",
@@ -99,7 +99,7 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
         this.add("copper_apple_from_mineshaft",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/abandoned_mineshaft")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.1f).build()
+                        LootItemRandomChanceCondition.randomChance(0.6f).build()
                 }, ModItems.COPPER_APPLE.get()));
 
 
@@ -113,13 +113,13 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
         this.add("switch_cartridge_from_dungeon",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/simple_dungeon")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.1f).build()
+                        LootItemRandomChanceCondition.randomChance(0.2f).build()
                 }, ModItems.SWITCH_CARTRIDGE.get()));
 
         this.add("copper_apple_from_dungeon",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/simple_dungeon")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.3f).build()
+                        LootItemRandomChanceCondition.randomChance(0.6f).build()
                 }, ModItems.COPPER_APPLE.get()));
 
 
@@ -153,16 +153,11 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
         //Fishing
 
-        add("plastic_from_fishing",
-                new AddItemModifier(new LootItemCondition[] {
-                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("gameplay/fishing/junk"))
-                                .and(LootItemRandomChanceCondition.randomChance(0.3f)).build() },
-                        ModItems.PLASTIC.get()));
 
         add("plastic_bag_from_fishing",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("gameplay/fishing/junk"))
-                                .and(LootItemRandomChanceCondition.randomChance(0.15f)).build() },
+                                .and(LootItemRandomChanceCondition.randomChance(0.4f)).build() },
                         ModItems.PLASTIC_BAG.get()));
 
 
