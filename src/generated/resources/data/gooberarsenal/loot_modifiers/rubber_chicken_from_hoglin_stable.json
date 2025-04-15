@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",
-      "loot_table_id": "minecraft:chests/abandoned_mineshaft"
+      "loot_table_id": "minecraft:chests/bastion_hoglin_stable"
     },
     {
-      "chance": 0.6,
+      "chance": 0.2,
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "gooberarsenal:copper_apple"
+  "item": "gooberarsenal:rubber_chicken"
 }

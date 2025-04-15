@@ -45,11 +45,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.KENDO_STICK.get())
                 .add(ModItems.CHAIR.get())
                 .add(ModItems.SWITCH_BLADE.get())
+                .add(ModItems.RED_EYES_DREAM.get())
+                .add(ModItems.WOODEN_SCYTHE.get())
                 .add(ModItems.LIFE_SABER.get());
 
 
         tag(ItemTags.AXES)
-                .add(ModItems.FESTIVE_AXE.get());
+                .add(ModItems.FESTIVE_AXE.get())
+                .add(ModItems.LYNNS_DESOLATION.get());
 
         tag(ItemTags.SHOVELS)
                 .add(ModItems.SPOON.get());

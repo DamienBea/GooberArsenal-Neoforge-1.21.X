@@ -7,7 +7,10 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -17,8 +20,10 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.item.custom.ModArmorItem;
+import net.teamluxron.gooberarsenal.item.custom.PolearmItem;
 import net.teamluxron.gooberarsenal.item.material.*;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
+import net.teamluxron.gooberarsenal.item.custom.ScytheItem;
 
 import java.util.List;
 
@@ -58,6 +63,12 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> PLASTIC = ITEMS.register("plastic",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> GLEAMING_RED_EYE = ITEMS.register("gleaming_red_eye",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> OBSIDIAN_ROSE = ITEMS.register("obsidian_rose",
             () -> new Item(new Item.Properties()));
 
 
@@ -313,6 +324,83 @@ public class ModItems {
                     }
                     return super.hurtEnemy(stack, target, attacker);
                 }
+            });
+
+    public static final DeferredItem<Item> RED_EYES_DREAM = ITEMS.register("red_eyes_dream",
+            () -> new ScytheItem(RedEyesDreamMaterial.INSTANCE, new Item.Properties()
+                    .attributes(
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    .withModifierAdded(
+                                            Attributes.ENTITY_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("red_entity_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                                    .withModifierAdded(
+                                            Attributes.BLOCK_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("red_block_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )) {
+            });
+
+    public static final DeferredItem<Item> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
+            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(
+                            ScytheItem.createAttributes(Tiers.WOOD, 1, -3f)
+                                    .withModifierAdded(
+                                            Attributes.ENTITY_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("wood_scythe_entity_range_bonus"),
+                                                    0.5D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                                    .withModifierAdded(
+                                            Attributes.BLOCK_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("wood_scythe_block_range_bonus"),
+                                                    0.5D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )) {
+            });
+
+    public static final DeferredItem<Item> LYNNS_DESOLATION = ITEMS.register("lynns_desolation",
+            () -> new PolearmItem(
+                    LynnsDesolationMaterial.INSTANCE,
+                    new Item.Properties().attributes(
+                            PolearmItem.createAttributes(LynnsDesolationMaterial.INSTANCE, -1, -2f)
+                                    .withModifierAdded(
+                                            Attributes.ENTITY_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("lynn_entity_range_bonus"),
+                                                    3.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                                    .withModifierAdded(
+                                            Attributes.BLOCK_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("lynn_block_range_bonus"),
+                                                    3.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )) {
+
             });
 
     //Armor

@@ -1,5 +1,6 @@
 package net.teamluxron.gooberarsenal;
 
+import net.minecraft.resources.ResourceLocation;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.item.ModCreativeModeTabs;
 import net.teamluxron.gooberarsenal.item.ModItems;
@@ -27,7 +28,12 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 @Mod(GooberArsenal.MOD_ID)
 public class GooberArsenal {
     public static final String MOD_ID = "gooberarsenal";
+
     private static final Logger LOGGER = LogUtils.getLogger();
+
+    public static ResourceLocation res(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    }
 
     public GooberArsenal(IEventBus modEventBus, ModContainer modContainer)
     {

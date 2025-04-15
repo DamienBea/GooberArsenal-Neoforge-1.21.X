@@ -60,6 +60,8 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.SWITCH_CARTRIDGE.get());
             basicItem(ModItems.PLASTIC.get());
             basicItem(ModItems.PLASTIC_BAG.get());
+            basicItem(ModItems.OBSIDIAN_ROSE.get());
+            basicItem(ModItems.GLEAMING_RED_EYE.get());
 
 
             //Armor
@@ -88,7 +90,9 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.KENDO_STICK);
             handheldItem(ModItems.SLAPSTICK_SWORD);
             handheldItem(ModItems.SWITCH_BLADE);
-
+            handheldItem(ModItems.LYNNS_DESOLATION);
+            handheldItem(ModItems.RED_EYES_DREAM);
+            handheldItem(ModItems.WOODEN_SCYTHE);
         }
 
         // Shoutout to El_Redstoniano for making this

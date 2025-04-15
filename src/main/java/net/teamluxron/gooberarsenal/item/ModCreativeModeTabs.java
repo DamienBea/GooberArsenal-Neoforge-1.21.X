@@ -22,12 +22,23 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
 
                         //Weapons
+
+                        //Bats
                         output.accept(ModItems.WOODEN_BAT.get());
                         output.accept(ModItems.IRON_BAT.get());
                         output.accept(ModItems.GOLDEN_BAT.get());
                         output.accept(ModItems.DIAMOND_BAT.get());
                         output.accept(ModItems.NETHERITE_BAT.get());
                         output.accept(ModItems.BEE_BUNNY_BASHER.get());
+
+                        //Scythes
+                        output.accept(ModItems.WOODEN_SCYTHE.get());
+                        output.accept(ModItems.RED_EYES_DREAM.get());
+
+                        //Polearms
+                        output.accept(ModItems.LYNNS_DESOLATION.get());
+
+                        //Misc
                         output.accept(ModItems.KENDO_STICK.get());
                         output.accept(ModItems.SPOON.get());
                         output.accept(ModItems.FRYING_PAN.get());
@@ -79,6 +90,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.PLASTIC_BAG.get());
                         output.accept(ModItems.PLASTIC.get());
                         output.accept(ModItems.SWITCH_CARTRIDGE.get());
+                        output.accept(ModItems.GLEAMING_RED_EYE.get());
+                        output.accept(ModItems.OBSIDIAN_ROSE.get());
 
                     }).build());
 
