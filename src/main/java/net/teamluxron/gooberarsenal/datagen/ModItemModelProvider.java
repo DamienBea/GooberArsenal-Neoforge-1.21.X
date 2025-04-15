@@ -92,8 +92,8 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.SWITCH_BLADE);
             handheldScaledItem(ModItems.RED_EYES_DREAM);
             handheldScaledItem(ModItems.LYNNS_DESOLATION);
-            handheldItem(ModItems.WOODEN_POLEARM);
-            handheldItem(ModItems.WOODEN_SCYTHE);
+            handheldScaledItem(ModItems.WOODEN_POLEARM);
+            handheldScaledItem(ModItems.WOODEN_SCYTHE);
 
         }
 

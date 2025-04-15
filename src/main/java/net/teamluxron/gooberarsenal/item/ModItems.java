@@ -360,10 +360,10 @@ public class ModItems {
             });
 
     public static final DeferredItem<Item> LYNNS_DESOLATION = ITEMS.register("lynns_desolation",
-            () -> new SwordItem(
+            () -> new PolearmItem(
                     ObsidianSwordMaterial.INSTANCE,
                     new Item.Properties().attributes(
-                            SwordItem.createAttributes(ObsidianSwordMaterial.INSTANCE, -1, -2f) //Fix this and the other Polearms by yourself im eepy
+                            PolearmItem.createAttributes(ObsidianSwordMaterial.INSTANCE, -1, -2f)
                                     .withModifierAdded(
                                             Attributes.ENTITY_INTERACTION_RANGE,
                                             new AttributeModifier(
@@ -394,10 +394,10 @@ public class ModItems {
             });
 
     public static final DeferredItem<Item> WOODEN_POLEARM = ITEMS.register("wooden_polearm",
-            () -> new SwordItem(
+            () -> new PolearmItem(
                     Tiers.WOOD,
                     new Item.Properties().attributes(
-                            SwordItem.createAttributes(Tiers.WOOD, -1, -2f)
+                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
                                     .withModifierAdded(
                                             Attributes.ENTITY_INTERACTION_RANGE,
                                             new AttributeModifier(
