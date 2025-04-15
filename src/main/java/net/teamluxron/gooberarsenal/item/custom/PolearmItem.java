@@ -14,17 +14,17 @@ public class PolearmItem extends AxeItem {
         super(tier, properties);
     }
 
-    @Override
-    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (attacker instanceof Player player && player.fallDistance > 0.0F && !player.onGround()
-                && !player.onClimbable() && !player.isInWater() && !player.hasEffect(MobEffects.BLINDNESS)
-                && !player.isPassenger()) {
-
-            if (target instanceof Player targetPlayer && targetPlayer.isBlocking()) {
-                targetPlayer.getCooldowns().addCooldown(targetPlayer.getUseItem().getItem(), 100);
-                targetPlayer.stopUsingItem();
-            }
-        }
-        return super.hurtEnemy(stack, target, attacker);
-    }
+//    @Override
+//    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+//        if (attacker instanceof Player player && player.fallDistance > 0.0F && !player.onGround()
+//                && !player.onClimbable() && !player.isInWater() && !player.hasEffect(MobEffects.BLINDNESS)
+//                && !player.isPassenger()) {
+//
+//            if (target instanceof Player targetPlayer && targetPlayer.isBlocking()) {
+//                targetPlayer.getCooldowns().addCooldown(targetPlayer.getUseItem().getItem(), 100);
+//                targetPlayer.stopUsingItem();
+//            }
+//        }
+//        return super.hurtEnemy(stack, target, attacker);
+//    }
 }

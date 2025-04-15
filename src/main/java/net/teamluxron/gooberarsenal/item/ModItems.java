@@ -326,7 +326,7 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<SwordItem> RED_EYES_DREAM = ITEMS.register("red_eyes_dream",
+    public static final DeferredItem<Item> RED_EYES_DREAM = ITEMS.register("red_eyes_dream",
             () -> new ScytheItem(RedEyesDreamMaterial.INSTANCE, new Item.Properties()
                     .attributes(
                             SwordItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
@@ -360,10 +360,10 @@ public class ModItems {
             });
 
     public static final DeferredItem<Item> LYNNS_DESOLATION = ITEMS.register("lynns_desolation",
-            () -> new PolearmItem(
+            () -> new SwordItem(
                     ObsidianSwordMaterial.INSTANCE,
                     new Item.Properties().attributes(
-                            AxeItem.createAttributes(ObsidianSwordMaterial.INSTANCE, -1, -2f)
+                            SwordItem.createAttributes(ObsidianSwordMaterial.INSTANCE, -1, -2f) //Fix this and the other Polearms by yourself im eepy
                                     .withModifierAdded(
                                             Attributes.ENTITY_INTERACTION_RANGE,
                                             new AttributeModifier(
@@ -394,10 +394,10 @@ public class ModItems {
             });
 
     public static final DeferredItem<Item> WOODEN_POLEARM = ITEMS.register("wooden_polearm",
-            () -> new PolearmItem(
+            () -> new SwordItem(
                     Tiers.WOOD,
                     new Item.Properties().attributes(
-                            AxeItem.createAttributes(Tiers.WOOD, -1, -2f)
+                            SwordItem.createAttributes(Tiers.WOOD, -1, -2f)
                                     .withModifierAdded(
                                             Attributes.ENTITY_INTERACTION_RANGE,
                                             new AttributeModifier(
