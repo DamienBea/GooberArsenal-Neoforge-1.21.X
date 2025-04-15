@@ -4,13 +4,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.item.ModItems;
-import net.teamluxron.gooberarsenal.util.ModTags;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -45,12 +42,16 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.KENDO_STICK.get())
                 .add(ModItems.CHAIR.get())
                 .add(ModItems.SWITCH_BLADE.get())
-                .add(ModItems.ENDERS_SCRUTINY.get())
+                .add(ModItems.RED_EYES_DREAM.get())
+                .add(ModItems.WOODEN_SCYTHE.get())
                 .add(ModItems.LIFE_SABER.get());
 
 
+
         tag(ItemTags.AXES)
-                .add(ModItems.FESTIVE_AXE.get());
+                .add(ModItems.FESTIVE_AXE.get())
+                .add(ModItems.LYNNS_DESOLATION.get())
+                .add(ModItems.WOODEN_POLEARM.get());
 
         tag(ItemTags.SHOVELS)
                 .add(ModItems.SPOON.get());

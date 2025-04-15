@@ -3,11 +3,12 @@ package net.teamluxron.gooberarsenal.item.custom;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 
-public class PolearmItem extends SwordItem {
+public class PolearmItem extends AxeItem {
 
     public PolearmItem(Tier tier, Properties properties) {
         super(tier, properties);

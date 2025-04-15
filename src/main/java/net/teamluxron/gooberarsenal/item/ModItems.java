@@ -19,6 +19,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
+import net.teamluxron.gooberarsenal.item.custom.PolearmItem;
 import net.teamluxron.gooberarsenal.item.custom.ScytheItem;
 import net.teamluxron.gooberarsenal.item.custom.ModArmorItem;
 import net.teamluxron.gooberarsenal.item.material.*;
@@ -62,6 +63,12 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> PLASTIC = ITEMS.register("plastic",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> OBSIDIAN_ROSE = ITEMS.register("obsidian_rose",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> GLEAMING_RED_EYE = ITEMS.register("gleaming_red_eye",
             () -> new Item(new Item.Properties()));
 
 
@@ -319,15 +326,14 @@ public class ModItems {
                 }
             });
 
-    public static final DeferredItem<Item> ENDERS_SCRUTINY = ITEMS.register("enders_scrutiny",
-            () -> new ScytheItem(
-                    ObsidianSwordMaterial.INSTANCE,
-                    new Item.Properties().attributes(
-                            SwordItem.createAttributes(ObsidianSwordMaterial.INSTANCE, 1, -3f)
+    public static final DeferredItem<SwordItem> RED_EYES_DREAM = ITEMS.register("red_eyes_dream",
+            () -> new ScytheItem(RedEyesDreamMaterial.INSTANCE, new Item.Properties()
+                    .attributes(
+                            SwordItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
                                     .withModifierAdded(
                                             Attributes.ENTITY_INTERACTION_RANGE,
                                             new AttributeModifier(
-                                                    GooberArsenal.res("enders_scrutiny_range_bonus"),
+                                                    GooberArsenal.res("scythe_range_bonus"),
                                                     2.0D,
                                                     AttributeModifier.Operation.ADD_VALUE
                                             ),
@@ -336,15 +342,108 @@ public class ModItems {
                                     .withModifierAdded(
                                             Attributes.BLOCK_INTERACTION_RANGE,
                                             new AttributeModifier(
-                                                    GooberArsenal.res("enders_scrutiny_block_range_bonus"),
+                                                    GooberArsenal.res("scythe_block_range_bonus"),
                                                     2.0D,
                                                     AttributeModifier.Operation.ADD_VALUE
                                             ),
                                             EquipmentSlotGroup.MAINHAND
                                     )
-                    )
-            )
-    );
+                    )) {
+
+                @Override
+                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    if (!target.level().isClientSide()) {
+                        target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1));
+                    }
+                    return super.hurtEnemy(stack, target, attacker);
+                }
+            });
+
+    public static final DeferredItem<Item> LYNNS_DESOLATION = ITEMS.register("lynns_desolation",
+            () -> new PolearmItem(
+                    ObsidianSwordMaterial.INSTANCE,
+                    new Item.Properties().attributes(
+                            AxeItem.createAttributes(ObsidianSwordMaterial.INSTANCE, -1, -2f)
+                                    .withModifierAdded(
+                                            Attributes.ENTITY_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("polearm_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                                    .withModifierAdded(
+                                            Attributes.BLOCK_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("polearm_block_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )) {
+
+                @Override
+                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    if (!target.level().isClientSide()) {
+                        target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 40));
+                    }
+                    return super.hurtEnemy(stack, target, attacker);
+                }
+            });
+
+    public static final DeferredItem<Item> WOODEN_POLEARM = ITEMS.register("wooden_polearm",
+            () -> new PolearmItem(
+                    Tiers.WOOD,
+                    new Item.Properties().attributes(
+                            AxeItem.createAttributes(Tiers.WOOD, -1, -2f)
+                                    .withModifierAdded(
+                                            Attributes.ENTITY_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("wooden_polearm_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                                    .withModifierAdded(
+                                            Attributes.BLOCK_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("wooden_polearm_block_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )) {
+            });
+
+    public static final DeferredItem<SwordItem> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
+            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(
+                            SwordItem.createAttributes(Tiers.WOOD, 1, -3f)
+                                    .withModifierAdded(
+                                            Attributes.ENTITY_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("wooden_scythe_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                                    .withModifierAdded(
+                                            Attributes.BLOCK_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("wooden_scythe_block_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )) {
+
+            });
 
     //Armor
     public static final DeferredItem<ArmorItem> CAGITE_HELMET = ITEMS.register("cagite_helmet",

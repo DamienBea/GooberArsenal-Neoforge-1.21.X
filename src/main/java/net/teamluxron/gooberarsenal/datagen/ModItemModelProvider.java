@@ -60,6 +60,8 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.SWITCH_CARTRIDGE.get());
             basicItem(ModItems.PLASTIC.get());
             basicItem(ModItems.PLASTIC_BAG.get());
+            basicItem(ModItems.OBSIDIAN_ROSE.get());
+            basicItem(ModItems.GLEAMING_RED_EYE.get());
 
 
             //Armor
@@ -72,7 +74,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             //Weapons
 
             handheldItem(ModItems.FRYING_PAN);
-            handheldItem(ModItems.STEEL_PIPE);
+            handheldScaledItem(ModItems.STEEL_PIPE);
             handheldItem(ModItems.CHAIR);
             handheldItem(ModItems.BEE_BUNNY_BASHER);
             handheldItem(ModItems.STAHP_SIGN);
@@ -81,14 +83,17 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.GOLDEN_BAT);
             handheldItem(ModItems.DIAMOND_BAT);
             handheldItem(ModItems.NETHERITE_BAT);
-            handheldItem(ModItems.OBSIDIAN_SWORD);
+            handheldScaledItem(ModItems.OBSIDIAN_SWORD);
             handheldItem(ModItems.SPOON);
             handheldItem(ModItems.FESTIVE_AXE);
             handheldItem(ModItems.LIFE_SABER);
             handheldItem(ModItems.KENDO_STICK);
             handheldItem(ModItems.SLAPSTICK_SWORD);
             handheldItem(ModItems.SWITCH_BLADE);
-            handheldItem(ModItems.ENDERS_SCRUTINY);
+            handheldScaledItem(ModItems.RED_EYES_DREAM);
+            handheldScaledItem(ModItems.LYNNS_DESOLATION);
+            handheldItem(ModItems.WOODEN_POLEARM);
+            handheldItem(ModItems.WOODEN_SCYTHE);
 
         }
 
@@ -161,5 +166,20 @@ public class ModItemModelProvider extends ItemModelProvider {
                     ResourceLocation.parse("item/handheld")).texture("layer0",
                     ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "item/" + item.getId().getPath()));
         }
+
+    private ItemModelBuilder handheldScaledItem(DeferredItem<?> item) {
+        return withExistingParent(item.getId().getPath(),
+                modLoc("item/templates/handheld_scaled"))
+                .texture("layer0", modLoc("item/" + item.getId().getPath()));
+    }
+
+    //Leck eier this dont work yet and it doesnt have a usage for me to actually have a reason to fix this
+//    private ItemModelBuilder switchBladeDyedItem(DeferredItem<?> item) {
+//        return withExistingParent(item.getId().getPath(),
+//                modLoc("item/templates/switchblade_base"))
+//                .texture("layer0", modLoc("item/" + item.getId().getPath() + "_base"))
+//                .texture("layer1", modLoc("item/" + item.getId().getPath() + "_overlay"))
+//                .texture("layer2", modLoc("item/" + item.getId().getPath() + "_dyed"));
+//    }
     }
 

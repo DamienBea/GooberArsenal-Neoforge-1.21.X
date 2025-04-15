@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "gooberarsenal:enders_scrutiny"
+        "recipe": "gooberarsenal:red_eyes_dream"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "gooberarsenal:enders_scrutiny"
+      "gooberarsenal:red_eyes_dream"
     ]
   }
 }

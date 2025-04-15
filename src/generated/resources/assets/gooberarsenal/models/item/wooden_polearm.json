@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "gooberarsenal:item/enders_scrutiny"
+    "layer0": "gooberarsenal:item/wooden_polearm"
   }
 }

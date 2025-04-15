@@ -1,6 +1,6 @@
 {
   "parent": "gooberarsenal:item/templates/handheld_scaled",
   "textures": {
-    "layer0": "gooberarsenal:item/steel_pipe"
+    "layer0": "gooberarsenal:item/red_eyes_dream"
   }
 }

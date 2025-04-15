@@ -155,7 +155,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_bamboo", has(Items.BAMBOO))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ENDERS_SCRUTINY.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.RED_EYES_DREAM.get())
                 .pattern("XXS")
                 .pattern("XS ")
                 .pattern("S  ")
