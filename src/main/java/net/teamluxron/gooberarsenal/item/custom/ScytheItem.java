@@ -17,6 +17,8 @@ public class ScytheItem extends SwordItem {
         super(tier, properties);
     }
 
+
+
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
         if (!level.isClientSide && entity instanceof Player player) {
@@ -43,7 +45,7 @@ public class ScytheItem extends SwordItem {
     @Override
     public float getDestroySpeed(ItemStack stack, BlockState state) {
         if (state.is(BlockTags.CROPS)) {
-            return 0.1F;
+            return 0.01F;
         }
 
         return super.getDestroySpeed(stack, state);

@@ -32,10 +32,20 @@ public class ModCreativeModeTabs {
 
                         //Scythes
                         output.accept(ModItems.WOODEN_SCYTHE.get());
+                        output.accept(ModItems.STONE_SCYTHE.get());
+                        output.accept(ModItems.IRON_SCYTHE.get());
+                        output.accept(ModItems.GOLDEN_SCYTHE.get());
+                        output.accept(ModItems.DIAMOND_SCYTHE.get());
+                        output.accept(ModItems.NETHERITE_SCYTHE.get());
                         output.accept(ModItems.RED_EYES_DREAM.get());
 
                         //Polearms
                         output.accept(ModItems.WOODEN_POLEARM.get());
+                        output.accept(ModItems.STONE_POLEARM.get());
+                        output.accept(ModItems.IRON_POLEARM.get());
+                        output.accept(ModItems.GOLDEN_POLEARM.get());
+                        output.accept(ModItems.DIAMOND_POLEARM.get());
+                        output.accept(ModItems.NETHERITE_POLEARM.get());
                         output.accept(ModItems.LYNNS_DESOLATION.get());
 
                         //Greatswords

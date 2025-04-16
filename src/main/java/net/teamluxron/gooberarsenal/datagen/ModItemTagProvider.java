@@ -44,6 +44,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.SWITCH_BLADE.get())
                 .add(ModItems.RED_EYES_DREAM.get())
                 .add(ModItems.WOODEN_SCYTHE.get())
+                .add(ModItems.STONE_SCYTHE.get())
+                .add(ModItems.IRON_SCYTHE.get())
+                .add(ModItems.GOLDEN_SCYTHE.get())
+                .add(ModItems.DIAMOND_SCYTHE.get())
+                .add(ModItems.NETHERITE_SCYTHE.get())
                 .add(ModItems.LIFE_SABER.get());
 
 

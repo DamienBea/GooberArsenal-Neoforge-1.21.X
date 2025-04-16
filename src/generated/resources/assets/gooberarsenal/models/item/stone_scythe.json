@@ -1,0 +1,6 @@
+{
+  "parent": "gooberarsenal:item/templates/handheld_scaled",
+  "textures": {
+    "layer0": "gooberarsenal:item/stone_scythe"
+  }
+}

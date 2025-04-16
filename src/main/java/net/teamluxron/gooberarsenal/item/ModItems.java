@@ -328,27 +328,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> RED_EYES_DREAM = ITEMS.register("red_eyes_dream",
             () -> new ScytheItem(RedEyesDreamMaterial.INSTANCE, new Item.Properties()
-                    .attributes(
-                            SwordItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
-                                    .withModifierAdded(
-                                            Attributes.ENTITY_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("scythe_range_bonus"),
-                                                    2.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                                    .withModifierAdded(
-                                            Attributes.BLOCK_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("scythe_block_range_bonus"),
-                                                    2.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )) {
+                    .attributes(SwordItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 3, -3f))) {
 
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -358,6 +338,7 @@ public class ModItems {
                     return super.hurtEnemy(stack, target, attacker);
                 }
             });
+
 
     public static final DeferredItem<Item> LYNNS_DESOLATION = ITEMS.register("lynns_desolation",
             () -> new PolearmItem(
@@ -398,52 +379,75 @@ public class ModItems {
                     Tiers.WOOD,
                     new Item.Properties().attributes(
                             PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
-                                    .withModifierAdded(
-                                            Attributes.ENTITY_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("wooden_polearm_range_bonus"),
-                                                    2.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                                    .withModifierAdded(
-                                            Attributes.BLOCK_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("wooden_polearm_block_range_bonus"),
-                                                    2.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
                     )) {
             });
 
-    public static final DeferredItem<SwordItem> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
+    public static final DeferredItem<Item> STONE_POLEARM = ITEMS.register("stone_polearm",
+            () -> new PolearmItem(
+                    Tiers.STONE,
+                    new Item.Properties().attributes(
+                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
+                    )) {
+            });
+
+    public static final DeferredItem<Item> IRON_POLEARM = ITEMS.register("iron_polearm",
+            () -> new PolearmItem(
+                    Tiers.IRON,
+                    new Item.Properties().attributes(
+                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
+                    )) {
+            });
+
+    public static final DeferredItem<Item> GOLDEN_POLEARM = ITEMS.register("golden_polearm",
+            () -> new PolearmItem(
+                    Tiers.GOLD,
+                    new Item.Properties().attributes(
+                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
+                    )) {
+            });
+
+    public static final DeferredItem<Item> DIAMOND_POLEARM = ITEMS.register("diamond_polearm",
+            () -> new PolearmItem(
+                    Tiers.DIAMOND,
+                    new Item.Properties().attributes(
+                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
+                    )) {
+            });
+
+    public static final DeferredItem<Item> NETHERITE_POLEARM = ITEMS.register("netherite_polearm",
+            () -> new PolearmItem(
+                    Tiers.NETHERITE,
+                    new Item.Properties().attributes(
+                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
+                    )) {
+            });
+
+
+    public static final DeferredItem<ScytheItem> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
             () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(
-                            SwordItem.createAttributes(Tiers.WOOD, 1, -3f)
-                                    .withModifierAdded(
-                                            Attributes.ENTITY_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("wooden_scythe_range_bonus"),
-                                                    2.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                                    .withModifierAdded(
-                                            Attributes.BLOCK_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("wooden_scythe_block_range_bonus"),
-                                                    2.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )) {
+                    .attributes(SwordItem.createAttributes(Tiers.WOOD, 3, -3f))));
 
-            });
+    public static final DeferredItem<ScytheItem> STONE_SCYTHE = ITEMS.register("stone_scythe",
+            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(Tiers.STONE, 3, -3f))));
+
+    public static final DeferredItem<ScytheItem> IRON_SCYTHE = ITEMS.register("iron_scythe",
+            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(Tiers.IRON, 3, -3f))));
+
+    public static final DeferredItem<ScytheItem> GOLDEN_SCYTHE = ITEMS.register("golden_scythe",
+            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(Tiers.GOLD, 3, -3f))));
+
+    public static final DeferredItem<ScytheItem> DIAMOND_SCYTHE = ITEMS.register("diamond_scythe",
+            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 3, -3f))));
+
+    public static final DeferredItem<ScytheItem> NETHERITE_SCYTHE = ITEMS.register("netherite_scythe",
+            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
+                    .fireResistant()
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3, -3f))));
+
 
     //Armor
     public static final DeferredItem<ArmorItem> CAGITE_HELMET = ITEMS.register("cagite_helmet",

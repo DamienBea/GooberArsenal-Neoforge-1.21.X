@@ -2,30 +2,33 @@ package net.teamluxron.gooberarsenal.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 
-import java.util.ArrayDeque;
-import java.util.HashSet;
-import java.util.Queue;
-import java.util.Set;
+import javax.annotation.Nullable;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
-public class PolearmItem extends AxeItem {
-
-    private static final int MAX_BLOCKS = 512;
+public class PolearmItem extends SwordItem{
 
     public PolearmItem(Tier tier, Properties properties) {
         super(tier, properties);
     }
+
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
@@ -42,25 +45,112 @@ public class PolearmItem extends AxeItem {
         Set<BlockPos> visited = new HashSet<>();
         toCheck.add(startPos);
 
-        while (!toCheck.isEmpty() && visited.size() < MAX_BLOCKS) {
+        while (!toCheck.isEmpty()) {
             BlockPos current = toCheck.poll();
-            if (!visited.add(current)) continue;
+            if (visited.contains(current)) continue;
+            visited.add(current);
 
             BlockState state = level.getBlockState(current);
             if (state.is(logBlock)) {
+                // Destroy the block without triggering hand animations
                 level.destroyBlock(current, true, player);
 
-                for (int dx = -1; dx <= 1; dx++) {
-                    for (int dy = -1; dy <= 1; dy++) {
-                        for (int dz = -1; dz <= 1; dz++) {
-                            BlockPos offset = current.offset(dx, dy, dz);
-                            if (!visited.contains(offset) && level.getBlockState(offset).is(logBlock)) {
-                                toCheck.add(offset);
-                            }
+                player.swing(InteractionHand.MAIN_HAND);
+
+                // Check all 26 directions (cardinal and diagonal)
+                for (Direction dir : Direction.values()) {
+                    BlockPos offset = current.relative(dir);
+                    if (!visited.contains(offset) && level.getBlockState(offset).is(logBlock)) {
+                        toCheck.add(offset);
+                    }
+                }
+
+                // Check all diagonal directions manually by combining two directions
+                for (Direction dir1 : Direction.Plane.HORIZONTAL) {  // Horizontal directions (N, E, S, W)
+                    for (Direction dir2 : Direction.Plane.VERTICAL) { // Vertical directions (Up, Down)
+                        BlockPos offset = current.relative(dir1).relative(dir2);
+                        if (!visited.contains(offset) && level.getBlockState(offset).is(logBlock)) {
+                            toCheck.add(offset);
                         }
                     }
                 }
             }
         }
     }
+
+    @Override
+    public boolean canPerformAction(ItemStack stack, ItemAbility ability) {
+        // Disable sweeping attack
+        if (ability == ItemAbilities.SWORD_SWEEP) {
+            return false;
+        }
+
+        // Allow the normal Sword abilities and your extra ones
+        if    ( ability == ItemAbilities.AXE_STRIP ||
+                ability == ItemAbilities.AXE_SCRAPE ||
+                ability == ItemAbilities.AXE_WAX_OFF) {
+            return true;
+        }
+
+        return super.canPerformAction(stack, ability);
+    }
+
+    @Override
+    public float getDestroySpeed(ItemStack stack, BlockState state) {
+        return state.is(BlockTags.MINEABLE_WITH_AXE) ? this.getTier().getSpeed() : super.getDestroySpeed(stack, state);
+    }
+
+    @Override
+    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if (attacker instanceof Player player && player.fallDistance > 0.0F && !player.onGround()
+                && !player.onClimbable() && !player.isInWater() && !player.hasEffect(MobEffects.BLINDNESS)
+                && !player.isPassenger()) {
+
+            if (target instanceof Player targetPlayer && targetPlayer.isBlocking()) {
+                targetPlayer.getCooldowns().addCooldown(targetPlayer.getUseItem().getItem(), 100);
+                targetPlayer.stopUsingItem();
+            }
+        }
+        return super.hurtEnemy(stack, target, attacker);
+    }
+
+
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+        Level level = context.getLevel();
+        BlockPos pos = context.getClickedPos();
+        Player player = context.getPlayer();
+        BlockState state = level.getBlockState(pos);
+        ItemStack stack = context.getItemInHand();
+
+        Block block = state.getBlock();
+
+        // Stripping logs
+        BlockState stripped = block.getToolModifiedState(state, context, ItemAbilities.AXE_STRIP, false);
+        if (stripped != null) {
+            level.setBlock(pos, stripped, 11);
+            level.playSound(player, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
+            return InteractionResult.sidedSuccess(level.isClientSide());
+        }
+
+        // Scraping copper
+        BlockState scraped = block.getToolModifiedState(state, context, ItemAbilities.AXE_SCRAPE, false);
+        if (scraped != null) {
+            level.setBlock(pos, scraped, 11);
+            level.levelEvent(player, 3005, pos, 0);
+            return InteractionResult.sidedSuccess(level.isClientSide());
+        }
+
+        // Wax removal
+        BlockState unwaxed = block.getToolModifiedState(state, context, ItemAbilities.AXE_WAX_OFF, false);
+        if (unwaxed != null) {
+            level.setBlock(pos, unwaxed, 11);
+            level.levelEvent(player, 3004, pos, 0);
+            return InteractionResult.sidedSuccess(level.isClientSide());
+        }
+
+        return super.useOn(context);
+    }
+
+
 }

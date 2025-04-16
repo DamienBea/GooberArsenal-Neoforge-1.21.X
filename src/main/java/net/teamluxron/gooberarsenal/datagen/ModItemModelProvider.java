@@ -92,8 +92,17 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.SWITCH_BLADE);
             handheldScaledItem(ModItems.RED_EYES_DREAM);
             handheldScaledItem(ModItems.LYNNS_DESOLATION);
-            handheldScaledItem(ModItems.WOODEN_POLEARM);
+            handheldScaledItem(ModItems.STONE_POLEARM);
+            handheldScaledItem(ModItems.IRON_POLEARM);
+            handheldScaledItem(ModItems.GOLDEN_POLEARM);
+            handheldScaledItem(ModItems.DIAMOND_POLEARM);
+            handheldScaledItem(ModItems.NETHERITE_POLEARM);
             handheldScaledItem(ModItems.WOODEN_SCYTHE);
+            handheldScaledItem(ModItems.STONE_SCYTHE);
+            handheldScaledItem(ModItems.IRON_SCYTHE);
+            handheldScaledItem(ModItems.GOLDEN_SCYTHE);
+            handheldScaledItem(ModItems.DIAMOND_SCYTHE);
+            handheldScaledItem(ModItems.NETHERITE_SCYTHE);
 
         }
 
