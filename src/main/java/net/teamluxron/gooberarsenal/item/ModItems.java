@@ -125,7 +125,7 @@ public class ModItems {
     public static final DeferredItem<SwordItem> BEE_BUNNY_BASHER = ITEMS.register("bee_bunny_basher",
             () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
                     .fireResistant()
-                    .attributes(SwordItem.createAttributes(CagiteMaterial.INSTANCE, 1, -2.2f))) {
+                    .attributes(SwordItem.createAttributes(CagiteMaterial.INSTANCE, 0, -2f))) {
 
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
