@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:planks"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " AA",
+    "A C",
+    "  C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:wooden_scythe"
+  }
+}

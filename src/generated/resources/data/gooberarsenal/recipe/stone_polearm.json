@@ -2,20 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "D": {
+    "A": {
       "item": "minecraft:cobblestone"
     },
-    "L": {
-      "item": "gooberarsenal:wooden_bat"
+    "C": {
+      "item": "minecraft:stick"
     }
   },
   "pattern": [
-    " D ",
-    "DLD",
-    " D "
+    " A ",
+    "AC ",
+    " C "
   ],
   "result": {
     "count": 1,
-    "id": "gooberarsenal:iron_bat"
+    "id": "gooberarsenal:stone_polearm"
   }
 }

@@ -53,11 +53,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.LIFE_SABER.get())
                 .add(ModItems.SPOON.get());
 
-
-
         tag(ItemTags.AXES)
                 .add(ModItems.FESTIVE_AXE.get())
                 .add(ModItems.LYNNS_DESOLATION.get())
+                .add(ModItems.STONE_POLEARM.get())
+                .add(ModItems.IRON_POLEARM.get())
+                .add(ModItems.GOLDEN_POLEARM.get())
+                .add(ModItems.DIAMOND_POLEARM.get())
+                .add(ModItems.NETHERITE_POLEARM.get())
                 .add(ModItems.WOODEN_POLEARM.get());
 
         tag(ItemTags.SHOVELS)

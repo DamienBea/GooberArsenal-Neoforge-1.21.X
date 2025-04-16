@@ -90,6 +90,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_oak_log", has(Items.OAK_LOG))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_SPIKED_BAT.get())
+                .pattern(" D ")
+                .pattern("DLD")
+                .pattern(" D ")
+                .define('L', ModItems.WOODEN_BAT)
+                .define('D', Items.COBBLESTONE)
+                .unlockedBy("has_cobblestone", has(Items.COBBLESTONE))
+                .save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_BAT.get())
                 .pattern("  L")
                 .pattern(" L ")
@@ -203,6 +212,96 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('A', Items.APPLE)
                 .define('C', Items.COPPER_INGOT)
                 .unlockedBy("has_copper_ingot", has(Items.COPPER_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_POLEARM.get())
+                .pattern(" A ")
+                .pattern("AC ")
+                .pattern(" C ")
+                .define('A', ItemTags.PLANKS)
+                .define('C', Items.STICK)
+                .unlockedBy("has_planks", has(ItemTags.PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_POLEARM.get())
+                .pattern(" A ")
+                .pattern("AC ")
+                .pattern(" C ")
+                .define('A', Items.COBBLESTONE)
+                .define('C', Items.STICK)
+                .unlockedBy("has_cobblestone", has(Items.COBBLESTONE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_POLEARM.get())
+                .pattern(" A ")
+                .pattern("AC ")
+                .pattern(" C ")
+                .define('A', Items.IRON_INGOT)
+                .define('C', Items.STICK)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_POLEARM.get())
+                .pattern(" A ")
+                .pattern("AC ")
+                .pattern(" C ")
+                .define('A', Items.GOLD_INGOT)
+                .define('C', Items.STICK)
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_POLEARM.get())
+                .pattern(" A ")
+                .pattern("AC ")
+                .pattern(" C ")
+                .define('A', Items.DIAMOND)
+                .define('C', Items.STICK)
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_SCYTHE.get())
+                .pattern(" AA")
+                .pattern("A C")
+                .pattern("  C")
+                .define('A', ItemTags.PLANKS)
+                .define('C', Items.STICK)
+                .unlockedBy("has_planks", has(ItemTags.PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_SCYTHE.get())
+                .pattern(" AA")
+                .pattern("A C")
+                .pattern("  C")
+                .define('A', Items.COBBLESTONE)
+                .define('C', Items.STICK)
+                .unlockedBy("has_cobblestone", has(Items.COBBLESTONE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_SCYTHE.get())
+                .pattern(" AA")
+                .pattern("A C")
+                .pattern("  C")
+                .define('A', Items.IRON_INGOT)
+                .define('C', Items.STICK)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_SCYTHE.get())
+                .pattern(" AA")
+                .pattern("A C")
+                .pattern("  C")
+                .define('A', Items.GOLD_INGOT)
+                .define('C', Items.STICK)
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_SCYTHE.get())
+                .pattern(" AA")
+                .pattern("A C")
+                .pattern("  C")
+                .define('A', Items.DIAMOND)
+                .define('C', Items.STICK)
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
         //Shapeless
@@ -339,6 +438,34 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         RecipeCategory.COMBAT, ModItems.SWITCH_BLADE.get())
                 .unlocks("has_rubber_chicken", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SWITCH_CARTRIDGE.get()))
                 .save(recipeOutput, "switch_blade");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(ModItems.DIAMOND_SCYTHE.get()),
+                        Ingredient.of(Items.NETHERITE_INGOT),
+                        RecipeCategory.COMBAT, ModItems.NETHERITE_SCYTHE.get())
+                .unlocks("has_diamond_scythe", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DIAMOND_SCYTHE.get()))
+                .save(recipeOutput, "netherite_scythe");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(ModItems.DIAMOND_POLEARM.get()),
+                        Ingredient.of(Items.NETHERITE_INGOT),
+                        RecipeCategory.COMBAT, ModItems.NETHERITE_POLEARM.get())
+                .unlocks("has_diamond_polearm", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DIAMOND_POLEARM.get()))
+                .save(recipeOutput, "netherite_polearm");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(ModItems.NETHERITE_SCYTHE.get()),
+                        Ingredient.of(ModItems.GLEAMING_RED_EYE.get()),
+                        RecipeCategory.COMBAT, ModItems.RED_EYES_DREAM.get())
+                .unlocks("has_gleaming_red_eye", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.GLEAMING_RED_EYE.get()))
+                .save(recipeOutput, "red_eyes_dream_smithing");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(ModItems.NETHERITE_POLEARM.get()),
+                        Ingredient.of(ModItems.OBSIDIAN_ROSE.get()),
+                        RecipeCategory.COMBAT, ModItems.LYNNS_DESOLATION.get())
+                .unlocks("has_obsidian_rose", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.OBSIDIAN_ROSE.get()))
+                .save(recipeOutput, "lynns_desolation_smithing");
 
     }
 

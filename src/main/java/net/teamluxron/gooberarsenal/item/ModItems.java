@@ -184,8 +184,8 @@ public class ModItems {
             });
 
     public static final DeferredItem<SwordItem> STONE_SPIKED_BAT = ITEMS.register("stone_spiked_bat",
-            () -> new SwordItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.WOOD, 2, -2f))) {
+            () -> new SwordItem(Tiers.STONE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(Tiers.STONE, 2, -2f))) {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
@@ -284,7 +284,7 @@ public class ModItems {
             () -> new SwordItem(Tiers.IRON, new Item.Properties()
 
                     .fireResistant()
-                    .attributes(ShovelItem.createAttributes(Tiers.IRON, 3f, -2f)))
+                    .attributes(ShovelItem.createAttributes(Tiers.IRON, 3f, 2f)))
             {
 
                 @Override
@@ -343,7 +343,7 @@ public class ModItems {
     public static final DeferredItem<Item> RED_EYES_DREAM = ITEMS.register("red_eyes_dream",
             () -> new ScytheItem(RedEyesDreamMaterial.INSTANCE, new Item.Properties()
                     .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 4, -3f)
                                     .withModifierAdded(
                                             Attributes.SWEEPING_DAMAGE_RATIO,
                                             new AttributeModifier(
@@ -369,7 +369,7 @@ public class ModItems {
             () -> new PolearmItem(
                     ObsidianSwordMaterial.INSTANCE,
                     new Item.Properties().attributes(
-                            PolearmItem.createAttributes(ObsidianSwordMaterial.INSTANCE, -1, -2f)
+                            PolearmItem.createAttributes(ObsidianSwordMaterial.INSTANCE, 1, -2.6f)
                                     .withModifierAdded(
                                             Attributes.ENTITY_INTERACTION_RANGE,
                                             new AttributeModifier(
@@ -404,7 +404,7 @@ public class ModItems {
                     Tiers.WOOD,
                     new Item.Properties()
                             .attributes(
-                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    PolearmItem.createAttributes(Tiers.WOOD, 4, -3f)
                                             .withModifierAdded(
                                                     Attributes.ENTITY_INTERACTION_RANGE,
                                                     new AttributeModifier(
@@ -430,7 +430,7 @@ public class ModItems {
                     Tiers.STONE,
                     new Item.Properties()
                             .attributes(
-                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    PolearmItem.createAttributes(Tiers.STONE, 5, -3f)
                                             .withModifierAdded(
                                                     Attributes.ENTITY_INTERACTION_RANGE,
                                                     new AttributeModifier(
@@ -456,7 +456,7 @@ public class ModItems {
                     Tiers.IRON,
                     new Item.Properties()
                             .attributes(
-                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    PolearmItem.createAttributes(Tiers.IRON, 4, -2.9f)
                                             .withModifierAdded(
                                                     Attributes.ENTITY_INTERACTION_RANGE,
                                                     new AttributeModifier(
@@ -482,7 +482,7 @@ public class ModItems {
                     Tiers.GOLD,
                     new Item.Properties()
                             .attributes(
-                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    PolearmItem.createAttributes(Tiers.GOLD, 4, -2.8f)
                                             .withModifierAdded(
                                                     Attributes.ENTITY_INTERACTION_RANGE,
                                                     new AttributeModifier(
@@ -508,7 +508,7 @@ public class ModItems {
                     Tiers.DIAMOND,
                     new Item.Properties()
                             .attributes(
-                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    PolearmItem.createAttributes(Tiers.DIAMOND, 3, -2.8f)
                                             .withModifierAdded(
                                                     Attributes.ENTITY_INTERACTION_RANGE,
                                                     new AttributeModifier(
@@ -534,7 +534,7 @@ public class ModItems {
                     Tiers.NETHERITE,
                     new Item.Properties()
                             .attributes(
-                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    PolearmItem.createAttributes(Tiers.NETHERITE, 3, -2.8f)
                                             .withModifierAdded(
                                                     Attributes.ENTITY_INTERACTION_RANGE,
                                                     new AttributeModifier(
@@ -560,7 +560,7 @@ public class ModItems {
     public static final DeferredItem<ScytheItem> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
             () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
                     .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, -1, -3.4f)
                                     .withModifierAdded(
                                             Attributes.SWEEPING_DAMAGE_RATIO,
                                             new AttributeModifier(
@@ -575,7 +575,7 @@ public class ModItems {
     public static final DeferredItem<ScytheItem> STONE_SCYTHE = ITEMS.register("stone_scythe",
             () -> new ScytheItem(Tiers.STONE, new Item.Properties()
                     .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3.4f)
                                     .withModifierAdded(
                                             Attributes.SWEEPING_DAMAGE_RATIO,
                                             new AttributeModifier(
@@ -590,7 +590,7 @@ public class ModItems {
     public static final DeferredItem<ScytheItem> IRON_SCYTHE = ITEMS.register("iron_scythe",
             () -> new ScytheItem(Tiers.IRON, new Item.Properties()
                     .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3.3f)
                                     .withModifierAdded(
                                             Attributes.SWEEPING_DAMAGE_RATIO,
                                             new AttributeModifier(
@@ -605,7 +605,7 @@ public class ModItems {
     public static final DeferredItem<ScytheItem> GOLDEN_SCYTHE = ITEMS.register("golden_scythe",
             () -> new ScytheItem(Tiers.GOLD, new Item.Properties()
                     .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, -1, -3.2f)
                                     .withModifierAdded(
                                             Attributes.SWEEPING_DAMAGE_RATIO,
                                             new AttributeModifier(
@@ -620,7 +620,7 @@ public class ModItems {
     public static final DeferredItem<ScytheItem> DIAMOND_SCYTHE = ITEMS.register("diamond_scythe",
             () -> new ScytheItem(Tiers.DIAMOND, new Item.Properties()
                     .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3.2f)
                                     .withModifierAdded(
                                             Attributes.SWEEPING_DAMAGE_RATIO,
                                             new AttributeModifier(
@@ -636,7 +636,7 @@ public class ModItems {
             () -> new ScytheItem(Tiers.NETHERITE, new Item.Properties()
                     .fireResistant()
                     .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 2, -3.2f)
                                     .withModifierAdded(
                                             Attributes.SWEEPING_DAMAGE_RATIO,
                                             new AttributeModifier(

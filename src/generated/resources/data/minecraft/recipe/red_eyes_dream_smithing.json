@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "gooberarsenal:gleaming_red_eye"
+  },
+  "base": {
+    "item": "gooberarsenal:netherite_scythe"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:red_eyes_dream"
+  },
+  "template": {
+    "item": "gooberarsenal:goober_upgrade_template"
+  }
+}

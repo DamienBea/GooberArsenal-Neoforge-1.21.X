@@ -135,6 +135,18 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         LootItemRandomChanceCondition.randomChance(0.3f).build()
                 }, ModItems.ENERGY_BAR.get()));
 
+        this.add("obsidian_rose_from_end_city",
+                new AddItemModifier(new LootItemCondition[] {
+                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/end_city_treasure")).build(),
+                        LootItemRandomChanceCondition.randomChance(0.5f).build()
+                }, ModItems.OBSIDIAN_ROSE.get()));
+
+        this.add("gleaming_red_eye_from_end_city",
+                new AddItemModifier(new LootItemCondition[] {
+                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/end_city_treasure")).build(),
+                        LootItemRandomChanceCondition.randomChance(0.5f).build()
+                }, ModItems.GLEAMING_RED_EYE.get()));
+
         //Sus Sand
 
 //        this.add("life_saver_from_desert_sand",

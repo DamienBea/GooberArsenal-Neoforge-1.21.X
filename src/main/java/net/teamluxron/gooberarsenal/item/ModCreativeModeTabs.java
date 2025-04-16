@@ -17,7 +17,7 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, GooberArsenal.MOD_ID);
 
     public static final Supplier<CreativeModeTab> GOOBERARSENAL_COMBAT = CREATIVE_MODE_TAB.register("gooberarsenal_combat",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SLAPSTICK_SWORD.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.RED_EYES_DREAM.get()))
                     .title(Component.translatable("creativetab.gooberarsenal.gooberarsenal_combat"))
                     .displayItems((itemDisplayParameters, output) -> {
 
@@ -49,28 +49,32 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.NETHERITE_POLEARM.get());
                         output.accept(ModItems.LYNNS_DESOLATION.get());
 
-                        //Greatswords
-                        output.accept(ModItems.OBSIDIAN_SWORD.get());
-
-
-                        //Misc
-                        output.accept(ModItems.KENDO_STICK.get());
-                        output.accept(ModItems.SPOON.get());
-                        output.accept(ModItems.FRYING_PAN.get());
-                        output.accept(ModItems.STEEL_PIPE.get());
-                        output.accept(ModItems.CHAIR.get());
-                        output.accept(ModItems.FESTIVE_AXE.get());
-                        output.accept(ModItems.LIFE_SABER.get());
-                        output.accept(ModItems.SLAPSTICK_SWORD.get());
-                        output.accept(ModItems.STAHP_SIGN.get());
-                        output.accept(ModItems.SWITCH_BLADE.get());
-
                         //Armor
                         output.accept(ModItems.CAGITE_HELMET.get());
                         output.accept(ModItems.CAGITE_CHESTPLATE.get());
                         output.accept(ModItems.CAGITE_LEGGINGS.get());
                         output.accept(ModItems.CAGITE_BOOTS.get());
 
+
+                    }).build());
+
+    public static final Supplier<CreativeModeTab> GOOBERARSENAL_COMBAT_SPECIAL = CREATIVE_MODE_TAB.register("gooberarsenal_combat_special",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SLAPSTICK_SWORD.get()))
+                    .title(Component.translatable("creativetab.gooberarsenal.gooberarsenal_combat_special"))
+                    .displayItems((itemDisplayParameters, output) -> {
+
+                        //Misc
+                        output.accept(ModItems.SLAPSTICK_SWORD.get());
+                        output.accept(ModItems.STAHP_SIGN.get());
+                        output.accept(ModItems.OBSIDIAN_SWORD.get());
+                        output.accept(ModItems.LIFE_SABER.get());
+                        output.accept(ModItems.FESTIVE_AXE.get());
+                        output.accept(ModItems.KENDO_STICK.get());
+                        output.accept(ModItems.CHAIR.get());
+                        output.accept(ModItems.FRYING_PAN.get());
+                        output.accept(ModItems.STEEL_PIPE.get());
+                        output.accept(ModItems.SPOON.get());
+                        output.accept(ModItems.SWITCH_BLADE.get());
 
                     }).build());
 
