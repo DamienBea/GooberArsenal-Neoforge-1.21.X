@@ -79,12 +79,13 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.BEE_BUNNY_BASHER);
             handheldItem(ModItems.STAHP_SIGN);
             handheldItem(ModItems.WOODEN_BAT);
+            handheldItem(ModItems.STONE_SPIKED_BAT);
             handheldItem(ModItems.IRON_BAT);
             handheldItem(ModItems.GOLDEN_BAT);
             handheldItem(ModItems.DIAMOND_BAT);
             handheldItem(ModItems.NETHERITE_BAT);
             handheldScaledItem(ModItems.OBSIDIAN_SWORD);
-            handheldItem(ModItems.SPOON);
+            handheldScaledItem(ModItems.SPOON);
             handheldItem(ModItems.FESTIVE_AXE);
             handheldItem(ModItems.LIFE_SABER);
             handheldItem(ModItems.KENDO_STICK);
@@ -92,6 +93,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.SWITCH_BLADE);
             handheldScaledItem(ModItems.RED_EYES_DREAM);
             handheldScaledItem(ModItems.LYNNS_DESOLATION);
+            handheldScaledItem(ModItems.WOODEN_POLEARM);
             handheldScaledItem(ModItems.STONE_POLEARM);
             handheldScaledItem(ModItems.IRON_POLEARM);
             handheldScaledItem(ModItems.GOLDEN_POLEARM);

@@ -183,6 +183,20 @@ public class ModItems {
                 }
             });
 
+    public static final DeferredItem<SwordItem> STONE_SPIKED_BAT = ITEMS.register("stone_spiked_bat",
+            () -> new SwordItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(Tiers.WOOD, 2, -2f))) {
+                @Override
+                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    if (!target.level().isClientSide()) {
+                        Vec3 direction = target.position().subtract(attacker.position()).normalize();
+                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
+                        target.hurtMarked = true;
+                    }
+                    return super.hurtEnemy(stack, target, attacker);
+                }
+            });
+
     public static final DeferredItem<SwordItem> IRON_BAT = ITEMS.register("iron_bat",
             () -> new SwordItem(Tiers.IRON, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.IRON, 2, -2f))) {
@@ -328,8 +342,18 @@ public class ModItems {
 
     public static final DeferredItem<Item> RED_EYES_DREAM = ITEMS.register("red_eyes_dream",
             () -> new ScytheItem(RedEyesDreamMaterial.INSTANCE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 3, -3f))) {
-
+                    .attributes(
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    .withModifierAdded(
+                                            Attributes.SWEEPING_DAMAGE_RATIO,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("red_eyes_dream_sweeping_damage"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )) {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
@@ -338,6 +362,7 @@ public class ModItems {
                     return super.hurtEnemy(stack, target, attacker);
                 }
             });
+
 
 
     public static final DeferredItem<Item> LYNNS_DESOLATION = ITEMS.register("lynns_desolation",
@@ -377,76 +402,251 @@ public class ModItems {
     public static final DeferredItem<Item> WOODEN_POLEARM = ITEMS.register("wooden_polearm",
             () -> new PolearmItem(
                     Tiers.WOOD,
-                    new Item.Properties().attributes(
-                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
-                    )) {
-            });
+                    new Item.Properties()
+                            .attributes(
+                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                            .withModifierAdded(
+                                                    Attributes.ENTITY_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("wooden_polearm_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                                            .withModifierAdded(
+                                                    Attributes.BLOCK_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("wooden_polearm_block_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                            )));
 
     public static final DeferredItem<Item> STONE_POLEARM = ITEMS.register("stone_polearm",
             () -> new PolearmItem(
                     Tiers.STONE,
-                    new Item.Properties().attributes(
-                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
-                    )) {
-            });
+                    new Item.Properties()
+                            .attributes(
+                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                            .withModifierAdded(
+                                                    Attributes.ENTITY_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("stone_polearm_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                                            .withModifierAdded(
+                                                    Attributes.BLOCK_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("stone_polearm_block_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                            )));
 
     public static final DeferredItem<Item> IRON_POLEARM = ITEMS.register("iron_polearm",
             () -> new PolearmItem(
                     Tiers.IRON,
-                    new Item.Properties().attributes(
-                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
-                    )) {
-            });
+                    new Item.Properties()
+                            .attributes(
+                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                            .withModifierAdded(
+                                                    Attributes.ENTITY_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("iron_polearm_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                                            .withModifierAdded(
+                                                    Attributes.BLOCK_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("iron_polearm_block_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                            )));
 
     public static final DeferredItem<Item> GOLDEN_POLEARM = ITEMS.register("golden_polearm",
             () -> new PolearmItem(
                     Tiers.GOLD,
-                    new Item.Properties().attributes(
-                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
-                    )) {
-            });
+                    new Item.Properties()
+                            .attributes(
+                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                            .withModifierAdded(
+                                                    Attributes.ENTITY_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("golden_polearm_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                                            .withModifierAdded(
+                                                    Attributes.BLOCK_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("golden_polearm_block_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                            )));
 
     public static final DeferredItem<Item> DIAMOND_POLEARM = ITEMS.register("diamond_polearm",
             () -> new PolearmItem(
                     Tiers.DIAMOND,
-                    new Item.Properties().attributes(
-                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
-                    )) {
-            });
+                    new Item.Properties()
+                            .attributes(
+                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                            .withModifierAdded(
+                                                    Attributes.ENTITY_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("diamond_polearm_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                                            .withModifierAdded(
+                                                    Attributes.BLOCK_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("diamond_polearm_block_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                            )));
 
     public static final DeferredItem<Item> NETHERITE_POLEARM = ITEMS.register("netherite_polearm",
             () -> new PolearmItem(
                     Tiers.NETHERITE,
-                    new Item.Properties().attributes(
-                            PolearmItem.createAttributes(Tiers.WOOD, -1, -2f)
-                    )) {
-            });
+                    new Item.Properties()
+                            .attributes(
+                                    PolearmItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                            .withModifierAdded(
+                                                    Attributes.ENTITY_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("netherite_polearm_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                                            .withModifierAdded(
+                                                    Attributes.BLOCK_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("netherite_polearm_block_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                            )));
+
 
 
     public static final DeferredItem<ScytheItem> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
             () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.WOOD, 3, -3f))));
+                    .attributes(
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    .withModifierAdded(
+                                            Attributes.SWEEPING_DAMAGE_RATIO,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("wooden_scythe_sweeping_damage"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )));
 
     public static final DeferredItem<ScytheItem> STONE_SCYTHE = ITEMS.register("stone_scythe",
-            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.STONE, 3, -3f))));
+            () -> new ScytheItem(Tiers.STONE, new Item.Properties()
+                    .attributes(
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    .withModifierAdded(
+                                            Attributes.SWEEPING_DAMAGE_RATIO,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("stone_scythe_sweeping_damage"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )));
 
     public static final DeferredItem<ScytheItem> IRON_SCYTHE = ITEMS.register("iron_scythe",
-            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, 3, -3f))));
+            () -> new ScytheItem(Tiers.IRON, new Item.Properties()
+                    .attributes(
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    .withModifierAdded(
+                                            Attributes.SWEEPING_DAMAGE_RATIO,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("iron_scythe_sweeping_damage"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )));
 
     public static final DeferredItem<ScytheItem> GOLDEN_SCYTHE = ITEMS.register("golden_scythe",
-            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.GOLD, 3, -3f))));
+            () -> new ScytheItem(Tiers.GOLD, new Item.Properties()
+                    .attributes(
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    .withModifierAdded(
+                                            Attributes.SWEEPING_DAMAGE_RATIO,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("gold_scythe_sweeping_damage"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )));
 
     public static final DeferredItem<ScytheItem> DIAMOND_SCYTHE = ITEMS.register("diamond_scythe",
-            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 3, -3f))));
+            () -> new ScytheItem(Tiers.DIAMOND, new Item.Properties()
+                    .attributes(
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    .withModifierAdded(
+                                            Attributes.SWEEPING_DAMAGE_RATIO,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("diamond_scythe_sweeping_damage"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )));
 
     public static final DeferredItem<ScytheItem> NETHERITE_SCYTHE = ITEMS.register("netherite_scythe",
-            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
+            () -> new ScytheItem(Tiers.NETHERITE, new Item.Properties()
                     .fireResistant()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3, -3f))));
+                    .attributes(
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -3f)
+                                    .withModifierAdded(
+                                            Attributes.SWEEPING_DAMAGE_RATIO,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("netherite_scythe_sweeping_damage"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )));
 
 
     //Armor

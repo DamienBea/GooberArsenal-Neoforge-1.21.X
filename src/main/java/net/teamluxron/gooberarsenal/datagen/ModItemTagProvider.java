@@ -31,6 +31,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.SLAPSTICK_SWORD.get())
                 .add(ModItems.FRYING_PAN.get())
                 .add(ModItems.WOODEN_BAT.get())
+                .add(ModItems.STONE_SPIKED_BAT.get())
                 .add(ModItems.IRON_BAT.get())
                 .add(ModItems.GOLDEN_BAT.get())
                 .add(ModItems.DIAMOND_BAT.get())
@@ -49,7 +50,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.GOLDEN_SCYTHE.get())
                 .add(ModItems.DIAMOND_SCYTHE.get())
                 .add(ModItems.NETHERITE_SCYTHE.get())
-                .add(ModItems.LIFE_SABER.get());
+                .add(ModItems.LIFE_SABER.get())
+                .add(ModItems.SPOON.get());
 
 
 

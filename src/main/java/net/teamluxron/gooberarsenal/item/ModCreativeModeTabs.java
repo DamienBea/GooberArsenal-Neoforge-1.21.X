@@ -24,6 +24,7 @@ public class ModCreativeModeTabs {
                         //Weapons
                         //Bats
                         output.accept(ModItems.WOODEN_BAT.get());
+                        output.accept(ModItems.STONE_SPIKED_BAT.get());
                         output.accept(ModItems.IRON_BAT.get());
                         output.accept(ModItems.GOLDEN_BAT.get());
                         output.accept(ModItems.DIAMOND_BAT.get());

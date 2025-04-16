@@ -3,6 +3,7 @@
     "gooberarsenal:slapstick_sword",
     "gooberarsenal:frying_pan",
     "gooberarsenal:wooden_bat",
+    "gooberarsenal:stone_spiked_bat",
     "gooberarsenal:iron_bat",
     "gooberarsenal:golden_bat",
     "gooberarsenal:diamond_bat",
@@ -21,6 +22,7 @@
     "gooberarsenal:golden_scythe",
     "gooberarsenal:diamond_scythe",
     "gooberarsenal:netherite_scythe",
-    "gooberarsenal:life_saber"
+    "gooberarsenal:life_saber",
+    "gooberarsenal:spoon"
   ]
 }
