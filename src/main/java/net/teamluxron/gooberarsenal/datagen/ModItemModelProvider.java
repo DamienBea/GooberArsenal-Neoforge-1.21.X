@@ -74,7 +74,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             //Weapons
 
             handheldItem(ModItems.FRYING_PAN);
-            handheldScaledItem(ModItems.STEEL_PIPE);
+            handheldItem(ModItems.STEEL_PIPE);
             handheldItem(ModItems.CHAIR);
             handheldItem(ModItems.BEE_BUNNY_BASHER);
             handheldScaledItem(ModItems.STAHP_SIGN);

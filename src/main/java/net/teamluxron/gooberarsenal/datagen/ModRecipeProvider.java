@@ -164,15 +164,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_bamboo", has(Items.BAMBOO))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.RED_EYES_DREAM.get())
-                .pattern("XXS")
-                .pattern("XS ")
-                .pattern("S  ")
-                .define('X', Items.AMETHYST_SHARD)
-                .define('S', Items.STICK)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .save(recipeOutput);
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ENERGY_BAR.get())
                 .pattern("KCK")
                 .pattern("SWS")

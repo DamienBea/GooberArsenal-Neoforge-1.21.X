@@ -125,7 +125,7 @@ public class ModItems {
     public static final DeferredItem<SwordItem> BEE_BUNNY_BASHER = ITEMS.register("bee_bunny_basher",
             () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
                     .fireResistant()
-                    .attributes(SwordItem.createAttributes(CagiteMaterial.INSTANCE, 1, -2f))) {
+                    .attributes(SwordItem.createAttributes(CagiteMaterial.INSTANCE, 1, -2.2f))) {
 
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
@@ -139,7 +139,7 @@ public class ModItems {
                         target.addEffect(new MobEffectInstance(MobEffects.POISON, 40));
                         target.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 40));
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
+                        target.setDeltaMovement(direction.x * 0.5, 0.3, direction.z * 0.5);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
@@ -171,12 +171,12 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> WOODEN_BAT = ITEMS.register("wooden_bat",
             () -> new SwordItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.WOOD, 2, -2f))) {
+                    .attributes(SwordItem.createAttributes(Tiers.WOOD, 2, -2.2f))) {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
+                        target.setDeltaMovement(direction.x * 0.5, 0.3, direction.z * 0.5);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
@@ -185,12 +185,12 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> STONE_SPIKED_BAT = ITEMS.register("stone_spiked_bat",
             () -> new SwordItem(Tiers.STONE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.STONE, 2, -2f))) {
+                    .attributes(SwordItem.createAttributes(Tiers.STONE, 2, -2.2f))) {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
+                        target.setDeltaMovement(direction.x * 0.5, 0.3, direction.z * 0.5);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
@@ -199,12 +199,12 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> IRON_BAT = ITEMS.register("iron_bat",
             () -> new SwordItem(Tiers.IRON, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, 2, -2f))) {
+                    .attributes(SwordItem.createAttributes(Tiers.IRON, 2, -2.2f))) {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
+                        target.setDeltaMovement(direction.x * 0.5, 0.3, direction.z * 0.5);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
@@ -213,12 +213,12 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> GOLDEN_BAT = ITEMS.register("golden_bat",
             () -> new SwordItem(Tiers.GOLD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.GOLD, 2, -2f))) {
+                    .attributes(SwordItem.createAttributes(Tiers.GOLD, 2, -2.2f))) {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
+                        target.setDeltaMovement(direction.x * 0.5, 0.3, direction.z * 0.5);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
@@ -227,12 +227,12 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> DIAMOND_BAT = ITEMS.register("diamond_bat",
             () -> new SwordItem(Tiers.DIAMOND, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 2, -2f))) {
+                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 2, -2.2f))) {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
+                        target.setDeltaMovement(direction.x * 0.5, 0.3, direction.z * 0.5);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
@@ -242,12 +242,12 @@ public class ModItems {
     public static final DeferredItem<SwordItem> NETHERITE_BAT = ITEMS.register("netherite_bat",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
                     .fireResistant()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 2, -2f))) {
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 2, -2.2f))) {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
-                        target.setDeltaMovement(direction.x * 0.3, 0.3, direction.z * 0.3);
+                        target.setDeltaMovement(direction.x * 0.5, 0.3, direction.z * 0.5);
                         target.hurtMarked = true;
                     }
                     return super.hurtEnemy(stack, target, attacker);
