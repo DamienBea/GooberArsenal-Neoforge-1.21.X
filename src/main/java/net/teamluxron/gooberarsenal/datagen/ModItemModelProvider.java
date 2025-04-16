@@ -77,14 +77,14 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldScaledItem(ModItems.STEEL_PIPE);
             handheldItem(ModItems.CHAIR);
             handheldItem(ModItems.BEE_BUNNY_BASHER);
-            handheldItem(ModItems.STAHP_SIGN);
+            handheldScaledItem(ModItems.STAHP_SIGN);
             handheldItem(ModItems.WOODEN_BAT);
             handheldItem(ModItems.STONE_SPIKED_BAT);
             handheldItem(ModItems.IRON_BAT);
             handheldItem(ModItems.GOLDEN_BAT);
             handheldItem(ModItems.DIAMOND_BAT);
             handheldItem(ModItems.NETHERITE_BAT);
-            handheldScaledItem(ModItems.OBSIDIAN_SWORD);
+            handheldItem(ModItems.OBSIDIAN_SWORD);
             handheldScaledItem(ModItems.SPOON);
             handheldItem(ModItems.FESTIVE_AXE);
             handheldItem(ModItems.LIFE_SABER);
