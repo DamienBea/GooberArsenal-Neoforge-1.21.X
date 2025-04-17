@@ -26,19 +26,19 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
         this.add("goober_upgrade_from_bastion_treasure",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/bastion_treasure")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.2f).build()
+                        LootItemRandomChanceCondition.randomChance(0.4f).build()
                 }, ModItems.GOOBER_UPGRADE_TEMPLATE.get()));
 
         this.add("rubber_chicken_from_hoglin_stable",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/bastion_hoglin_stable")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.2f).build()
+                        LootItemRandomChanceCondition.randomChance(0.4f).build()
                 }, ModItems.RUBBER_CHICKEN.get()));
 
         this.add("goober_upgrade_from_bastion_bridge",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/bastion_bridge")).build(),
-                        LootItemRandomChanceCondition.randomChance(0.1f).build()
+                        LootItemRandomChanceCondition.randomChance(0.4f).build()
                 }, ModItems.GOOBER_UPGRADE_TEMPLATE.get()));
 
         this.add("goober_upgrade_from_bastion_hoglin_stable",
