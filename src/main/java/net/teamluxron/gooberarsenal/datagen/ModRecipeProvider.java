@@ -106,7 +106,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('L', Items.IRON_INGOT)
                 .define('D', Items.DRIED_KELP)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
-                .save(recipeOutput);
+                .save(recipeOutput, "iron_bat_recipe");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_BAT.get())
                 .pattern("  L")
