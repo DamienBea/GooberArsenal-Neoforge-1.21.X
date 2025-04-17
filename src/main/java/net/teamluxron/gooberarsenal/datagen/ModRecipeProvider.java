@@ -40,7 +40,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
     //Shaped Recipes
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_PLATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_PLATE.get(), 3)
                 .pattern("AAA")
                 .define('A', Items.IRON_INGOT)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
