@@ -126,7 +126,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOOBER_UPGRADE_TEMPLATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOOBER_UPGRADE_TEMPLATE.get(), 2)
                 .pattern("KKK")
                 .pattern("KGK")
                 .pattern("KNK")
