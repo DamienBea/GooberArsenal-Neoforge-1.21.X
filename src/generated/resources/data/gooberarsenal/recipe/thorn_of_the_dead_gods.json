@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gooberarsenal:thorn_of_zazikel"
+    },
+    {
+      "item": "gooberarsenal:thorn_of_andoral"
+    },
+    {
+      "item": "gooberarsenal:thorn_of_toth"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:thorn_of_the_dead_gods"
+  }
+}

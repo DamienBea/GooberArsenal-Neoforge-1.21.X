@@ -62,6 +62,9 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.PLASTIC_BAG.get());
             basicItem(ModItems.OBSIDIAN_ROSE.get());
             basicItem(ModItems.GLEAMING_RED_EYE.get());
+            basicItem(ModItems.THORN_OF_ZAZIKEL.get());
+            basicItem(ModItems.THORN_OF_TOTH.get());
+            basicItem(ModItems.THORN_OF_ANDORAL.get());
 
 
             //Armor
@@ -100,6 +103,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.NETHERITE_DAGGER);
             handheldItem(ModItems.SWITCH_BLADE);
             handheldItem(ModItems.REBELS_KNIFE);
+            handheldItem(ModItems.THORN_OF_THE_DEAD_GODS);
             handheldItem(ModItems.POISONERS_SIDEARM);
 //            handheldItem(ModItems.IRON_RAPIER);
             handheldScaledItem(ModItems.RED_EYES_DREAM);

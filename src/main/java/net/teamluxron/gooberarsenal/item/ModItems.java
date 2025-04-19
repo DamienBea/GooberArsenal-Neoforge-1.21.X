@@ -70,6 +70,15 @@ public class ModItems {
     public static final DeferredItem<Item> GLEAMING_RED_EYE = ITEMS.register("gleaming_red_eye",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> THORN_OF_ZAZIKEL = ITEMS.register("thorn_of_zazikel",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> THORN_OF_TOTH = ITEMS.register("thorn_of_toth",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> THORN_OF_ANDORAL = ITEMS.register("thorn_of_andoral",
+            () -> new Item(new Item.Properties()));
+
 
     public static final DeferredItem<Item> SWITCH_CARTRIDGE = ITEMS.register("switch_cartridge",
             () -> new Item(new Item.Properties()) {
@@ -323,7 +332,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> WOODEN_DAGGER = ITEMS.register("wooden_dagger",
             () -> new SwordItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, 3f, 2f)))
+                    .attributes(SwordItem.createAttributes(Tiers.WOOD, 3f, 2f)))
             {
 
                 @Override
@@ -345,7 +354,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> STONE_DAGGER = ITEMS.register("stone_dagger",
             () -> new SwordItem(Tiers.STONE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, 3f, 2f)))
+                    .attributes(SwordItem.createAttributes(Tiers.STONE, 3f, 2f)))
             {
 
                 @Override
@@ -389,7 +398,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> GOLDEN_DAGGER = ITEMS.register("golden_dagger",
             () -> new SwordItem(Tiers.GOLD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, 3f, 2f)))
+                    .attributes(SwordItem.createAttributes(Tiers.GOLD, 3f, 2f)))
             {
 
                 @Override
@@ -411,7 +420,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> DIAMOND_DAGGER = ITEMS.register("diamond_dagger",
             () -> new SwordItem(Tiers.DIAMOND, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, 3f, 2f)))
+                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 3f, 2f)))
             {
 
                 @Override
@@ -433,7 +442,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> NETHERITE_DAGGER = ITEMS.register("netherite_dagger",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, 3f, 2f)))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3f, 2f)))
             {
 
                 @Override
@@ -476,7 +485,29 @@ public class ModItems {
             });
 
     public static final DeferredItem<SwordItem> REBELS_KNIFE = ITEMS.register("rebels_knife",
-            () -> new SwordItem(Tiers.IRON, new Item.Properties()
+            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
+                    .fireResistant()
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3f, 2f)))
+            {
+                @Override
+                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    if (!attacker.level().isClientSide()) {
+                        if (target.invulnerableTime > 5) {
+                            target.invulnerableTime = 5;
+                        }
+                    }
+                    return super.hurtEnemy(stack, target, attacker);
+                }
+
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
+                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                }
+            });
+
+    public static final DeferredItem<SwordItem> THORN_OF_THE_DEAD_GODS = ITEMS.register("thorn_of_the_dead_gods",
+            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
                     .fireResistant()
                     .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3f, 2f)))
             {
@@ -498,7 +529,7 @@ public class ModItems {
             });
 
     public static final DeferredItem<SwordItem> POISONERS_SIDEARM = ITEMS.register("poisoners_sidearm",
-            () -> new SwordItem(Tiers.IRON, new Item.Properties()
+            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
                     .fireResistant()
                     .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3f, 2f)))
             {

@@ -58,6 +58,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DIAMOND_DAGGER.get());
                         output.accept(ModItems.NETHERITE_DAGGER.get());
                         output.accept(ModItems.REBELS_KNIFE.get());
+                        output.accept(ModItems.THORN_OF_THE_DEAD_GODS.get());
                         output.accept(ModItems.POISONERS_SIDEARM.get());
 
                         //Rapiers
@@ -125,6 +126,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SWITCH_CARTRIDGE.get());
                         output.accept(ModItems.OBSIDIAN_ROSE.get());
                         output.accept(ModItems.GLEAMING_RED_EYE.get());
+                        output.accept(ModItems.THORN_OF_ZAZIKEL.get());
+                        output.accept(ModItems.THORN_OF_TOTH.get());
+                        output.accept(ModItems.THORN_OF_ANDORAL.get());
 
                     }).build());
 

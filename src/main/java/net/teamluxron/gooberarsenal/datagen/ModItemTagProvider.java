@@ -44,6 +44,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.CHAIR.get())
                 .add(ModItems.SWITCH_BLADE.get())
                 .add(ModItems.REBELS_KNIFE.get())
+                .add(ModItems.THORN_OF_THE_DEAD_GODS.get())
                 .add(ModItems.POISONERS_SIDEARM.get())
                 .add(ModItems.RED_EYES_DREAM.get())
                 .add(ModItems.WOODEN_SCYTHE.get())

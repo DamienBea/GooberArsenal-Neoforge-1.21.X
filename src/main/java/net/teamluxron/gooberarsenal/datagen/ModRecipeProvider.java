@@ -375,6 +375,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.OBSIDIAN_HANDGUARD.get()), has(ModItems.OBSIDIAN_HANDGUARD.get()))
                 .save(recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.THORN_OF_THE_DEAD_GODS.get(), 1)
+                .requires(ModItems.THORN_OF_ZAZIKEL.get(), 1)
+                .requires(ModItems.THORN_OF_ANDORAL.get(), 1)
+                .requires(ModItems.THORN_OF_TOTH.get(), 1)
+                .unlockedBy(getHasName(ModItems.IRON_DAGGER.get()), has(ModItems.IRON_DAGGER.get()))
+                .save(recipeOutput);
+
 
 
         //Smelting
