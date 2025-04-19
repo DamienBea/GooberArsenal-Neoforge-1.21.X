@@ -332,7 +332,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> WOODEN_DAGGER = ITEMS.register("wooden_dagger",
             () -> new SwordItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.WOOD, 1f, 0f)))
+                    .attributes(SwordItem.createAttributes(Tiers.WOOD, 1f, -2f)))
             {
 
                 @Override
@@ -354,7 +354,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> STONE_DAGGER = ITEMS.register("stone_dagger",
             () -> new SwordItem(Tiers.STONE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.STONE, 1f, 0.5f)))
+                    .attributes(SwordItem.createAttributes(Tiers.STONE, 0.5f, -2f)))
             {
 
                 @Override
@@ -376,7 +376,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> IRON_DAGGER = ITEMS.register("iron_dagger",
             () -> new SwordItem(Tiers.IRON, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, 1f, 0.5f)))
+                    .attributes(SwordItem.createAttributes(Tiers.IRON, -0.5f, -1.5f)))
             {
 
                 @Override
@@ -398,7 +398,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> GOLDEN_DAGGER = ITEMS.register("golden_dagger",
             () -> new SwordItem(Tiers.GOLD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.GOLD, 1f, 0f)))
+                    .attributes(SwordItem.createAttributes(Tiers.GOLD, 1f, -2f)))
             {
 
                 @Override
@@ -420,7 +420,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> DIAMOND_DAGGER = ITEMS.register("diamond_dagger",
             () -> new SwordItem(Tiers.DIAMOND, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 2f, 1f)))
+                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, -1f, -1.5f)))
             {
 
                 @Override
@@ -442,7 +442,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> NETHERITE_DAGGER = ITEMS.register("netherite_dagger",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 2f, 2f)))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, -1f, -1f)))
             {
 
                 @Override
@@ -464,7 +464,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> SWITCH_BLADE = ITEMS.register("switch_blade",
             () -> new SwordItem(Tiers.IRON, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, 1f, 0.5f)))
+                    .attributes(SwordItem.createAttributes(Tiers.IRON, -0.5f, -1.5f)))
             {
 
                 @Override
@@ -487,7 +487,7 @@ public class ModItems {
     public static final DeferredItem<SwordItem> REBELS_KNIFE = ITEMS.register("rebels_knife",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
                     .fireResistant()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3f, 2f)))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 0f, 0f)))
             {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -509,7 +509,7 @@ public class ModItems {
     public static final DeferredItem<SwordItem> THORN_OF_THE_DEAD_GODS = ITEMS.register("thorn_of_the_dead_gods",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
                     .fireResistant()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3f, 2f)))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 0f, -1f)))
             {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -531,7 +531,7 @@ public class ModItems {
     public static final DeferredItem<SwordItem> POISONERS_SIDEARM = ITEMS.register("poisoners_sidearm",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
                     .fireResistant()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3f, 2f)))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 0f, -0.5f)))
             {
 
 

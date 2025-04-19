@@ -72,10 +72,10 @@
   "block.gooberarsenal.kevin_block": "Block of Kevin",
 
   "creativetab.gooberarsenal.gooberarsenal_combat": "Goober Arsenal Combat",
+  "creativetab.gooberarsenal.gooberarsenal_combat_special": "Goober Arsenal Special Combat",
   "creativetab.gooberarsenal.goober_items": "Goober Arsenal Items",
   "creativetab.gooberarsenal.goober_blocks": "Goober Arsenal Blocks",
   "creativetab.gooberarsenal.goober_consumables": "Goober Arsenal Consumables",
-  "creativetab.gooberarsenal.gooberarsenal_combat_special": "Goober Arsenal Special Combat",
 
   "tooltip.gooberarsenal.stevens_jacket": "A pacifists Dream",
 
@@ -83,7 +83,6 @@
   "tooltip.gooberarsenal.bats": "A heavy-hitting blunt weapon. Has innate Knockback.",
   "tooltip.gooberarsenal.scythes": "A curved bladed weapon, pulling all enemies close together for the max amount of damage. Has innate 100% Sweeping Edge. Can also harvest and replant multiple crops upon breaking one crop.",
   "tooltip.gooberarsenal.polearms": "A blade with a pointed edge, allowing for more distance. Has +2 Block & Entity reach. Can also bring down any tree upon breaking one log.",
-
 
   "message.gooberarsenal.no_pvp_jacket": "You cannot attack players while wearing Steven's Jacket!",
   "message.gooberarsenal.pvp_protected": "Steven's Jacket Protects this Player!"
