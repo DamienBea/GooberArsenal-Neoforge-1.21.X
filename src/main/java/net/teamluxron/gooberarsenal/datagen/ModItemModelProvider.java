@@ -71,6 +71,8 @@ public class ModItemModelProvider extends ItemModelProvider {
             trimmedArmorItem(ModItems.CAGITE_LEGGINGS);
             trimmedArmorItem(ModItems.CAGITE_BOOTS);
 
+            trimmedArmorItem(ModItems.STEVENS_JACKET);
+
             //Weapons
 
             handheldItem(ModItems.FRYING_PAN);
@@ -84,13 +86,16 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.GOLDEN_BAT);
             handheldItem(ModItems.DIAMOND_BAT);
             handheldItem(ModItems.NETHERITE_BAT);
-            handheldItem(ModItems.OBSIDIAN_SWORD);
+            handheldBroadswordItem(ModItems.OBSIDIAN_SWORD);
             handheldScaledItem(ModItems.SPOON);
             handheldItem(ModItems.FESTIVE_AXE);
             handheldItem(ModItems.LIFE_SABER);
             handheldItem(ModItems.KENDO_STICK);
             handheldItem(ModItems.SLAPSTICK_SWORD);
             handheldItem(ModItems.SWITCH_BLADE);
+            handheldItem(ModItems.REBELS_KNIFE);
+            handheldItem(ModItems.POISONERS_SIDEARM);
+//            handheldItem(ModItems.IRON_RAPIER);
             handheldScaledItem(ModItems.RED_EYES_DREAM);
             handheldScaledItem(ModItems.LYNNS_DESOLATION);
             handheldScaledItem(ModItems.WOODEN_POLEARM);
@@ -181,6 +186,12 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder handheldScaledItem(DeferredItem<?> item) {
         return withExistingParent(item.getId().getPath(),
                 modLoc("item/templates/handheld_scaled"))
+                .texture("layer0", modLoc("item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder handheldBroadswordItem(DeferredItem<?> item) {
+        return withExistingParent(item.getId().getPath(),
+                modLoc("item/templates/handheld_broadsword"))
                 .texture("layer0", modLoc("item/" + item.getId().getPath()));
     }
 

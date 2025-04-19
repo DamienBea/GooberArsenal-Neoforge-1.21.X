@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "gooberarsenal:item/templates/handheld_broadsword",
   "textures": {
     "layer0": "gooberarsenal:item/obsidian_sword"
   }

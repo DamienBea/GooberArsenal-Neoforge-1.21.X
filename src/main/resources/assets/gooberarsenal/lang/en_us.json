@@ -54,6 +54,7 @@
   "item.gooberarsenal.golden_scythe": "Golden Scythe",
   "item.gooberarsenal.diamond_scythe": "Diamond Scythe",
   "item.gooberarsenal.netherite_scythe": "Netherite Scythe",
+  "item.gooberarsenal.stevens_jacket": "Steven's Jacket",
 
   "block.gooberarsenal.ancient_cagite": "Ancient Cagite",
   "block.gooberarsenal.cagite_block": "Block of Cagite",
@@ -69,5 +70,10 @@
 
   "tooltip.gooberarsenal.festive_axe": "Baby approved.",
   "tooltip.gooberarsenal.bee_bunny_basher": "Why does holding this give me depression?",
-  "tooltip.gooberarsenal.switch_blade": "You've MAMA'd your last Mia?"
+  "tooltip.gooberarsenal.switch_blade": "You've MAMA'd your last Mia?",
+  "tooltip.gooberarsenal.stevens_jacket": "A pacifists Dream",
+
+
+  "message.gooberarsenal.no_pvp_jacket": "You cannot attack players while wearing Steven's Jacket!",
+  "message.gooberarsenal.pvp_protected": "Steven's Jacket Protects this Player!"
 }

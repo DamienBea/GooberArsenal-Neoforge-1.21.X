@@ -49,11 +49,21 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.NETHERITE_POLEARM.get());
                         output.accept(ModItems.LYNNS_DESOLATION.get());
 
+                        //Daggers
+                        output.accept(ModItems.SWITCH_BLADE.get());
+                        output.accept(ModItems.REBELS_KNIFE.get());
+                        output.accept(ModItems.POISONERS_SIDEARM.get());
+
+                        //Rapiers
+//                        output.accept(ModItems.IRON_RAPIER.get());
+
                         //Armor
                         output.accept(ModItems.CAGITE_HELMET.get());
                         output.accept(ModItems.CAGITE_CHESTPLATE.get());
                         output.accept(ModItems.CAGITE_LEGGINGS.get());
                         output.accept(ModItems.CAGITE_BOOTS.get());
+
+                        output.accept(ModItems.STEVENS_JACKET.get());
 
 
                     }).build());
@@ -74,7 +84,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.FRYING_PAN.get());
                         output.accept(ModItems.STEEL_PIPE.get());
                         output.accept(ModItems.SPOON.get());
-                        output.accept(ModItems.SWITCH_BLADE.get());
 
                     }).build());
 

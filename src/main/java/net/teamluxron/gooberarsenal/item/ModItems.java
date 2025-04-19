@@ -1,5 +1,6 @@
 package net.teamluxron.gooberarsenal.item;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -19,9 +20,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.item.custom.PolearmItem;
-import net.teamluxron.gooberarsenal.item.custom.ScytheItem;
-import net.teamluxron.gooberarsenal.item.custom.ModArmorItem;
+import net.teamluxron.gooberarsenal.item.custom.*;
 import net.teamluxron.gooberarsenal.item.material.*;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
 
@@ -288,11 +287,77 @@ public class ModItems {
             {
 
                 @Override
+                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    if (!attacker.level().isClientSide()) {
+                        // Reduce i-frames to about half of normal
+                        if (target.invulnerableTime > 5) {
+                            target.invulnerableTime = 5;
+                        }
+                    }
+                    return super.hurtEnemy(stack, target, attacker);
+                }
+
+                @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.switch_blade"));
                     super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
                 }
             });
+
+    public static final DeferredItem<SwordItem> REBELS_KNIFE = ITEMS.register("rebels_knife",
+            () -> new SwordItem(Tiers.IRON, new Item.Properties()
+
+                    .fireResistant()
+                    .attributes(ShovelItem.createAttributes(Tiers.IRON, 3f, 2f)))
+            {
+                @Override
+                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    if (!attacker.level().isClientSide()) {
+                        if (target.invulnerableTime > 5) {
+                            target.invulnerableTime = 5;
+                        }
+                    }
+                    return super.hurtEnemy(stack, target, attacker);
+                }
+
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.switch_blade"));
+                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                }
+            });
+
+    public static final DeferredItem<SwordItem> POISONERS_SIDEARM = ITEMS.register("poisoners_sidearm",
+            () -> new SwordItem(Tiers.IRON, new Item.Properties()
+
+                    .fireResistant()
+                    .attributes(ShovelItem.createAttributes(Tiers.IRON, 3f, 2f)))
+            {
+
+                @Override
+                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    if (!attacker.level().isClientSide()) {
+                        if (target.invulnerableTime > 5) {
+                            target.invulnerableTime = 5;
+                        }
+                    }
+                    return super.hurtEnemy(stack, target, attacker);
+                }
+
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.switch_blade"));
+                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                }
+            });
+
+
+//    public static final DeferredItem<SwordItem> IRON_RAPIER = ITEMS.register("iron_rapier",
+//            () -> new RapierItem(Tiers.IRON, new Item.Properties()
+//                    .fireResistant()
+//                    .attributes(SwordItem.createAttributes(Tiers.IRON, 3f, -3f))) {
+//            });
+
 
     public static final DeferredItem<AxeItem> FESTIVE_AXE = ITEMS.register("festive_axe",
             () -> new AxeItem(Tiers.DIAMOND, new Item.Properties()
@@ -651,7 +716,7 @@ public class ModItems {
 
     //Armor
     public static final DeferredItem<ArmorItem> CAGITE_HELMET = ITEMS.register("cagite_helmet",
-            () -> new ModArmorItem(ModArmorMaterials.CAGITE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
+            () -> new CagiteArmorItem(ModArmorMaterials.CAGITE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(19))));
 
     public static final DeferredItem<ArmorItem> CAGITE_CHESTPLATE = ITEMS.register("cagite_chestplate",
@@ -667,6 +732,17 @@ public class ModItems {
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(19))));
 
 
+    public static final DeferredItem<ArmorItem> STEVENS_JACKET = ITEMS.register("stevens_jacket",
+            () -> new StevensJacketItem(ModArmorMaterials.STEVENS, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().fireResistant()
+            ) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+                    tooltip.add(Component.translatable("tooltip.gooberarsenal.stevens_jacket").withStyle(ChatFormatting.LIGHT_PURPLE));
+                    super.appendHoverText(stack, context, tooltip, flag);
+                }
+            }
+    );
 
 //    public static final DeferredItem<Item> ROSE_QUARTZ_SHIELD = ITEMS.register("rose_quartz_shield",
 //            () -> new RoseQuartzShield(new Item.Properties().durability(500).fireResistant()));

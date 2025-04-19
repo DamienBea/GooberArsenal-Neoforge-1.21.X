@@ -43,6 +43,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.KENDO_STICK.get())
                 .add(ModItems.CHAIR.get())
                 .add(ModItems.SWITCH_BLADE.get())
+                .add(ModItems.REBELS_KNIFE.get())
+                .add(ModItems.POISONERS_SIDEARM.get())
                 .add(ModItems.RED_EYES_DREAM.get())
                 .add(ModItems.WOODEN_SCYTHE.get())
                 .add(ModItems.STONE_SCYTHE.get())
@@ -52,6 +54,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.NETHERITE_SCYTHE.get())
                 .add(ModItems.LIFE_SABER.get())
                 .add(ModItems.SPOON.get());
+//                .add(ModItems.IRON_RAPIER.get());
 
         tag(ItemTags.AXES)
                 .add(ModItems.FESTIVE_AXE.get())
@@ -77,6 +80,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.LEG_ARMOR_ENCHANTABLE)
                 .add(ModItems.CAGITE_LEGGINGS.get());
+
+        tag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
+                .add(ModItems.STEVENS_JACKET.get());
 
     }
 }

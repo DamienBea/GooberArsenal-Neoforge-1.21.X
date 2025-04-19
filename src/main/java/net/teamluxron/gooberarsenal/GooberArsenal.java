@@ -1,10 +1,12 @@
 package net.teamluxron.gooberarsenal;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageType;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.item.ModCreativeModeTabs;
 import net.teamluxron.gooberarsenal.item.ModItems;
 import net.teamluxron.gooberarsenal.loot.ModLootModifiers;
+import net.teamluxron.gooberarsenal.registry.ModDamageTypes;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
 import org.slf4j.Logger;
 
@@ -37,6 +39,9 @@ public class GooberArsenal {
 
         NeoForge.EVENT_BUS.register(this);
 
+        ModDamageTypes.register(modEventBus);
+
+
         modEventBus.addListener(this::addCreative);
 
         ModCreativeModeTabs.register(modEventBus);
@@ -44,11 +49,13 @@ public class GooberArsenal {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         ModSounds.register(modEventBus);
 
         ModLootModifiers.register(modEventBus);
+
 
     }
 
@@ -59,7 +66,6 @@ public class GooberArsenal {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
     }
-
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {

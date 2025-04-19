@@ -15,14 +15,14 @@ import net.teamluxron.gooberarsenal.item.material.ModArmorMaterials;
 import java.util.List;
 import java.util.Map;
 
-public class ModArmorItem extends ArmorItem {
+public class CagiteArmorItem extends ArmorItem {
     private static final Map<Holder<ArmorMaterial>, List<MobEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<Holder<ArmorMaterial>, List<MobEffectInstance>>())
                     .put(ModArmorMaterials.CAGITE_ARMOR_MATERIAL,
                             List.of(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 0, false, false)))
                     .build();
 
-    public ModArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
+    public CagiteArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
         super(material, type, properties);
     }
 

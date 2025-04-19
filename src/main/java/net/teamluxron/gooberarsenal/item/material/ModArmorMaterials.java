@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.item.ModItems;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class ModArmorMaterials {
+
     public static final Holder<ArmorMaterial> CAGITE_ARMOR_MATERIAL = register("cagite", Util.make(new EnumMap<>(ArmorItem.Type.class),
             attribute -> {
                 attribute.put(ArmorItem.Type.BOOTS, 2);
@@ -27,6 +29,15 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.HELMET, 2);
                 attribute.put(ArmorItem.Type.BODY, 12);
             }), 15, 3f, 0f, () -> ModItems.CAGITE_INGOT.get());
+
+    public static final Holder<ArmorMaterial> STEVENS = register("stevens", Util.make(new EnumMap<>(ArmorItem.Type.class),
+            attribute -> {
+                attribute.put(ArmorItem.Type.BOOTS, 1);
+                attribute.put(ArmorItem.Type.LEGGINGS, 2);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 3);
+                attribute.put(ArmorItem.Type.HELMET, 1);
+                attribute.put(ArmorItem.Type.BODY, 15);
+            }), 10, 0f, 0f, () -> Items.LEATHER);
 
 
 
