@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:diamond"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "   ",
+    " A ",
+    "C  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:diamond_dagger"
+  }
+}

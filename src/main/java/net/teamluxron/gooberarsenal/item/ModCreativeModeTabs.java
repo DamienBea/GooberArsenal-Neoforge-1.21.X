@@ -50,7 +50,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.LYNNS_DESOLATION.get());
 
                         //Daggers
+                        output.accept(ModItems.WOODEN_DAGGER.get());
+                        output.accept(ModItems.STONE_DAGGER.get());
+                        output.accept(ModItems.IRON_DAGGER.get());
                         output.accept(ModItems.SWITCH_BLADE.get());
+                        output.accept(ModItems.GOLDEN_DAGGER.get());
+                        output.accept(ModItems.DIAMOND_DAGGER.get());
+                        output.accept(ModItems.NETHERITE_DAGGER.get());
                         output.accept(ModItems.REBELS_KNIFE.get());
                         output.accept(ModItems.POISONERS_SIDEARM.get());
 

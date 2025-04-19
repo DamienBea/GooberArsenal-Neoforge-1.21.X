@@ -54,6 +54,12 @@
   "item.gooberarsenal.golden_scythe": "Golden Scythe",
   "item.gooberarsenal.diamond_scythe": "Diamond Scythe",
   "item.gooberarsenal.netherite_scythe": "Netherite Scythe",
+  "item.gooberarsenal.wooden_dagger": "Wooden Dagger",
+  "item.gooberarsenal.stone_dagger": "Stone Dagger",
+  "item.gooberarsenal.iron_dagger": "Iron Dagger",
+  "item.gooberarsenal.golden_dagger": "Golden Dagger",
+  "item.gooberarsenal.diamond_dagger": "Diamond Dagger",
+  "item.gooberarsenal.netherite_dagger": "Netherite Dagger",
   "item.gooberarsenal.stevens_jacket": "Steven's Jacket",
 
   "block.gooberarsenal.ancient_cagite": "Ancient Cagite",
@@ -68,10 +74,12 @@
   "creativetab.gooberarsenal.goober_consumables": "Goober Arsenal Consumables",
   "creativetab.gooberarsenal.gooberarsenal_combat_special": "Goober Arsenal Special Combat",
 
-  "tooltip.gooberarsenal.festive_axe": "Baby approved.",
-  "tooltip.gooberarsenal.bee_bunny_basher": "Why does holding this give me depression?",
-  "tooltip.gooberarsenal.switch_blade": "You've MAMA'd your last Mia?",
   "tooltip.gooberarsenal.stevens_jacket": "A pacifists Dream",
+
+  "tooltip.gooberarsenal.daggers": "A small, fast-paced blade. Can ignore some Invulnerability frames.",
+  "tooltip.gooberarsenal.bats": "A heavy-hitting blunt weapon. Has innate Knockback.",
+  "tooltip.gooberarsenal.scythes": "A curved bladed weapon, pulling all enemies close together for the max amount of damage. Has innate 100% Sweeping Edge. Can also harvest and replant multiple crops upon breaking one crop.",
+  "tooltip.gooberarsenal.polearms": "A blade with a pointed edge, allowing for more distance. Has +2 Block & Entity reach. Can also bring down any tree upon breaking one log.",
 
 
   "message.gooberarsenal.no_pvp_jacket": "You cannot attack players while wearing Steven's Jacket!",

@@ -295,6 +295,52 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_DAGGER.get())
+                .pattern("   ")
+                .pattern(" A ")
+                .pattern("C  ")
+                .define('A', ItemTags.PLANKS)
+                .define('C', Items.STICK)
+                .unlockedBy("has_planks", has(ItemTags.PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_DAGGER.get())
+                .pattern("   ")
+                .pattern(" A ")
+                .pattern("C  ")
+                .define('A', Items.COBBLESTONE)
+                .define('C', Items.STICK)
+                .unlockedBy("has_cobblestone", has(Items.COBBLESTONE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_DAGGER.get())
+                .pattern("   ")
+                .pattern(" A ")
+                .pattern("C  ")
+                .define('A', Items.IRON_INGOT)
+                .define('C', Items.STICK)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_DAGGER.get())
+                .pattern("   ")
+                .pattern(" A ")
+                .pattern("C  ")
+                .define('A', Items.GOLD_INGOT)
+                .define('C', Items.STICK)
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_DAGGER.get())
+                .pattern("   ")
+                .pattern(" A ")
+                .pattern("C  ")
+                .define('A', Items.DIAMOND)
+                .define('C', Items.STICK)
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .save(recipeOutput);
+
+
         //Shapeless
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.KEVIN_BLOCK.get(), 1)
@@ -424,10 +470,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput, "slapstick_sword");
 
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
-                        Ingredient.of(Items.IRON_SWORD),
+                        Ingredient.of(ModItems.IRON_DAGGER.get()),
                         Ingredient.of(ModItems.SWITCH_CARTRIDGE.get()),
                         RecipeCategory.COMBAT, ModItems.SWITCH_BLADE.get())
-                .unlocks("has_rubber_chicken", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SWITCH_CARTRIDGE.get()))
+                .unlocks("has_switch_cart", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SWITCH_CARTRIDGE.get()))
                 .save(recipeOutput, "switch_blade");
 
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
@@ -457,6 +503,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         RecipeCategory.COMBAT, ModItems.LYNNS_DESOLATION.get())
                 .unlocks("has_obsidian_rose", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.OBSIDIAN_ROSE.get()))
                 .save(recipeOutput, "lynns_desolation_smithing");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(ModItems.DIAMOND_DAGGER.get()),
+                        Ingredient.of(Items.NETHERITE_INGOT),
+                        RecipeCategory.COMBAT, ModItems.NETHERITE_DAGGER.get())
+                .unlocks("has_diamond_dagger", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DIAMOND_DAGGER.get()))
+                .save(recipeOutput, "netherite_dagger_smithing");
 
     }
 

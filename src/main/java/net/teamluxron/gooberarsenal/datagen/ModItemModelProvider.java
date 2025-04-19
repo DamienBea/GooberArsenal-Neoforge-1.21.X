@@ -92,6 +92,12 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.LIFE_SABER);
             handheldItem(ModItems.KENDO_STICK);
             handheldItem(ModItems.SLAPSTICK_SWORD);
+            handheldItem(ModItems.WOODEN_DAGGER);
+            handheldItem(ModItems.STONE_DAGGER);
+            handheldItem(ModItems.IRON_DAGGER);
+            handheldItem(ModItems.GOLDEN_DAGGER);
+            handheldItem(ModItems.DIAMOND_DAGGER);
+            handheldItem(ModItems.NETHERITE_DAGGER);
             handheldItem(ModItems.SWITCH_BLADE);
             handheldItem(ModItems.REBELS_KNIFE);
             handheldItem(ModItems.POISONERS_SIDEARM);

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "   ",
+    " A ",
+    "C  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:golden_dagger"
+  }
+}

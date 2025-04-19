@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_switch_cart": {
+    "has_diamond": {
       "conditions": {
         "items": [
           {
-            "items": "gooberarsenal:switch_cartridge"
+            "items": "minecraft:diamond"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:switch_blade"
+        "recipe": "gooberarsenal:diamond_dagger"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_switch_cart"
+      "has_diamond"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:switch_blade"
+      "gooberarsenal:diamond_dagger"
     ]
   }
 }

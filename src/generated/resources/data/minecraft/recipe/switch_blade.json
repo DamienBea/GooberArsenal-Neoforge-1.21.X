@@ -4,7 +4,7 @@
     "item": "gooberarsenal:switch_cartridge"
   },
   "base": {
-    "item": "minecraft:iron_sword"
+    "item": "gooberarsenal:iron_dagger"
   },
   "result": {
     "count": 1,

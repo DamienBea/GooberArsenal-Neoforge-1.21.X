@@ -53,6 +53,12 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.DIAMOND_SCYTHE.get())
                 .add(ModItems.NETHERITE_SCYTHE.get())
                 .add(ModItems.LIFE_SABER.get())
+                .add(ModItems.WOODEN_DAGGER.get())
+                .add(ModItems.STONE_DAGGER.get())
+                .add(ModItems.IRON_DAGGER.get())
+                .add(ModItems.GOLDEN_DAGGER.get())
+                .add(ModItems.DIAMOND_DAGGER.get())
+                .add(ModItems.NETHERITE_DAGGER.get())
                 .add(ModItems.SPOON.get());
 //                .add(ModItems.IRON_RAPIER.get());
 
