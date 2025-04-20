@@ -56,7 +56,6 @@ public class GooberArsenal {
 
         ModLootModifiers.register(modEventBus);
 
-        ModEnchantmentEffects.ENCHANTMENT_EFFECTS.register(modEventBus);
         ModEnchantments.ENCHANTMENTS.register(modEventBus);
 
 
