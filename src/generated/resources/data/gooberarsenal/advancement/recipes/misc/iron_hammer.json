@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_netherite_bat": {
+    "has_iron": {
       "conditions": {
         "items": [
           {
-            "items": "gooberarsenal:netherite_bat"
+            "items": "minecraft:iron_ingot"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:bbb_from_hive"
+        "recipe": "gooberarsenal:iron_hammer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_netherite_bat"
+      "has_iron"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:bbb_from_hive"
+      "gooberarsenal:iron_hammer"
     ]
   }
 }

@@ -999,6 +999,45 @@ public class ModItems {
             });
 
 
+    //Hammers
+
+
+    public static final DeferredItem<HammerItem> WOODEN_HAMMER = ITEMS.register("wooden_hammer",
+            () -> new HammerItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.WOOD, 3F, -3.5f))));
+
+
+    public static final DeferredItem<HammerItem> STONE_HAMMER = ITEMS.register("stone_hammer",
+            () -> new HammerItem(Tiers.STONE, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.STONE, 3F, -3.5f))));
+
+
+    public static final DeferredItem<HammerItem> IRON_HAMMER = ITEMS.register("iron_hammer",
+            () -> new HammerItem(Tiers.IRON, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.IRON, 3F, -3.5f))));
+
+
+    public static final DeferredItem<HammerItem> GOLDEN_HAMMER = ITEMS.register("golden_hammer",
+            () -> new HammerItem(Tiers.GOLD, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.GOLD, 3F, -3.5f))));
+
+
+    public static final DeferredItem<HammerItem> DIAMOND_HAMMER = ITEMS.register("diamond_hammer",
+            () -> new HammerItem(Tiers.DIAMOND, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 3F, -3.5f))));
+
+
+    public static final DeferredItem<HammerItem> NETHERITE_HAMMER = ITEMS.register("netherite_hammer",
+            () -> new HammerItem(Tiers.NETHERITE, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 3F, -3.5f))));
+
+    public static final DeferredItem<HammerItem> MOSSY_MASHER = ITEMS.register("mossy_masher",
+            () -> new HammerItem(MossMaterial.INSTANCE, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(MossMaterial.INSTANCE, 3F, -3.5f))));
+
+
+
+
     //Armor
     public static final DeferredItem<ArmorItem> CAGITE_HELMET = ITEMS.register("cagite_helmet",
             () -> new CagiteArmorItem(ModArmorMaterials.CAGITE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,

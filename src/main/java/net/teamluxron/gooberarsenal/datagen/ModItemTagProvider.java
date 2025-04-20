@@ -60,8 +60,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.GOLDEN_DAGGER.get())
                 .add(ModItems.DIAMOND_DAGGER.get())
                 .add(ModItems.NETHERITE_DAGGER.get())
-                .add(ModItems.SPOON.get());
-//                .add(ModItems.IRON_RAPIER.get());
+                .add(ModItems.SPOON.get())
+//                .add(ModItems.IRON_RAPIER.get())
+        ;
 
         tag(ItemTags.AXES)
                 .add(ModItems.FESTIVE_AXE.get())
@@ -71,25 +72,53 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.GOLDEN_POLEARM.get())
                 .add(ModItems.DIAMOND_POLEARM.get())
                 .add(ModItems.NETHERITE_POLEARM.get())
-                .add(ModItems.WOODEN_POLEARM.get());
+                .add(ModItems.WOODEN_POLEARM.get())
+        ;
+
+        tag(ItemTags.PICKAXES)
+                .add(ModItems.WOODEN_HAMMER.get())
+                .add(ModItems.STONE_HAMMER.get())
+                .add(ModItems.IRON_HAMMER.get())
+                .add(ModItems.GOLDEN_HAMMER.get())
+                .add(ModItems.DIAMOND_HAMMER.get())
+                .add(ModItems.NETHERITE_HAMMER.get())
+                .add(ModItems.MOSSY_MASHER.get())
+        ;
+
+        tag(ItemTags.HOES)
+                .add(ModItems.RED_EYES_DREAM.get())
+                .add(ModItems.WOODEN_SCYTHE.get())
+                .add(ModItems.STONE_SCYTHE.get())
+                .add(ModItems.IRON_SCYTHE.get())
+                .add(ModItems.GOLDEN_SCYTHE.get())
+                .add(ModItems.DIAMOND_SCYTHE.get())
+                .add(ModItems.NETHERITE_SCYTHE.get())
+                ;
 
         tag(ItemTags.SHOVELS)
-                .add(ModItems.SPOON.get());
+                .add(ModItems.SPOON.get())
+        ;
 
         tag(ItemTags.FOOT_ARMOR_ENCHANTABLE)
-                .add(ModItems.CAGITE_BOOTS.get());
+                .add(ModItems.CAGITE_BOOTS.get())
+        ;
 
         tag(ItemTags.HEAD_ARMOR_ENCHANTABLE)
-                .add(ModItems.CAGITE_HELMET.get());
+                .add(ModItems.CAGITE_HELMET.get())
+        ;
 
         tag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
-                .add(ModItems.CAGITE_CHESTPLATE.get());
+                .add(ModItems.CAGITE_CHESTPLATE.get())
+                .add(ModItems.STEVENS_JACKET.get())
+        ;
 
         tag(ItemTags.LEG_ARMOR_ENCHANTABLE)
-                .add(ModItems.CAGITE_LEGGINGS.get());
+                .add(ModItems.CAGITE_LEGGINGS.get())
+        ;
 
         tag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
-                .add(ModItems.STEVENS_JACKET.get());
+                .add(ModItems.STEVENS_JACKET.get())
+        ;
 
     }
 }

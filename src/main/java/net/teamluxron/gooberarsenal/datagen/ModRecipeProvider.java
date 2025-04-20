@@ -38,6 +38,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         ModBlocks.ANCIENT_CAGITE
                 );
 
+        Ingredient mossIngredient = Ingredient.of(
+                Items.MOSS_BLOCK,
+                Items.FLOWERING_AZALEA,
+                Items.AZALEA
+        );
+
+        Ingredient beeBunnyIngredient = Ingredient.of(
+                Items.BEEHIVE,
+                Items.BEE_NEST,
+                Items.RABBIT_FOOT
+        );
+
 
     //Shaped Recipes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_PLATE.get(), 3)
@@ -340,6 +352,55 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_HAMMER.get())
+                .pattern("WWW")
+                .pattern("WSW")
+                .pattern(" S ")
+                .define('W', ItemTags.PLANKS)
+                .define('S', Items.STICK)
+                .unlockedBy("has_wood", has(ItemTags.PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_HAMMER.get())
+                .pattern("WWW")
+                .pattern("WSW")
+                .pattern(" S ")
+                .define('W', Items.COBBLESTONE)
+                .define('S', Items.STICK)
+                .unlockedBy("has_cobble", has(Items.COBBLESTONE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_HAMMER.get())
+                .pattern("WWW")
+                .pattern("WSW")
+                .pattern(" S ")
+                .define('W', Items.IRON_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_HAMMER.get())
+                .pattern("WWW")
+                .pattern("WSW")
+                .pattern(" S ")
+                .define('W', Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy("has_gold", has(Items.GOLD_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_HAMMER.get())
+                .pattern("WWW")
+                .pattern("WSW")
+                .pattern(" S ")
+                .define('W', Items.DIAMOND)
+                .define('S', Items.STICK)
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .save(recipeOutput);
+
+
+
+
+
 
         //Shapeless
 
@@ -384,12 +445,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
 
+
+
+
         //Smelting
         oreSmelting(recipeOutput, PLASTIC_SMELTABLES, RecipeCategory.MISC, ModItems.PLASTIC.get(), 0.25f, 200, "plastic");
         oreSmelting(recipeOutput, CAGITE_SMELTING, RecipeCategory.MISC, ModItems.CAGITE_SCRAP.get(), 0.25f, 200, "cagite_scrap_smelting");
         oreBlasting(recipeOutput, CAGITE_SMELTING, RecipeCategory.MISC, ModItems.CAGITE_SCRAP.get(), 0.25f, 200, "cagite_scrap_blasting");
         oreSmelting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 200, "kevin_smelting");
         oreBlasting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 100, "kevin_blasting");
+
+
+
 
         //Smithing
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
@@ -420,26 +487,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlocks("has_cagite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CAGITE_INGOT.get()))
                 .save(recipeOutput, "cagite_boots");
 
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
-                        Ingredient.of(ModItems.NETHERITE_BAT.get()),
-                        Ingredient.of(Items.BEEHIVE),
-                        RecipeCategory.COMBAT, ModItems.BEE_BUNNY_BASHER.get())
+        SmithingTransformRecipeBuilder.smithing(
+                Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                Ingredient.of(ModItems.NETHERITE_BAT.get()),
+                beeBunnyIngredient,
+                RecipeCategory.COMBAT,
+                ModItems.BEE_BUNNY_BASHER.get())
                 .unlocks("has_netherite_bat", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NETHERITE_BAT.get()))
-                .save(recipeOutput, "bbb_from_hive");
-
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
-                        Ingredient.of(ModItems.NETHERITE_BAT.get()),
-                        Ingredient.of(Items.BEE_NEST),
-                        RecipeCategory.COMBAT, ModItems.BEE_BUNNY_BASHER.get())
-                .unlocks("has_netherite_bat", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NETHERITE_BAT.get()))
-                .save(recipeOutput, "bbb_from_nest");
-
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
-                        Ingredient.of(ModItems.NETHERITE_BAT.get()),
-                        Ingredient.of(Items.RABBIT_FOOT),
-                        RecipeCategory.COMBAT, ModItems.BEE_BUNNY_BASHER.get())
-                .unlocks("has_netherite_bat", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NETHERITE_BAT.get()))
-                .save(recipeOutput, "bbb_from_foot");
+                .save(recipeOutput, "bee_bunny_basher");
 
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
                         Ingredient.of(ModItems.OBSIDIAN_HILT.get()),
@@ -517,6 +572,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         RecipeCategory.COMBAT, ModItems.NETHERITE_DAGGER.get())
                 .unlocks("has_diamond_dagger", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DIAMOND_DAGGER.get()))
                 .save(recipeOutput, "netherite_dagger_smithing");
+
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(ModItems.DIAMOND_HAMMER.get()),
+                        Ingredient.of(Items.NETHERITE_INGOT),
+                        RecipeCategory.COMBAT, ModItems.NETHERITE_HAMMER.get())
+                .unlocks("has_diamond_hammer", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DIAMOND_HAMMER.get()))
+                .save(recipeOutput, "netherite_hammer");
+
+        SmithingTransformRecipeBuilder.smithing(
+                Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE),
+                Ingredient.of(ModItems.NETHERITE_HAMMER.get()),
+                mossIngredient,
+                RecipeCategory.COMBAT,
+                ModItems.MOSSY_MASHER.get())
+                .unlocks("has_netherite_hammer",
+                        InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NETHERITE_HAMMER.get()))
+                .save(recipeOutput, "mossy_masher");
 
     }
 

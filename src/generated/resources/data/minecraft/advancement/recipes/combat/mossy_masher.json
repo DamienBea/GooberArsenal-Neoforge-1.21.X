@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_netherite_bat": {
+    "has_netherite_hammer": {
       "conditions": {
         "items": [
           {
-            "items": "gooberarsenal:netherite_bat"
+            "items": "gooberarsenal:netherite_hammer"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:bbb_from_foot"
+        "recipe": "minecraft:mossy_masher"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_netherite_bat"
+      "has_netherite_hammer"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:bbb_from_foot"
+      "minecraft:mossy_masher"
     ]
   }
 }

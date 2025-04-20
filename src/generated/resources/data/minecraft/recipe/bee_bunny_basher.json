@@ -1,8 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "minecraft:beehive"
-  },
+  "addition": [
+    {
+      "item": "minecraft:beehive"
+    },
+    {
+      "item": "minecraft:bee_nest"
+    },
+    {
+      "item": "minecraft:rabbit_foot"
+    }
+  ],
   "base": {
     "item": "gooberarsenal:netherite_bat"
   },

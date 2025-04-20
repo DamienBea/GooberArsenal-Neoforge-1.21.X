@@ -64,6 +64,15 @@ public class ModCreativeModeTabs {
                         //Rapiers
 //                        output.accept(ModItems.IRON_RAPIER.get());
 
+                        //Hammers
+                        output.accept(ModItems.WOODEN_HAMMER.get());
+                        output.accept(ModItems.STONE_HAMMER.get());
+                        output.accept(ModItems.IRON_HAMMER.get());
+                        output.accept(ModItems.GOLDEN_HAMMER.get());
+                        output.accept(ModItems.DIAMOND_HAMMER.get());
+                        output.accept(ModItems.NETHERITE_HAMMER.get());
+                        output.accept(ModItems.MOSSY_MASHER.get());
+
                         //Armor
                         output.accept(ModItems.CAGITE_HELMET.get());
                         output.accept(ModItems.CAGITE_CHESTPLATE.get());

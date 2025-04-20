@@ -120,6 +120,13 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldScaledItem(ModItems.GOLDEN_SCYTHE);
             handheldScaledItem(ModItems.DIAMOND_SCYTHE);
             handheldScaledItem(ModItems.NETHERITE_SCYTHE);
+            handheldScaledItem(ModItems.WOODEN_HAMMER);
+            handheldScaledItem(ModItems.STONE_HAMMER);
+            handheldScaledItem(ModItems.IRON_HAMMER);
+            handheldScaledItem(ModItems.GOLDEN_HAMMER);
+            handheldScaledItem(ModItems.DIAMOND_HAMMER);
+            handheldScaledItem(ModItems.NETHERITE_HAMMER);
+            handheldScaledItem(ModItems.MOSSY_MASHER);
 
         }
 

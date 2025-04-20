@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "WSW",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:iron_hammer"
+  }
+}

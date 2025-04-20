@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": [
+    {
+      "item": "minecraft:moss_block"
+    },
+    {
+      "item": "minecraft:flowering_azalea"
+    },
+    {
+      "item": "minecraft:azalea"
+    },
+    {
+      "item": "minecraft:azalea_leaves"
+    },
+    {
+      "item": "minecraft:flowering_azalea_leaves"
+    }
+  ],
+  "base": {
+    "item": "gooberarsenal:netherite_hammer"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:mossy_masher"
+  },
+  "template": {
+    "item": "gooberarsenal:goober_upgrade_template"
+  }
+}
