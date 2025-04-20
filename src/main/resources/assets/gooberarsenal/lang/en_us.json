@@ -87,6 +87,6 @@
   "message.gooberarsenal.no_pvp_jacket": "You cannot attack players while wearing Steven's Jacket!",
   "message.gooberarsenal.pvp_protected": "Steven's Jacket Protects this Player!",
 
-  "enchantment.yourmodid.tunnelborn": "Tunnelborn",
-  "enchantment.yourmodid.tunnelborn.desc": "Increases mining speed and efficiency when underground."
+  "enchantment.gooberarsenal.tunnelborn": "Tunnelborn",
+  "enchantment.gooberarsenal.tunnelborn.desc": "Increases mining range."
 }

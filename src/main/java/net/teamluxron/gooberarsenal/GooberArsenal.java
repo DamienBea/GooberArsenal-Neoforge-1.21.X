@@ -2,7 +2,7 @@ package net.teamluxron.gooberarsenal;
 
 import net.minecraft.resources.ResourceLocation;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
-import net.teamluxron.gooberarsenal.enchantment.ModEnchantments;
+import net.teamluxron.gooberarsenal.enchantment.ModEnchantmentEffects;
 import net.teamluxron.gooberarsenal.item.ModCreativeModeTabs;
 import net.teamluxron.gooberarsenal.item.ModItems;
 import net.teamluxron.gooberarsenal.loot.ModLootModifiers;
@@ -56,7 +56,7 @@ public class GooberArsenal {
 
         ModLootModifiers.register(modEventBus);
 
-        ModEnchantments.ENCHANTMENTS.register(modEventBus);
+        ModEnchantmentEffects.register(modEventBus);
 
 
     }

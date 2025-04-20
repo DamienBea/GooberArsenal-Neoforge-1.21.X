@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.item.ModItems;
+import net.teamluxron.gooberarsenal.util.ModTags;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -85,6 +86,16 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.MOSSY_MASHER.get())
         ;
 
+        tag(ModTags.Items.HAMMER_ENCHANTABLE)
+                .add(ModItems.WOODEN_HAMMER.get())
+                .add(ModItems.STONE_HAMMER.get())
+                .add(ModItems.IRON_HAMMER.get())
+                .add(ModItems.GOLDEN_HAMMER.get())
+                .add(ModItems.DIAMOND_HAMMER.get())
+                .add(ModItems.NETHERITE_HAMMER.get())
+                .add(ModItems.MOSSY_MASHER.get())
+        ;
+
         tag(ItemTags.HOES)
                 .add(ModItems.RED_EYES_DREAM.get())
                 .add(ModItems.WOODEN_SCYTHE.get())
@@ -119,6 +130,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
                 .add(ModItems.STEVENS_JACKET.get())
         ;
+
+
 
     }
 }

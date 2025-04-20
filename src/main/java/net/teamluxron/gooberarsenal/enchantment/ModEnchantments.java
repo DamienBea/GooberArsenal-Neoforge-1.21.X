@@ -1,55 +1,42 @@
 package net.teamluxron.gooberarsenal.enchantment;
 
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import net.teamluxron.gooberarsenal.item.custom.HammerItem;
+import net.teamluxron.gooberarsenal.GooberArsenal;
+import net.teamluxron.gooberarsenal.util.ModTags;
 
-import java.util.Optional;
 
 public class ModEnchantments {
-    public static final DeferredRegister<Enchantment> ENCHANTMENTS =
-            DeferredRegister.create(Registries.ENCHANTMENT, "gooberarsenal");
+    public static final ResourceKey<Enchantment> TUNNELBORN = ResourceKey.create(Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "tunnelborn"));
 
-    public static final DeferredHolder<Enchantment, Enchantment> TUNNELBORN =
-            ENCHANTMENTS.register("tunnelborn", () ->
-                    new Enchantment(
-                            new Enchantment.EnchantmentDefinition(
-                                    item -> item instanceof PickaxeItem || item instanceof HammerItem,
-                                    EquipmentSlot.MAINHAND
-                            ),
-                            new Enchantment.EnchantmentEffectInstance<>(
-                                    new TunnelbornEnchantment(),
-                                    1, // min level
-                                    1  // max level
-                            )
-                    ) {
-                        @Override
-                        public int getMinCost(int level) {
-                            return 1 + level * 10;
-                        }
+    public static void bootstrap(BootstrapContext<Enchantment> context) {
+        var enchantments = context.lookup(Registries.ENCHANTMENT);
+        var items = context.lookup(Registries.ITEM);
 
-                        @Override
-                        public int getMaxCost(int level) {
-                            return this.getMinCost(level) + 5;
-                        }
+        register(context, TUNNELBORN, Enchantment.enchantment(Enchantment.definition(
+                items.getOrThrow(ModTags.Items.HAMMER_ENCHANTABLE),
+                1,
+                1,
+                Enchantment.dynamicCost(5 ,7),
+                Enchantment.dynamicCost(25, 7),
+                2,
+                EquipmentSlotGroup.MAINHAND
+        ))
 
-                        @Override
-                        public int getMaxLevel() {
-                            return 1;
-                        }
-                    }
-            );
+//                        .withEffect(EnchantmentEffectComponents.HIT_BLOCK, EnchantmentTarget.ATTACKER,
+//                                EnchantmentTarget.VICTIM, new TunnelbornEnchantment())
 
-    public static Optional<Holder<Enchantment>> getTunnelbornHolder(Level level) {
-        return level.registryAccess()
-                .registry(Registries.ENCHANTMENT)
-                .flatMap(registry -> registry.getHolder(TUNNELBORN.getKey()));
+        );
+    }
+    private static void register(BootstrapContext<Enchantment> registry, ResourceKey<Enchantment> key,
+                                 Enchantment.Builder builder) {
+        registry.register(key, builder.build(key.location()));
     }
 }
 

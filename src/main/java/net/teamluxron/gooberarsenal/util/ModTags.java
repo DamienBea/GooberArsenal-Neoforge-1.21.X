@@ -19,7 +19,7 @@ public class ModTags {
     }
 
     public static class Items {
-        public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
+        public static final TagKey<Item> HAMMER_ENCHANTABLE = createTag("enchantable/hammer");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, name));

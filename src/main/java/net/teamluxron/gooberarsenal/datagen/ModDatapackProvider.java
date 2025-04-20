@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.teamluxron.gooberarsenal.GooberArsenal;
+import net.teamluxron.gooberarsenal.enchantment.ModEnchantments;
 import net.teamluxron.gooberarsenal.worldgen.ModBiomeModifiers;
 import net.teamluxron.gooberarsenal.worldgen.ModConfiguredFeatures;
 import net.teamluxron.gooberarsenal.worldgen.ModPlacedFeatures;
@@ -19,7 +20,9 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
 
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
-            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap);
+            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
+            .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap);
+
 
     public ModDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(GooberArsenal.MOD_ID));

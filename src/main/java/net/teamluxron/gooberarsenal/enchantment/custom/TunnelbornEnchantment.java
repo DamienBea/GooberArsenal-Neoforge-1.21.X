@@ -1,47 +1,47 @@
-package net.teamluxron.gooberarsenal.enchantment;
+package net.teamluxron.gooberarsenal.enchantment.custom;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantedItemInUse;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
 import net.minecraft.world.phys.Vec3;
 import net.teamluxron.gooberarsenal.item.custom.HammerItem;
 
 
-public class TunnelbornEnchantment implements EnchantmentEntityEffect {
-    public static final Codec<TunnelbornEnchantment> CODEC = Codec.unit(new TunnelbornEnchantment());
+public record TunnelbornEnchantment() implements EnchantmentEntityEffect {
+    public static final MapCodec<TunnelbornEnchantment> CODEC = MapCodec.unit(TunnelbornEnchantment::new);
 
     @Override
     public void apply(ServerLevel level, int enchantLevel, EnchantedItemInUse enchantedItem, Entity entity, Vec3 pos) {
         if (!(entity instanceof ServerPlayer player)) return;
-
         ItemStack stack = enchantedItem.itemStack();
 
-        if (!(stack.getItem() instanceof PickaxeItem || stack.getItem() instanceof HammerItem)) return;
+        // ONLY work with hammers
+        if (!(stack.getItem() instanceof HammerItem)) return;
 
-        int radius = (stack.getItem() instanceof HammerItem) ? 2 : 1;
-
+        // Hammer gets 5x5 when enchanted (radius 2)
+        int radius = 2;
         mineBlocksInRadius(level, player, BlockPos.containing(pos), radius);
     }
 
     private void mineBlocksInRadius(ServerLevel level, ServerPlayer player, BlockPos center, int radius) {
-        for (BlockPos pos : BlockPos.betweenClosed(
-                center.offset(-radius, -radius, -radius),
-                center.offset(radius, radius, radius))) {
-
-            if (!pos.equals(center) && player.getMainHandItem().isCorrectToolForDrops(level.getBlockState(pos))) {
-                level.destroyBlock(pos, true, player);
-            }
-        }
+        // Only mine one layer (same y-level)
+        BlockPos.betweenClosedStream(
+                        center.offset(-radius, 0, -radius),
+                        center.offset(radius, 0, radius))
+                .forEach(pos -> {
+                    if (!pos.equals(center) && player.getMainHandItem().isCorrectToolForDrops(level.getBlockState(pos))) {
+                        level.destroyBlock(pos, true, player);
+                    }
+                });
     }
 
     @Override
     public MapCodec<? extends EnchantmentEntityEffect> codec() {
-        return (MapCodec<? extends EnchantmentEntityEffect>) CODEC;
+        return CODEC;
     }
 }
