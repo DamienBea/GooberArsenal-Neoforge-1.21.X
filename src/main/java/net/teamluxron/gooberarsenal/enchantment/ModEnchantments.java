@@ -19,14 +19,10 @@ public class ModEnchantments {
     public static final DeferredHolder<Enchantment, Enchantment> TUNNELBORN =
             ENCHANTMENTS.register("tunnelborn", () ->
                     new Enchantment(
-                            // Rarity
-                            Enchantment.Rarity.RARE,
-                            // Category (custom predicate)
                             new Enchantment.EnchantmentDefinition(
                                     item -> item instanceof PickaxeItem || item instanceof HammerItem,
                                     EquipmentSlot.MAINHAND
                             ),
-                            // Effect
                             new Enchantment.EnchantmentEffectInstance<>(
                                     new TunnelbornEnchantment(),
                                     1, // min level
