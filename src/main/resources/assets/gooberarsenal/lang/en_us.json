@@ -85,5 +85,8 @@
   "tooltip.gooberarsenal.polearms": "A blade with a pointed edge, allowing for more distance. Has +2 Block & Entity reach. Can also bring down any tree upon breaking one log.",
 
   "message.gooberarsenal.no_pvp_jacket": "You cannot attack players while wearing Steven's Jacket!",
-  "message.gooberarsenal.pvp_protected": "Steven's Jacket Protects this Player!"
+  "message.gooberarsenal.pvp_protected": "Steven's Jacket Protects this Player!",
+
+  "enchantment.yourmodid.tunnelborn": "Tunnelborn",
+  "enchantment.yourmodid.tunnelborn.desc": "Increases mining speed and efficiency when underground."
 }
