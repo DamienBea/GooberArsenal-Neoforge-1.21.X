@@ -1,10 +1,15 @@
 package net.teamluxron.gooberarsenal.datagen;
 
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
@@ -12,6 +17,8 @@ import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.item.ModItems;
+import net.teamluxron.gooberarsenal.recipe.ForgingRecipe;
+import net.teamluxron.gooberarsenal.util.ModTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -591,6 +598,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NETHERITE_HAMMER.get()))
                 .save(recipeOutput, "mossy_masher");
 
+        //Forging
+
+        registerForgingRecipe(recipeOutput, Items.IRON_INGOT, ModItems.IRON_PLATE.get(), 1);
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
@@ -611,5 +621,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
                     .save(recipeOutput, GooberArsenal.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
+    }
+    private void registerForgingRecipe(RecipeOutput output, ItemLike input, ItemLike result, int count) {
+        output.accept(
+                ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID,
+                        "forging/" + BuiltInRegistries.ITEM.getKey(result.asItem()).getPath()),
+                new ForgingRecipe(
+                        Ingredient.of(input),  // Input item
+                        new ItemStack(result, count)  // Output stack
+                ),
+                null  // No advancement
+        );
     }
 }

@@ -86,6 +86,16 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.MOSSY_MASHER.get())
         ;
 
+        tag(ModTags.Items.HAMMERS)
+                .add(ModItems.WOODEN_HAMMER.get())
+                .add(ModItems.STONE_HAMMER.get())
+                .add(ModItems.IRON_HAMMER.get())
+                .add(ModItems.GOLDEN_HAMMER.get())
+                .add(ModItems.DIAMOND_HAMMER.get())
+                .add(ModItems.NETHERITE_HAMMER.get())
+                .add(ModItems.MOSSY_MASHER.get())
+        ;
+
         tag(ModTags.Items.HAMMER_ENCHANTABLE)
                 .add(ModItems.WOODEN_HAMMER.get())
                 .add(ModItems.STONE_HAMMER.get())

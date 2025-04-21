@@ -1,11 +1,19 @@
 package net.teamluxron.gooberarsenal;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
+import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.enchantment.ModEnchantmentEffects;
 import net.teamluxron.gooberarsenal.item.ModCreativeModeTabs;
 import net.teamluxron.gooberarsenal.item.ModItems;
 import net.teamluxron.gooberarsenal.loot.ModLootModifiers;
+import net.teamluxron.gooberarsenal.recipe.ForgingRecipe;
+import net.teamluxron.gooberarsenal.recipe.ModRecipes;
 import net.teamluxron.gooberarsenal.registry.ModDamageTypes;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
 import org.slf4j.Logger;
@@ -59,6 +67,9 @@ public class GooberArsenal {
         ModEnchantmentEffects.register(modEventBus);
 
 
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModRecipeTypes.RECIPE_TYPES.register(modEventBus);
+        ModRecipes.TYPES.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -82,4 +93,25 @@ public class GooberArsenal {
 
         }
     }
+
+    public class ModRecipeTypes {
+        public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES =
+                DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, GooberArsenal.MOD_ID);
+
+        public static final DeferredHolder<RecipeType<?>, RecipeType<ForgingRecipe>> FORGING =
+                RECIPE_TYPES.register("forging", () -> new RecipeType<>() {
+                    @Override
+                    public String toString() {
+                        return GooberArsenal.MOD_ID + ":forging";
+                    }
+                });
+    }
+
+//    public class ModRecipeSerializers {
+//        public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS =
+//                DeferredRegister.create(BuiltInRegistries.RECIPE_SERIALIZER, GooberArsenal.MOD_ID);
+//
+//        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ForgingRecipe>> FORGING_SERIALIZER =
+//                RECIPE_SERIALIZERS.register("forging", ForgingRecipeSerializer::new);
+//    }
 }

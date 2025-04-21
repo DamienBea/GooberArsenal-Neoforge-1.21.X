@@ -1,16 +1,15 @@
 package net.teamluxron.gooberarsenal.blocks;
 
-import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
+import net.teamluxron.gooberarsenal.blocks.custom.ForgingAnvilBlock;
 import net.teamluxron.gooberarsenal.item.ModItems;
 
 import java.util.function.Supplier;
@@ -52,6 +51,14 @@ public class ModBlocks {
                     .strength(4f)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.NETHERITE_BLOCK)
+            ));
+
+    public static final DeferredBlock<Block> FORGING_ANVIL = BLOCKS.register("forging_anvil",
+            () -> new ForgingAnvilBlock(BlockBehaviour.Properties.of()
+                    .strength(5.0f, 1200.0f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.ANVIL)
+                    .noOcclusion()
             ));
 
 

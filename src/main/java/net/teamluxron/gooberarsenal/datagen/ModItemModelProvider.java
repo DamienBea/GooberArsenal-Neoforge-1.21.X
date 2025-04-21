@@ -15,6 +15,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.teamluxron.gooberarsenal.GooberArsenal;
+import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.item.ModItems;
 
 import java.util.LinkedHashMap;
@@ -127,6 +128,11 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldScaledItem(ModItems.DIAMOND_HAMMER);
             handheldScaledItem(ModItems.NETHERITE_HAMMER);
             handheldScaledItem(ModItems.MOSSY_MASHER);
+
+            //Custom blocks
+            withExistingParent(ModBlocks.FORGING_ANVIL.getId().getPath(),
+                    modLoc("block/forging_anvil"));
+
 
         }
 
