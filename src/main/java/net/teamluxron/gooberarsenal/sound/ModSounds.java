@@ -18,6 +18,10 @@ public class ModSounds {
 
     public static final Supplier<SoundEvent> RUBBER_CHICKEN = registerSoundEvent("rubber_chicken");
 
+    public static final Supplier<SoundEvent> RADIO = registerSoundEvent("radio");
+    public static final Supplier<SoundEvent> BROKEN_RADIO = registerSoundEvent("broken_radio");
+    public static final Supplier<SoundEvent> BUTTON = registerSoundEvent("button");
+
 
     private static Supplier<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, name);

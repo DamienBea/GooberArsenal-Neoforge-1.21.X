@@ -17,6 +17,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("forging_anvil_be", () -> BlockEntityType.Builder.of(
                     ForgingAnvilBlockEntity::new, ModBlocks.FORGING_ANVIL.get()).build(null));
 
+    public static final Supplier<BlockEntityType<ForgingAnvilBlockEntity>> RADIO_BE =
+            BLOCK_ENTITIES.register("radio_be", () -> BlockEntityType.Builder.of(
+                    ForgingAnvilBlockEntity::new, ModBlocks.RADIO.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

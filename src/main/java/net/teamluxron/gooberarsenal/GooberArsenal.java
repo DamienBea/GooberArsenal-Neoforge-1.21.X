@@ -1,18 +1,22 @@
 package net.teamluxron.gooberarsenal;
 
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
-import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.common.NeoForge;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
-import net.teamluxron.gooberarsenal.blocks.entity.ForgingAnvilBlockEntity;
+import net.teamluxron.gooberarsenal.blocks.entity.AbstractTickingBlockEntity;
 import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
+import net.teamluxron.gooberarsenal.blocks.entity.RadioBlockEntity;
 import net.teamluxron.gooberarsenal.blocks.entity.renderer.ForgingAnvilRenderer;
 import net.teamluxron.gooberarsenal.enchantment.ModEnchantmentEffects;
 import net.teamluxron.gooberarsenal.item.ModCreativeModeTabs;
@@ -23,6 +27,7 @@ import net.teamluxron.gooberarsenal.recipe.ModRecipeSerializers;
 import net.teamluxron.gooberarsenal.recipe.ModRecipes;
 import net.teamluxron.gooberarsenal.registry.ModDamageTypes;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
+import net.teamluxron.gooberarsenal.util.BlockEntityUtil;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -36,7 +41,6 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
@@ -53,6 +57,8 @@ public class GooberArsenal {
         modEventBus.addListener(this::commonSetup);
 
         NeoForge.EVENT_BUS.register(this);
+
+        NeoForge.EVENT_BUS.addListener(this::onLevelTick);
 
         ModDamageTypes.register(modEventBus);
 
@@ -78,9 +84,10 @@ public class GooberArsenal {
         ModRecipeTypes.RECIPE_TYPES.register(modEventBus);
         ModRecipes.TYPES.register(modEventBus);
         ModRecipeSerializers.register(modEventBus);
+
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+        private void commonSetup(final FMLCommonSetupEvent event) {
 
     }
 
@@ -92,6 +99,20 @@ public class GooberArsenal {
     public void onServerStarting(ServerStartingEvent event) {
 
     }
+
+
+
+    private void onLevelTick(LevelTickEvent.Post event) {
+        if (!event.hasTime() || !(event.getLevel() instanceof ServerLevel level)) return;
+
+        for (BlockEntity be : level.blockEntityList) {
+            if (be instanceof RadioBlockEntity radio) {
+                radio.tick();
+            }
+        }
+    }
+
+
 
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
@@ -106,8 +127,11 @@ public class GooberArsenal {
         @SubscribeEvent
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.FORGING_ANVIL_BE.get(), ForgingAnvilRenderer::new);
+
+
         }
     }
+
 
     public class ModRecipeTypes {
         public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES =
@@ -121,17 +145,4 @@ public class GooberArsenal {
                     }
                 });
     }
-
-
-
-
-
-
-//    public class ModRecipeSerializers {
-//        public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS =
-//                DeferredRegister.create(BuiltInRegistries.RECIPE_SERIALIZER, GooberArsenal.MOD_ID);
-//
-//        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ForgingRecipe>> FORGING_SERIALIZER =
-//                RECIPE_SERIALIZERS.register("forging", ForgingRecipeSerializer::new);
-//    }
 }

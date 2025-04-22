@@ -114,6 +114,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ANCIENT_CAGITE.get());
                         output.accept(ModBlocks.CAGITE_BLOCK.get());
                         output.accept(ModBlocks.FORGING_ANVIL.get());
+                        output.accept(ModBlocks.RADIO.get());
 
                     }).build());
 

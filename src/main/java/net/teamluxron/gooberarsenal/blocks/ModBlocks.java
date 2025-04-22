@@ -60,6 +60,12 @@ public class ModBlocks {
                     .sound(SoundType.ANVIL)
             ));
 
+    public static final DeferredBlock<Block> RADIO = registerBlock("radio",
+            () -> new ForgingAnvilBlock(BlockBehaviour.Properties.of()
+                    .strength(5f, 1200f)
+                    .requiresCorrectToolForDrops()
+            ));
+
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
