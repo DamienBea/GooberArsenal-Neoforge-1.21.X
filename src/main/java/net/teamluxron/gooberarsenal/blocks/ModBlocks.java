@@ -53,12 +53,11 @@ public class ModBlocks {
                     .sound(SoundType.NETHERITE_BLOCK)
             ));
 
-    public static final DeferredBlock<Block> FORGING_ANVIL = BLOCKS.register("forging_anvil",
+    public static final DeferredBlock<Block> FORGING_ANVIL = registerBlock("forging_anvil",
             () -> new ForgingAnvilBlock(BlockBehaviour.Properties.of()
-                    .strength(5.0f, 1200.0f)
+                    .strength(5f, 1200f)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.ANVIL)
-                    .noOcclusion()
             ));
 
 

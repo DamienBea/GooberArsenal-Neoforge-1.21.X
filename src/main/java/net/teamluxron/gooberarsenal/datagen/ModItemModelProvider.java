@@ -129,9 +129,6 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldScaledItem(ModItems.NETHERITE_HAMMER);
             handheldScaledItem(ModItems.MOSSY_MASHER);
 
-            //Custom blocks
-            withExistingParent(ModBlocks.FORGING_ANVIL.getId().getPath(),
-                    modLoc("block/forging_anvil"));
 
 
         }

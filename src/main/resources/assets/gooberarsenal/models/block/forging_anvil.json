@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "forging_anvil",
-		"particle": "forging_anvil"
+		"0": "gooberarsenal:block/forging_anvil",
+		"particle": "gooberarsenal:block/forging_anvil"
 	},
 	"elements": [
 		{

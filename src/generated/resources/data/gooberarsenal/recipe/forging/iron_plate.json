@@ -1,0 +1,10 @@
+{
+  "type": "gooberarsenal:forging",
+  "ingredient": {
+    "item": "minecraft:iron_ingot"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:iron_plate"
+  }
+}

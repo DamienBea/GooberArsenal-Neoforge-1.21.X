@@ -20,6 +20,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
+import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.item.custom.*;
 import net.teamluxron.gooberarsenal.item.material.*;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
@@ -1067,6 +1068,12 @@ public class ModItems {
                 }
             }
     );
+
+    //ItemsWithModels
+
+//    public static final DeferredItem<Item> FORGING_ANVIL = ITEMS.register("forging_anvil",
+//            () -> new BlockItem(ModBlocks.FORGING_ANVIL.get(), new Item.Properties()));
+
 
 //    public static final DeferredItem<Item> ROSE_QUARTZ_SHIELD = ITEMS.register("rose_quartz_shield",
 //            () -> new RoseQuartzShield(new Item.Properties().durability(500).fireResistant()));

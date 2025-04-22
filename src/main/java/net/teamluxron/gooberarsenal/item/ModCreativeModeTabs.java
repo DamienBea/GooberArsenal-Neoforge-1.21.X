@@ -113,6 +113,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.DEEPSLATE_KEVIN_ORE.get());
                         output.accept(ModBlocks.ANCIENT_CAGITE.get());
                         output.accept(ModBlocks.CAGITE_BLOCK.get());
+                        output.accept(ModBlocks.FORGING_ANVIL.get());
 
                     }).build());
 

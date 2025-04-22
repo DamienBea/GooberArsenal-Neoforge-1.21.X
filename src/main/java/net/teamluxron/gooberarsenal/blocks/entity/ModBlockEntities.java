@@ -14,7 +14,7 @@ public class ModBlockEntities {
             DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, GooberArsenal.MOD_ID);
 
     public static final Supplier<BlockEntityType<ForgingAnvilBlockEntity>> FORGING_ANVIL_BE =
-            BLOCK_ENTITIES.register("forging_anvil", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("forging_anvil_be", () -> BlockEntityType.Builder.of(
                     ForgingAnvilBlockEntity::new, ModBlocks.FORGING_ANVIL.get()).build(null));
 
     public static void register(IEventBus eventBus) {
