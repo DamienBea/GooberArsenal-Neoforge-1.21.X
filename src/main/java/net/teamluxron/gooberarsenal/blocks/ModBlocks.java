@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.blocks.custom.ForgingAnvilBlock;
+import net.teamluxron.gooberarsenal.blocks.custom.RadioBlock;
 import net.teamluxron.gooberarsenal.item.ModItems;
 
 import java.util.function.Supplier;
@@ -61,7 +62,7 @@ public class ModBlocks {
             ));
 
     public static final DeferredBlock<Block> RADIO = registerBlock("radio",
-            () -> new ForgingAnvilBlock(BlockBehaviour.Properties.of()
+            () -> new RadioBlock(BlockBehaviour.Properties.of()
                     .strength(5f, 1200f)
                     .requiresCorrectToolForDrops()
             ));

@@ -54,8 +54,6 @@ public class GooberArsenal {
 
         NeoForge.EVENT_BUS.register(this);
 
-        NeoForge.EVENT_BUS.addListener(this::onLevelTick);
-
         ModDamageTypes.register(modEventBus);
 
 
@@ -95,19 +93,6 @@ public class GooberArsenal {
     public void onServerStarting(ServerStartingEvent event) {
 
     }
-
-
-
-    private void onLevelTick(LevelTickEvent.Post event) {
-        if (!event.hasTime() || !(event.getLevel() instanceof ServerLevel level)) return;
-
-        for (BlockEntity be : level.blockEntityList) {
-            if (be instanceof RadioBlockEntity radio) {
-                radio.tick();
-            }
-        }
-    }
-
 
 
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

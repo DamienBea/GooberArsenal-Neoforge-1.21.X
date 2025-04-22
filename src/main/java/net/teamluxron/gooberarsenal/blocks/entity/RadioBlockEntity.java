@@ -2,72 +2,79 @@ package net.teamluxron.gooberarsenal.blocks.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.teamluxron.gooberarsenal.blocks.custom.RadioBlock;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 public class RadioBlockEntity extends BlockEntity {
-    private static final int SOUND_INTERVAL = 22 * 20; // 22 seconds in ticks
-    private int tickCount = 0;
+    private static final int SOUND_INTERVAL = 440; // 22 seconds
     private boolean isPlaying = false;
+    private long nextPlayTick = 0;
 
-    public RadioBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.RADIO_BE.get(), pos, blockState);
+    // Add this field to track if we need to play the toggle sound
+    private boolean needsToggleSound = false;
+
+    public RadioBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state);
     }
 
-    public void tick() {
-        if (!isPlaying || level == null || level.isClientSide) return;
+    public void toggle() {
+        this.isPlaying = !this.isPlaying;
+        this.needsToggleSound = true;
+        this.setChanged();
 
-        if (++tickCount >= SOUND_INTERVAL) {
-            tickCount = 0;
-            level.playSound(null, worldPosition,
-                    ModSounds.RADIO.get(),
-                    SoundSource.RECORDS,
-                    1.0f, 1.0f);
-
-            // Visual feedback
-            if (level instanceof ServerLevel serverLevel) {
-                serverLevel.sendParticles(ParticleTypes.NOTE,
-                        worldPosition.getX() + 0.5,
-                        worldPosition.getY() + 1.2,
-                        worldPosition.getZ() + 0.5,
-                        3, 0.2, 0.2, 0.2, 0.0);
-            }
+        if (this.isPlaying && level != null) {
+            this.nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
+            scheduleSound();
         }
     }
 
-    public void setPlaying(boolean playing) {
-        this.isPlaying = playing;
-        this.tickCount = 0; // Reset counter on state change
-        this.setChanged();
+    private void scheduleSound() {
+        if (level == null || level.isClientSide) return;
 
-        // Update block state if needed
-        if (level != null && !level.isClientSide) {
-            BlockState state = level.getBlockState(worldPosition);
-            if (state.getValue(RadioBlock.POWERED) != playing) {
-                level.setBlock(worldPosition, state.setValue(RadioBlock.POWERED, playing), Block.UPDATE_ALL);
+        // Play toggle sound if needed
+        if (needsToggleSound) {
+            level.playSound(null, worldPosition,
+                    isPlaying ? ModSounds.RADIO.get() : ModSounds.BUTTON.get(),
+                    SoundSource.RECORDS,
+                    isPlaying ? 1.0f : 0.5f,
+                    1.0f);
+            needsToggleSound = false;
+        }
+
+        // Schedule recurring sound
+        if (isPlaying) {
+            long currentTime = level.getGameTime();
+            if (currentTime >= nextPlayTick) {
+                level.playSound(null, worldPosition,
+                        ModSounds.RADIO.get(),
+                        SoundSource.RECORDS,
+                        1.0f, 1.0f);
+
+                nextPlayTick = currentTime + SOUND_INTERVAL;
             }
+            level.scheduleTick(worldPosition, getBlockState().getBlock(),
+                    (int)(nextPlayTick - currentTime));
         }
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        tag.putBoolean(PLAYING_TAG, isPlaying);
+        tag.putBoolean("Playing", isPlaying);
+        tag.putLong("NextPlayTick", nextPlayTick);
     }
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        this.isPlaying = tag.getBoolean(PLAYING_TAG);
+        this.isPlaying = tag.getBoolean("Playing");
+        this.nextPlayTick = tag.getLong("NextPlayTick");
     }
 
     @Nullable
