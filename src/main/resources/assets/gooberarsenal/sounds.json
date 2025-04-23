@@ -12,5 +12,26 @@
     "sounds": [
       "gooberarsenal:rubber_chicken"
     ]
+  },
+  "radio":
+  {
+    "subtitle": "sounds.gobberarsenal.radio",
+    "sounds": [
+      "gooberarsenal:radio"
+    ]
+  },
+  "broken_radio":
+  {
+    "subtitle": "sounds.gobberarsenal.broken_radio",
+    "sounds": [
+      "gooberarsenal:broken_radio"
+    ]
+  },
+  "button":
+  {
+    "subtitle": "sounds.gobberarsenal.button",
+    "sounds": [
+      "gooberarsenal:button"
+    ]
   }
 }

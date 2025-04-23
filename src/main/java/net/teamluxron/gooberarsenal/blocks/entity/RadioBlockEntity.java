@@ -17,8 +17,8 @@ public class RadioBlockEntity extends BlockEntity {
     private static final int SOUND_INTERVAL = 440; // 22 seconds
     private boolean isPlaying = false;
     private long nextPlayTick = 0;
+    private boolean wasJustPlaced = true;
 
-    // Add this field to track if we need to play the toggle sound
     private boolean needsToggleSound = false;
 
     public RadioBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
@@ -69,12 +69,16 @@ public class RadioBlockEntity extends BlockEntity {
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         tag.putBoolean("Playing", isPlaying);
         tag.putLong("NextPlayTick", nextPlayTick);
+        tag.putBoolean("WasJustPlaced", wasJustPlaced);
     }
+
+
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         this.isPlaying = tag.getBoolean("Playing");
         this.nextPlayTick = tag.getLong("NextPlayTick");
+        this.wasJustPlaced = tag.getBoolean("WasJustPlaced");
     }
 
     @Nullable

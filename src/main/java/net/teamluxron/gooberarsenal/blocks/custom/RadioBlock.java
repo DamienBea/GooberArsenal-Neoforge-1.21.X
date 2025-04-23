@@ -3,8 +3,7 @@ package net.teamluxron.gooberarsenal.blocks.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -25,10 +24,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.blocks.entity.RadioBlockEntity;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
-import org.jetbrains.annotations.Nullable;
 
 public class RadioBlock extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -37,7 +36,7 @@ public class RadioBlock extends BaseEntityBlock {
     public RadioBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(POWERED, false)); // Default to off state
+                .setValue(POWERED, true));
     }
 
     @Override
@@ -46,42 +45,49 @@ public class RadioBlock extends BaseEntityBlock {
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        // When placed, start in the off state
-        return this.defaultBlockState().setValue(POWERED, false);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(ModBlocks.POWERED);
     }
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new RadioBlockEntity(ModBlockEntities.RADIO_BE.get(), pos, state);
     }
+
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(POWERED);
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState().setValue(POWERED, true);
     }
+
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        if (state.getValue(POWERED)) {
+            level.addParticle(ParticleTypes.NOTE,
+                    pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
+                    random.nextDouble(), 0.0, 0.0);
+        }
+    }
+
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                               Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof RadioBlockEntity radio) {
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof RadioBlockEntity radio) {
             boolean newState = !state.getValue(POWERED);
             level.setBlock(pos, state.setValue(POWERED, newState), Block.UPDATE_ALL);
             radio.toggle();
 
-            // Client-side immediate feedback
-            if (level.isClientSide) {
-                level.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
-                        newState ? ModSounds.RADIO.get() : ModSounds.BUTTON.get(),
-                        SoundSource.RECORDS,
-                        newState ? 1.0f : 0.5f,
-                        1.0f,
-                        false);
-                return ItemInteractionResult.SUCCESS;
-            }
-            return ItemInteractionResult.CONSUME;
+            // Play sound on server and sync to clients
+            level.playSound(null, pos,
+                    newState ? ModSounds.RADIO.get() : ModSounds.BUTTON.get(),
+                    SoundSource.RECORDS,
+                    newState ? 1.0f : 0.5f,
+                    1.0f);
         }
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return ItemInteractionResult.sidedSuccess(level.isClientSide);
     }
+
+
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {

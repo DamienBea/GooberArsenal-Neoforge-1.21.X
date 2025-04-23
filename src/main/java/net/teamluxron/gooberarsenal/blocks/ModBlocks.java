@@ -5,6 +5,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -60,6 +62,8 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.ANVIL)
             ));
+
+    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
     public static final DeferredBlock<Block> RADIO = registerBlock("radio",
             () -> new RadioBlock(BlockBehaviour.Properties.of()

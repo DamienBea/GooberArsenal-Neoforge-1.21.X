@@ -94,6 +94,8 @@ public class GooberArsenal {
 
     }
 
+    
+
 
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
