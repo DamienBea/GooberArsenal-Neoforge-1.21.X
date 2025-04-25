@@ -1,16 +1,8 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": [
-    {
-      "item": "minecraft:moss_block"
-    },
-    {
-      "item": "minecraft:flowering_azalea"
-    },
-    {
-      "item": "minecraft:azalea"
-    }
-  ],
+  "addition": {
+    "item": "gooberarsenal:mossy_gem"
+  },
   "base": {
     "item": "gooberarsenal:netherite_hammer"
   },

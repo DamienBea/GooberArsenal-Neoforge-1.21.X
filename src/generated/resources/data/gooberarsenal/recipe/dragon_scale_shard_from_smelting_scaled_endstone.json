@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "scale_smelting",
+  "ingredient": {
+    "item": "gooberarsenal:scaled_endstone"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:dragon_scale_shard"
+  }
+}

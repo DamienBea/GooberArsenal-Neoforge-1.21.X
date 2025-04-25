@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:emerald"
+    },
+    "S": {
+      "item": "minecraft:slime_ball"
+    },
+    "W": [
+      {
+        "item": "minecraft:moss_block"
+      },
+      {
+        "item": "minecraft:flowering_azalea"
+      },
+      {
+        "item": "minecraft:azalea"
+      }
+    ]
+  },
+  "pattern": [
+    "AWA",
+    "WSW",
+    "AWA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:mossy_gem"
+  }
+}

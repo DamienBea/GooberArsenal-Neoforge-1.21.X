@@ -16,6 +16,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.KEVIN_BLOCK);
         blockWithItem(ModBlocks.KEVIN_ORE);
+        blockWithItem(ModBlocks.SCALED_ENDSTONE);
         blockWithItem(ModBlocks.DEEPSLATE_KEVIN_ORE);
         blockWithItem(ModBlocks.ANCIENT_CAGITE);
         blockWithItem(ModBlocks.CAGITE_BLOCK);

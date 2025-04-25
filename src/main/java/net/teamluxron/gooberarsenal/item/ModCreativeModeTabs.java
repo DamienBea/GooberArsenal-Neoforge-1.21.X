@@ -113,6 +113,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.DEEPSLATE_KEVIN_ORE.get());
                         output.accept(ModBlocks.ANCIENT_CAGITE.get());
                         output.accept(ModBlocks.CAGITE_BLOCK.get());
+                        output.accept(ModBlocks.SCALED_ENDSTONE.get());
                         output.accept(ModBlocks.FORGING_ANVIL.get());
                         output.accept(ModBlocks.RADIO.get());
 
@@ -126,9 +127,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.OBSIDIAN_HILT.get());
                         output.accept(ModItems.OBSIDIAN_HANDGUARD.get());
                         output.accept(ModItems.GOOBER_UPGRADE_TEMPLATE.get());
+                        output.accept(ModItems.KEVIN_SHARDS.get());
                         output.accept(ModItems.CAGITE_SCRAP.get());
                         output.accept(ModItems.CAGITE_INGOT.get());
-                        output.accept(ModItems.KEVIN_SHARDS.get());
+                        output.accept(ModItems.DRAGON_SCALE_SHARD.get());
                         output.accept(ModItems.IRON_PLATE.get());
                         output.accept(ModItems.LIFE_SAVER.get());
                         output.accept(ModItems.RUBBER_CHICKEN.get());
@@ -140,6 +142,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.THORN_OF_ZAZIKEL.get());
                         output.accept(ModItems.THORN_OF_TOTH.get());
                         output.accept(ModItems.THORN_OF_ANDORAL.get());
+                        output.accept(ModItems.MOSSY_GEM.get());
 
                     }).build());
 

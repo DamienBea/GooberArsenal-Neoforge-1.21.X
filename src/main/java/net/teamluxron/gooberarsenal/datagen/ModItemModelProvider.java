@@ -50,6 +50,8 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.GOOBER_UPGRADE_TEMPLATE.get());
             basicItem(ModItems.CAGITE_SCRAP.get());
             basicItem(ModItems.CAGITE_INGOT.get());
+            basicItem(ModItems.DRAGON_SCALE_SHARD.get());
+            basicItem(ModItems.DRAGON_SCALED_TUNGSTEN.get());
             basicItem(ModItems.KEVIN_SHARDS.get());
             basicItem(ModItems.IRON_PLATE.get());
             basicItem(ModItems.LIFE_SAVER.get());
@@ -66,6 +68,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.THORN_OF_ZAZIKEL.get());
             basicItem(ModItems.THORN_OF_TOTH.get());
             basicItem(ModItems.THORN_OF_ANDORAL.get());
+            basicItem(ModItems.MOSSY_GEM.get());
 
 
             //Armor

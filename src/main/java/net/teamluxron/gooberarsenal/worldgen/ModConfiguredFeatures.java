@@ -21,6 +21,7 @@ import java.util.List;
 public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_KEVIN_ORE_PLACED_KEY = registerKey("kevin_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_ANCIENT_CAGITE_PLACED_KEY = registerKey("ancient_cagite");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> END_SCALED_ENDSTONE_PLACED_KEY = registerKey("scaled_endstone");
 
 
 
@@ -28,7 +29,7 @@ public class ModConfiguredFeatures {
         RuleTest stoneReplaceables = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         RuleTest netherrackReplaceables = new BlockMatchTest(Blocks.NETHERRACK);
-//        RuleTest endReplaceables = new BlockMatchTest(Blocks.END_STONE);
+        RuleTest endReplaceables = new BlockMatchTest(Blocks.END_STONE);
 
 
         List<OreConfiguration.TargetBlockState> overworldKevinOres = List.of(
@@ -38,6 +39,8 @@ public class ModConfiguredFeatures {
         register(context, OVERWORLD_KEVIN_ORE_PLACED_KEY, Feature.ORE, new OreConfiguration(overworldKevinOres, 5));
         register(context, NETHER_ANCIENT_CAGITE_PLACED_KEY, Feature.ORE, new OreConfiguration(netherrackReplaceables,
                 ModBlocks.ANCIENT_CAGITE.get().defaultBlockState(), 4));
+        register(context, END_SCALED_ENDSTONE_PLACED_KEY, Feature.ORE, new OreConfiguration(endReplaceables,
+                ModBlocks.SCALED_ENDSTONE.get().defaultBlockState() ,4));
 
     }
 

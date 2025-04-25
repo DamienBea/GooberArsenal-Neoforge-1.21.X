@@ -44,6 +44,12 @@ public class ModItems {
     public static final DeferredItem<Item> CAGITE_SCRAP = ITEMS.register("cagite_scrap",
             () -> new Item(new Item.Properties().fireResistant()));
 
+    public static final DeferredItem<Item> DRAGON_SCALE_SHARD = ITEMS.register("dragon_scale_shard",
+            () -> new Item(new Item.Properties().fireResistant()));
+
+    public static final DeferredItem<Item> DRAGON_SCALED_TUNGSTEN = ITEMS.register("dragon_scaled_tungsten",
+            () -> new Item(new Item.Properties().fireResistant()));
+
     public static final DeferredItem<Item> CAGITE_INGOT = ITEMS.register("cagite_ingot",
             () -> new Item(new Item.Properties().fireResistant()));
 
@@ -80,6 +86,9 @@ public class ModItems {
     public static final DeferredItem<Item> THORN_OF_ANDORAL = ITEMS.register("thorn_of_andoral",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> MOSSY_GEM = ITEMS.register("mossy_gem",
+            () -> new Item(new Item.Properties()));
+
 
     public static final DeferredItem<Item> SWITCH_CARTRIDGE = ITEMS.register("switch_cartridge",
             () -> new Item(new Item.Properties()) {
@@ -88,12 +97,12 @@ public class ModItems {
                 public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
                     if (!level.isClientSide) {
                         level.playSound(
-                                null,  // null = heard by all nearby players
+                                null,
                                 player.getX(), player.getY(), player.getZ(),
-                                ModSounds.WEEZER.get(),  // your sound event
+                                ModSounds.WEEZER.get(),
                                 SoundSource.PLAYERS,
-                                1.0F,  // volume
-                                1.0F   // pitch
+                                1.0F,
+                                1.0F
 
                         );
                     }

@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_end",
+  "features": "gooberarsenal:scaled_endstone_placed_key",
+  "step": "underground_ores"
+}

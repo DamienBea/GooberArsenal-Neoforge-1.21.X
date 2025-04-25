@@ -28,6 +28,13 @@ public class ModBlocks {
                     .sound(SoundType.STONE)
             ));
 
+    public static final DeferredBlock<Block> SCALED_ENDSTONE = registerBlock("scaled_endstone",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)
+            ));
+
     public static final DeferredBlock<Block> DEEPSLATE_KEVIN_ORE = registerBlock("deepslate_kevin_ore",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(2f)

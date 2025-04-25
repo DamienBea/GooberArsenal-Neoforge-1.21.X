@@ -17,6 +17,7 @@ import java.util.List;
 public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> KEVIN_ORE_PLACED_KEY = registerKey("kevin_ore_placed_key");
     public static final ResourceKey<PlacedFeature> ANCIENT_CAGITE_PLACED_KEY = registerKey("ancient_cagite_placed_key");
+    public static final ResourceKey<PlacedFeature> SCALED_ENDSTONE_PLACED_KEY = registerKey("scaled_endstone_placed_key");
 
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
@@ -28,6 +29,9 @@ public class ModPlacedFeatures {
         register(context, ANCIENT_CAGITE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_ANCIENT_CAGITE_PLACED_KEY),
                 ModOrePlacement.rareOrePlacement(2,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(20))));
+        register(context, SCALED_ENDSTONE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.END_SCALED_ENDSTONE_PLACED_KEY),
+                ModOrePlacement.rareOrePlacement(2,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60))));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {

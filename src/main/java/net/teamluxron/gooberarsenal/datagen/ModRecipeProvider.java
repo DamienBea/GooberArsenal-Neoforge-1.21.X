@@ -1,7 +1,5 @@
 package net.teamluxron.gooberarsenal.datagen;
 
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -9,7 +7,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
@@ -19,7 +16,6 @@ import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.item.ModItems;
 import net.teamluxron.gooberarsenal.recipe.ForgingRecipe;
-import net.teamluxron.gooberarsenal.util.ModTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -44,6 +40,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         List<ItemLike> CAGITE_SMELTING =
                 List.of(
                         ModBlocks.ANCIENT_CAGITE
+                );
+        List<ItemLike> TUNGSTEN_SMELTING =
+                List.of(
+                        ModBlocks.SCALED_ENDSTONE
                 );
 
         Ingredient mossIngredient = Ingredient.of(
@@ -399,6 +399,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DRAGON_SCALED_TUNGSTEN.get())
+                .pattern("WWW")
+                .pattern("WSW")
+                .pattern("WWW")
+                .define('S', Items.DIAMOND_BLOCK)
+                .define('W', ModItems.DRAGON_SCALE_SHARD.get())
+                .unlockedBy("has_diamond_block", has(Items.DIAMOND_BLOCK))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MOSSY_GEM.get())
+                .pattern("AWA")
+                .pattern("WSW")
+                .pattern("AWA")
+                .define('S', Items.SLIME_BALL)
+                .define('A', Items.EMERALD)
+                .define('W', mossIngredient)
+                .unlockedBy("has_diamond_block", has(Items.DIAMOND_BLOCK))
+                .save(recipeOutput);
+
 
 
 
@@ -454,6 +473,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreSmelting(recipeOutput, PLASTIC_SMELTABLES, RecipeCategory.MISC, ModItems.PLASTIC.get(), 0.25f, 200, "plastic");
         oreSmelting(recipeOutput, CAGITE_SMELTING, RecipeCategory.MISC, ModItems.CAGITE_SCRAP.get(), 0.25f, 200, "cagite_scrap_smelting");
         oreBlasting(recipeOutput, CAGITE_SMELTING, RecipeCategory.MISC, ModItems.CAGITE_SCRAP.get(), 0.25f, 200, "cagite_scrap_blasting");
+        oreSmelting(recipeOutput, TUNGSTEN_SMELTING, RecipeCategory.MISC, ModItems.DRAGON_SCALE_SHARD.get(), 0.25f, 200, "scale_smelting");
+        oreBlasting(recipeOutput, TUNGSTEN_SMELTING, RecipeCategory.MISC, ModItems.DRAGON_SCALE_SHARD.get(), 0.25f, 200, "scale_scrap_blasting");
         oreSmelting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 200, "kevin_smelting");
         oreBlasting(recipeOutput, KEVIN_SMELTABLES, RecipeCategory.MISC, ModItems.KEVIN_SHARDS.get(), 0.25f, 100, "kevin_blasting");
 
@@ -585,8 +606,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         SmithingTransformRecipeBuilder.smithing(
                 Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE),
-                Ingredient.of(ModItems.NETHERITE_HAMMER.get()),
-                mossIngredient,
+                        Ingredient.of(ModItems.NETHERITE_HAMMER.get()),
+                        Ingredient.of(ModItems.MOSSY_GEM.get()),
+//                mossIngredient,
                 RecipeCategory.COMBAT,
                 ModItems.MOSSY_MASHER.get())
                 .unlocks("has_netherite_hammer",
