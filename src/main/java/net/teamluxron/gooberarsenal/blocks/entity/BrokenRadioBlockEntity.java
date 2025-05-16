@@ -18,18 +18,16 @@ import net.teamluxron.gooberarsenal.network.packet.PlayRadioSoundPacket;
 import net.teamluxron.gooberarsenal.network.packet.StopRadioSoundPacket;
 import org.jetbrains.annotations.Nullable;
 
-
-
-public class RadioBlockEntity extends BlockEntity {
-    private static final int SOUND_INTERVAL = 440;
+public class BrokenRadioBlockEntity extends BlockEntity {
+    private static final int SOUND_INTERVAL = 880;
     public boolean isPlaying = false;
     private long nextPlayTick = 0;
 
-    public RadioBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+    public BrokenRadioBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, RadioBlockEntity blockEntity) {
+    public static void tick(Level level, BlockPos pos, BlockState state, BrokenRadioBlockEntity blockEntity) {
         if (!level.isClientSide && blockEntity.isPlaying && level.getGameTime() >= blockEntity.nextPlayTick) {
             blockEntity.playSound();
             blockEntity.nextPlayTick = level.getGameTime() + SOUND_INTERVAL;

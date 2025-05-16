@@ -24,6 +24,14 @@ public class ModBlockEntities {
                             ModBlocks.RADIO.get()
                     ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RadioBlockEntity>> BROKEN_RADIO_BE =
+            BLOCK_ENTITIES.register("broken_radio", () ->
+                    BlockEntityType.Builder.of(
+                            (pos, state) -> new RadioBlockEntity(ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state),
+                            ModBlocks.BROKEN_RADIO.get()
+                    ).build(null));
+
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

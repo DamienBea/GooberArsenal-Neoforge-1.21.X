@@ -78,6 +78,12 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
             ));
 
+    public static final DeferredBlock<Block> BROKEN_RADIO = registerBlock("broken_radio",
+            () -> new RadioBlock(BlockBehaviour.Properties.of()
+                    .strength(5f, 1200f)
+                    .requiresCorrectToolForDrops()
+            ));
+
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
