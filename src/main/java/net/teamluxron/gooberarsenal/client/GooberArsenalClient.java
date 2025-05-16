@@ -6,7 +6,6 @@ import net.neoforged.bus.api.IEventBus;
 
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
-import net.teamluxron.gooberarsenal.network.ModMessages;
 
 @OnlyIn(Dist.CLIENT)
 public class GooberArsenalClient {

@@ -43,46 +43,46 @@ public class RadioBlockEntity extends BlockEntity {
         if (level != null && !level.isClientSide) {
             if (this.isPlaying) {
                 this.nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
-                playSound(); // Send PlayRadioSoundPacket to nearby players
+                playSound();
             } else {
-                stopSound(); // Send StopRadioSoundPacket to nearby players
+                stopSound();
             }
-
-            for (ServerPlayer player : ((ServerLevel) level).players()) {
-                if (player.distanceToSqr(worldPosition.getCenter()) < 256) {
-                    ModMessages.sendToPlayer(player,
-                            new ClientboundRadioTogglePacket(worldPosition, isPlaying));
-                }
-            }
-
+            syncToClients();
             level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
         }
     }
 
     public void setEnabled(boolean enabled) {
-        this.isPlaying = enabled;
-        this.setChanged();
-    }
+        if (isPlaying != enabled) {
+            isPlaying = enabled;
+            setChanged();
 
-    private void playSound() {
-        if (level == null || !isPlaying || level.isClientSide) return;
-
-        double x = worldPosition.getX() + 0.5;
-        double y = worldPosition.getY() + 0.5;
-        double z = worldPosition.getZ() + 0.5;
-
-        for (ServerPlayer player : ((ServerLevel) level).players()) {
-            if (player.distanceToSqr(x, y, z) < 256) {
-                ModMessages.sendToPlayer(player, new PlayRadioSoundPacket(worldPosition));
+            if (level != null && !level.isClientSide) {
+                if (enabled) {
+                    nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
+                    playSound();
+                } else {
+                    stopSound();
+                }
+                syncToClients();
             }
         }
     }
 
-    private void stopSound() {
+    private void playSound() {
+        if (level == null || level.isClientSide) return;
+
+        for (ServerPlayer player : ((ServerLevel) level).getPlayers(player ->
+                player.distanceToSqr(worldPosition.getCenter()) < (65.0 * 65.0))) {
+            ModMessages.sendToPlayer(player, new PlayRadioSoundPacket(worldPosition));
+        }
+    }
+
+    public void stopSound() {
         if (level == null || level.isClientSide) return;
 
         for (ServerPlayer player : ((ServerLevel) level).players()) {
-            if (player.distanceToSqr(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ()) < 256) {
+            if (player.distanceToSqr(worldPosition.getCenter()) < 256) {
                 ModMessages.sendToPlayer(player, new StopRadioSoundPacket(worldPosition));
             }
         }
@@ -93,24 +93,33 @@ public class RadioBlockEntity extends BlockEntity {
             isPlaying = false;
             stopSound();
             setChanged();
-            if (level instanceof ServerLevel) {
-                syncToClients();
+            syncToClients();
+        }
+    }
+
+    public void onBlockDestroyed() {
+        if (level != null && !level.isClientSide) {
+            // Send stop sound to all nearby players
+            for (ServerPlayer player : ((ServerLevel) level).getPlayers(player ->
+                    player.distanceToSqr(worldPosition.getCenter()) < 256)) {
+                ModMessages.sendToPlayer(player, new StopRadioSoundPacket(worldPosition));
             }
+            isPlaying = false;
+            setChanged();
         }
     }
 
     public void syncToClients() {
         if (level instanceof ServerLevel serverLevel) {
-            ModMessages.sendToAllTracking(this,
-                    new ClientboundRadioTogglePacket(getBlockPos(), this.isPlaying));
+            ModMessages.sendToAllTracking(this, new ClientboundRadioTogglePacket(getBlockPos(), this.isPlaying));
         }
     }
 
     @Override
     public void onLoad() {
         super.onLoad();
-        if (level != null && !level.isClientSide) {
-            syncToClients(); // Sync state to nearby players on load
+        if (level != null && !level.isClientSide && isPlaying) {
+            syncToClients();
         }
     }
 

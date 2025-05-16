@@ -9,18 +9,13 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.network.packet.ClientboundRadioTogglePacket;
+import net.teamluxron.gooberarsenal.network.packet.PlayRadioSoundPacket;
 import net.teamluxron.gooberarsenal.network.packet.ServerboundRadioTogglePacket;
+import net.teamluxron.gooberarsenal.network.packet.StopRadioSoundPacket;
 
 
 public class ModMessages {
-    private static boolean registered = false;
-
     public static void register(final RegisterPayloadHandlersEvent event) {
-        if (registered) {
-            return;
-        }
-        registered = true;
-
         PayloadRegistrar registrar = event.registrar(GooberArsenal.MOD_ID)
                 .versioned("1.0")
                 .optional();
@@ -30,6 +25,18 @@ public class ModMessages {
                 ClientboundRadioTogglePacket.TYPE,
                 ClientboundRadioTogglePacket.STREAM_CODEC,
                 ClientboundRadioTogglePacket::handle
+        );
+
+        registrar.playToClient(
+                PlayRadioSoundPacket.TYPE,
+                PlayRadioSoundPacket.STREAM_CODEC,
+                NetworkHandler::handlePlayRadioSoundPacket
+        );
+
+        registrar.playToClient(
+                StopRadioSoundPacket.TYPE,
+                StopRadioSoundPacket.STREAM_CODEC,
+                NetworkHandler::handleStopRadioSoundPacket
         );
 
         // Server-bound packets

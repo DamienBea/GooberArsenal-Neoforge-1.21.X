@@ -2,7 +2,6 @@ package net.teamluxron.gooberarsenal.client.sound;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -13,24 +12,44 @@ import java.util.Map;
 
 @OnlyIn(Dist.CLIENT)
 public class ClientSoundManager {
-    private static final Map<BlockPos, RadioSoundInstance> ACTIVE_SOUNDS = new HashMap<>();
+    private static final Map<BlockPos, RadioSoundInstance> activeSounds = new HashMap<>();
 
     public static void playRadioSound(BlockPos pos) {
-        if (ACTIVE_SOUNDS.containsKey(pos)) return; // Avoid duplicates
-
         Minecraft mc = Minecraft.getInstance();
-        SoundEvent sound = ModSounds.RADIO.get(); // Replace with your sound
-        RadioSoundInstance soundInstance = new RadioSoundInstance(sound, Vec3.atCenterOf(pos));
+        if (mc.level == null || mc.getSoundManager() == null) return;
 
-        mc.getSoundManager().play(soundInstance);
-        ACTIVE_SOUNDS.put(pos, soundInstance);
+        // Stop existing sound if any
+        stopRadioSound(pos);
+
+        RadioSoundInstance sound = new RadioSoundInstance(
+                ModSounds.RADIO.get(),
+                Vec3.atCenterOf(pos)
+        );
+
+        mc.getSoundManager().play(sound);
+        activeSounds.put(pos, sound);
     }
 
     public static void stopRadioSound(BlockPos pos) {
-        RadioSoundInstance sound = ACTIVE_SOUNDS.get(pos);
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.getSoundManager() == null) return;
+
+        RadioSoundInstance sound = activeSounds.get(pos);
         if (sound != null) {
-            Minecraft.getInstance().getSoundManager().stop(sound);
-            ACTIVE_SOUNDS.remove(pos);
+            sound.isStopped = true; // Proper way to stop
+            mc.getSoundManager().stop(sound);
+            activeSounds.remove(pos);
         }
+    }
+
+    public static void stopAllRadioSounds() {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.getSoundManager() == null) return;
+
+        activeSounds.forEach((pos, sound) -> {
+            sound.isStopped = true;
+            mc.getSoundManager().stop(sound);
+        });
+        activeSounds.clear();
     }
 }

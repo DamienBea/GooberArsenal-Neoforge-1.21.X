@@ -61,7 +61,22 @@ public class RadioBlock extends BaseEntityBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(POWERED, false);
+        return this.defaultBlockState().setValue(POWERED, context.getLevel().hasNeighborSignal(context.getClickedPos()));
+    }
+
+    @Override
+    public void onPlace(BlockState newState, Level level, BlockPos pos, BlockState oldState, boolean isMoving) {
+        super.onPlace(newState, level, pos, oldState, isMoving);
+    }
+
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (!state.is(newState.getBlock()) && !level.isClientSide) {
+            if (level.getBlockEntity(pos) instanceof RadioBlockEntity radio) {
+                radio.onBlockDestroyed();
+            }
+        }
+        super.onRemove(state, level, pos, newState, isMoving);
     }
 
     @Override
@@ -79,13 +94,10 @@ public class RadioBlock extends BaseEntityBlock {
             boolean powered = level.hasNeighborSignal(pos);
             if (state.getValue(POWERED) != powered) {
                 level.setBlock(pos, state.setValue(POWERED, powered), Block.UPDATE_ALL);
-                if (powered != radio.isPlaying) { // Only toggle if state mismatch
-                    radio.toggle();
-                }
+                radio.toggle();
             }
         }
     }
-
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,

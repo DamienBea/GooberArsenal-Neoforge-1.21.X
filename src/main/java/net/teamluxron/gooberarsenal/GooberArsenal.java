@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.event.level.LevelEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -13,12 +14,12 @@ import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.blocks.entity.renderer.ForgingAnvilRenderer;
 import net.teamluxron.gooberarsenal.client.GooberArsenalClient;
+import net.teamluxron.gooberarsenal.client.sound.ClientSoundManager;
 import net.teamluxron.gooberarsenal.enchantment.ModEnchantmentEffects;
 import net.teamluxron.gooberarsenal.item.ModCreativeModeTabs;
 import net.teamluxron.gooberarsenal.item.ModItems;
 import net.teamluxron.gooberarsenal.loot.ModLootModifiers;
 import net.teamluxron.gooberarsenal.network.ModMessages;
-import net.teamluxron.gooberarsenal.network.NetworkHandler;
 import net.teamluxron.gooberarsenal.recipe.ForgingRecipe;
 import net.teamluxron.gooberarsenal.recipe.ModRecipeSerializers;
 import net.teamluxron.gooberarsenal.recipe.ModRecipes;
@@ -40,7 +41,6 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(GooberArsenal.MOD_ID)
 public class GooberArsenal {
     public static final String MOD_ID = "gooberarsenal";
@@ -58,7 +58,6 @@ public class GooberArsenal {
 
 
         modEventBus.addListener(this::addCreative);
-        modEventBus.addListener(NetworkHandler::registerPackets);
         modEventBus.addListener(this::onRegisterPayloadHandlers);
         modEventBus.addListener(GooberArsenalClient::onClientSetup);
         modEventBus.addListener(ModMessages::register);
@@ -119,6 +118,13 @@ public class GooberArsenal {
             event.registerBlockEntityRenderer(ModBlockEntities.FORGING_ANVIL_BE.get(), ForgingAnvilRenderer::new);
 
 
+        }
+    }
+
+    @SubscribeEvent
+    public void onWorldUnload(LevelEvent.Unload event) {
+        if (event.getLevel().isClientSide()) {
+            ClientSoundManager.stopAllRadioSounds();
         }
     }
 
