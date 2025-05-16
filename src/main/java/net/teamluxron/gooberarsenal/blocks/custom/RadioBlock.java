@@ -17,6 +17,8 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -28,6 +30,7 @@ import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.blocks.entity.RadioBlockEntity;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
+import org.jetbrains.annotations.Nullable;
 
 public class RadioBlock extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -35,18 +38,17 @@ public class RadioBlock extends BaseEntityBlock {
 
     public RadioBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any()
-                .setValue(POWERED, true));
+        this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, false));
     }
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
-        return null;
+        return simpleCodec(RadioBlock::new);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(ModBlocks.POWERED);
+        builder.add(POWERED);
     }
 
     @Override
@@ -54,9 +56,15 @@ public class RadioBlock extends BaseEntityBlock {
         return new RadioBlockEntity(ModBlockEntities.RADIO_BE.get(), pos, state);
     }
 
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return createTickerHelper(type, ModBlockEntities.RADIO_BE.get(), RadioBlockEntity::tick);
+    }
+
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(POWERED, true);
+        return this.defaultBlockState().setValue(POWERED, false);
     }
 
     @Override
@@ -68,7 +76,6 @@ public class RadioBlock extends BaseEntityBlock {
         }
     }
 
-
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                               Player player, InteractionHand hand, BlockHitResult hitResult) {
@@ -76,18 +83,9 @@ public class RadioBlock extends BaseEntityBlock {
             boolean newState = !state.getValue(POWERED);
             level.setBlock(pos, state.setValue(POWERED, newState), Block.UPDATE_ALL);
             radio.toggle();
-
-            // Play sound on server and sync to clients
-            level.playSound(null, pos,
-                    newState ? ModSounds.RADIO.get() : ModSounds.BUTTON.get(),
-                    SoundSource.RECORDS,
-                    newState ? 1.0f : 0.5f,
-                    1.0f);
         }
         return ItemInteractionResult.sidedSuccess(level.isClientSide);
     }
-
-
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
