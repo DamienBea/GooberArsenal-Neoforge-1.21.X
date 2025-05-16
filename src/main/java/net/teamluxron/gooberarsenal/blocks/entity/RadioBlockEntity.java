@@ -13,13 +13,16 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.teamluxron.gooberarsenal.network.ModMessages;
+import net.teamluxron.gooberarsenal.network.packet.ClientboundRadioTogglePacket;
 import net.teamluxron.gooberarsenal.network.packet.PlayRadioSoundPacket;
 import net.teamluxron.gooberarsenal.network.packet.StopRadioSoundPacket;
 import org.jetbrains.annotations.Nullable;
 
+
+
 public class RadioBlockEntity extends BlockEntity {
     private static final int SOUND_INTERVAL = 440; // ~22 seconds
-    private boolean isPlaying = false;
+    public boolean isPlaying = false;
     private long nextPlayTick = 0;
 
     public RadioBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
@@ -40,13 +43,25 @@ public class RadioBlockEntity extends BlockEntity {
         if (level != null && !level.isClientSide) {
             if (this.isPlaying) {
                 this.nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
-                playSound(); // Play immediately on toggle
+                playSound(); // Send PlayRadioSoundPacket to nearby players
             } else {
-                stopSound();
+                stopSound(); // Send StopRadioSoundPacket to nearby players
+            }
+
+            for (ServerPlayer player : ((ServerLevel) level).players()) {
+                if (player.distanceToSqr(worldPosition.getCenter()) < 256) {
+                    ModMessages.sendToPlayer(player,
+                            new ClientboundRadioTogglePacket(worldPosition, isPlaying));
+                }
             }
 
             level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
         }
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.isPlaying = enabled;
+        this.setChanged();
     }
 
     private void playSound() {
@@ -70,6 +85,32 @@ public class RadioBlockEntity extends BlockEntity {
             if (player.distanceToSqr(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ()) < 256) {
                 ModMessages.sendToPlayer(player, new StopRadioSoundPacket(worldPosition));
             }
+        }
+    }
+
+    public void stopRadio() {
+        if (isPlaying) {
+            isPlaying = false;
+            stopSound();
+            setChanged();
+            if (level instanceof ServerLevel) {
+                syncToClients();
+            }
+        }
+    }
+
+    public void syncToClients() {
+        if (level instanceof ServerLevel serverLevel) {
+            ModMessages.sendToAllTracking(this,
+                    new ClientboundRadioTogglePacket(getBlockPos(), this.isPlaying));
+        }
+    }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        if (level != null && !level.isClientSide) {
+            syncToClients(); // Sync state to nearby players on load
         }
     }
 

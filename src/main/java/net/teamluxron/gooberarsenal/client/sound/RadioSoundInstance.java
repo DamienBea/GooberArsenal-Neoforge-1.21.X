@@ -7,14 +7,13 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.sounds.SoundEvent;
 
 public class RadioSoundInstance extends AbstractSoundInstance {
-    public RadioSoundInstance(SoundEvent sound, SoundSource source, Vec3 position, float volume, float pitch) {
-        super(sound, source, RandomSource.create());
+    public RadioSoundInstance(SoundEvent sound, Vec3 position) {
+        super(sound, SoundSource.RECORDS, RandomSource.create());
         this.x = position.x;
         this.y = position.y;
         this.z = position.z;
-        this.volume = volume;
-        this.pitch = pitch;
-        this.looping = true; // Sound loops continuously
+        this.volume = 1.0F;
+        this.looping = true; // Enable native looping
         this.attenuation = Attenuation.LINEAR;
     }
 }

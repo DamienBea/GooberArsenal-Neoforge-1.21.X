@@ -4,7 +4,6 @@ package net.teamluxron.gooberarsenal.blocks.custom;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -26,10 +25,8 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.blocks.entity.RadioBlockEntity;
-import net.teamluxron.gooberarsenal.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 public class RadioBlock extends BaseEntityBlock {
@@ -75,6 +72,20 @@ public class RadioBlock extends BaseEntityBlock {
                     random.nextDouble(), 0.0, 0.0);
         }
     }
+
+    @Override
+    public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof RadioBlockEntity radio) {
+            boolean powered = level.hasNeighborSignal(pos);
+            if (state.getValue(POWERED) != powered) {
+                level.setBlock(pos, state.setValue(POWERED, powered), Block.UPDATE_ALL);
+                if (powered != radio.isPlaying) { // Only toggle if state mismatch
+                    radio.toggle();
+                }
+            }
+        }
+    }
+
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,

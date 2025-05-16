@@ -61,6 +61,7 @@ public class GooberArsenal {
         modEventBus.addListener(NetworkHandler::registerPackets);
         modEventBus.addListener(this::onRegisterPayloadHandlers);
         modEventBus.addListener(GooberArsenalClient::onClientSetup);
+        modEventBus.addListener(ModMessages::register);
 
 
         ModCreativeModeTabs.register(modEventBus);
