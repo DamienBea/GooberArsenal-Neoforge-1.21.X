@@ -32,7 +32,6 @@ public class RadioSoundInstance extends AbstractSoundInstance {
         float distance = (float)mc.player.position().distanceTo(position);
         float musicVolume = mc.options.getSoundSourceVolume(SoundSource.RECORDS);
 
-        // Custom volume-distance curve
         float volumePercent;
         if (distance <= 32) {
             volumePercent = 1.0f; // 100%

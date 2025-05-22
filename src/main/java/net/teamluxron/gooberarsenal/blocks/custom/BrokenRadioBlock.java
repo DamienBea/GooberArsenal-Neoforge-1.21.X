@@ -57,7 +57,7 @@ public class BrokenRadioBlock extends BaseEntityBlock {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return createTickerHelper(
                 type,
-                ModBlockEntities.BROKEN_RADIO_BE.get(), // <-- Use BROKEN_RADIO_BE
+                ModBlockEntities.BROKEN_RADIO_BE.get(), // <-- Must match!
                 BrokenRadioBlockEntity::tick
         );
     }

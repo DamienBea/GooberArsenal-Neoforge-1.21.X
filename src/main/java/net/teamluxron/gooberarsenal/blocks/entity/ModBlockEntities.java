@@ -26,18 +26,19 @@ public class ModBlockEntities {
             "radio_be",
             () -> BlockEntityType.Builder.of(
                     RadioBlockEntity::new,
-                    ModBlocks.RADIO.get() // <-- Only include RADIO block
-            ).build()
+                    ModBlocks.RADIO.get()
+            ).build(null)
     );
 
-    // Broken radio
+    // Broken Radio Block Entity
     public static final Supplier<BlockEntityType<BrokenRadioBlockEntity>> BROKEN_RADIO_BE = BLOCK_ENTITIES.register(
             "broken_radio_be",
             () -> BlockEntityType.Builder.of(
                     BrokenRadioBlockEntity::new,
-                    ModBlocks.BROKEN_RADIO.get() // <-- Only include BROKEN_RADIO block
-            ).build()
+                    ModBlocks.BROKEN_RADIO.get()
+            ).build(null)
     );
+
 
 
 
