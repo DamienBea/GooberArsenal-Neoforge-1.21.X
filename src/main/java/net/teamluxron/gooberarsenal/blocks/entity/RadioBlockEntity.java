@@ -74,7 +74,7 @@ public class RadioBlockEntity extends BlockEntity {
 
         for (ServerPlayer player : ((ServerLevel) level).getPlayers(player ->
                 player.distanceToSqr(worldPosition.getCenter()) < (65.0 * 65.0))) {
-            ModMessages.sendToPlayer(player, new PlayRadioSoundPacket(worldPosition));
+            ModMessages.sendToPlayer(player, new PlayRadioSoundPacket(worldPosition, false));
         }
     }
 

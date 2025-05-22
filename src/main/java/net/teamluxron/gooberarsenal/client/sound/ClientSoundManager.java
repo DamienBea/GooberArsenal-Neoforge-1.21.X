@@ -18,7 +18,6 @@ public class ClientSoundManager {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null || mc.getSoundManager() == null) return;
 
-        // Stop existing sound if any
         stopRadioSound(pos);
 
         RadioSoundInstance sound = new RadioSoundInstance(
