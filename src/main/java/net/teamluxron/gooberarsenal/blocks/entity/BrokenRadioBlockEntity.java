@@ -24,7 +24,7 @@ public class BrokenRadioBlockEntity extends BlockEntity {
     private long nextPlayTick = 0;
 
     public BrokenRadioBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state);
+        super(ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state); // Use correct type
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, BrokenRadioBlockEntity blockEntity) {
