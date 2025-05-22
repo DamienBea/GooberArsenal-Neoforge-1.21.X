@@ -31,7 +31,7 @@ public record ClientboundRadioTogglePacket(BlockPos pos, boolean isOn) implement
 
     @Override
     public Type<? extends CustomPacketPayload> type() {
-        return TYPE;  // Must return TYPE, not null!
+        return TYPE;
     }
 
     public static void handle(ClientboundRadioTogglePacket packet, IPayloadContext context) {
