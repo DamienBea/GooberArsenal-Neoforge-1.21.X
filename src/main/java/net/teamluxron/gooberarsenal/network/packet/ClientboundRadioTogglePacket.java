@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.client.sound.ClientSoundManager;
+import net.teamluxron.gooberarsenal.sound.ModSounds;
 
 public record ClientboundRadioTogglePacket(BlockPos pos, boolean isOn) implements CustomPacketPayload {
     public static final ResourceLocation ID =
@@ -36,7 +37,7 @@ public record ClientboundRadioTogglePacket(BlockPos pos, boolean isOn) implement
     public static void handle(ClientboundRadioTogglePacket packet, IPayloadContext context) {
         context.enqueueWork(() -> {
             if (packet.isOn()) {
-                ClientSoundManager.playRadioSound(packet.pos());
+                ClientSoundManager.playRadioSound(packet.pos(), ModSounds.RADIO.get());
             } else {
                 ClientSoundManager.stopRadioSound(packet.pos());
             }

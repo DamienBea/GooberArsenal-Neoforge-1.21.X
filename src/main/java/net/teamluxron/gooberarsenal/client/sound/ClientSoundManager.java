@@ -2,6 +2,7 @@ package net.teamluxron.gooberarsenal.client.sound;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -14,14 +15,14 @@ import java.util.Map;
 public class ClientSoundManager {
     private static final Map<BlockPos, RadioSoundInstance> activeSounds = new HashMap<>();
 
-    public static void playRadioSound(BlockPos pos) {
+    public static void playRadioSound(BlockPos pos, SoundEvent soundEvent) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null || mc.getSoundManager() == null) return;
 
         stopRadioSound(pos);
 
         RadioSoundInstance sound = new RadioSoundInstance(
-                ModSounds.RADIO.get(),
+                soundEvent,
                 Vec3.atCenterOf(pos)
         );
 

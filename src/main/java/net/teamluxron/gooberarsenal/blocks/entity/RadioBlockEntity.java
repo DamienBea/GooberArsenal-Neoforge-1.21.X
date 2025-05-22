@@ -25,8 +25,8 @@ public class RadioBlockEntity extends BlockEntity {
     public boolean isPlaying = false;
     private long nextPlayTick = 0;
 
-    public RadioBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
-        super(type, pos, state);
+    public RadioBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.RADIO_BE.get(), pos, state);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, RadioBlockEntity blockEntity) {

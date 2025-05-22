@@ -49,7 +49,7 @@ public class BrokenRadioBlock extends BaseEntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new BrokenRadioBlockEntity(ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state);
+        return new BrokenRadioBlockEntity(pos, state);
     }
 
     @Nullable

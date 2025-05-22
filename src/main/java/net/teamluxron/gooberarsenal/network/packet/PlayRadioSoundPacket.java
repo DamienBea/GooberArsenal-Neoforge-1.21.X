@@ -21,7 +21,10 @@ public record PlayRadioSoundPacket(BlockPos pos, boolean isBroken) implements Cu
             StreamCodec.composite(
                     BlockPos.STREAM_CODEC,
                     PlayRadioSoundPacket::pos,
-                    StreamCodec.BOOL,
+                    StreamCodec.of(
+                            RegistryFriendlyByteBuf::writeBoolean,
+                            RegistryFriendlyByteBuf::readBoolean
+                    ),
                     PlayRadioSoundPacket::isBroken,
                     PlayRadioSoundPacket::new
             );

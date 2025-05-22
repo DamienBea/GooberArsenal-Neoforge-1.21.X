@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.teamluxron.gooberarsenal.blocks.entity.BrokenRadioBlockEntity;
 import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.blocks.entity.RadioBlockEntity;
 import org.jetbrains.annotations.Nullable;
@@ -50,7 +51,7 @@ public class RadioBlock extends BaseEntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new RadioBlockEntity(ModBlockEntities.RADIO_BE.get(), pos, state);
+        return new RadioBlockEntity(pos, state);
     }
 
     @Nullable

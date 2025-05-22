@@ -23,8 +23,8 @@ public class BrokenRadioBlockEntity extends BlockEntity {
     public boolean isPlaying = false;
     private long nextPlayTick = 0;
 
-    public BrokenRadioBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
-        super(type, pos, state);
+    public BrokenRadioBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, BrokenRadioBlockEntity blockEntity) {
