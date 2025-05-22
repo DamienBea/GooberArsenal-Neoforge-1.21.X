@@ -57,7 +57,11 @@ public class RadioBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type, ModBlockEntities.RADIO_BE.get(), RadioBlockEntity::tick);
+        return createTickerHelper(
+                type,
+                ModBlockEntities.RADIO_BE.get(), // <-- Use RADIO_BE
+                RadioBlockEntity::tick
+        );
     }
 
     @Override

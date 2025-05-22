@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.network.ModMessages;
 import net.teamluxron.gooberarsenal.network.packet.ClientboundRadioTogglePacket;
 import net.teamluxron.gooberarsenal.network.packet.PlayRadioSoundPacket;
@@ -27,6 +28,10 @@ public class RadioBlockEntity extends BlockEntity {
 
     public RadioBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.RADIO_BE.get(), pos, state);
+
+        if (!state.is(ModBlocks.RADIO.get())) {
+            throw new IllegalStateException("BlockState must be RadioBlock!");
+        }
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, RadioBlockEntity blockEntity) {

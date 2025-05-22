@@ -49,14 +49,17 @@ public class BrokenRadioBlock extends BaseEntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new BrokenRadioBlockEntity(pos, state);
+        return new BrokenRadioBlockEntity(pos, state); // Correct entity
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type, ModBlockEntities.BROKEN_RADIO_BE.get(),
-                (level1, pos, state1, blockEntity) -> blockEntity.tick(level1, pos, state1, blockEntity));
+        return createTickerHelper(
+                type,
+                ModBlockEntities.BROKEN_RADIO_BE.get(), // <-- Use BROKEN_RADIO_BE
+                BrokenRadioBlockEntity::tick
+        );
     }
 
     @Override

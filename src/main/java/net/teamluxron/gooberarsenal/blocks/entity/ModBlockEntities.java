@@ -1,5 +1,6 @@
 package net.teamluxron.gooberarsenal.blocks.entity;
 
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -7,6 +8,9 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
+import net.minecraft.util.datafix.DataFixTypes;
+
+import java.util.function.Supplier;
 
 
 public class ModBlockEntities {
@@ -17,13 +21,23 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("forging_anvil_be", () ->
                     BlockEntityType.Builder.of(ForgingAnvilBlockEntity::new, ModBlocks.FORGING_ANVIL.get()).build(null));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RadioBlockEntity>> RADIO_BE =
-            BLOCK_ENTITIES.register("radio", () ->
-                    BlockEntityType.Builder.of(RadioBlockEntity::new, ModBlocks.RADIO.get()).build(null));
+    // Normal radio
+    public static final Supplier<BlockEntityType<RadioBlockEntity>> RADIO_BE = BLOCK_ENTITIES.register(
+            "radio_be",
+            () -> BlockEntityType.Builder.of(
+                    RadioBlockEntity::new,
+                    ModBlocks.RADIO.get() // <-- Only include RADIO block
+            ).build()
+    );
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BrokenRadioBlockEntity>> BROKEN_RADIO_BE =
-            BLOCK_ENTITIES.register("broken_radio", () ->
-                    BlockEntityType.Builder.of(BrokenRadioBlockEntity::new, ModBlocks.BROKEN_RADIO.get()).build(null));
+    // Broken radio
+    public static final Supplier<BlockEntityType<BrokenRadioBlockEntity>> BROKEN_RADIO_BE = BLOCK_ENTITIES.register(
+            "broken_radio_be",
+            () -> BlockEntityType.Builder.of(
+                    BrokenRadioBlockEntity::new,
+                    ModBlocks.BROKEN_RADIO.get() // <-- Only include BROKEN_RADIO block
+            ).build()
+    );
 
 
 
