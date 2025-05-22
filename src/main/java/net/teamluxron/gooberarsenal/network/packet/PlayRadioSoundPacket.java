@@ -36,9 +36,8 @@ public record PlayRadioSoundPacket(BlockPos pos, boolean isBroken) implements Cu
 
     public static void handle(PlayRadioSoundPacket packet, IPayloadContext context) {
         context.enqueueWork(() -> {
-            SoundEvent sound = packet.isBroken() ?
-                    ModSounds.BROKEN_RADIO.get() :
-                    ModSounds.RADIO.get();
+            boolean broken = packet.isBroken();
+            SoundEvent sound = broken ? ModSounds.BROKEN_RADIO.get() : ModSounds.RADIO.get();
             ClientSoundManager.playRadioSound(packet.pos(), sound);
         });
     }

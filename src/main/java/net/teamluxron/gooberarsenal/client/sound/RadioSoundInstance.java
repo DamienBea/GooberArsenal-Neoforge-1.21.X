@@ -34,7 +34,7 @@ public class RadioSoundInstance extends AbstractSoundInstance {
 
         float volumePercent;
         if (distance <= 32) {
-            volumePercent = 1.0f; // 100%
+            volumePercent = 1.0f;
         } else if (distance <= 40) {
             volumePercent = 0.7f + (0.3f * (40 - distance) / 8f); // 70-100%
         } else if (distance <= 56) {
@@ -53,7 +53,7 @@ public class RadioSoundInstance extends AbstractSoundInstance {
     public void tick() {
         float newVolume = calculateVolume();
         if (newVolume <= 0.001f) {
-            this.isStopped = true; // Mark for stopping
+            this.isStopped = true;
         } else {
             this.volume = newVolume;
         }

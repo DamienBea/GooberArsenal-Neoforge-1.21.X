@@ -11,10 +11,12 @@ import net.teamluxron.gooberarsenal.sound.ModSounds;
 public class NetworkHandler {
     public static void handlePlayRadioSoundPacket(PlayRadioSoundPacket payload, IPayloadContext context) {
         context.enqueueWork(() -> {
+            // Use the 'sound' variable instead of 'payload.isBroken()'
             SoundEvent sound = payload.isBroken() ?
                     ModSounds.BROKEN_RADIO.get() :
                     ModSounds.RADIO.get();
-            ClientSoundManager.playRadioSound(payload.pos(), sound);
+
+            ClientSoundManager.playRadioSound(payload.pos(), sound); // Pass SoundEvent here
         }).exceptionally(e -> {
             context.disconnect(Component.literal("Error processing PlayRadioSoundPacket."));
             return null;

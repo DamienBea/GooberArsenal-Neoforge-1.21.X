@@ -13,43 +13,31 @@ import java.util.Map;
 
 @OnlyIn(Dist.CLIENT)
 public class ClientSoundManager {
-    private static final Map<BlockPos, RadioSoundInstance> activeSounds = new HashMap<>();
+    private static final Map<BlockPos, RadioSoundInstance> soundInstances = new HashMap<>();
 
-    public static void playRadioSound(BlockPos pos, SoundEvent soundEvent) {
+    public static void playRadioSound(BlockPos pos, SoundEvent sound) {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.level == null || mc.getSoundManager() == null) return;
+        if (mc.level == null || soundInstances.containsKey(pos)) return;
 
-        stopRadioSound(pos);
-
-        RadioSoundInstance sound = new RadioSoundInstance(
-                soundEvent,
-                Vec3.atCenterOf(pos)
-        );
-
-        mc.getSoundManager().play(sound);
-        activeSounds.put(pos, sound);
+        RadioSoundInstance instance = new RadioSoundInstance(sound, Vec3.atCenterOf(pos));
+        soundInstances.put(pos, instance);
+        mc.getSoundManager().play(instance);
     }
 
     public static void stopRadioSound(BlockPos pos) {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.getSoundManager() == null) return;
-
-        RadioSoundInstance sound = activeSounds.get(pos);
-        if (sound != null) {
-            sound.isStopped = true; // Proper way to stop
-            mc.getSoundManager().stop(sound);
-            activeSounds.remove(pos);
+        RadioSoundInstance instance = soundInstances.remove(pos);
+        if (instance != null) {
+            mc.getSoundManager().stop(instance);
         }
     }
 
     public static void stopAllRadioSounds() {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.getSoundManager() == null) return;
-
-        activeSounds.forEach((pos, sound) -> {
-            sound.isStopped = true;
-            mc.getSoundManager().stop(sound);
-        });
-        activeSounds.clear();
+        for (RadioSoundInstance instance : soundInstances.values()) {
+            mc.getSoundManager().stop(instance);
+        }
+        soundInstances.clear();
     }
+
 }

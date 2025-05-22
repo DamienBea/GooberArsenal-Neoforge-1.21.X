@@ -1,6 +1,5 @@
 package net.teamluxron.gooberarsenal.blocks.entity;
 
-import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -8,7 +7,6 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
-import net.minecraft.util.datafix.DataFixTypes;
 
 import java.util.function.Supplier;
 
@@ -21,7 +19,6 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("forging_anvil_be", () ->
                     BlockEntityType.Builder.of(ForgingAnvilBlockEntity::new, ModBlocks.FORGING_ANVIL.get()).build(null));
 
-    // Normal radio
     public static final Supplier<BlockEntityType<RadioBlockEntity>> RADIO_BE = BLOCK_ENTITIES.register(
             "radio_be",
             () -> BlockEntityType.Builder.of(
@@ -30,7 +27,6 @@ public class ModBlockEntities {
             ).build(null)
     );
 
-    // Broken Radio Block Entity
     public static final Supplier<BlockEntityType<BrokenRadioBlockEntity>> BROKEN_RADIO_BE = BLOCK_ENTITIES.register(
             "broken_radio_be",
             () -> BlockEntityType.Builder.of(

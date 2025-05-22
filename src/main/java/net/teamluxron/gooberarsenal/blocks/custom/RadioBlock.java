@@ -59,7 +59,7 @@ public class RadioBlock extends BaseEntityBlock {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return createTickerHelper(
                 type,
-                ModBlockEntities.RADIO_BE.get(), // <-- Use RADIO_BE
+                ModBlockEntities.RADIO_BE.get(),
                 RadioBlockEntity::tick
         );
     }

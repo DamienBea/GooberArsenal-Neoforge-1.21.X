@@ -24,7 +24,7 @@ public class BrokenRadioBlockEntity extends BlockEntity {
     private long nextPlayTick = 0;
 
     public BrokenRadioBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state); // Use correct type
+        super(ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, BrokenRadioBlockEntity blockEntity) {
@@ -74,7 +74,6 @@ public class BrokenRadioBlockEntity extends BlockEntity {
                 player.distanceToSqr(worldPosition.getCenter()) < (65.0 * 65.0))) {
             ModMessages.sendToPlayer(player, new PlayRadioSoundPacket(worldPosition, true));
         }
-
     }
 
     public void stopSound() {
@@ -98,7 +97,6 @@ public class BrokenRadioBlockEntity extends BlockEntity {
 
     public void onBlockDestroyed() {
         if (level != null && !level.isClientSide) {
-            // Send stop sound to all nearby players
             for (ServerPlayer player : ((ServerLevel) level).getPlayers(player ->
                     player.distanceToSqr(worldPosition.getCenter()) < 256)) {
                 ModMessages.sendToPlayer(player, new StopRadioSoundPacket(worldPosition));
@@ -110,7 +108,10 @@ public class BrokenRadioBlockEntity extends BlockEntity {
 
     public void syncToClients() {
         if (level instanceof ServerLevel serverLevel) {
-            ModMessages.sendToAllTracking(this, new ClientboundRadioTogglePacket(getBlockPos(), this.isPlaying));
+            ModMessages.sendToAllTracking(
+                    this,
+                    new ClientboundRadioTogglePacket(getBlockPos(), isPlaying, true)
+            );
         }
     }
 

@@ -10,7 +10,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.network.ModMessages;
@@ -104,7 +103,6 @@ public class RadioBlockEntity extends BlockEntity {
 
     public void onBlockDestroyed() {
         if (level != null && !level.isClientSide) {
-            // Send stop sound to all nearby players
             for (ServerPlayer player : ((ServerLevel) level).getPlayers(player ->
                     player.distanceToSqr(worldPosition.getCenter()) < 256)) {
                 ModMessages.sendToPlayer(player, new StopRadioSoundPacket(worldPosition));
@@ -116,7 +114,10 @@ public class RadioBlockEntity extends BlockEntity {
 
     public void syncToClients() {
         if (level instanceof ServerLevel serverLevel) {
-            ModMessages.sendToAllTracking(this, new ClientboundRadioTogglePacket(getBlockPos(), this.isPlaying));
+            ModMessages.sendToAllTracking(
+                    this,
+                    new ClientboundRadioTogglePacket(getBlockPos(), isPlaying, false)
+            );
         }
     }
 
