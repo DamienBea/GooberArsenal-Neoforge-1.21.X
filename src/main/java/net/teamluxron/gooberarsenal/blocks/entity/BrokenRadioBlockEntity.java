@@ -110,7 +110,7 @@ public class BrokenRadioBlockEntity extends BlockEntity {
         if (level instanceof ServerLevel serverLevel) {
             ModMessages.sendToAllTracking(
                     this,
-                    new ClientboundRadioTogglePacket(getBlockPos(), isPlaying, true)
+                    new ClientboundRadioTogglePacket(getBlockPos(), isPlaying, false)
             );
         }
     }

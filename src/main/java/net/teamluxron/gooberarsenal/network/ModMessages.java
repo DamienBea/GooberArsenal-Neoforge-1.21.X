@@ -20,10 +20,9 @@ public class ModMessages {
                 .versioned("1.0")
                 .optional();
 
-        // Client-bound packets
         registrar.playToClient(
                 ClientboundRadioTogglePacket.TYPE,
-                ClientboundRadioTogglePacket.STREAM_CODEC,
+                ClientboundRadioTogglePacket.STREAM_CODEC, // Now matches type
                 ClientboundRadioTogglePacket::handle
         );
 
@@ -39,7 +38,6 @@ public class ModMessages {
                 NetworkHandler::handleStopRadioSoundPacket
         );
 
-        // Server-bound packets
         registrar.playToServer(
                 ServerboundRadioTogglePacket.TYPE,
                 ServerboundRadioTogglePacket.STREAM_CODEC,

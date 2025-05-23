@@ -116,6 +116,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SCALED_ENDSTONE.get());
                         output.accept(ModBlocks.FORGING_ANVIL.get());
                         output.accept(ModBlocks.RADIO.get());
+                        output.accept(ModBlocks.BROKEN_RADIO.get());
 
                     }).build());
 

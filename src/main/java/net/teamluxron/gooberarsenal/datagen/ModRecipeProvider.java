@@ -418,6 +418,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_diamond_block", has(Items.DIAMOND_BLOCK))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.RADIO.get())
+                .pattern("III")
+                .pattern("IAI")
+                .pattern("LLL")
+                .define('I', Items.IRON_INGOT)
+                .define('A', Items.ANVIL)
+                .define('L', ItemTags.LOGS)
+                .unlockedBy("has_anvil", has(Items.ANVIL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.RADIO.get())
+                .pattern("SPS")
+                .pattern("SJS")
+                .pattern("SRS")
+                .define('S', ModItems.IRON_PLATE)
+                .define('J', Items.JUKEBOX)
+                .define('P', ModItems.PLASTIC)
+                .unlockedBy("has_iron_plate", has(ModItems.IRON_PLATE))
+                .save(recipeOutput);
+
 
 
 
@@ -463,6 +483,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.THORN_OF_TOTH.get(), 1)
                 .unlockedBy(getHasName(ModItems.IRON_DAGGER.get()), has(ModItems.IRON_DAGGER.get()))
                 .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.RADIO.get(), 1)
+                .requires(ModItems.IRON_PLATE.get(), 1)
+                .requires(ModBlocks.BROKEN_RADIO.get(), 1)
+                .unlockedBy(getHasName(ModBlocks.BROKEN_RADIO.get()), has(ModItems.IRON_PLATE.get()))
+                .save(recipeOutput, "radio_from_repair");
 
 
 
@@ -618,6 +644,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         //Forging
 
         registerForgingRecipe(recipeOutput, Items.IRON_INGOT, ModItems.IRON_PLATE.get(), 1);
+        registerForgingRecipe(recipeOutput, ModBlocks.RADIO, ModBlocks.BROKEN_RADIO.get(), 1);
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

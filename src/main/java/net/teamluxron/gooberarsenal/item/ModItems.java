@@ -1041,10 +1041,9 @@ public class ModItems {
             () -> new HammerItem(Tiers.NETHERITE, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 3F, -3.5f))));
 
-    public static final DeferredItem<HammerItem> MOSSY_MASHER = ITEMS.register("mossy_masher",
-            () -> new HammerItem(MossMaterial.INSTANCE, new Item.Properties()
+    public static final DeferredItem<MossyMasherItem> MOSSY_MASHER = ITEMS.register("mossy_masher",
+            () -> new MossyMasherItem(MossMaterial.INSTANCE, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(MossMaterial.INSTANCE, 3F, -3.5f))));
-
 
 
 
