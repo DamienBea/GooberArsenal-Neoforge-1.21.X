@@ -21,7 +21,7 @@ public class StevensJacketItem extends ArmorItem {
 
         ItemStack chestItem = player.getItemBySlot(EquipmentSlot.CHEST);
 
-        // Check if the player is wearing the Stevens Jacket (Chestplate)
+        // Check if the player is wearing the Stevens Jacket
         if (chestItem.getItem() == this) {
             // Apply regeneration effect if the player doesn't already have it
             if (!player.hasEffect(MobEffects.REGENERATION)) {

@@ -144,6 +144,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.THORN_OF_TOTH.get());
                         output.accept(ModItems.THORN_OF_ANDORAL.get());
                         output.accept(ModItems.MOSSY_GEM.get());
+                        output.accept(ModItems.POLE.get());
 
                     }).build());
 

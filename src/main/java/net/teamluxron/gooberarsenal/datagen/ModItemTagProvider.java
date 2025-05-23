@@ -137,10 +137,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.CAGITE_LEGGINGS.get())
         ;
 
-        tag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
-                .add(ModItems.STEVENS_JACKET.get())
-        ;
-
 
 
     }

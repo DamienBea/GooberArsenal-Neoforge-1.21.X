@@ -3,19 +3,22 @@
   "category": "misc",
   "key": {
     "A": {
+      "item": "minecraft:anvil"
+    },
+    "I": {
       "item": "minecraft:iron_ingot"
     },
-    "C": {
-      "item": "gooberarsenal:pole"
+    "L": {
+      "tag": "minecraft:logs"
     }
   },
   "pattern": [
-    "AAA",
-    "A C",
-    "  C"
+    "III",
+    "IAI",
+    "LLL"
   ],
   "result": {
     "count": 1,
-    "id": "gooberarsenal:iron_scythe"
+    "id": "gooberarsenal:forging_anvil"
   }
 }

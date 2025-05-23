@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_planks": {
+    "has_stick": {
       "conditions": {
         "items": [
           {
-            "items": "gooberarsenal:pole"
+            "items": "minecraft:stick"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "gooberarsenal:wooden_polearm"
+        "recipe": "gooberarsenal:pole"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_planks"
+      "has_stick"
     ]
   ],
   "rewards": {
     "recipes": [
-      "gooberarsenal:wooden_polearm"
+      "gooberarsenal:pole"
     ]
   }
 }

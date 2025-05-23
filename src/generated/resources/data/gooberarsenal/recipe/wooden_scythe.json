@@ -6,11 +6,11 @@
       "tag": "minecraft:planks"
     },
     "C": {
-      "item": "minecraft:stick"
+      "item": "gooberarsenal:pole"
     }
   },
   "pattern": [
-    " AA",
+    "AAA",
     "A C",
     "  C"
   ],

@@ -147,6 +147,25 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         LootItemRandomChanceCondition.randomChance(0.5f).build()
                 }, ModItems.GLEAMING_RED_EYE.get()));
 
+
+        this.add("thorn_of_toth_from_hoglin_stable",
+                new AddItemModifier(new LootItemCondition[] {
+                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/bastion_hoglin_stable")).build(),
+                        LootItemRandomChanceCondition.randomChance(0.4f).build()
+                }, ModItems.THORN_OF_TOTH.get()));
+
+        this.add("thorn_of_andoral_from_end_city",
+                new AddItemModifier(new LootItemCondition[] {
+                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/end_city_treasure")).build(),
+                        LootItemRandomChanceCondition.randomChance(0.4f).build()
+                }, ModItems.THORN_OF_ANDORAL.get()));
+
+        this.add("thorn_of_zazikel_from_strongholds",
+                new AddItemModifier(new LootItemCondition[] {
+                        new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/stronghold_library")).build(),
+                        LootItemRandomChanceCondition.randomChance(0.4f).build()
+                }, ModItems.THORN_OF_ZAZIKEL.get()));
+
         //Sus Sand
 
 //        this.add("life_saver_from_desert_sand",

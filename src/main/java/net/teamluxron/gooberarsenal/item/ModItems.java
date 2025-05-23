@@ -89,6 +89,9 @@ public class ModItems {
     public static final DeferredItem<Item> MOSSY_GEM = ITEMS.register("mossy_gem",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> POLE = ITEMS.register("pole",
+            () -> new Item(new Item.Properties()));
+
 
     public static final DeferredItem<Item> SWITCH_CARTRIDGE = ITEMS.register("switch_cartridge",
             () -> new Item(new Item.Properties()) {
@@ -340,229 +343,64 @@ public class ModItems {
                     .fireResistant()
                     .attributes(ShovelItem.createAttributes(Tiers.IRON, 5f, -3f))));
 
-    public static final DeferredItem<SwordItem> WOODEN_DAGGER = ITEMS.register("wooden_dagger",
-            () -> new SwordItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.WOOD, 1f, -2f)))
-            {
 
+    // Dagger Registration
+
+    public static final DeferredItem<DaggerItem> WOODEN_DAGGER = ITEMS.register("wooden_dagger",
+            () -> new DaggerItem(Tiers.WOOD, 1, -2.0f, new Item.Properties()));
+
+    public static final DeferredItem<DaggerItem> STONE_DAGGER = ITEMS.register("stone_dagger",
+            () -> new DaggerItem(Tiers.STONE, 1, -2.0f, new Item.Properties())); // Rounded 0.5->1
+
+    public static final DeferredItem<DaggerItem> IRON_DAGGER = ITEMS.register("iron_dagger",
+            () -> new DaggerItem(Tiers.IRON, -1, -1.5f, new Item.Properties()));
+
+    public static final DeferredItem<DaggerItem> GOLDEN_DAGGER = ITEMS.register("golden_dagger",
+            () -> new DaggerItem(Tiers.GOLD, 1, -2.0f, new Item.Properties()));
+
+    public static final DeferredItem<DaggerItem> DIAMOND_DAGGER = ITEMS.register("diamond_dagger",
+            () -> new DaggerItem(Tiers.DIAMOND, -1, -1.5f, new Item.Properties()));
+
+    public static final DeferredItem<DaggerItem> NETHERITE_DAGGER = ITEMS.register("netherite_dagger",
+            () -> new DaggerItem(Tiers.NETHERITE, -1, -1.0f, new Item.Properties()));
+
+    public static final DeferredItem<DaggerItem> SWITCH_BLADE = ITEMS.register("switch_blade",
+            () -> new DaggerItem(Tiers.IRON, -1, -1.5f, new Item.Properties()));
+
+    public static final DeferredItem<DaggerItem> REBELS_KNIFE = ITEMS.register("rebels_knife",
+            () -> new DaggerItem(Tiers.NETHERITE, 0, 0.0f, new Item.Properties().fireResistant()));
+
+    public static final DeferredItem<DaggerItem> THORN_OF_THE_DEAD_GODS = ITEMS.register("thorn_of_the_dead_gods",
+            () -> new DaggerItem(Tiers.NETHERITE, 0, -1.0f, new Item.Properties().fireResistant()) {
                 @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!attacker.level().isClientSide()) {
-                        if (target.invulnerableTime > 5) {
-                            target.invulnerableTime = 5;
-                        }
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-            });
-
-    public static final DeferredItem<SwordItem> STONE_DAGGER = ITEMS.register("stone_dagger",
-            () -> new SwordItem(Tiers.STONE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.STONE, 0.5f, -2f)))
-            {
-
-                @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!attacker.level().isClientSide()) {
-                        if (target.invulnerableTime > 5) {
-                            target.invulnerableTime = 5;
-                        }
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+                    tooltip.add(Component.translatable("tooltip.gooberarsenal.lifesteal").withStyle(ChatFormatting.DARK_RED));
+                    super.appendHoverText(stack, context, tooltip, flag);
                 }
             });
 
-    public static final DeferredItem<SwordItem> IRON_DAGGER = ITEMS.register("iron_dagger",
-            () -> new SwordItem(Tiers.IRON, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, -0.5f, -1.5f)))
-            {
-
+    public static final DeferredItem<DaggerItem> POISONERS_SIDEARM = ITEMS.register("poisoners_sidearm",
+            () -> new DaggerItem(Tiers.NETHERITE, 0, -0.5f, new Item.Properties().fireResistant()) {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    boolean result = super.hurtEnemy(stack, target, attacker);
                     if (!attacker.level().isClientSide()) {
-                        if (target.invulnerableTime > 5) {
-                            target.invulnerableTime = 5;
-                        }
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-            });
-
-    public static final DeferredItem<SwordItem> GOLDEN_DAGGER = ITEMS.register("golden_dagger",
-            () -> new SwordItem(Tiers.GOLD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.GOLD, 1f, -2f)))
-            {
-
-                @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!attacker.level().isClientSide()) {
-                        if (target.invulnerableTime > 5) {
-                            target.invulnerableTime = 5;
-                        }
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-            });
-
-    public static final DeferredItem<SwordItem> DIAMOND_DAGGER = ITEMS.register("diamond_dagger",
-            () -> new SwordItem(Tiers.DIAMOND, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, -1f, -1.5f)))
-            {
-
-                @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!attacker.level().isClientSide()) {
-                        if (target.invulnerableTime > 5) {
-                            target.invulnerableTime = 5;
-                        }
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-            });
-
-    public static final DeferredItem<SwordItem> NETHERITE_DAGGER = ITEMS.register("netherite_dagger",
-            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, -1f, -1f)))
-            {
-
-                @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!attacker.level().isClientSide()) {
-                        if (target.invulnerableTime > 5) {
-                            target.invulnerableTime = 5;
-                        }
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-            });
-
-    public static final DeferredItem<SwordItem> SWITCH_BLADE = ITEMS.register("switch_blade",
-            () -> new SwordItem(Tiers.IRON, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.IRON, -0.5f, -1.5f)))
-            {
-
-                @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!attacker.level().isClientSide()) {
-                        if (target.invulnerableTime > 5) {
-                            target.invulnerableTime = 5;
-                        }
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-            });
-
-    public static final DeferredItem<SwordItem> REBELS_KNIFE = ITEMS.register("rebels_knife",
-            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .fireResistant()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 0f, 0f)))
-            {
-                @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!attacker.level().isClientSide()) {
-                        if (target.invulnerableTime > 5) {
-                            target.invulnerableTime = 5;
-                        }
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-            });
-
-    public static final DeferredItem<SwordItem> THORN_OF_THE_DEAD_GODS = ITEMS.register("thorn_of_the_dead_gods",
-            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .fireResistant()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 0f, -1f)))
-            {
-                @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!attacker.level().isClientSide()) {
-                        if (target.invulnerableTime > 5) {
-                            target.invulnerableTime = 5;
-                        }
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-            });
-
-    public static final DeferredItem<SwordItem> POISONERS_SIDEARM = ITEMS.register("poisoners_sidearm",
-            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .fireResistant()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 0f, -0.5f)))
-            {
-
-
-                @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!attacker.level().isClientSide()) {
-                        if (target.invulnerableTime > 5) {
-                            target.invulnerableTime = 5;
-                        }
                         target.addEffect(new MobEffectInstance(MobEffects.POISON, 100));
                     }
-                    return super.hurtEnemy(stack, target, attacker);
+                    return result;
                 }
+            });
 
+    public static final DeferredItem<DaggerItem> LIFE_SABER = ITEMS.register("life_saber",
+            () -> new DaggerItem(Tiers.DIAMOND, -1, -1.5f, new Item.Properties()) {
                 @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+                    if (!level.isClientSide() && entity instanceof Player player && selected) {
+                        player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 20, 0, true, false));
+                        player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 20, 1, true, false));
+                    }
+                    super.inventoryTick(stack, level, entity, slot, selected);
                 }
-
-
             });
 
 
@@ -578,18 +416,6 @@ public class ModItems {
                     .attributes(AxeItem.createAttributes(Tiers.DIAMOND, 5f, -3f))) {
             });
 
-    public static final DeferredItem<SwordItem> LIFE_SABER = ITEMS.register("life_saber",
-            () -> new SwordItem(KevinMaterial.INSTANCE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(KevinMaterial.INSTANCE, -1, 2f))) {
-                @Override
-                public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-                    if (!level.isClientSide() && entity instanceof Player player && selected) {
-                        player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 20, 0, true, false));
-                        player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 20, 1, true, false));
-                    }
-                    super.inventoryTick(stack, level, entity, slot, selected);
-                }
-            });
 
     public static final DeferredItem<SwordItem> KENDO_STICK = ITEMS.register("kendo_stick",
             () -> new SwordItem(KendoStickMaterial.INSTANCE, new Item.Properties()

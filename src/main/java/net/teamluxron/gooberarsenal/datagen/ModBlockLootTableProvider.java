@@ -32,6 +32,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CAGITE_BLOCK.get());
         dropSelf(ModBlocks.FORGING_ANVIL.get());
         dropSelf(ModBlocks.RADIO.get());
+        dropSelf(ModBlocks.BROKEN_RADIO.get());
         dropSelf(ModBlocks.SCALED_ENDSTONE.get());
 
 // Ore Drops

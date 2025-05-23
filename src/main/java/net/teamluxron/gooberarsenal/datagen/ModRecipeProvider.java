@@ -220,92 +220,92 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_POLEARM.get())
-                .pattern(" A ")
-                .pattern("AC ")
-                .pattern(" C ")
+                .pattern(" AA")
+                .pattern("AAC")
+                .pattern("A C")
                 .define('A', ItemTags.PLANKS)
-                .define('C', Items.STICK)
-                .unlockedBy("has_planks", has(ItemTags.PLANKS))
+                .define('C', ModItems.POLE)
+                .unlockedBy("has_planks", has(ModItems.POLE))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_POLEARM.get())
-                .pattern(" A ")
-                .pattern("AC ")
-                .pattern(" C ")
+                .pattern(" AA")
+                .pattern("AAC")
+                .pattern("A C")
                 .define('A', Items.COBBLESTONE)
-                .define('C', Items.STICK)
+                .define('C', ModItems.POLE)
                 .unlockedBy("has_cobblestone", has(Items.COBBLESTONE))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_POLEARM.get())
-                .pattern(" A ")
-                .pattern("AC ")
-                .pattern(" C ")
+                .pattern(" AA")
+                .pattern("AAC")
+                .pattern("A C")
                 .define('A', Items.IRON_INGOT)
-                .define('C', Items.STICK)
+                .define('C', ModItems.POLE)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_POLEARM.get())
-                .pattern(" A ")
-                .pattern("AC ")
-                .pattern(" C ")
+                .pattern(" AA")
+                .pattern("AAC")
+                .pattern("A C")
                 .define('A', Items.GOLD_INGOT)
-                .define('C', Items.STICK)
+                .define('C', ModItems.POLE)
                 .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_POLEARM.get())
-                .pattern(" A ")
-                .pattern("AC ")
-                .pattern(" C ")
+                .pattern(" AA")
+                .pattern("AAC")
+                .pattern("A C")
                 .define('A', Items.DIAMOND)
-                .define('C', Items.STICK)
+                .define('C', ModItems.POLE)
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_SCYTHE.get())
-                .pattern(" AA")
+                .pattern("AAA")
                 .pattern("A C")
                 .pattern("  C")
                 .define('A', ItemTags.PLANKS)
-                .define('C', Items.STICK)
+                .define('C', ModItems.POLE)
                 .unlockedBy("has_planks", has(ItemTags.PLANKS))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_SCYTHE.get())
-                .pattern(" AA")
+                .pattern("AAA")
                 .pattern("A C")
                 .pattern("  C")
                 .define('A', Items.COBBLESTONE)
-                .define('C', Items.STICK)
+                .define('C', ModItems.POLE)
                 .unlockedBy("has_cobblestone", has(Items.COBBLESTONE))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_SCYTHE.get())
-                .pattern(" AA")
+                .pattern("AAA")
                 .pattern("A C")
                 .pattern("  C")
                 .define('A', Items.IRON_INGOT)
-                .define('C', Items.STICK)
+                .define('C', ModItems.POLE)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_SCYTHE.get())
-                .pattern(" AA")
+                .pattern("AAA")
                 .pattern("A C")
                 .pattern("  C")
                 .define('A', Items.GOLD_INGOT)
-                .define('C', Items.STICK)
+                .define('C', ModItems.POLE)
                 .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_SCYTHE.get())
-                .pattern(" AA")
+                .pattern("AAA")
                 .pattern("A C")
                 .pattern("  C")
                 .define('A', Items.DIAMOND)
-                .define('C', Items.STICK)
+                .define('C', ModItems.POLE)
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
@@ -418,7 +418,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_diamond_block", has(Items.DIAMOND_BLOCK))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.RADIO.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FORGING_ANVIL.get())
                 .pattern("III")
                 .pattern("IAI")
                 .pattern("LLL")
@@ -435,7 +435,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', ModItems.IRON_PLATE)
                 .define('J', Items.JUKEBOX)
                 .define('P', ModItems.PLASTIC)
+                .define('R', Items.REDSTONE)
                 .unlockedBy("has_iron_plate", has(ModItems.IRON_PLATE))
+                .save(recipeOutput, "radio_from_crafting");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.POLE.get())
+                .pattern("  I")
+                .pattern(" I ")
+                .pattern("I  ")
+                .define('I', Items.STICK)
+                .unlockedBy("has_stick", has(Items.STICK))
                 .save(recipeOutput);
 
 
@@ -477,18 +486,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.OBSIDIAN_HANDGUARD.get()), has(ModItems.OBSIDIAN_HANDGUARD.get()))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.THORN_OF_THE_DEAD_GODS.get(), 1)
-                .requires(ModItems.THORN_OF_ZAZIKEL.get(), 1)
-                .requires(ModItems.THORN_OF_ANDORAL.get(), 1)
-                .requires(ModItems.THORN_OF_TOTH.get(), 1)
-                .unlockedBy(getHasName(ModItems.IRON_DAGGER.get()), has(ModItems.IRON_DAGGER.get()))
-                .save(recipeOutput);
-
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.RADIO.get(), 1)
                 .requires(ModItems.IRON_PLATE.get(), 1)
                 .requires(ModBlocks.BROKEN_RADIO.get(), 1)
                 .unlockedBy(getHasName(ModBlocks.BROKEN_RADIO.get()), has(ModItems.IRON_PLATE.get()))
                 .save(recipeOutput, "radio_from_repair");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.THORN_OF_THE_DEAD_GODS.get(), 1)
+                .requires(ModItems.THORN_OF_ZAZIKEL.get(), 1)
+                .requires(ModItems.THORN_OF_ANDORAL.get(), 1)
+                .requires(ModItems.THORN_OF_TOTH.get(), 1)
+                .requires(ModItems.NETHERITE_DAGGER.get(), 1)
+                .unlockedBy(getHasName(ModItems.NETHERITE_DAGGER.get()), has(ModItems.NETHERITE_DAGGER.get()))
+                .save(recipeOutput);
 
 
 

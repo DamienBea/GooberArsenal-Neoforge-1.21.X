@@ -131,6 +131,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldScaledItem(ModItems.DIAMOND_HAMMER);
             handheldScaledItem(ModItems.NETHERITE_HAMMER);
             handheldScaledItem(ModItems.MOSSY_MASHER);
+            handheldScaledItem(ModItems.POLE);
 
 
 

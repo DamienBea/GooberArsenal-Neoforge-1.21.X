@@ -6,13 +6,13 @@
       "item": "minecraft:iron_ingot"
     },
     "C": {
-      "item": "minecraft:stick"
+      "item": "gooberarsenal:pole"
     }
   },
   "pattern": [
-    " A ",
-    "AC ",
-    " C "
+    " AA",
+    "AAC",
+    "A C"
   ],
   "result": {
     "count": 1,
