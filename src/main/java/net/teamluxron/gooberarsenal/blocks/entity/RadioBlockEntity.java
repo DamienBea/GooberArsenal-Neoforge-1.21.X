@@ -1,84 +1,144 @@
 package net.teamluxron.gooberarsenal.blocks.entity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.teamluxron.gooberarsenal.sound.ModSounds;
+import net.teamluxron.gooberarsenal.blocks.ModBlocks;
+import net.teamluxron.gooberarsenal.network.ModMessages;
+import net.teamluxron.gooberarsenal.network.packet.ClientboundRadioTogglePacket;
+import net.teamluxron.gooberarsenal.network.packet.PlayRadioSoundPacket;
+import net.teamluxron.gooberarsenal.network.packet.StopRadioSoundPacket;
 import org.jetbrains.annotations.Nullable;
 
+
+
 public class RadioBlockEntity extends BlockEntity {
-    private static final int SOUND_INTERVAL = 440; // 22 seconds
-    private boolean isPlaying = false;
+    private static final int SOUND_INTERVAL = 440;
+    public boolean isPlaying = false;
     private long nextPlayTick = 0;
-    private boolean wasJustPlaced = true;
 
-    private boolean needsToggleSound = false;
+    public RadioBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.RADIO_BE.get(), pos, state);
 
-    public RadioBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
-        super(type, pos, state);
+        if (!state.is(ModBlocks.RADIO.get())) {
+            throw new IllegalStateException("BlockState must be RadioBlock!");
+        }
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, RadioBlockEntity blockEntity) {
+        if (!level.isClientSide && blockEntity.isPlaying && level.getGameTime() >= blockEntity.nextPlayTick) {
+            blockEntity.playSound();
+            blockEntity.nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
+        }
     }
 
     public void toggle() {
         this.isPlaying = !this.isPlaying;
-        this.needsToggleSound = true;
         this.setChanged();
 
-        if (this.isPlaying && level != null) {
-            this.nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
-            scheduleSound();
+        if (level != null && !level.isClientSide) {
+            if (this.isPlaying) {
+                this.nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
+                playSound();
+            } else {
+                stopSound();
+            }
+            syncToClients();
+            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
         }
     }
 
-    private void scheduleSound() {
+    public void setEnabled(boolean enabled) {
+        if (isPlaying != enabled) {
+            isPlaying = enabled;
+            setChanged();
+
+            if (level != null && !level.isClientSide) {
+                if (enabled) {
+                    nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
+                    playSound();
+                } else {
+                    stopSound();
+                }
+                syncToClients();
+            }
+        }
+    }
+
+    private void playSound() {
         if (level == null || level.isClientSide) return;
 
-        // Play toggle sound if needed
-        if (needsToggleSound) {
-            level.playSound(null, worldPosition,
-                    isPlaying ? ModSounds.RADIO.get() : ModSounds.BUTTON.get(),
-                    SoundSource.RECORDS,
-                    isPlaying ? 1.0f : 0.5f,
-                    1.0f);
-            needsToggleSound = false;
+        for (ServerPlayer player : ((ServerLevel) level).getPlayers(player ->
+                player.distanceToSqr(worldPosition.getCenter()) < (65.0 * 65.0))) {
+            ModMessages.sendToPlayer(player, new PlayRadioSoundPacket(worldPosition, false));
         }
+    }
 
-        // Schedule recurring sound
-        if (isPlaying) {
-            long currentTime = level.getGameTime();
-            if (currentTime >= nextPlayTick) {
-                level.playSound(null, worldPosition,
-                        ModSounds.RADIO.get(),
-                        SoundSource.RECORDS,
-                        1.0f, 1.0f);
+    public void stopSound() {
+        if (level == null || level.isClientSide) return;
 
-                nextPlayTick = currentTime + SOUND_INTERVAL;
+        for (ServerPlayer player : ((ServerLevel) level).players()) {
+            if (player.distanceToSqr(worldPosition.getCenter()) < 256) {
+                ModMessages.sendToPlayer(player, new StopRadioSoundPacket(worldPosition));
             }
-            level.scheduleTick(worldPosition, getBlockState().getBlock(),
-                    (int)(nextPlayTick - currentTime));
+        }
+    }
+
+    public void stopRadio() {
+        if (isPlaying) {
+            isPlaying = false;
+            stopSound();
+            setChanged();
+            syncToClients();
+        }
+    }
+
+    public void onBlockDestroyed() {
+        if (level != null && !level.isClientSide) {
+            for (ServerPlayer player : ((ServerLevel) level).getPlayers(player ->
+                    player.distanceToSqr(worldPosition.getCenter()) < 256)) {
+                ModMessages.sendToPlayer(player, new StopRadioSoundPacket(worldPosition));
+            }
+            isPlaying = false;
+            setChanged();
+        }
+    }
+
+    public void syncToClients() {
+        if (level instanceof ServerLevel serverLevel) {
+            ModMessages.sendToAllTracking(
+                    this,
+                    new ClientboundRadioTogglePacket(getBlockPos(), isPlaying, false)
+            );
         }
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+    public void onLoad() {
+        super.onLoad();
+        if (level != null && !level.isClientSide && isPlaying) {
+            syncToClients();
+        }
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, net.minecraft.core.HolderLookup.Provider provider) {
         tag.putBoolean("Playing", isPlaying);
         tag.putLong("NextPlayTick", nextPlayTick);
-        tag.putBoolean("WasJustPlaced", wasJustPlaced);
     }
 
-
-
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+    protected void loadAdditional(CompoundTag tag, net.minecraft.core.HolderLookup.Provider provider) {
         this.isPlaying = tag.getBoolean("Playing");
         this.nextPlayTick = tag.getLong("NextPlayTick");
-        this.wasJustPlaced = tag.getBoolean("WasJustPlaced");
     }
 
     @Nullable
@@ -88,7 +148,7 @@ public class RadioBlockEntity extends BlockEntity {
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithoutMetadata(registries);
+    public CompoundTag getUpdateTag(net.minecraft.core.HolderLookup.Provider provider) {
+        return saveWithoutMetadata(provider);
     }
 }

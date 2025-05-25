@@ -71,12 +71,19 @@
   "item.gooberarsenal.diamond_hammer": "Diamond Hammer",
   "item.gooberarsenal.netherite_hammer": "Netherite Hammer",
   "item.gooberarsenal.mossy_masher": "Mossy Masher",
+  "item.gooberarsenal.mossy_gem": "Mossy Gem",
+  "item.gooberarsenal.thorn_of_zazikel": "Thorn of Zazikel",
+  "item.gooberarsenal.thorn_of_toth": "Thorn of Toth",
+  "item.gooberarsenal.thorn_of_andoral": "Thorn of Andoral",
+  "item.gooberarsenal.dragon_scale_shard": "Dragon Scale Shard",
 
   "block.gooberarsenal.ancient_cagite": "Ancient Cagite",
   "block.gooberarsenal.cagite_block": "Block of Cagite",
   "block.gooberarsenal.kevin_ore": "Kevin Ore",
   "block.gooberarsenal.deepslate_kevin_ore": "Deepslate Kevin Ore",
   "block.gooberarsenal.kevin_block": "Block of Kevin",
+  "block.gooberarsenal.radio": "Radio",
+  "block.gooberarsenal.broken_radio": "Broken Radio",
 
   "creativetab.gooberarsenal.gooberarsenal_combat": "Goober Arsenal Combat",
   "creativetab.gooberarsenal.gooberarsenal_combat_special": "Goober Arsenal Special Combat",
@@ -90,6 +97,7 @@
   "tooltip.gooberarsenal.bats": "A heavy-hitting blunt weapon. Has innate Knockback.",
   "tooltip.gooberarsenal.scythes": "A curved bladed weapon, pulling all enemies close together for the max amount of damage. Has innate 100% Sweeping Edge. Can also harvest and replant multiple crops upon breaking one crop.",
   "tooltip.gooberarsenal.polearms": "A blade with a pointed edge, allowing for more distance. Has +2 Block & Entity reach. Can also bring down any tree upon breaking one log.",
+  "tooltip.gooberarsenal.lifesteal": "",
 
   "message.gooberarsenal.no_pvp_jacket": "You cannot attack players while wearing Steven's Jacket!",
   "message.gooberarsenal.pvp_protected": "Steven's Jacket Protects this Player!",

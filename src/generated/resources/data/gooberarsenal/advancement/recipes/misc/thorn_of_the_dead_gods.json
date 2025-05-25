@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_dagger": {
+    "has_netherite_dagger": {
       "conditions": {
         "items": [
           {
-            "items": "gooberarsenal:iron_dagger"
+            "items": "gooberarsenal:netherite_dagger"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_iron_dagger"
+      "has_netherite_dagger"
     ]
   ],
   "rewards": {

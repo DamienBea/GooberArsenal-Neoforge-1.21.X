@@ -1,0 +1,10 @@
+{
+  "type": "gooberarsenal:forging",
+  "ingredient": {
+    "item": "gooberarsenal:radio"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:broken_radio"
+  }
+}

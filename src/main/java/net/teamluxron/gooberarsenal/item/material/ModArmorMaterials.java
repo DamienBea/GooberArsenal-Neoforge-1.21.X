@@ -46,7 +46,7 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.CHESTPLATE, 8);
                 attribute.put(ArmorItem.Type.HELMET, 2);
                 attribute.put(ArmorItem.Type.BODY, 13);
-            }), 15, 3f, 0f, () -> ModItems.CAGITE_INGOT.get());
+            }), 15, 3f, 0f, () -> ModItems.SOULPHYRE.get());
 
     public static final Holder<ArmorMaterial> STEVENS = register("stevens", Util.make(new EnumMap<>(ArmorItem.Type.class),
             attribute -> {

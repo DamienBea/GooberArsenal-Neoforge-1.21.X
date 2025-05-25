@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gooberarsenal:iron_plate"
+    },
+    {
+      "item": "gooberarsenal:broken_radio"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:radio"
+  }
+}

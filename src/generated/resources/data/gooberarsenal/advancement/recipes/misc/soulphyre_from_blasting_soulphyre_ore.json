@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_soulphyre_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "gooberarsenal:soulphyre_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gooberarsenal:soulphyre_from_blasting_soulphyre_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_soulphyre_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gooberarsenal:soulphyre_from_blasting_soulphyre_ore"
+    ]
+  }
+}

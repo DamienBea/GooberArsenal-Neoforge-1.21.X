@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "J": {
+      "item": "minecraft:jukebox"
+    },
+    "P": {
+      "item": "gooberarsenal:plastic"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "gooberarsenal:iron_plate"
+    }
+  },
+  "pattern": [
+    "SPS",
+    "SJS",
+    "SRS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:radio"
+  }
+}

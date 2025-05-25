@@ -20,6 +20,7 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_KEVIN_ORE_PLACED_KEY = registerKey("kevin_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_SOULPHYRE_PLACED_KEY = registerKey("soulphyre");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_ANCIENT_CAGITE_PLACED_KEY = registerKey("ancient_cagite");
     public static final ResourceKey<ConfiguredFeature<?, ?>> END_SCALED_ENDSTONE_PLACED_KEY = registerKey("scaled_endstone");
 
@@ -37,6 +38,8 @@ public class ModConfiguredFeatures {
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_KEVIN_ORE.get().defaultBlockState()));
 
         register(context, OVERWORLD_KEVIN_ORE_PLACED_KEY, Feature.ORE, new OreConfiguration(overworldKevinOres, 5));
+        register(context, NETHER_SOULPHYRE_PLACED_KEY, Feature.ORE, new OreConfiguration(netherrackReplaceables,
+                ModBlocks.SOULPHYRE_ORE.get().defaultBlockState(), 8));
         register(context, NETHER_ANCIENT_CAGITE_PLACED_KEY, Feature.ORE, new OreConfiguration(netherrackReplaceables,
                 ModBlocks.ANCIENT_CAGITE.get().defaultBlockState(), 4));
         register(context, END_SCALED_ENDSTONE_PLACED_KEY, Feature.ORE, new OreConfiguration(endReplaceables,
