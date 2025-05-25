@@ -41,6 +41,9 @@ public class ModItems {
     public static final DeferredItem<Item> GOOBER_UPGRADE_TEMPLATE = ITEMS.register("goober_upgrade_template",
             () -> new Item(new Item.Properties().fireResistant()));
 
+    public static final DeferredItem<Item> TRANSFORMATION_TEMPLATE = ITEMS.register("transformation_template",
+            () -> new Item(new Item.Properties().fireResistant()));
+
     public static final DeferredItem<Item> SOULPHYRE = ITEMS.register("soulphyre",
             () -> new Item(new Item.Properties().fireResistant()));
 
@@ -95,6 +98,15 @@ public class ModItems {
     public static final DeferredItem<Item> MOSSY_GEM = ITEMS.register("mossy_gem",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> CHAIN_OF_FATE = ITEMS.register("chain_of_fate",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> VENOMOUS_FANG = ITEMS.register("venomous_fang",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> ACONITE = ITEMS.register("aconite",
+            () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> POLE = ITEMS.register("pole",
             () -> new Item(new Item.Properties()));
 
@@ -118,6 +130,42 @@ public class ModItems {
                     return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide());
                 }
             });
+
+    //Tools
+
+
+    public static final DeferredItem<Item> SOULPHYRE_SWORD = ITEMS.registerItem("soulphyre_sword",
+            (properties) -> new SwordItem(ModToolTiers.SOULPHYRE_TIER, properties));
+
+    public static final DeferredItem<Item> SOULPHYRE_PICKAXE = ITEMS.registerItem("soulphyre_pickaxe",
+            (properties) -> new PickaxeItem(ModToolTiers.SOULPHYRE_TIER,  properties));
+
+    public static final DeferredItem<Item> SOULPHYRE_SHOVEL = ITEMS.registerItem("soulphyre_shovel",
+            (properties) -> new ShovelItem(ModToolTiers.SOULPHYRE_TIER,  properties));
+
+    public static final DeferredItem<Item> SOULPHYRE_AXE = ITEMS.registerItem("soulphyre_axe",
+            (properties) -> new AxeItem(ModToolTiers.SOULPHYRE_TIER,  properties));
+
+    public static final DeferredItem<Item> SOULPHYRE_HOE = ITEMS.registerItem("soulphyre_hoe",
+            (properties) -> new HoeItem(ModToolTiers.SOULPHYRE_TIER,  properties));
+
+
+    public static final DeferredItem<Item> TUNGSTEN_SWORD = ITEMS.registerItem("tungsten_sword",
+            (properties) -> new SwordItem(ModToolTiers.TUNGSTEN_TIER, properties));
+
+    public static final DeferredItem<Item> TUNGSTEN_PICKAXE = ITEMS.registerItem("tungsten_pickaxe",
+            (properties) -> new PickaxeItem(ModToolTiers.TUNGSTEN_TIER, properties));
+
+    public static final DeferredItem<Item> TUNGSTEN_SHOVEL = ITEMS.registerItem("tungsten_shovel",
+            (properties) -> new ShovelItem(ModToolTiers.TUNGSTEN_TIER, properties));
+
+    public static final DeferredItem<Item> TUNGSTEN_AXE = ITEMS.registerItem("tungsten_axe",
+            (properties) -> new AxeItem(ModToolTiers.TUNGSTEN_TIER, properties));
+
+    public static final DeferredItem<Item> TUNGSTEN_HOE = ITEMS.registerItem("tungsten_hoe",
+            (properties) -> new HoeItem(ModToolTiers.TUNGSTEN_TIER, properties));
+
+
 
 
     //Foods
@@ -146,6 +194,10 @@ public class ModItems {
                     .attributes(SwordItem.createAttributes(Tiers.IRON, 5, -2.6f))));
 
     public static final DeferredItem<SwordItem> CHAIR = ITEMS.register("chair",
+            () -> new SwordItem(ChairMaterial.INSTANCE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ChairMaterial.INSTANCE, 1, -3f))));
+
+    public static final DeferredItem<SwordItem> ROSE_QUARTZ_SWORD = ITEMS.register("rose_quartz_sword",
             () -> new SwordItem(ChairMaterial.INSTANCE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(ChairMaterial.INSTANCE, 1, -3f))));
 
@@ -345,6 +397,27 @@ public class ModItems {
                 }
             });
 
+    public static final DeferredItem<SwordItem> TUNGSTEN_BAT = ITEMS.register("tungsten_bat",
+            () -> new SwordItem(TungstenMaterial.INSTANCE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(TungstenMaterial.INSTANCE, 3, -2.0f))) { // Increased damage
+
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+                    tooltip.add(Component.translatable("tooltip.gooberarsenal.bats"));
+                    super.appendHoverText(stack, context, tooltip, flag);
+                }
+
+                @Override
+                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    if (!target.level().isClientSide()) {
+                        Vec3 direction = target.position().subtract(attacker.position()).normalize();
+                        target.setDeltaMovement(direction.x * 1.0, 0.5, direction.z * 1.0);
+                        target.hurtMarked = true;
+                    }
+                    return super.hurtEnemy(stack, target, attacker);
+                }
+            });
+
     public static final DeferredItem<SwordItem> OBSIDIAN_SWORD = ITEMS.register("obsidian_sword",
             () -> new SwordItem(ObsidianSwordMaterial.INSTANCE, new Item.Properties()
                     .fireResistant()
@@ -398,6 +471,10 @@ public class ModItems {
                 }
             });
 
+    public static final DeferredItem<DaggerItem> TUNGSTEN_DAGGER = ITEMS.register("tungsten_dagger",
+            () -> new DaggerItem(TungstenMaterial.INSTANCE, 0, -1.5f, new Item.Properties()) {
+            });
+
     public static final DeferredItem<DaggerItem> NETHERITE_DAGGER = ITEMS.register("netherite_dagger",
             () -> new DaggerItem(Tiers.NETHERITE, -1, -1.0f, new Item.Properties()));
 
@@ -405,7 +482,16 @@ public class ModItems {
             () -> new DaggerItem(Tiers.IRON, -1, -1.5f, new Item.Properties()));
 
     public static final DeferredItem<DaggerItem> REBELS_KNIFE = ITEMS.register("rebels_knife",
-            () -> new DaggerItem(Tiers.NETHERITE, 0, 0.0f, new Item.Properties().fireResistant()));
+            () -> new DaggerItem(Tiers.NETHERITE, 0, 0.0f, new Item.Properties().fireResistant()) {
+                @Override
+                public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+                    if (!level.isClientSide() && entity instanceof Player player && selected) {
+                        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20, 0, true, false));
+                    }
+                    super.inventoryTick(stack, level, entity, slot, selected);
+                }
+            }
+    );
 
     public static final DeferredItem<DaggerItem> THORN_OF_THE_DEAD_GODS = ITEMS.register("thorn_of_the_dead_gods",
             () -> new DaggerItem(Tiers.NETHERITE, 0, -1.0f, new Item.Properties().fireResistant()) {
@@ -532,6 +618,52 @@ public class ModItems {
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 40));
+                    }
+                    return super.hurtEnemy(stack, target, attacker);
+                }
+            });
+
+    public static final DeferredItem<Item> ACONITE_AXE = ITEMS.register("aconite_axe",
+            () -> new PolearmItem(
+                    ObsidianSwordMaterial.INSTANCE,
+                    new Item.Properties().attributes(
+                            PolearmItem.createAttributes(ObsidianSwordMaterial.INSTANCE, 1, -2.6f)
+                                    .withModifierAdded(
+                                            Attributes.ENTITY_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("aconite_axe_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                                    .withModifierAdded(
+                                            Attributes.BLOCK_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("aconite_axe_block_range_bonus"),
+                                                    2.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )) {
+
+                @Override
+                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    if (!target.level().isClientSide()) {
+                        target.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 40));
+
+                        MobEffectInstance existingWither = target.getEffect(MobEffects.WITHER);
+                        int amplifier = (existingWither != null)
+                                ? Math.min(existingWither.getAmplifier() + 1, 2)
+                                : 0;
+                        target.addEffect(new MobEffectInstance(
+                                MobEffects.WITHER,
+                                80,
+                                amplifier,
+                                false,
+                                true
+                        ));
                     }
                     return super.hurtEnemy(stack, target, attacker);
                 }
@@ -726,6 +858,32 @@ public class ModItems {
                                             )
                             )));
 
+    public static final DeferredItem<Item> TUNGSTEN_POLEARM = ITEMS.register("tungsten_polearm",
+            () -> new PolearmItem(
+                    TungstenMaterial.INSTANCE,
+                    new Item.Properties()
+                            .attributes(
+                                    PolearmItem.createAttributes(TungstenMaterial.INSTANCE, 4, -2.5f) // More damage, less slowdown
+                                            .withModifierAdded(
+                                                    Attributes.ENTITY_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("tungsten_polearm_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                                            .withModifierAdded(
+                                                    Attributes.BLOCK_INTERACTION_RANGE,
+                                                    new AttributeModifier(
+                                                            GooberArsenal.res("tungsten_polearm_block_range_bonus"),
+                                                            2.0D,
+                                                            AttributeModifier.Operation.ADD_VALUE
+                                                    ),
+                                                    EquipmentSlotGroup.MAINHAND
+                                            )
+                            )) {
+            });
 
 
     public static final DeferredItem<ScytheItem> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
@@ -846,6 +1004,22 @@ public class ModItems {
                 }
             });
 
+    public static final DeferredItem<ScytheItem> TUNGSTEN_SCYTHE = ITEMS.register("tungsten_scythe",
+            () -> new ScytheItem(TungstenMaterial.INSTANCE, new Item.Properties()
+                    .attributes(
+                            ScytheItem.createAttributes(TungstenMaterial.INSTANCE, 2, -3.2f)
+                                    .withModifierAdded(
+                                            Attributes.SWEEPING_DAMAGE_RATIO,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("tungsten_scythe_sweeping_damage"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )) {
+            });
+
 
     //Hammers
 
@@ -888,6 +1062,11 @@ public class ModItems {
     public static final DeferredItem<HammerItem> NETHERITE_HAMMER = ITEMS.register("netherite_hammer",
             () -> new HammerItem(Tiers.NETHERITE, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 3F, -3.5f))));
+
+    public static final DeferredItem<HammerItem> TUNGSTEN_HAMMER = ITEMS.register("tungsten_hammer",
+            () -> new HammerItem(TungstenMaterial.INSTANCE, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(TungstenMaterial.INSTANCE, 4F, -3.5f))) {
+            });
 
     public static final DeferredItem<MossyMasherItem> MOSSY_MASHER = ITEMS.register("mossy_masher",
             () -> new MossyMasherItem(MossMaterial.INSTANCE, new Item.Properties()
@@ -964,6 +1143,47 @@ public class ModItems {
                 }
             }
     );
+
+
+    public static final DeferredItem<ArmorItem> TUNGSTEN_HELMET = ITEMS.register("tungsten_helmet",
+            () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
+                    new Item.Properties()){
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+                    tooltip.add(Component.translatable("tooltip.gooberarsenal.tungsten_armor"));
+                    super.appendHoverText(stack, context, tooltip, flag);
+                }
+            });
+
+    public static final DeferredItem<ArmorItem> TUNGSTEN_CHESTPLATE = ITEMS.register("tungsten_chestplate",
+            () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties()){
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+                    tooltip.add(Component.translatable("tooltip.gooberarsenal.tungsten_armor"));
+                    super.appendHoverText(stack, context, tooltip, flag);
+                }
+            });
+
+    public static final DeferredItem<ArmorItem> TUNGSTEN_LEGGINGS = ITEMS.register("tungsten_leggings",
+            () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties()){
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+                    tooltip.add(Component.translatable("tooltip.gooberarsenal.tungsten_armor"));
+                    super.appendHoverText(stack, context, tooltip, flag);
+                }
+            });
+
+    public static final DeferredItem<ArmorItem> TUNGSTEN_BOOTS = ITEMS.register("tungsten_boots",
+            () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
+                    new Item.Properties()){
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+                    tooltip.add(Component.translatable("tooltip.gooberarsenal.tungsten_armor"));
+                    super.appendHoverText(stack, context, tooltip, flag);
+                }
+            });
 
     //ItemsWithModels
 

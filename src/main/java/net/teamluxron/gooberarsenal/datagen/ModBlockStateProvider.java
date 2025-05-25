@@ -24,6 +24,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         this.blockWithItem(ModBlocks.SCALED_ENDSTONE);
         this.blockWithItem(ModBlocks.ANCIENT_CAGITE);
         this.blockWithItem(ModBlocks.CAGITE_BLOCK);
+        this.blockWithItem(ModBlocks.DRAGON_SCALED_TUNGSTEN_BLOCK);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

@@ -17,6 +17,7 @@ import java.util.List;
 public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> KEVIN_ORE_PLACED_KEY = registerKey("kevin_ore_placed_key");
     public static final ResourceKey<PlacedFeature> SOULPHYRE_PLACED_KEY = registerKey("soulphyre_placed_key");
+    public static final ResourceKey<PlacedFeature> ROSE_QUARTZ_PLACED_KEY = registerKey("rose_quartz_placed_key");
     public static final ResourceKey<PlacedFeature> ANCIENT_CAGITE_PLACED_KEY = registerKey("ancient_cagite_placed_key");
     public static final ResourceKey<PlacedFeature> SCALED_ENDSTONE_PLACED_KEY = registerKey("scaled_endstone_placed_key");
 
@@ -28,6 +29,9 @@ public class ModPlacedFeatures {
                 ModOrePlacement.commonOrePlacement(7,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-100), VerticalAnchor.absolute(80))));
         register(context, SOULPHYRE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_SOULPHYRE_PLACED_KEY),
+                ModOrePlacement.rareOrePlacement(2,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(40))));
+        register(context, ROSE_QUARTZ_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_ROSE_QUARTZ_PLACED_KEY),
                 ModOrePlacement.rareOrePlacement(2,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(20))));
         register(context, ANCIENT_CAGITE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_ANCIENT_CAGITE_PLACED_KEY),

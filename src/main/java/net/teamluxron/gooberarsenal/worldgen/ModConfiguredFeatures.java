@@ -21,6 +21,7 @@ import java.util.List;
 public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_KEVIN_ORE_PLACED_KEY = registerKey("kevin_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_SOULPHYRE_PLACED_KEY = registerKey("soulphyre");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_ROSE_QUARTZ_PLACED_KEY = registerKey("rose_quartz");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_ANCIENT_CAGITE_PLACED_KEY = registerKey("ancient_cagite");
     public static final ResourceKey<ConfiguredFeature<?, ?>> END_SCALED_ENDSTONE_PLACED_KEY = registerKey("scaled_endstone");
 
@@ -30,6 +31,7 @@ public class ModConfiguredFeatures {
         RuleTest stoneReplaceables = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         RuleTest netherrackReplaceables = new BlockMatchTest(Blocks.NETHERRACK);
+        RuleTest blackstoneReplaceables = new BlockMatchTest(Blocks.BLACKSTONE);
         RuleTest endReplaceables = new BlockMatchTest(Blocks.END_STONE);
 
 
@@ -40,6 +42,8 @@ public class ModConfiguredFeatures {
         register(context, OVERWORLD_KEVIN_ORE_PLACED_KEY, Feature.ORE, new OreConfiguration(overworldKevinOres, 5));
         register(context, NETHER_SOULPHYRE_PLACED_KEY, Feature.ORE, new OreConfiguration(netherrackReplaceables,
                 ModBlocks.SOULPHYRE_ORE.get().defaultBlockState(), 8));
+        register(context, NETHER_ROSE_QUARTZ_PLACED_KEY, Feature.ORE, new OreConfiguration(blackstoneReplaceables,
+                ModBlocks.ROSE_QUARTZ_ORE.get().defaultBlockState(), 4));
         register(context, NETHER_ANCIENT_CAGITE_PLACED_KEY, Feature.ORE, new OreConfiguration(netherrackReplaceables,
                 ModBlocks.ANCIENT_CAGITE.get().defaultBlockState(), 4));
         register(context, END_SCALED_ENDSTONE_PLACED_KEY, Feature.ORE, new OreConfiguration(endReplaceables,

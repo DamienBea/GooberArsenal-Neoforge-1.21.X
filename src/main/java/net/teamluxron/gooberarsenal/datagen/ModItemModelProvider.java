@@ -48,6 +48,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.OBSIDIAN_HILT.get());
             basicItem(ModItems.OBSIDIAN_HANDGUARD.get());
             basicItem(ModItems.GOOBER_UPGRADE_TEMPLATE.get());
+            basicItem(ModItems.TRANSFORMATION_TEMPLATE.get());
             basicItem(ModItems.CAGITE_SCRAP.get());
             basicItem(ModItems.CAGITE_INGOT.get());
             basicItem(ModItems.DRAGON_SCALE_SHARD.get());
@@ -69,6 +70,10 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.THORN_OF_TOTH.get());
             basicItem(ModItems.THORN_OF_ANDORAL.get());
             basicItem(ModItems.MOSSY_GEM.get());
+            basicItem(ModItems.CHAIN_OF_FATE.get());
+            basicItem(ModItems.VENOMOUS_FANG.get());
+            basicItem(ModItems.ACONITE.get());
+            handheldItem(ModItems.SOULPHYRE);
 
 
             //Armor
@@ -82,6 +87,11 @@ public class ModItemModelProvider extends ItemModelProvider {
             trimmedArmorItem(ModItems.CAGITE_CHESTPLATE);
             trimmedArmorItem(ModItems.CAGITE_LEGGINGS);
             trimmedArmorItem(ModItems.CAGITE_BOOTS);
+
+            trimmedArmorItem(ModItems.TUNGSTEN_HELMET);
+            trimmedArmorItem(ModItems.TUNGSTEN_CHESTPLATE);
+            trimmedArmorItem(ModItems.TUNGSTEN_LEGGINGS);
+            trimmedArmorItem(ModItems.TUNGSTEN_BOOTS);
 
             trimmedArmorItem(ModItems.STEVENS_JACKET);
 
@@ -99,6 +109,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.DIAMOND_BAT);
             handheldItem(ModItems.SOULPHYRE_BAT);
             handheldItem(ModItems.NETHERITE_BAT);
+            handheldItem(ModItems.TUNGSTEN_BAT);
             handheldBroadswordItem(ModItems.OBSIDIAN_SWORD);
             handheldScaledItem(ModItems.SPOON);
             handheldItem(ModItems.FESTIVE_AXE);
@@ -112,13 +123,28 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.DIAMOND_DAGGER);
             handheldItem(ModItems.SOULPHYRE_DAGGER);
             handheldItem(ModItems.NETHERITE_DAGGER);
+            handheldItem(ModItems.TUNGSTEN_DAGGER);
             handheldItem(ModItems.SWITCH_BLADE);
             handheldItem(ModItems.REBELS_KNIFE);
             handheldItem(ModItems.THORN_OF_THE_DEAD_GODS);
             handheldItem(ModItems.POISONERS_SIDEARM);
+            handheldItem(ModItems.SOULPHYRE_AXE);
+            handheldItem(ModItems.SOULPHYRE_HOE);
+            handheldItem(ModItems.SOULPHYRE_PICKAXE);
+            handheldItem(ModItems.SOULPHYRE_SWORD);
+            handheldItem(ModItems.SOULPHYRE_SHOVEL);
+            handheldItem(ModItems.TUNGSTEN_SWORD);
+            handheldItem(ModItems.TUNGSTEN_PICKAXE);
+            handheldItem(ModItems.TUNGSTEN_SHOVEL);
+            handheldItem(ModItems.TUNGSTEN_AXE);
+            handheldItem(ModItems.TUNGSTEN_HOE);
+            handheldItem(ModItems.ROSE_QUARTZ_SWORD);
 //            handheldItem(ModItems.IRON_RAPIER);
+
+
             handheldScaledItem(ModItems.RED_EYES_DREAM);
             handheldScaledItem(ModItems.LYNNS_DESOLATION);
+            handheldScaledItem(ModItems.ACONITE_AXE);
             handheldScaledItem(ModItems.WOODEN_POLEARM);
             handheldScaledItem(ModItems.STONE_POLEARM);
             handheldScaledItem(ModItems.IRON_POLEARM);
@@ -126,6 +152,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldScaledItem(ModItems.DIAMOND_POLEARM);
             handheldScaledItem(ModItems.SOULPHYRE_POLEARM);
             handheldScaledItem(ModItems.NETHERITE_POLEARM);
+            handheldScaledItem(ModItems.TUNGSTEN_POLEARM);
             handheldScaledItem(ModItems.WOODEN_SCYTHE);
             handheldScaledItem(ModItems.STONE_SCYTHE);
             handheldScaledItem(ModItems.IRON_SCYTHE);
@@ -133,6 +160,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldScaledItem(ModItems.DIAMOND_SCYTHE);
             handheldScaledItem(ModItems.SOULPHYRE_SCYTHE);
             handheldScaledItem(ModItems.NETHERITE_SCYTHE);
+            handheldScaledItem(ModItems.TUNGSTEN_SCYTHE);
             handheldScaledItem(ModItems.WOODEN_HAMMER);
             handheldScaledItem(ModItems.STONE_HAMMER);
             handheldScaledItem(ModItems.IRON_HAMMER);
@@ -140,6 +168,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldScaledItem(ModItems.DIAMOND_HAMMER);
             handheldScaledItem(ModItems.SOULPHYRE_HAMMER);
             handheldScaledItem(ModItems.NETHERITE_HAMMER);
+            handheldScaledItem(ModItems.TUNGSTEN_HAMMER);
             handheldScaledItem(ModItems.MOSSY_MASHER);
             handheldScaledItem(ModItems.POLE);
 

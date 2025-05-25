@@ -32,6 +32,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ROSE_QUARTZ_BLOCK.get());
         dropSelf(ModBlocks.ANCIENT_CAGITE.get());
         dropSelf(ModBlocks.CAGITE_BLOCK.get());
+        dropSelf(ModBlocks.DRAGON_SCALED_TUNGSTEN_BLOCK.get());
         dropSelf(ModBlocks.FORGING_ANVIL.get());
         dropSelf(ModBlocks.RADIO.get());
         dropSelf(ModBlocks.BROKEN_RADIO.get());

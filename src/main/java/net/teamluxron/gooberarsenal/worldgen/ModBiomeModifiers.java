@@ -15,6 +15,7 @@ import net.teamluxron.gooberarsenal.GooberArsenal;
 public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_KEVIN_ORE = registerKey("add_kevin_ore");
     public static final ResourceKey<BiomeModifier> ADD_SOUPHYRE = registerKey("add_soulphyre");
+    public static final ResourceKey<BiomeModifier> ADD_ROSE_QUARTZ = registerKey("add_soulphyre");
     public static final ResourceKey<BiomeModifier> ADD_CAGITE = registerKey("add_cagite");
     public static final ResourceKey<BiomeModifier> ADD_SCALED = registerKey("add_scaled");
 
@@ -31,6 +32,11 @@ public class ModBiomeModifiers {
         context.register(ADD_SOUPHYRE, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_NETHER),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.SOULPHYRE_PLACED_KEY)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_ROSE_QUARTZ, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_NETHER),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.ROSE_QUARTZ_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(ADD_CAGITE, new BiomeModifiers.AddFeaturesBiomeModifier(
