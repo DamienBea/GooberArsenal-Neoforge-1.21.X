@@ -2,6 +2,7 @@ package net.teamluxron.gooberarsenal.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -110,6 +111,12 @@ public class PolearmItem extends SwordItem{
             }
         }
         return super.hurtEnemy(stack, target, attacker);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.polearms"));
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 
 

@@ -16,8 +16,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         this.blockWithItem(ModBlocks.KEVIN_BLOCK);
         this.blockWithItem(ModBlocks.KEVIN_ORE);
-        this.blockWithItem(ModBlocks.SCALED_ENDSTONE);
         this.blockWithItem(ModBlocks.DEEPSLATE_KEVIN_ORE);
+        this.blockWithItem(ModBlocks.SOULPHYRE_ORE);
+        this.blockWithItem(ModBlocks.SOULPHYRE_BLOCK);
+        this.blockWithItem(ModBlocks.ROSE_QUARTZ_ORE);
+        this.blockWithItem(ModBlocks.ROSE_QUARTZ_BLOCK);
+        this.blockWithItem(ModBlocks.SCALED_ENDSTONE);
         this.blockWithItem(ModBlocks.ANCIENT_CAGITE);
         this.blockWithItem(ModBlocks.CAGITE_BLOCK);
     }

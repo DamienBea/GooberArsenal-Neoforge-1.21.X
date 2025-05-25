@@ -28,6 +28,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         // Blocks that drop themselves
         dropSelf(ModBlocks.KEVIN_BLOCK.get());
+        dropSelf(ModBlocks.SOULPHYRE_BLOCK.get());
+        dropSelf(ModBlocks.ROSE_QUARTZ_BLOCK.get());
         dropSelf(ModBlocks.ANCIENT_CAGITE.get());
         dropSelf(ModBlocks.CAGITE_BLOCK.get());
         dropSelf(ModBlocks.FORGING_ANVIL.get());
@@ -41,6 +43,14 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         add(ModBlocks.DEEPSLATE_KEVIN_ORE.get(),
                 block -> createOreDrop(ModBlocks.KEVIN_ORE.get(), ModItems.KEVIN_SHARDS.get()));
+
+        add(ModBlocks.SOULPHYRE_ORE.get(),
+                block -> createOreDrop(ModBlocks.SOULPHYRE_ORE.get(), ModItems.SOULPHYRE.get()));
+
+        add(ModBlocks.ROSE_QUARTZ_ORE.get(),
+                block -> createOreDrop(ModBlocks.ROSE_QUARTZ_ORE.get(), ModItems.ROSE_QUARTZ.get()));
+
+
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

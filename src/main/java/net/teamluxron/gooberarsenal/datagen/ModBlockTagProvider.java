@@ -20,6 +20,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.KEVIN_ORE.get())
+                .add(ModBlocks.SOULPHYRE_ORE.get())
+                .add(ModBlocks.SOULPHYRE_BLOCK.get())
+                .add(ModBlocks.ROSE_QUARTZ_ORE.get())
+                .add(ModBlocks.ROSE_QUARTZ_BLOCK.get())
                 .add(ModBlocks.SCALED_ENDSTONE.get())
                 .add(ModBlocks.KEVIN_BLOCK.get())
                 .add(ModBlocks.DEEPSLATE_KEVIN_ORE.get())
@@ -29,7 +33,11 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.KEVIN_ORE.get())
                 .add(ModBlocks.KEVIN_BLOCK.get())
-                .add(ModBlocks.DEEPSLATE_KEVIN_ORE.get());
+                .add(ModBlocks.DEEPSLATE_KEVIN_ORE.get())
+                .add(ModBlocks.SOULPHYRE_ORE.get())
+                .add(ModBlocks.SOULPHYRE_BLOCK.get())
+                .add(ModBlocks.ROSE_QUARTZ_ORE.get())
+                .add(ModBlocks.ROSE_QUARTZ_BLOCK.get());
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.SCALED_ENDSTONE.get())

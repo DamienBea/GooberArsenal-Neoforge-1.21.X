@@ -22,6 +22,8 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(GooberArsenal.MOD_ID);
 
+    //Ores and materials
+
     public static final DeferredBlock<Block> KEVIN_ORE = registerBlock("kevin_ore",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(2f)
@@ -50,6 +52,35 @@ public class ModBlocks {
                     .sound(SoundType.STONE)
             ));
 
+
+    public static final DeferredBlock<Block> SOULPHYRE_ORE = registerBlock("soulphyre_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.NETHERRACK)
+            ));
+
+    public static final DeferredBlock<Block> SOULPHYRE_BLOCK = registerBlock("soulphyre_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.AMETHYST)
+            ));
+
+    public static final DeferredBlock<Block> ROSE_QUARTZ_ORE = registerBlock("rose_quartz_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.GILDED_BLACKSTONE)
+            ));
+
+    public static final DeferredBlock<Block> ROSE_QUARTZ_BLOCK = registerBlock("rose_quartz_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.AMETHYST)
+            ));
+
     public static final DeferredBlock<Block> ANCIENT_CAGITE = registerBlock("ancient_cagite",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f)
@@ -63,6 +94,9 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.NETHERITE_BLOCK)
             ));
+
+    // BlockEntities
+
 
     public static final DeferredBlock<Block> FORGING_ANVIL = registerBlock("forging_anvil",
             () -> new ForgingAnvilBlock(BlockBehaviour.Properties.of()

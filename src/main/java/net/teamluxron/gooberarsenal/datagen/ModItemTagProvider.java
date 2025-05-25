@@ -36,6 +36,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.IRON_BAT.get())
                 .add(ModItems.GOLDEN_BAT.get())
                 .add(ModItems.DIAMOND_BAT.get())
+                .add(ModItems.SOULPHYRE_BAT.get())
                 .add(ModItems.NETHERITE_BAT.get())
                 .add(ModItems.BEE_BUNNY_BASHER.get())
                 .add(ModItems.STAHP_SIGN.get())
@@ -53,6 +54,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.IRON_SCYTHE.get())
                 .add(ModItems.GOLDEN_SCYTHE.get())
                 .add(ModItems.DIAMOND_SCYTHE.get())
+                .add(ModItems.SOULPHYRE_SCYTHE.get())
                 .add(ModItems.NETHERITE_SCYTHE.get())
                 .add(ModItems.LIFE_SABER.get())
                 .add(ModItems.WOODEN_DAGGER.get())
@@ -60,6 +62,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.IRON_DAGGER.get())
                 .add(ModItems.GOLDEN_DAGGER.get())
                 .add(ModItems.DIAMOND_DAGGER.get())
+                .add(ModItems.SOULPHYRE_DAGGER.get())
                 .add(ModItems.NETHERITE_DAGGER.get())
                 .add(ModItems.SPOON.get())
 //                .add(ModItems.IRON_RAPIER.get())
@@ -72,6 +75,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.IRON_POLEARM.get())
                 .add(ModItems.GOLDEN_POLEARM.get())
                 .add(ModItems.DIAMOND_POLEARM.get())
+                .add(ModItems.SOULPHYRE_POLEARM.get())
                 .add(ModItems.NETHERITE_POLEARM.get())
                 .add(ModItems.WOODEN_POLEARM.get())
         ;
@@ -82,6 +86,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.IRON_HAMMER.get())
                 .add(ModItems.GOLDEN_HAMMER.get())
                 .add(ModItems.DIAMOND_HAMMER.get())
+                .add(ModItems.SOULPHYRE_HAMMER.get())
                 .add(ModItems.NETHERITE_HAMMER.get())
                 .add(ModItems.MOSSY_MASHER.get())
         ;
@@ -92,6 +97,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.IRON_HAMMER.get())
                 .add(ModItems.GOLDEN_HAMMER.get())
                 .add(ModItems.DIAMOND_HAMMER.get())
+                .add(ModItems.SOULPHYRE_HAMMER.get())
                 .add(ModItems.NETHERITE_HAMMER.get())
                 .add(ModItems.MOSSY_MASHER.get())
         ;
@@ -122,19 +128,23 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.FOOT_ARMOR_ENCHANTABLE)
                 .add(ModItems.CAGITE_BOOTS.get())
+                .add(ModItems.SOULPHYRE_BOOTS.get())
         ;
 
         tag(ItemTags.HEAD_ARMOR_ENCHANTABLE)
                 .add(ModItems.CAGITE_HELMET.get())
+                .add(ModItems.SOULPHYRE_HELMET.get())
         ;
 
         tag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
                 .add(ModItems.CAGITE_CHESTPLATE.get())
                 .add(ModItems.STEVENS_JACKET.get())
+                .add(ModItems.SOULPHYRE_CHESTPLATE.get())
         ;
 
         tag(ItemTags.LEG_ARMOR_ENCHANTABLE)
                 .add(ModItems.CAGITE_LEGGINGS.get())
+                .add(ModItems.SOULPHYRE_LEGGINGS.get())
         ;
 
 
