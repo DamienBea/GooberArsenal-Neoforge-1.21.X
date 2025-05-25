@@ -1,6 +1,7 @@
 package net.teamluxron.gooberarsenal.blocks.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -21,128 +22,128 @@ import org.jetbrains.annotations.Nullable;
 public class BrokenRadioBlockEntity extends BlockEntity {
     private static final int SOUND_INTERVAL = 880;
     public boolean isPlaying = false;
-    private long nextPlayTick = 0;
+    private long nextPlayTick = 0L;
 
     public BrokenRadioBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state);
+        super((BlockEntityType)ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, BrokenRadioBlockEntity blockEntity) {
         if (!level.isClientSide && blockEntity.isPlaying && level.getGameTime() >= blockEntity.nextPlayTick) {
             blockEntity.playSound();
-            blockEntity.nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
+            blockEntity.nextPlayTick = level.getGameTime() + 880L;
         }
+
     }
 
     public void toggle() {
         this.isPlaying = !this.isPlaying;
         this.setChanged();
-
-        if (level != null && !level.isClientSide) {
+        if (this.level != null && !this.level.isClientSide) {
             if (this.isPlaying) {
-                this.nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
-                playSound();
+                this.nextPlayTick = this.level.getGameTime() + 880L;
+                this.playSound();
             } else {
-                stopSound();
+                this.stopSound();
             }
-            syncToClients();
-            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+
+            this.syncToClients();
+            this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
         }
+
     }
 
     public void setEnabled(boolean enabled) {
-        if (isPlaying != enabled) {
-            isPlaying = enabled;
-            setChanged();
-
-            if (level != null && !level.isClientSide) {
+        if (this.isPlaying != enabled) {
+            this.isPlaying = enabled;
+            this.setChanged();
+            if (this.level != null && !this.level.isClientSide) {
                 if (enabled) {
-                    nextPlayTick = level.getGameTime() + SOUND_INTERVAL;
-                    playSound();
+                    this.nextPlayTick = this.level.getGameTime() + 880L;
+                    this.playSound();
                 } else {
-                    stopSound();
+                    this.stopSound();
                 }
-                syncToClients();
+
+                this.syncToClients();
             }
         }
+
     }
 
     private void playSound() {
-        if (level == null || level.isClientSide) return;
+        if (this.level != null && !this.level.isClientSide) {
+            for(ServerPlayer player : ((ServerLevel)this.level).getPlayers((playerx) -> playerx.distanceToSqr(this.worldPosition.getCenter()) < (double)4225.0F)) {
+                ModMessages.sendToPlayer(player, new PlayRadioSoundPacket(this.worldPosition, true));
+            }
 
-        for (ServerPlayer player : ((ServerLevel) level).getPlayers(player ->
-                player.distanceToSqr(worldPosition.getCenter()) < (65.0 * 65.0))) {
-            ModMessages.sendToPlayer(player, new PlayRadioSoundPacket(worldPosition, true));
         }
     }
 
     public void stopSound() {
-        if (level == null || level.isClientSide) return;
-
-        for (ServerPlayer player : ((ServerLevel) level).players()) {
-            if (player.distanceToSqr(worldPosition.getCenter()) < 256) {
-                ModMessages.sendToPlayer(player, new StopRadioSoundPacket(worldPosition));
+        if (this.level != null && !this.level.isClientSide) {
+            for(ServerPlayer player : ((ServerLevel)this.level).players()) {
+                if (player.distanceToSqr(this.worldPosition.getCenter()) < (double)256.0F) {
+                    ModMessages.sendToPlayer(player, new StopRadioSoundPacket(this.worldPosition));
+                }
             }
+
         }
     }
 
     public void stopRadio() {
-        if (isPlaying) {
-            isPlaying = false;
-            stopSound();
-            setChanged();
-            syncToClients();
+        if (this.isPlaying) {
+            this.isPlaying = false;
+            this.stopSound();
+            this.setChanged();
+            this.syncToClients();
         }
+
     }
 
     public void onBlockDestroyed() {
-        if (level != null && !level.isClientSide) {
-            for (ServerPlayer player : ((ServerLevel) level).getPlayers(player ->
-                    player.distanceToSqr(worldPosition.getCenter()) < 256)) {
-                ModMessages.sendToPlayer(player, new StopRadioSoundPacket(worldPosition));
+        if (this.level != null && !this.level.isClientSide) {
+            for(ServerPlayer player : ((ServerLevel)this.level).getPlayers((playerx) -> playerx.distanceToSqr(this.worldPosition.getCenter()) < (double)256.0F)) {
+                ModMessages.sendToPlayer(player, new StopRadioSoundPacket(this.worldPosition));
             }
-            isPlaying = false;
-            setChanged();
+
+            this.isPlaying = false;
+            this.setChanged();
         }
+
     }
 
     public void syncToClients() {
-        if (level instanceof ServerLevel serverLevel) {
-            ModMessages.sendToAllTracking(
-                    this,
-                    new ClientboundRadioTogglePacket(getBlockPos(), isPlaying, false)
-            );
+        Level var2 = this.level;
+        if (var2 instanceof ServerLevel serverLevel) {
+            ModMessages.sendToAllTracking(this, new ClientboundRadioTogglePacket(this.getBlockPos(), this.isPlaying, false));
         }
+
     }
 
-    @Override
     public void onLoad() {
         super.onLoad();
-        if (level != null && !level.isClientSide && isPlaying) {
-            syncToClients();
+        if (this.level != null && !this.level.isClientSide && this.isPlaying) {
+            this.syncToClients();
         }
+
     }
 
-    @Override
-    protected void saveAdditional(CompoundTag tag, net.minecraft.core.HolderLookup.Provider provider) {
-        tag.putBoolean("Playing", isPlaying);
-        tag.putLong("NextPlayTick", nextPlayTick);
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider provider) {
+        tag.putBoolean("Playing", this.isPlaying);
+        tag.putLong("NextPlayTick", this.nextPlayTick);
     }
 
-    @Override
-    protected void loadAdditional(CompoundTag tag, net.minecraft.core.HolderLookup.Provider provider) {
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider provider) {
         this.isPlaying = tag.getBoolean("Playing");
         this.nextPlayTick = tag.getLong("NextPlayTick");
     }
 
-    @Nullable
-    @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
+    public @Nullable Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
-    @Override
-    public CompoundTag getUpdateTag(net.minecraft.core.HolderLookup.Provider provider) {
-        return saveWithoutMetadata(provider);
+    public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
+        return this.saveWithoutMetadata(provider);
     }
 }
