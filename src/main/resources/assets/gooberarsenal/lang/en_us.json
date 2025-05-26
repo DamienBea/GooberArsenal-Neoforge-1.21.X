@@ -143,6 +143,15 @@
 
   "tooltip.gooberarsenal.stevens_jacket": "A Pacifists Dream",
 
+
+
+  "sounds.gooberarsenal.radio": "Radio Music",
+  "sounds.gooberarsenal.broken_radio": "Broken Radio Music",
+  "sounds.gooberarsenal.weezer": "Weezer",
+  "sounds.gooberarsenal.rubber_chicken": "Rubber Chicken",
+  "sounds.gooberarsenal.button": "Button",
+
+
   "tooltip.gooberarsenal.daggers": "A small, fast-paced blade. Can ignore some Invulnerability frames.",
   "tooltip.gooberarsenal.bats": "A heavy-hitting blunt weapon. Has innate Knockback.",
   "tooltip.gooberarsenal.scythes": "A curved bladed weapon, pulling all enemies close together for the max amount of damage. Has innate 100% Sweeping Edge. Can also harvest and replant multiple crops upon breaking one crop.",

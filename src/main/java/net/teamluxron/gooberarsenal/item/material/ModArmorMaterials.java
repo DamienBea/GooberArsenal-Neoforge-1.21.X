@@ -35,7 +35,7 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.BOOTS, 4);
                 attribute.put(ArmorItem.Type.LEGGINGS, 7);
                 attribute.put(ArmorItem.Type.CHESTPLATE, 9);
-                attribute.put(ArmorItem.Type.HELMET, 3);
+                attribute.put(ArmorItem.Type.HELMET, 4);
                 attribute.put(ArmorItem.Type.BODY, 13);
             }), 15, 3f, 0f, () -> ModItems.CAGITE_INGOT.get());
 

@@ -1,14 +1,14 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "gooberarsenal:switch_cartridge"
+    "item": "minecraft:iron_door"
   },
   "base": {
-    "item": "gooberarsenal:iron_dagger"
+    "item": "minecraft:shield"
   },
   "result": {
     "count": 1,
-    "id": "gooberarsenal:switch_blade"
+    "id": "gooberarsenal:door_shield"
   },
   "template": {
     "item": "gooberarsenal:transformation_template"
