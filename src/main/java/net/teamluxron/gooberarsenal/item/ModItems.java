@@ -1005,27 +1005,27 @@ public class ModItems {
 
     public static final DeferredItem<ScytheItem> TUNGSTEN_SCYTHE = ITEMS.register("tungsten_scythe",
             () -> new ScytheItem(TungstenMaterial.INSTANCE, new Item.Properties()
-//                    .attributes(
-//                            ScytheItem.createAttributes(TungstenMaterial.INSTANCE, 2, -3.2f)
-//                                    .withModifierAdded(
-//                                            Attributes.ENTITY_INTERACTION_RANGE,
-//                                            new AttributeModifier(
-//                                                    GooberArsenal.res("tungsten_scythe_range_bonus"),
-//                                                    1.0D,
-//                                                    AttributeModifier.Operation.ADD_VALUE
-//                                            ),
-//                                            EquipmentSlotGroup.MAINHAND
-//                                    )
-//                                    .withModifierAdded(
-//                                            Attributes.BLOCK_INTERACTION_RANGE,
-//                                            new AttributeModifier(
-//                                                    GooberArsenal.res("tungsten_scythe_block_range_bonus"),
-//                                                    1.0D,
-//                                                    AttributeModifier.Operation.ADD_VALUE
-//                                            ),
-//                                            EquipmentSlotGroup.MAINHAND
-//                                    )
-//                    )
+                    .attributes(
+                            ScytheItem.createAttributes(TungstenMaterial.INSTANCE, 2, -3.2f)
+                                    .withModifierAdded(
+                                            Attributes.ENTITY_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("tungsten_scythe_range_bonus"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                                    .withModifierAdded(
+                                            Attributes.BLOCK_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("tungsten_scythe_block_range_bonus"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )
             )
     );
 
@@ -1195,12 +1195,48 @@ public class ModItems {
 
     //Shields
 
-//
-//    public static final DeferredItem<GooberShield> ROSE_QUARTZ_SHIELD = ITEMS.register("rose_quartz_shield",
-//            () -> new GooberShield(new Item.Properties()
-//                    .durability(1650)
-//                    .stacksTo(1)
-//            ));
+
+    public static final DeferredItem<GooberShield> ROSE_QUARTZ_SHIELD = ITEMS.register("rose_quartz_shield",
+            () -> new GooberShield(new Item.Properties()
+                    .durability(1650)
+                    .stacksTo(1)
+            ));
+
+    public static final DeferredItem<GooberShield> ALLOY_SHIELD = ITEMS.register("alloy_shield",
+            () -> new GooberShield(new Item.Properties()
+                    .durability(650)
+                    .stacksTo(1)
+            ));
+
+    public static final DeferredItem<GooberShield> DOOR_SHIELD = ITEMS.register("door_shield",
+            () -> new GooberShield(new Item.Properties()
+                    .durability(650)
+                    .stacksTo(1)
+            ));
+
+    public static final DeferredItem<GooberShield> GRASS_CREST_SHIELD = ITEMS.register("grass_crest_shield",
+            () -> new GooberShield(new Item.Properties()
+                    .durability(650)
+                    .stacksTo(1)
+            ));
+
+    public static final DeferredItem<GooberShield> KNIGHTS_SHIELD = ITEMS.register("knights_shield",
+            () -> new GooberShield(new Item.Properties()
+                    .durability(650)
+                    .stacksTo(1)
+            ));
+
+    public static final DeferredItem<GooberShield> PALETTE = ITEMS.register("palette",
+            () -> new GooberShield(new Item.Properties()
+                    .durability(650)
+                    .stacksTo(1)
+            ));
+
+    public static final DeferredItem<GooberShield> TRASH_CAN = ITEMS.register("trash_can",
+            () -> new GooberShield(new Item.Properties()
+                    .durability(650)
+                    .stacksTo(1)
+            ));
 
     //ItemsWithModels
 

@@ -64,6 +64,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GOLDEN_DAGGER.get());
                         output.accept(ModItems.DIAMOND_DAGGER.get());
                         output.accept(ModItems.SOULPHYRE_DAGGER.get());
+                        output.accept(ModItems.LIFE_SABER.get());
                         output.accept(ModItems.NETHERITE_DAGGER.get());
                         output.accept(ModItems.REBELS_KNIFE.get());
                         output.accept(ModItems.THORN_OF_THE_DEAD_GODS.get());
@@ -116,6 +117,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TUNGSTEN_HOE.get());
 
 
+                        output.accept(ModItems.ROSE_QUARTZ_SHIELD.get());
+                        output.accept(ModItems.ALLOY_SHIELD.get());
+                        output.accept(ModItems.DOOR_SHIELD.get());
+                        output.accept(ModItems.GRASS_CREST_SHIELD.get());
+                        output.accept(ModItems.KNIGHTS_SHIELD.get());
+                        output.accept(ModItems.PALETTE.get());
+                        output.accept(ModItems.TRASH_CAN.get());
+
 
 
                     }).build());
@@ -129,7 +138,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SLAPSTICK_SWORD.get());
                         output.accept(ModItems.STAHP_SIGN.get());
                         output.accept(ModItems.OBSIDIAN_SWORD.get());
-                        output.accept(ModItems.LIFE_SABER.get());
                         output.accept(ModItems.FESTIVE_AXE.get());
                         output.accept(ModItems.KENDO_STICK.get());
                         output.accept(ModItems.CHAIR.get());

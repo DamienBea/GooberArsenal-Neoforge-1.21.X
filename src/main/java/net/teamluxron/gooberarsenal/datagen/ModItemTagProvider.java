@@ -175,7 +175,13 @@ public class ModItemTagProvider extends ItemTagsProvider {
         ;
         tag(ItemTags.DURABILITY_ENCHANTABLE)
 
-//                .add(ModItems.ROSE_QUARTZ_SHIELD.get())
+                .add(ModItems.ROSE_QUARTZ_SHIELD.get())
+                .add(ModItems.ALLOY_SHIELD.get())
+                .add(ModItems.DOOR_SHIELD.get())
+                .add(ModItems.GRASS_CREST_SHIELD.get())
+                .add(ModItems.KNIGHTS_SHIELD.get())
+                .add(ModItems.PALETTE.get())
+                .add(ModItems.TRASH_CAN.get())
         ;
 
 
