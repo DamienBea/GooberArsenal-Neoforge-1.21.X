@@ -101,15 +101,22 @@ public class PolearmItem extends SwordItem{
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (attacker instanceof Player player && player.fallDistance > 0.0F && !player.onGround()
-                && !player.onClimbable() && !player.isInWater() && !player.hasEffect(MobEffects.BLINDNESS)
-                && !player.isPassenger()) {
+        if (attacker instanceof Player player) {
+            boolean isShieldBreak = player.fallDistance > 0.2F && !player.onGround()
+                    && !player.onClimbable() && !player.isInWater() && !player.hasEffect(MobEffects.BLINDNESS)
+                    && !player.isPassenger();
 
-            if (target instanceof Player targetPlayer && targetPlayer.isBlocking()) {
-                targetPlayer.getCooldowns().addCooldown(targetPlayer.getUseItem().getItem(), 100);
-                targetPlayer.stopUsingItem();
+            if (isShieldBreak && target instanceof Player targetPlayer) {
+                ItemStack activeItem = targetPlayer.getUseItem();
+
+                if (!activeItem.isEmpty() && activeItem.getItem().canPerformAction(activeItem, net.neoforged.neoforge.common.ItemAbilities.SHIELD_BLOCK)) {
+                    targetPlayer.getCooldowns().addCooldown(activeItem.getItem(), 100);
+                    targetPlayer.stopUsingItem();
+                    targetPlayer.level().broadcastEntityEvent(targetPlayer, (byte) 30);
+                }
             }
         }
+
         return super.hurtEnemy(stack, target, attacker);
     }
 
