@@ -37,7 +37,7 @@ public class TungstenMaterial implements Tier {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.of(ModItems.CAGITE_INGOT.get());
+        return Ingredient.of(ModItems.DRAGON_SCALED_TUNGSTEN.get());
     }
 }
 
