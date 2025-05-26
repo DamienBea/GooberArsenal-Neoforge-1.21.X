@@ -31,14 +31,14 @@ public class DaggerItem extends SwordItem {
                 );
     }
 
-
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (!attacker.level().isClientSide() && target.invulnerableTime > 5) {
-            target.invulnerableTime = 5;
+        if (!attacker.level().isClientSide() && target.invulnerableTime > 8) {
+            target.invulnerableTime = 8;
         }
         return super.hurtEnemy(stack, target, attacker);
     }
+
 
 //    @Override
 //    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
