@@ -113,11 +113,11 @@ public class PolearmItem extends SwordItem{
         return super.hurtEnemy(stack, target, attacker);
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.polearms"));
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-    }
+//    @Override
+//    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+//        tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.polearms"));
+//        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+//    }
 
 
     @Override

@@ -47,9 +47,9 @@ public class ScytheItem extends SwordItem {
         });
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("tooltip.gooberarsenal.scythes"));
-        super.appendHoverText(stack, context, tooltip, flag);
-    }
+//    @Override
+//    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+//        tooltip.add(Component.translatable("tooltip.gooberarsenal.scythes"));
+//        super.appendHoverText(stack, context, tooltip, flag);
+//    }
 }

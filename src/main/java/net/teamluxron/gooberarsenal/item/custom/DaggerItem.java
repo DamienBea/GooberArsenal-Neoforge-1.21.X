@@ -40,9 +40,9 @@ public class DaggerItem extends SwordItem {
         return super.hurtEnemy(stack, target, attacker);
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-        super.appendHoverText(stack, context, tooltip, flag);
-    }
+//    @Override
+//    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+//        tooltip.add(Component.translatable("tooltip.gooberarsenal.daggers"));
+//        super.appendHoverText(stack, context, tooltip, flag);
+//    }
 }

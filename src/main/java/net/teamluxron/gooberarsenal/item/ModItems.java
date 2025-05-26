@@ -215,11 +215,6 @@ public class ModItems {
                     .fireResistant()
                     .attributes(SwordItem.createAttributes(CagiteMaterial.INSTANCE, 0, -2f))) {
 
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.bats"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
 
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -262,12 +257,6 @@ public class ModItems {
                     .attributes(SwordItem.createAttributes(Tiers.WOOD, 2, -2.2f))) {
 
                 @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.bats"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-
-                @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
@@ -281,12 +270,6 @@ public class ModItems {
     public static final DeferredItem<SwordItem> STONE_SPIKED_BAT = ITEMS.register("stone_spiked_bat",
             () -> new SwordItem(Tiers.STONE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.STONE, 2, -2.2f))) {
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.bats"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
 
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -303,11 +286,11 @@ public class ModItems {
             () -> new SwordItem(Tiers.IRON, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.IRON, 2, -2.2f))) {
 
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.bats"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
+//                @Override
+//                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+//                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.bats"));
+//                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+//                }
 
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -325,12 +308,6 @@ public class ModItems {
                     .attributes(SwordItem.createAttributes(Tiers.GOLD, 2, -2.2f))) {
 
                 @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.bats"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-
-                @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
@@ -346,12 +323,6 @@ public class ModItems {
                     .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 2, -2.2f))) {
 
                 @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.bats"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-
-                @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
@@ -365,13 +336,6 @@ public class ModItems {
     public static final DeferredItem<SwordItem> SOULPHYRE_BAT = ITEMS.register("soulphyre_bat",
             () -> new SwordItem(SoulphyreMaterial.INSTANCE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(SoulphyreMaterial.INSTANCE, 2, -2.2f))) {
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.bats"));
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.soulphyreeffect"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
 
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -390,12 +354,6 @@ public class ModItems {
                     .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 2, -2.2f))) {
 
                 @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.bats"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
-
-                @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                     if (!target.level().isClientSide()) {
                         Vec3 direction = target.position().subtract(attacker.position()).normalize();
@@ -409,12 +367,6 @@ public class ModItems {
     public static final DeferredItem<SwordItem> TUNGSTEN_BAT = ITEMS.register("tungsten_bat",
             () -> new SwordItem(TungstenMaterial.INSTANCE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(TungstenMaterial.INSTANCE, 3, -2.0f))) { // Increased damage
-
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.bats"));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
 
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -473,11 +425,6 @@ public class ModItems {
 
     public static final DeferredItem<DaggerItem> SOULPHYRE_DAGGER = ITEMS.register("soulphyre_dagger",
             () -> new DaggerItem(SoulphyreMaterial.INSTANCE, -1, -1.5f, new Item.Properties()){
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.soulphyreeffect"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
             });
 
     public static final DeferredItem<DaggerItem> TUNGSTEN_DAGGER = ITEMS.register("tungsten_dagger",
@@ -504,11 +451,6 @@ public class ModItems {
 
     public static final DeferredItem<DaggerItem> THORN_OF_THE_DEAD_GODS = ITEMS.register("thorn_of_the_dead_gods",
             () -> new DaggerItem(Tiers.NETHERITE, 0, -1.0f, new Item.Properties().fireResistant()) {
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.lifesteal").withStyle(ChatFormatting.DARK_RED));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
             });
 
     public static final DeferredItem<DaggerItem> POISONERS_SIDEARM = ITEMS.register("poisoners_sidearm",
@@ -834,11 +776,6 @@ public class ModItems {
                                                     EquipmentSlotGroup.MAINHAND
                                             )
                             )){
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.soulphyreeffect"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
             });
 
     public static final DeferredItem<Item> NETHERITE_POLEARM = ITEMS.register("netherite_polearm",
@@ -984,11 +921,6 @@ public class ModItems {
                                             EquipmentSlotGroup.MAINHAND
                                     )
                     )){
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.soulphyreeffect"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
             });
 
     public static final DeferredItem<ScytheItem> NETHERITE_SCYTHE = ITEMS.register("netherite_scythe",
@@ -1006,11 +938,6 @@ public class ModItems {
                                             EquipmentSlotGroup.MAINHAND
                                     )
                     )){
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.scythes"));
-                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-                }
             });
 
     public static final DeferredItem<ScytheItem> TUNGSTEN_SCYTHE = ITEMS.register("tungsten_scythe",
@@ -1069,11 +996,6 @@ public class ModItems {
     public static final DeferredItem<HammerItem> SOULPHYRE_HAMMER = ITEMS.register("soulphyre_hammer",
             () -> new HammerItem(SoulphyreMaterial.INSTANCE, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(SoulphyreMaterial.INSTANCE, 3F, -3.5f))){
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.soulphyreeffect"));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
             });
 
 
@@ -1096,41 +1018,21 @@ public class ModItems {
     public static final DeferredItem<ArmorItem> SOULPHYRE_HELMET = ITEMS.register("soulphyre_helmet",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
                     new Item.Properties()){
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.soulphyre_armor"));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
     });
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_CHESTPLATE = ITEMS.register("soulphyre_chestplate",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()){
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.soulphyre_armor"));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
             });
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_LEGGINGS = ITEMS.register("soulphyre_leggings",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
                     new Item.Properties()){
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.soulphyre_armor"));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
             });
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_BOOTS = ITEMS.register("soulphyre_boots",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
                     new Item.Properties()){
-                @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.soulphyre_armor"));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
             });
 
     public static final DeferredItem<ArmorItem> CAGITE_HELMET = ITEMS.register("cagite_helmet",
@@ -1166,41 +1068,21 @@ public class ModItems {
     public static final DeferredItem<ArmorItem> TUNGSTEN_HELMET = ITEMS.register("tungsten_helmet",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
                     new Item.Properties()){
-                @Override
-                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.tungsten_armor"));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
             });
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_CHESTPLATE = ITEMS.register("tungsten_chestplate",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()){
-                @Override
-                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.tungsten_armor"));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
             });
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_LEGGINGS = ITEMS.register("tungsten_leggings",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
                     new Item.Properties()){
-                @Override
-                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.tungsten_armor"));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
             });
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_BOOTS = ITEMS.register("tungsten_boots",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
                     new Item.Properties()){
-                @Override
-                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-                    tooltip.add(Component.translatable("tooltip.gooberarsenal.tungsten_armor"));
-                    super.appendHoverText(stack, context, tooltip, flag);
-                }
             });
 
     //Shields
