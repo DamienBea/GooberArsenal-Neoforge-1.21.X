@@ -41,7 +41,7 @@ public class HammerItem extends DiggerItem {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (attacker instanceof Player player) {
-            boolean isShieldBreak = player.fallDistance > 0.2F && !player.onGround()
+            boolean isShieldBreak = player.fallDistance > 0.0F && !player.onGround()
                     && !player.onClimbable() && !player.isInWater() && !player.hasEffect(MobEffects.BLINDNESS)
                     && !player.isPassenger();
 
