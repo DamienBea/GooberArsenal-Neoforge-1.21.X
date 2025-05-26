@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "gooberarsenal:dragon_scaled_tungsten"
+  },
+  "base": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:tungsten_shovel"
+  },
+  "template": {
+    "item": "gooberarsenal:goober_upgrade_template"
+  }
+}
