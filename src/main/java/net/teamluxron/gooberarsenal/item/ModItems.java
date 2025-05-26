@@ -208,7 +208,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> ROSE_QUARTZ_SWORD = ITEMS.register("rose_quartz_sword",
             () -> new SwordItem(ChairMaterial.INSTANCE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(ChairMaterial.INSTANCE, 1, -3f))));
+                    .attributes(SwordItem.createAttributes(ChairMaterial.INSTANCE, -1, -2.4f))));
 
     public static final DeferredItem<SwordItem> BEE_BUNNY_BASHER = ITEMS.register("bee_bunny_basher",
             () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
@@ -1252,10 +1252,6 @@ public class ModItems {
 
 //    public static final DeferredItem<Item> FORGING_ANVIL = ITEMS.register("forging_anvil",
 //            () -> new BlockItem(ModBlocks.FORGING_ANVIL.get(), new Item.Properties()));
-
-
-//    public static final DeferredItem<Item> ROSE_QUARTZ_SHIELD = ITEMS.register("rose_quartz_shield",
-//            () -> new RoseQuartzShield(new Item.Properties().durability(500).fireResistant()));
 
 
     public static void register(IEventBus eventBus) {

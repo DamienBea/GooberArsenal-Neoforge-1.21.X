@@ -55,7 +55,7 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.CHESTPLATE, 8);
                 attribute.put(ArmorItem.Type.HELMET, 1);
                 attribute.put(ArmorItem.Type.BODY, 15);
-            }), 10, 0f, 0f, () -> Items.LEATHER);
+            }), 10, 2f, 0f, () -> ModItems.ROSE_QUARTZ.get());
 
 
 
