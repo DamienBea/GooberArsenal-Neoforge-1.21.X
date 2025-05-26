@@ -26,7 +26,7 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.BOOTS, 3);
                 attribute.put(ArmorItem.Type.LEGGINGS, 6);
                 attribute.put(ArmorItem.Type.CHESTPLATE, 8);
-                attribute.put(ArmorItem.Type.HELMET, 2);
+                attribute.put(ArmorItem.Type.HELMET, 3);
                 attribute.put(ArmorItem.Type.BODY, 13);
             }), 15, 3f, 0f, () -> ModItems.CAGITE_INGOT.get());
 
@@ -35,9 +35,9 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.BOOTS, 3);
                 attribute.put(ArmorItem.Type.LEGGINGS, 6);
                 attribute.put(ArmorItem.Type.CHESTPLATE, 8);
-                attribute.put(ArmorItem.Type.HELMET, 2);
+                attribute.put(ArmorItem.Type.HELMET, 3);
                 attribute.put(ArmorItem.Type.BODY, 13);
-            }), 15, 3f, 0f, () -> ModItems.CAGITE_INGOT.get());
+            }), 15, 3f, 2f, () -> ModItems.CAGITE_INGOT.get());
 
     public static final Holder<ArmorMaterial> SOULPHYRE_ARMOR_MATERIAL = register("soulphyre", Util.make(new EnumMap<>(ArmorItem.Type.class),
             attribute -> {

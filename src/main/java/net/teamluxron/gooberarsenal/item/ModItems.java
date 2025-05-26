@@ -135,7 +135,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> SOULPHYRE_SWORD = ITEMS.registerItem("soulphyre_sword",
             (properties) -> new SwordItem(SoulphyreMaterial.INSTANCE, properties
-                    .attributes(SwordItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 4, -2.4f))));
+                    .attributes(SwordItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 3, -2.4f))));
 
     public static final DeferredItem<Item> SOULPHYRE_PICKAXE = ITEMS.registerItem("soulphyre_pickaxe",
             (properties) -> new PickaxeItem(SoulphyreMaterial.INSTANCE,  properties
@@ -156,23 +156,23 @@ public class ModItems {
 
     public static final DeferredItem<Item> TUNGSTEN_SWORD = ITEMS.registerItem("tungsten_sword",
             (properties) -> new SwordItem(ModToolTiers.TUNGSTEN_TIER, properties
-                    .attributes(SwordItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 9, -3.5f))));
+                    .attributes(SwordItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 2.5f, -2.4f))));
 
     public static final DeferredItem<Item> TUNGSTEN_PICKAXE = ITEMS.registerItem("tungsten_pickaxe",
             (properties) -> new PickaxeItem(ModToolTiers.TUNGSTEN_TIER, properties
-                    .attributes(PickaxeItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 5, 5))));
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 0.5f, -1.8f))));
 
     public static final DeferredItem<Item> TUNGSTEN_SHOVEL = ITEMS.registerItem("tungsten_shovel",
             (properties) -> new ShovelItem(ModToolTiers.TUNGSTEN_TIER, properties
-                    .attributes(ShovelItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 5, 5))));
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 1, -3))));
 
     public static final DeferredItem<Item> TUNGSTEN_AXE = ITEMS.registerItem("tungsten_axe",
             (properties) -> new AxeItem(ModToolTiers.TUNGSTEN_TIER, properties
-                    .attributes(AxeItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 5, 5))));
+                    .attributes(AxeItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 4.5f, -3))));
 
     public static final DeferredItem<Item> TUNGSTEN_HOE = ITEMS.registerItem("tungsten_hoe",
             (properties) -> new HoeItem(ModToolTiers.TUNGSTEN_TIER, properties
-                    .attributes(ShovelItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 5, 5))));
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, -4.5f, 0))));
 
 
 
@@ -366,7 +366,7 @@ public class ModItems {
 
     public static final DeferredItem<SwordItem> TUNGSTEN_BAT = ITEMS.register("tungsten_bat",
             () -> new SwordItem(TungstenMaterial.INSTANCE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(TungstenMaterial.INSTANCE, 3, -2.0f))) { // Increased damage
+                    .attributes(SwordItem.createAttributes(TungstenMaterial.INSTANCE, -1, -2.2f))) { // Increased damage
 
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -428,7 +428,7 @@ public class ModItems {
             });
 
     public static final DeferredItem<DaggerItem> TUNGSTEN_DAGGER = ITEMS.register("tungsten_dagger",
-            () -> new DaggerItem(TungstenMaterial.INSTANCE, 0, -1.5f, new Item.Properties()) {
+            () -> new DaggerItem(TungstenMaterial.INSTANCE, -4, -1f, new Item.Properties()) {
             });
 
     public static final DeferredItem<DaggerItem> NETHERITE_DAGGER = ITEMS.register("netherite_dagger",
@@ -809,7 +809,7 @@ public class ModItems {
                     TungstenMaterial.INSTANCE,
                     new Item.Properties()
                             .attributes(
-                                    PolearmItem.createAttributes(TungstenMaterial.INSTANCE, 4, -2.5f) // More damage, less slowdown
+                                    PolearmItem.createAttributes(TungstenMaterial.INSTANCE, 0, -2.8f)
                                             .withModifierAdded(
                                                     Attributes.ENTITY_INTERACTION_RANGE,
                                                     new AttributeModifier(
@@ -943,7 +943,7 @@ public class ModItems {
     public static final DeferredItem<ScytheItem> TUNGSTEN_SCYTHE = ITEMS.register("tungsten_scythe",
             () -> new ScytheItem(TungstenMaterial.INSTANCE, new Item.Properties()
                     .attributes(
-                            ScytheItem.createAttributes(TungstenMaterial.INSTANCE, 2, -3.2f)
+                            ScytheItem.createAttributes(TungstenMaterial.INSTANCE, 3, -3.2f)
                                     .withModifierAdded(
                                             Attributes.ENTITY_INTERACTION_RANGE,
                                             new AttributeModifier(
@@ -1005,7 +1005,7 @@ public class ModItems {
 
     public static final DeferredItem<HammerItem> TUNGSTEN_HAMMER = ITEMS.register("tungsten_hammer",
             () -> new HammerItem(TungstenMaterial.INSTANCE, new Item.Properties()
-                    .attributes(PickaxeItem.createAttributes(TungstenMaterial.INSTANCE, 4F, -3.5f))) {
+                    .attributes(PickaxeItem.createAttributes(TungstenMaterial.INSTANCE, 0, -3.5f))) {
             });
 
     public static final DeferredItem<MossyMasherItem> MOSSY_MASHER = ITEMS.register("mossy_masher",
@@ -1017,22 +1017,22 @@ public class ModItems {
     //Armor
     public static final DeferredItem<ArmorItem> SOULPHYRE_HELMET = ITEMS.register("soulphyre_helmet",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
     });
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_CHESTPLATE = ITEMS.register("soulphyre_chestplate",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_LEGGINGS = ITEMS.register("soulphyre_leggings",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_BOOTS = ITEMS.register("soulphyre_boots",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     public static final DeferredItem<ArmorItem> CAGITE_HELMET = ITEMS.register("cagite_helmet",
@@ -1067,22 +1067,22 @@ public class ModItems {
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_HELMET = ITEMS.register("tungsten_helmet",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_CHESTPLATE = ITEMS.register("tungsten_chestplate",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_LEGGINGS = ITEMS.register("tungsten_leggings",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_BOOTS = ITEMS.register("tungsten_boots",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     //Shields

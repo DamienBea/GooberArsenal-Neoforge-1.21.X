@@ -2,17 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
+    "A": {
+      "item": "minecraft:shield"
+    },
     "S": {
-      "item": "gooberarsenal:dragon_scaled_tungsten"
+      "item": "gooberarsenal:rose_quartz"
     }
   },
   "pattern": [
     "SSS",
-    "S S",
-    "   "
+    "SAS",
+    "SSS"
   ],
   "result": {
     "count": 1,
-    "id": "gooberarsenal:tungsten_helmet"
+    "id": "gooberarsenal:rose_quartz_shield"
   }
 }

@@ -3,8 +3,7 @@ package net.teamluxron.gooberarsenal;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.event.level.LevelEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -12,7 +11,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.common.NeoForge;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
-import net.teamluxron.gooberarsenal.blocks.entity.renderer.ForgingAnvilRenderer;
 import net.teamluxron.gooberarsenal.client.GooberArsenalClient;
 import net.teamluxron.gooberarsenal.client.sound.ClientSoundManager;
 import net.teamluxron.gooberarsenal.enchantment.ModEnchantmentEffects;
@@ -33,10 +31,8 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -45,80 +41,57 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 public class GooberArsenal {
     public static final String MOD_ID = "gooberarsenal";
     private static final Logger LOGGER = LogUtils.getLogger();
+
     public static ResourceLocation res(String path) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
-    public GooberArsenal(IEventBus modEventBus, ModContainer modContainer)
-    {
+
+    public GooberArsenal(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
-
-        NeoForge.EVENT_BUS.register(this);
-
-        ModDamageTypes.register(modEventBus);
-
-
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(this::onRegisterPayloadHandlers);
-        modEventBus.addListener(GooberArsenalClient::onClientSetup);
         modEventBus.addListener(ModMessages::register);
 
-
+        // Register mod-specific stuff
+        ModDamageTypes.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
-
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-
-
-        modEventBus.addListener(this::addCreative);
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         ModSounds.register(modEventBus);
-
         ModLootModifiers.register(modEventBus);
-
         ModEnchantmentEffects.register(modEventBus);
-
-
         ModBlockEntities.register(modEventBus);
         ModRecipeTypes.RECIPE_TYPES.register(modEventBus);
         ModRecipes.TYPES.register(modEventBus);
         ModRecipeSerializers.register(modEventBus);
 
+        // Register config
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        // Register server-side listeners
+        NeoForge.EVENT_BUS.register(this);
+
+        // Register client-only setup
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            GooberArsenalClient.init(modEventBus);
+        }
     }
 
-        private void commonSetup(final FMLCommonSetupEvent event) {
-
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        // Common setup logic
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        // Add items to creative tabs
     }
 
     private void onRegisterPayloadHandlers(RegisterPayloadHandlersEvent event) {
-        GooberArsenalClient.registerClientReceivers(event);
+        // Register server-side packets
     }
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-
-    }
-
-
-    @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-        }
-
-        @SubscribeEvent
-        public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
-        }
-
-        @SubscribeEvent
-        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
-            event.registerBlockEntityRenderer(ModBlockEntities.FORGING_ANVIL_BE.get(), ForgingAnvilRenderer::new);
-
-
-        }
+        // Server-side logic
     }
 
     @SubscribeEvent
@@ -128,8 +101,8 @@ public class GooberArsenal {
         }
     }
 
-
-    public class ModRecipeTypes {
+    // Recipe Type registration
+    public static class ModRecipeTypes {
         public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES =
                 DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, GooberArsenal.MOD_ID);
 

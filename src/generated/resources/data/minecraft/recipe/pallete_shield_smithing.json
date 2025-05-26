@@ -1,14 +1,14 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "gooberarsenal:switch_cartridge"
+    "tag": "minecraft:planks"
   },
   "base": {
-    "item": "gooberarsenal:iron_dagger"
+    "item": "minecraft:shield"
   },
   "result": {
     "count": 1,
-    "id": "gooberarsenal:switch_blade"
+    "id": "gooberarsenal:palette"
   },
   "template": {
     "item": "gooberarsenal:transformation_template"

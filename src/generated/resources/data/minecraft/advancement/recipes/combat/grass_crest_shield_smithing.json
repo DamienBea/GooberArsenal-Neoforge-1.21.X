@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dragon_scaled_tungsten": {
+    "has_shield": {
       "conditions": {
         "items": [
           {
-            "items": "gooberarsenal:dragon_scaled_tungsten"
+            "items": "minecraft:shield"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "gooberarsenal:tungsten_chestplate"
+        "recipe": "minecraft:grass_crest_shield_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_dragon_scaled_tungsten"
+      "has_shield"
     ]
   ],
   "rewards": {
     "recipes": [
-      "gooberarsenal:tungsten_chestplate"
+      "minecraft:grass_crest_shield_smithing"
     ]
   }
 }

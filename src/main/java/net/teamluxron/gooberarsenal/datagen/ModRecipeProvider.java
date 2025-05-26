@@ -650,39 +650,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dragon_scaled_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN.get()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.TUNGSTEN_HELMET.get())
-                .pattern("SSS")
-                .pattern("S S")
-                .pattern("   ")
-                .define('S', ModItems.DRAGON_SCALED_TUNGSTEN.get())
-                .unlockedBy("has_dragon_scaled_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN.get()))
-                .save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.TUNGSTEN_CHESTPLATE.get())
-                .pattern("S S")
-                .pattern("SSS")
-                .pattern("SSS")
-                .define('S', ModItems.DRAGON_SCALED_TUNGSTEN.get())
-                .unlockedBy("has_dragon_scaled_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN.get()))
-                .save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.TUNGSTEN_LEGGINGS.get())
-                .pattern("SSS")
-                .pattern("S S")
-                .pattern("S S")
-                .define('S', ModItems.DRAGON_SCALED_TUNGSTEN.get())
-                .unlockedBy("has_dragon_scaled_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN.get()))
-                .save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.TUNGSTEN_BOOTS.get())
-                .pattern("S S")
-                .pattern("S S")
-                .pattern("   ")
-                .define('S', ModItems.DRAGON_SCALED_TUNGSTEN.get())
-                .unlockedBy("has_dragon_scaled_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN.get()))
-                .save(recipeOutput);
-
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TUNGSTEN_BAT.get())
                 .pattern("  S")
                 .pattern(" S ")
@@ -719,6 +686,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', ModItems.POLE)
                 .unlockedBy("has_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN))
                 .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ROSE_QUARTZ_SHIELD.get())
+                .pattern("SSS")
+                .pattern("SAS")
+                .pattern("SSS")
+                .define('S', ModItems.ROSE_QUARTZ.get())
+                .define('A', Items.SHIELD)
+                .unlockedBy("has_rose_quartz", has(ModItems.ROSE_QUARTZ.get()))
+                .save(recipeOutput);
+
 
 
 
@@ -851,6 +828,34 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlocks("has_cagite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CAGITE_INGOT.get()))
                 .save(recipeOutput, "cagite_boots");
 
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.NETHERITE_HELMET),
+                        Ingredient.of(ModItems.DRAGON_SCALED_TUNGSTEN.get()),
+                        RecipeCategory.COMBAT, ModItems.TUNGSTEN_HELMET.get())
+                .unlocks("has_tungsten_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DRAGON_SCALED_TUNGSTEN.get()))
+                .save(recipeOutput, "tungsten_helmet");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.NETHERITE_CHESTPLATE),
+                        Ingredient.of(ModItems.DRAGON_SCALED_TUNGSTEN.get()),
+                        RecipeCategory.COMBAT, ModItems.TUNGSTEN_CHESTPLATE.get())
+                .unlocks("has_tungsten_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DRAGON_SCALED_TUNGSTEN.get()))
+                .save(recipeOutput, "tungsten_chesplate");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.NETHERITE_LEGGINGS),
+                        Ingredient.of(ModItems.DRAGON_SCALED_TUNGSTEN.get()),
+                        RecipeCategory.COMBAT, ModItems.TUNGSTEN_LEGGINGS.get())
+                .unlocks("has_tungsten_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DRAGON_SCALED_TUNGSTEN.get()))
+                .save(recipeOutput, "tungsten_leggings");
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.NETHERITE_BOOTS),
+                        Ingredient.of(ModItems.DRAGON_SCALED_TUNGSTEN.get()),
+                        RecipeCategory.COMBAT, ModItems.TUNGSTEN_BOOTS.get())
+                .unlocks("has_tungsten_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DRAGON_SCALED_TUNGSTEN.get()))
+                .save(recipeOutput, "tungsten_boots");
+
         SmithingTransformRecipeBuilder.smithing(
                 Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
                 Ingredient.of(ModItems.NETHERITE_BAT.get()),
@@ -895,7 +900,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlocks("has_rubber_chicken", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RUBBER_CHICKEN.get()))
                 .save(recipeOutput, "slapstick_sword");
 
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.TRANSFORMATION_TEMPLATE.get()),
                         Ingredient.of(ModItems.IRON_DAGGER.get()),
                         Ingredient.of(ModItems.SWITCH_CARTRIDGE.get()),
                         RecipeCategory.COMBAT, ModItems.SWITCH_BLADE.get())
@@ -973,12 +978,51 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE),
                         Ingredient.of(ModItems.NETHERITE_HAMMER.get()),
                         Ingredient.of(ModItems.MOSSY_GEM.get()),
-//                mossIngredient,
                 RecipeCategory.COMBAT,
                 ModItems.MOSSY_MASHER.get())
                 .unlocks("has_netherite_hammer",
                         InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NETHERITE_HAMMER.get()))
                 .save(recipeOutput, "mossy_masher");
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.TRANSFORMATION_TEMPLATE.get()),
+                        Ingredient.of(Items.SHIELD),
+                        Ingredient.of(Items.GOLD_INGOT),
+                        RecipeCategory.COMBAT,
+                        ModItems.ALLOY_SHIELD.get())
+                .unlocks("has_shield",
+                        InventoryChangeTrigger.TriggerInstance.hasItems(Items.SHIELD))
+                .save(recipeOutput, "alloy_shield_smithing");
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.TRANSFORMATION_TEMPLATE.get()),
+                        Ingredient.of(Items.SHIELD),
+                        Ingredient.of(Items.IRON_DOOR),
+                        RecipeCategory.COMBAT,
+                        ModItems.DOOR_SHIELD.get())
+                .unlocks("has_shield",
+                        InventoryChangeTrigger.TriggerInstance.hasItems(Items.SHIELD))
+                .save(recipeOutput, "door_shield_smithing");
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.TRANSFORMATION_TEMPLATE.get()),
+                        Ingredient.of(Items.SHIELD),
+                        Ingredient.of(ItemTags.PLANKS),
+                        RecipeCategory.COMBAT,
+                        ModItems.PALETTE.get())
+                .unlocks("has_shield",
+                        InventoryChangeTrigger.TriggerInstance.hasItems(Items.SHIELD))
+                .save(recipeOutput, "pallete_shield_smithing");
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.TRANSFORMATION_TEMPLATE.get()),
+                        Ingredient.of(Items.SHIELD),
+                        Ingredient.of(Items.MOSSY_COBBLESTONE),
+                        RecipeCategory.COMBAT,
+                        ModItems.GRASS_CREST_SHIELD.get())
+                .unlocks("has_shield",
+                        InventoryChangeTrigger.TriggerInstance.hasItems(Items.SHIELD))
+                .save(recipeOutput, "grass_crest_shield_smithing");
 
         //Forging
 
