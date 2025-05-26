@@ -1,0 +1,6 @@
+{
+  "parent": "gooberarsenal:item/templates/handheld_medium",
+  "textures": {
+    "layer0": "gooberarsenal:item/rose_quartz_sword"
+  }
+}

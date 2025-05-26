@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "gooberarsenal:venomous_fang"
+  },
+  "base": {
+    "item": "gooberarsenal:netherite_dagger"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:poisoners_sidearm"
+  },
+  "template": {
+    "item": "gooberarsenal:goober_upgrade_template"
+  }
+}

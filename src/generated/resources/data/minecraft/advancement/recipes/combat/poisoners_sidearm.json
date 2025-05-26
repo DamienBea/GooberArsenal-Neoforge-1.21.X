@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:poisoners_sidearm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_venomuos_fang": {
+      "conditions": {
+        "items": [
+          {
+            "items": "gooberarsenal:venomous_fang"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_venomuos_fang"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:poisoners_sidearm"
+    ]
+  }
+}

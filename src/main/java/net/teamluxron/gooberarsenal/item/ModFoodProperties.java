@@ -13,6 +13,7 @@ public class ModFoodProperties {
             .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 1), 1f)
             .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400, 3), 1f)
             .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 400, 1), 1f)
+            .alwaysEdible()
             .build();
 
     public static final FoodProperties SANDVICH = new FoodProperties.Builder()

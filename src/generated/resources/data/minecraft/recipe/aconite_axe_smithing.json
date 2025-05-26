@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "gooberarsenal:aconite"
+  },
+  "base": {
+    "item": "gooberarsenal:netherite_polearm"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:aconite_axe"
+  },
+  "template": {
+    "item": "gooberarsenal:goober_upgrade_template"
+  }
+}

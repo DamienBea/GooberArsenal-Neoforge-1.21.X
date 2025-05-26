@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "gooberarsenal:pole"
+    },
+    "S": {
+      "item": "gooberarsenal:soulphyre"
+    }
+  },
+  "pattern": [
+    " SS",
+    "SSD",
+    "S D"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:soulphyre_polearm"
+  }
+}

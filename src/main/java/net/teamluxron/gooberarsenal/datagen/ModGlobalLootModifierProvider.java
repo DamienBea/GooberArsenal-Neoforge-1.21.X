@@ -166,6 +166,17 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         LootItemRandomChanceCondition.randomChance(0.4f).build()
                 }, ModItems.THORN_OF_ZAZIKEL.get()));
 
+        this.add("aconite_from_ancient_city",
+                new AddItemModifier(
+                        new LootItemCondition[] {
+                                new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("chests/ancient_city"))
+                                        .build(),
+                                LootItemRandomChanceCondition.randomChance(0.1f).build()
+                        },
+                        ModItems.ACONITE.get()
+                )
+        );
+
         //Sus Sand
 
 //        this.add("life_saver_from_desert_sand",
@@ -182,16 +193,36 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
         //Mob drops
 
-        add("rubber_chicken_from_chicken", 
+        this.add("rubber_chicken_from_chicken",
                 new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("entities/chicken"))
                         .and(LootItemRandomChanceCondition.randomChance(0.05f)).build() },
                 ModItems.RUBBER_CHICKEN.get()));
 
+        this.add("chain_of_fate_from_wither_skeleton",
+                new AddItemModifier(
+                        new LootItemCondition[] {
+                                new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("entities/wither_skeleton"))
+                                        .and(LootItemRandomChanceCondition.randomChance(0.05f))
+                                        .build()
+                        },
+                        ModItems.CHAIN_OF_FATE.get()
+                ));
+
+        this.add("venomous_fang_from_wither_skeleton",
+                new AddItemModifier(
+                        new LootItemCondition[] {
+                                new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("entities/cave_spider"))
+                                        .and(LootItemRandomChanceCondition.randomChance(0.05f))
+                                        .build()
+                        },
+                        ModItems.VENOMOUS_FANG.get()
+                ));
+
         //Fishing
 
 
-        add("plastic_bag_from_fishing",
+        this.add("plastic_bag_from_fishing",
                 new AddItemModifier(new LootItemCondition[] {
                         new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("gameplay/fishing/junk"))
                                 .and(LootItemRandomChanceCondition.randomChance(0.4f)).build() },

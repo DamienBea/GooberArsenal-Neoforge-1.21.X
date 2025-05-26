@@ -2,12 +2,15 @@
   "values": [
     "gooberarsenal:festive_axe",
     "gooberarsenal:lynns_desolation",
+    "gooberarsenal:aconite_axe",
     "gooberarsenal:stone_polearm",
     "gooberarsenal:iron_polearm",
     "gooberarsenal:golden_polearm",
     "gooberarsenal:diamond_polearm",
     "gooberarsenal:soulphyre_polearm",
     "gooberarsenal:netherite_polearm",
-    "gooberarsenal:wooden_polearm"
+    "gooberarsenal:wooden_polearm",
+    "gooberarsenal:soulphyre_axe",
+    "gooberarsenal:tungsten_axe"
   ]
 }

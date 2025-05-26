@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rose_quartz_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "gooberarsenal:rose_quartz_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gooberarsenal:rose_quartz_from_smelting_rose_quartz_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rose_quartz_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gooberarsenal:rose_quartz_from_smelting_rose_quartz_ore"
+    ]
+  }
+}

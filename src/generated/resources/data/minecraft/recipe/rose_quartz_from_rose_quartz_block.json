@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gooberarsenal:rose_quartz_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "gooberarsenal:rose_quartz"
+  }
+}

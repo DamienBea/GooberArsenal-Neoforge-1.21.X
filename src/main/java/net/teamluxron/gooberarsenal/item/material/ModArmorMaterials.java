@@ -32,10 +32,10 @@ public class ModArmorMaterials {
 
     public static final Holder<ArmorMaterial> TUNGSTEN_ARMOR_MATERIAL = register("tungsten", Util.make(new EnumMap<>(ArmorItem.Type.class),
             attribute -> {
-                attribute.put(ArmorItem.Type.BOOTS, 3);
-                attribute.put(ArmorItem.Type.LEGGINGS, 6);
-                attribute.put(ArmorItem.Type.CHESTPLATE, 8);
-                attribute.put(ArmorItem.Type.HELMET, 2);
+                attribute.put(ArmorItem.Type.BOOTS, 4);
+                attribute.put(ArmorItem.Type.LEGGINGS, 7);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 9);
+                attribute.put(ArmorItem.Type.HELMET, 4);
                 attribute.put(ArmorItem.Type.BODY, 13);
             }), 15, 3f, 0f, () -> ModItems.CAGITE_INGOT.get());
 
@@ -44,18 +44,18 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.BOOTS, 3);
                 attribute.put(ArmorItem.Type.LEGGINGS, 6);
                 attribute.put(ArmorItem.Type.CHESTPLATE, 8);
-                attribute.put(ArmorItem.Type.HELMET, 2);
+                attribute.put(ArmorItem.Type.HELMET, 3);
                 attribute.put(ArmorItem.Type.BODY, 13);
-            }), 15, 3f, 0f, () -> ModItems.SOULPHYRE.get());
+            }), 15, 2f, 0f, () -> ModItems.SOULPHYRE.get());
 
     public static final Holder<ArmorMaterial> STEVENS = register("stevens", Util.make(new EnumMap<>(ArmorItem.Type.class),
             attribute -> {
                 attribute.put(ArmorItem.Type.BOOTS, 1);
                 attribute.put(ArmorItem.Type.LEGGINGS, 2);
-                attribute.put(ArmorItem.Type.CHESTPLATE, 3);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 8);
                 attribute.put(ArmorItem.Type.HELMET, 1);
                 attribute.put(ArmorItem.Type.BODY, 15);
-            }), 10, 0f, 0f, () -> Items.LEATHER);
+            }), 10, 2f, 0f, () -> ModItems.ROSE_QUARTZ.get());
 
 
 

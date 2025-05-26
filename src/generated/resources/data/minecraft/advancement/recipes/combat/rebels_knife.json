@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chain_of_fate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "gooberarsenal:chain_of_fate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:rebels_knife"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chain_of_fate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:rebels_knife"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "gooberarsenal:pole"
+    },
+    "S": {
+      "item": "gooberarsenal:rose_quartz"
+    }
+  },
+  "pattern": [
+    " S ",
+    " S ",
+    " D "
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:rose_quartz_sword"
+  }
+}

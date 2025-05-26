@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "gooberarsenal:soulphyre"
+    }
+  },
+  "pattern": [
+    "SSS",
+    " D ",
+    " D "
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:soulphyre_pickaxe"
+  }
+}

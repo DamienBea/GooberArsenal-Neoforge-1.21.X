@@ -21,12 +21,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-//        tag(ModTags.Items.TRANSFORMABLE_ITEMS)
-//                .add(ModItems.BISMUTH.get())
-//                .add(ModItems.RAW_BISMUTH.get())
-//                .add(Items.COAL)
-//                .add(Items.STICK)
-//                .add(Items.COMPASS);
 
         tag(ItemTags.SWORDS)
                 .add(ModItems.SLAPSTICK_SWORD.get())
@@ -38,6 +32,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.DIAMOND_BAT.get())
                 .add(ModItems.SOULPHYRE_BAT.get())
                 .add(ModItems.NETHERITE_BAT.get())
+                .add(ModItems.TUNGSTEN_BAT.get())
                 .add(ModItems.BEE_BUNNY_BASHER.get())
                 .add(ModItems.STAHP_SIGN.get())
                 .add(ModItems.STEEL_PIPE.get())
@@ -56,6 +51,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.DIAMOND_SCYTHE.get())
                 .add(ModItems.SOULPHYRE_SCYTHE.get())
                 .add(ModItems.NETHERITE_SCYTHE.get())
+                .add(ModItems.TUNGSTEN_SCYTHE.get())
                 .add(ModItems.LIFE_SABER.get())
                 .add(ModItems.WOODEN_DAGGER.get())
                 .add(ModItems.STONE_DAGGER.get())
@@ -64,13 +60,30 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.DIAMOND_DAGGER.get())
                 .add(ModItems.SOULPHYRE_DAGGER.get())
                 .add(ModItems.NETHERITE_DAGGER.get())
+                .add(ModItems.TUNGSTEN_DAGGER.get())
                 .add(ModItems.SPOON.get())
+                .add(ModItems.SOULPHYRE_SWORD.get())
+                .add(ModItems.TUNGSTEN_SWORD.get())
+                .add(ModItems.ROSE_QUARTZ_SWORD.get())
 //                .add(ModItems.IRON_RAPIER.get())
+
+
+                .add(ModItems.LYNNS_DESOLATION.get())
+                .add(ModItems.ACONITE_AXE.get())
+                .add(ModItems.STONE_POLEARM.get())
+                .add(ModItems.IRON_POLEARM.get())
+                .add(ModItems.GOLDEN_POLEARM.get())
+                .add(ModItems.DIAMOND_POLEARM.get())
+                .add(ModItems.SOULPHYRE_POLEARM.get())
+                .add(ModItems.NETHERITE_POLEARM.get())
+                .add(ModItems.TUNGSTEN_POLEARM.get())
+                .add(ModItems.WOODEN_POLEARM.get())
         ;
 
         tag(ItemTags.AXES)
                 .add(ModItems.FESTIVE_AXE.get())
                 .add(ModItems.LYNNS_DESOLATION.get())
+                .add(ModItems.ACONITE_AXE.get())
                 .add(ModItems.STONE_POLEARM.get())
                 .add(ModItems.IRON_POLEARM.get())
                 .add(ModItems.GOLDEN_POLEARM.get())
@@ -78,6 +91,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.SOULPHYRE_POLEARM.get())
                 .add(ModItems.NETHERITE_POLEARM.get())
                 .add(ModItems.WOODEN_POLEARM.get())
+                .add(ModItems.SOULPHYRE_AXE.get())
+                .add(ModItems.TUNGSTEN_AXE.get())
         ;
 
         tag(ItemTags.PICKAXES)
@@ -89,6 +104,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.SOULPHYRE_HAMMER.get())
                 .add(ModItems.NETHERITE_HAMMER.get())
                 .add(ModItems.MOSSY_MASHER.get())
+                .add(ModItems.SOULPHYRE_PICKAXE.get())
+                .add(ModItems.TUNGSTEN_PICKAXE.get())
         ;
 
         tag(ModTags.Items.HAMMERS)
@@ -99,6 +116,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.DIAMOND_HAMMER.get())
                 .add(ModItems.SOULPHYRE_HAMMER.get())
                 .add(ModItems.NETHERITE_HAMMER.get())
+                .add(ModItems.TUNGSTEN_HAMMER.get())
                 .add(ModItems.MOSSY_MASHER.get())
         ;
 
@@ -109,6 +127,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.GOLDEN_HAMMER.get())
                 .add(ModItems.DIAMOND_HAMMER.get())
                 .add(ModItems.NETHERITE_HAMMER.get())
+                .add(ModItems.TUNGSTEN_HAMMER.get())
                 .add(ModItems.MOSSY_MASHER.get())
         ;
 
@@ -120,31 +139,49 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.GOLDEN_SCYTHE.get())
                 .add(ModItems.DIAMOND_SCYTHE.get())
                 .add(ModItems.NETHERITE_SCYTHE.get())
+                .add(ModItems.SOULPHYRE_HOE.get())
+                .add(ModItems.TUNGSTEN_HOE.get())
                 ;
 
         tag(ItemTags.SHOVELS)
                 .add(ModItems.SPOON.get())
+                .add(ModItems.SOULPHYRE_SHOVEL.get())
+                .add(ModItems.TUNGSTEN_SHOVEL.get())
         ;
 
         tag(ItemTags.FOOT_ARMOR_ENCHANTABLE)
                 .add(ModItems.CAGITE_BOOTS.get())
                 .add(ModItems.SOULPHYRE_BOOTS.get())
+                .add(ModItems.TUNGSTEN_BOOTS.get())
         ;
 
         tag(ItemTags.HEAD_ARMOR_ENCHANTABLE)
                 .add(ModItems.CAGITE_HELMET.get())
                 .add(ModItems.SOULPHYRE_HELMET.get())
+                .add(ModItems.TUNGSTEN_HELMET.get())
         ;
 
         tag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
                 .add(ModItems.CAGITE_CHESTPLATE.get())
                 .add(ModItems.STEVENS_JACKET.get())
                 .add(ModItems.SOULPHYRE_CHESTPLATE.get())
+                .add(ModItems.TUNGSTEN_CHESTPLATE.get())
         ;
 
         tag(ItemTags.LEG_ARMOR_ENCHANTABLE)
                 .add(ModItems.CAGITE_LEGGINGS.get())
                 .add(ModItems.SOULPHYRE_LEGGINGS.get())
+                .add(ModItems.TUNGSTEN_LEGGINGS.get())
+        ;
+        tag(ItemTags.DURABILITY_ENCHANTABLE)
+
+                .add(ModItems.ROSE_QUARTZ_SHIELD.get())
+                .add(ModItems.ALLOY_SHIELD.get())
+                .add(ModItems.DOOR_SHIELD.get())
+                .add(ModItems.GRASS_CREST_SHIELD.get())
+//                .add(ModItems.KNIGHTS_SHIELD.get())
+                .add(ModItems.PALETTE.get())
+//                .add(ModItems.TRASH_CAN.get())
         ;
 
 

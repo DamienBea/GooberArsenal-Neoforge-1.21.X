@@ -30,6 +30,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DIAMOND_BAT.get());
                         output.accept(ModItems.SOULPHYRE_BAT.get());
                         output.accept(ModItems.NETHERITE_BAT.get());
+                        output.accept(ModItems.TUNGSTEN_BAT.get());
                         output.accept(ModItems.BEE_BUNNY_BASHER.get());
 
                         //Scythes
@@ -40,6 +41,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DIAMOND_SCYTHE.get());
                         output.accept(ModItems.SOULPHYRE_SCYTHE.get());
                         output.accept(ModItems.NETHERITE_SCYTHE.get());
+                        output.accept(ModItems.TUNGSTEN_SCYTHE.get());
                         output.accept(ModItems.RED_EYES_DREAM.get());
 
                         //Polearms
@@ -50,7 +52,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DIAMOND_POLEARM.get());
                         output.accept(ModItems.SOULPHYRE_POLEARM.get());
                         output.accept(ModItems.NETHERITE_POLEARM.get());
+                        output.accept(ModItems.TUNGSTEN_POLEARM.get());
                         output.accept(ModItems.LYNNS_DESOLATION.get());
+                        output.accept(ModItems.ACONITE_AXE.get());
 
                         //Daggers
                         output.accept(ModItems.WOODEN_DAGGER.get());
@@ -60,7 +64,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GOLDEN_DAGGER.get());
                         output.accept(ModItems.DIAMOND_DAGGER.get());
                         output.accept(ModItems.SOULPHYRE_DAGGER.get());
+                        output.accept(ModItems.LIFE_SABER.get());
                         output.accept(ModItems.NETHERITE_DAGGER.get());
+                        output.accept(ModItems.TUNGSTEN_DAGGER.get());
                         output.accept(ModItems.REBELS_KNIFE.get());
                         output.accept(ModItems.THORN_OF_THE_DEAD_GODS.get());
                         output.accept(ModItems.POISONERS_SIDEARM.get());
@@ -76,20 +82,56 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DIAMOND_HAMMER.get());
                         output.accept(ModItems.SOULPHYRE_HAMMER.get());
                         output.accept(ModItems.NETHERITE_HAMMER.get());
+                        output.accept(ModItems.TUNGSTEN_HAMMER.get());
                         output.accept(ModItems.MOSSY_MASHER.get());
 
+                        //Swords
+                        output.accept(ModItems.OBSIDIAN_SWORD.get());
+                        output.accept(ModItems.ROSE_QUARTZ_SWORD.get());
+
+
+
                         //Armor
-                        output.accept(ModItems.CAGITE_HELMET.get());
-                        output.accept(ModItems.CAGITE_CHESTPLATE.get());
-                        output.accept(ModItems.CAGITE_LEGGINGS.get());
-                        output.accept(ModItems.CAGITE_BOOTS.get());
 
                         output.accept(ModItems.SOULPHYRE_HELMET.get());
                         output.accept(ModItems.SOULPHYRE_CHESTPLATE.get());
                         output.accept(ModItems.SOULPHYRE_LEGGINGS.get());
                         output.accept(ModItems.SOULPHYRE_BOOTS.get());
 
+                        output.accept(ModItems.CAGITE_HELMET.get());
+                        output.accept(ModItems.CAGITE_CHESTPLATE.get());
+                        output.accept(ModItems.CAGITE_LEGGINGS.get());
+                        output.accept(ModItems.CAGITE_BOOTS.get());
+
+                        output.accept(ModItems.TUNGSTEN_HELMET.get());
+                        output.accept(ModItems.TUNGSTEN_CHESTPLATE.get());
+                        output.accept(ModItems.TUNGSTEN_LEGGINGS.get());
+                        output.accept(ModItems.TUNGSTEN_BOOTS.get());
+
                         output.accept(ModItems.STEVENS_JACKET.get());
+
+                        //Tools
+                        output.accept(ModItems.SOULPHYRE_SWORD.get());
+                        output.accept(ModItems.SOULPHYRE_PICKAXE.get());
+                        output.accept(ModItems.SOULPHYRE_SHOVEL.get());
+                        output.accept(ModItems.SOULPHYRE_AXE.get());
+                        output.accept(ModItems.SOULPHYRE_HOE.get());
+
+                        output.accept(ModItems.TUNGSTEN_SWORD.get());
+                        output.accept(ModItems.TUNGSTEN_PICKAXE.get());
+                        output.accept(ModItems.TUNGSTEN_SHOVEL.get());
+                        output.accept(ModItems.TUNGSTEN_AXE.get());
+                        output.accept(ModItems.TUNGSTEN_HOE.get());
+
+
+                        output.accept(ModItems.ROSE_QUARTZ_SHIELD.get());
+                        output.accept(ModItems.ALLOY_SHIELD.get());
+                        output.accept(ModItems.DOOR_SHIELD.get());
+                        output.accept(ModItems.GRASS_CREST_SHIELD.get());
+//                        output.accept(ModItems.KNIGHTS_SHIELD.get());
+                        output.accept(ModItems.PALETTE.get());
+//                        output.accept(ModItems.TRASH_CAN.get());
+
 
 
                     }).build());
@@ -102,8 +144,6 @@ public class ModCreativeModeTabs {
                         //Misc
                         output.accept(ModItems.SLAPSTICK_SWORD.get());
                         output.accept(ModItems.STAHP_SIGN.get());
-                        output.accept(ModItems.OBSIDIAN_SWORD.get());
-                        output.accept(ModItems.LIFE_SABER.get());
                         output.accept(ModItems.FESTIVE_AXE.get());
                         output.accept(ModItems.KENDO_STICK.get());
                         output.accept(ModItems.CHAIR.get());
@@ -128,6 +168,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ANCIENT_CAGITE.get());
                         output.accept(ModBlocks.CAGITE_BLOCK.get());
                         output.accept(ModBlocks.SCALED_ENDSTONE.get());
+                        output.accept(ModBlocks.DRAGON_SCALED_TUNGSTEN_BLOCK.get());
                         output.accept(ModBlocks.FORGING_ANVIL.get());
                         output.accept(ModBlocks.RADIO.get());
                         output.accept(ModBlocks.BROKEN_RADIO.get());
@@ -142,11 +183,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.OBSIDIAN_HILT.get());
                         output.accept(ModItems.OBSIDIAN_HANDGUARD.get());
                         output.accept(ModItems.GOOBER_UPGRADE_TEMPLATE.get());
+                        output.accept(ModItems.TRANSFORMATION_TEMPLATE.get());
                         output.accept(ModItems.KEVIN_SHARDS.get());
                         output.accept(ModItems.SOULPHYRE.get());
+                        output.accept(ModItems.ROSE_QUARTZ.get());
                         output.accept(ModItems.CAGITE_SCRAP.get());
                         output.accept(ModItems.CAGITE_INGOT.get());
                         output.accept(ModItems.DRAGON_SCALE_SHARD.get());
+                        output.accept(ModItems.DRAGON_SCALED_TUNGSTEN.get());
                         output.accept(ModItems.IRON_PLATE.get());
                         output.accept(ModItems.LIFE_SAVER.get());
                         output.accept(ModItems.RUBBER_CHICKEN.get());
@@ -159,6 +203,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.THORN_OF_TOTH.get());
                         output.accept(ModItems.THORN_OF_ANDORAL.get());
                         output.accept(ModItems.MOSSY_GEM.get());
+                        output.accept(ModItems.CHAIN_OF_FATE.get());
+                        output.accept(ModItems.VENOMOUS_FANG.get());
+                        output.accept(ModItems.ACONITE.get());
                         output.accept(ModItems.POLE.get());
 
                     }).build());

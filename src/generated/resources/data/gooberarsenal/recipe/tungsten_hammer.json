@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    " D "
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:tungsten_hammer"
+  }
+}

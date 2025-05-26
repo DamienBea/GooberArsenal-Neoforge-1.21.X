@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:mossy_cobblestone"
+  },
+  "base": {
+    "item": "minecraft:shield"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:grass_crest_shield"
+  },
+  "template": {
+    "item": "gooberarsenal:transformation_template"
+  }
+}

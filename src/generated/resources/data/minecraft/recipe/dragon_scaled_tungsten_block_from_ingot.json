@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    },
+    {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    },
+    {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    },
+    {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    },
+    {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    },
+    {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    },
+    {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    },
+    {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    },
+    {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:dragon_scaled_tungsten_block"
+  }
+}

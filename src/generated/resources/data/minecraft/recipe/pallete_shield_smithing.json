@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "tag": "minecraft:planks"
+  },
+  "base": {
+    "item": "minecraft:shield"
+  },
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:palette"
+  },
+  "template": {
+    "item": "gooberarsenal:transformation_template"
+  }
+}

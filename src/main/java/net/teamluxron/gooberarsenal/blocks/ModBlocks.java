@@ -95,6 +95,14 @@ public class ModBlocks {
                     .sound(SoundType.NETHERITE_BLOCK)
             ));
 
+
+    public static final DeferredBlock<Block> DRAGON_SCALED_TUNGSTEN_BLOCK = registerBlock("dragon_scaled_tungsten_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.NETHERITE_BLOCK)
+            ));
+
     // BlockEntities
 
 
