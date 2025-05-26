@@ -135,15 +135,15 @@ public class ModItems {
 
     public static final DeferredItem<Item> SOULPHYRE_SWORD = ITEMS.registerItem("soulphyre_sword",
             (properties) -> new SwordItem(SoulphyreMaterial.INSTANCE, properties
-                    .attributes(SwordItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 3, -2.4f))));
+                    .attributes(SwordItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 4, -2.4f))));
 
     public static final DeferredItem<Item> SOULPHYRE_PICKAXE = ITEMS.registerItem("soulphyre_pickaxe",
             (properties) -> new PickaxeItem(SoulphyreMaterial.INSTANCE,  properties
-                    .attributes(PickaxeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 4, -2.8f))));
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 1, -2.8f))));
 
     public static final DeferredItem<Item> SOULPHYRE_SHOVEL = ITEMS.registerItem("soulphyre_shovel",
             (properties) -> new ShovelItem(SoulphyreMaterial.INSTANCE,  properties
-                    .attributes(ShovelItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 0.5f, -3))));
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 1.5f, -3))));
 
     public static final DeferredItem<Item> SOULPHYRE_AXE = ITEMS.registerItem("soulphyre_axe",
             (properties) -> new AxeItem(SoulphyreMaterial.INSTANCE,  properties
