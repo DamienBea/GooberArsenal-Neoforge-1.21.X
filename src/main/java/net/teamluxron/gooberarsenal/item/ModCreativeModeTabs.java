@@ -186,9 +186,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TRANSFORMATION_TEMPLATE.get());
                         output.accept(ModItems.KEVIN_SHARDS.get());
                         output.accept(ModItems.SOULPHYRE.get());
+                        output.accept(ModItems.ROSE_QUARTZ.get());
                         output.accept(ModItems.CAGITE_SCRAP.get());
                         output.accept(ModItems.CAGITE_INGOT.get());
                         output.accept(ModItems.DRAGON_SCALE_SHARD.get());
+                        output.accept(ModItems.DRAGON_SCALED_TUNGSTEN.get());
                         output.accept(ModItems.IRON_PLATE.get());
                         output.accept(ModItems.LIFE_SAVER.get());
                         output.accept(ModItems.RUBBER_CHICKEN.get());
