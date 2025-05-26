@@ -135,23 +135,23 @@ public class ModItems {
 
     public static final DeferredItem<Item> SOULPHYRE_SWORD = ITEMS.registerItem("soulphyre_sword",
             (properties) -> new SwordItem(SoulphyreMaterial.INSTANCE, properties
-                    .attributes(SwordItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, -3.5f))));
+                    .attributes(SwordItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 3, -2.4f))));
 
     public static final DeferredItem<Item> SOULPHYRE_PICKAXE = ITEMS.registerItem("soulphyre_pickaxe",
             (properties) -> new PickaxeItem(SoulphyreMaterial.INSTANCE,  properties
-                    .attributes(PickaxeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, 5))));
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 4, -2.8f))));
 
     public static final DeferredItem<Item> SOULPHYRE_SHOVEL = ITEMS.registerItem("soulphyre_shovel",
             (properties) -> new ShovelItem(SoulphyreMaterial.INSTANCE,  properties
-                    .attributes(ShovelItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, 5))));
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 0.5f, -3))));
 
     public static final DeferredItem<Item> SOULPHYRE_AXE = ITEMS.registerItem("soulphyre_axe",
             (properties) -> new AxeItem(SoulphyreMaterial.INSTANCE,  properties
-                    .attributes(AxeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, 5))));
+                    .attributes(AxeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, -3))));
 
     public static final DeferredItem<Item> SOULPHYRE_HOE = ITEMS.registerItem("soulphyre_hoe",
             (properties) -> new HoeItem(SoulphyreMaterial.INSTANCE,  properties
-                    .attributes(HoeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, 5))));
+                    .attributes(HoeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, -3, 0))));
 
 
     public static final DeferredItem<Item> TUNGSTEN_SWORD = ITEMS.registerItem("tungsten_sword",
@@ -491,7 +491,7 @@ public class ModItems {
             () -> new DaggerItem(Tiers.IRON, -1, -1.5f, new Item.Properties()));
 
     public static final DeferredItem<DaggerItem> REBELS_KNIFE = ITEMS.register("rebels_knife",
-            () -> new DaggerItem(Tiers.NETHERITE, 0, 0.0f, new Item.Properties().fireResistant()) {
+            () -> new DaggerItem(SoulphyreMaterial.INSTANCE, 0, 0.0f, new Item.Properties().fireResistant()) {
                 @Override
                 public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
                     if (!level.isClientSide() && entity instanceof Player player && selected) {
