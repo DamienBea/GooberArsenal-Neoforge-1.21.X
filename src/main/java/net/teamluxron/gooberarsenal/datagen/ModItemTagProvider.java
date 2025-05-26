@@ -66,6 +66,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.TUNGSTEN_SWORD.get())
                 .add(ModItems.ROSE_QUARTZ_SWORD.get())
 //                .add(ModItems.IRON_RAPIER.get())
+                .add(ModItems.WOODEN_HAMMER.get())
+                .add(ModItems.STONE_HAMMER.get())
+                .add(ModItems.IRON_HAMMER.get())
+                .add(ModItems.GOLDEN_HAMMER.get())
+                .add(ModItems.DIAMOND_HAMMER.get())
+                .add(ModItems.SOULPHYRE_HAMMER.get())
+                .add(ModItems.NETHERITE_HAMMER.get())
+                .add(ModItems.TUNGSTEN_HAMMER.get())
+                .add(ModItems.MOSSY_MASHER.get())
 
 
                 .add(ModItems.LYNNS_DESOLATION.get())
