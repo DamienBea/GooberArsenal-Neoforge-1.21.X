@@ -207,8 +207,8 @@ public class ModItems {
                     .attributes(SwordItem.createAttributes(ChairMaterial.INSTANCE, 1, -3f))));
 
     public static final DeferredItem<SwordItem> ROSE_QUARTZ_SWORD = ITEMS.register("rose_quartz_sword",
-            () -> new SwordItem(ChairMaterial.INSTANCE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(ChairMaterial.INSTANCE, -1, -2.4f))));
+            () -> new SwordItem(Tiers.DIAMOND, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 4, -2.4f))));
 
     public static final DeferredItem<SwordItem> BEE_BUNNY_BASHER = ITEMS.register("bee_bunny_basher",
             () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
