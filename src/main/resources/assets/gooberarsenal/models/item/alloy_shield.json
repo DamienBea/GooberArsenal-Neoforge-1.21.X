@@ -174,11 +174,11 @@
 			"scale": [1.3, 1.3, 1.3]
 		},
 		"firstperson_righthand": {
-			"translation": [0, -7, 1],
+			"translation": [0, -10, 1],
 			"scale": [1.25, 1.25, 1.25]
 		},
 		"firstperson_lefthand": {
-			"translation": [2.25, -7, 1],
+			"translation": [2.25, -10, 1],
 			"scale": [1.25, 1.25, 1.25]
 		},
 		"ground": {
