@@ -1,20 +1,5 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "gooberarsenal:block/radio"
-    },
-    "facing=south": {
-      "model": "gooberarsenal:block/radio",
-      "y": 180
-    },
-    "facing=west": {
-      "model": "gooberarsenal:block/radio",
-      "y": 270
-    },
-    "facing=east": {
-      "model": "gooberarsenal:block/radio",
-      "y": 90
-
-    }
+    "": { "model": "gooberarsenal:block/radio" }
   }
 }

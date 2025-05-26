@@ -173,6 +173,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.SOULPHYRE_LEGGINGS.get())
                 .add(ModItems.TUNGSTEN_LEGGINGS.get())
         ;
+        tag(ItemTags.DURABILITY_ENCHANTABLE)
+
+//                .add(ModItems.ROSE_QUARTZ_SHIELD.get())
+        ;
 
 
 

@@ -1005,27 +1005,27 @@ public class ModItems {
 
     public static final DeferredItem<ScytheItem> TUNGSTEN_SCYTHE = ITEMS.register("tungsten_scythe",
             () -> new ScytheItem(TungstenMaterial.INSTANCE, new Item.Properties()
-                    .attributes(
-                            ScytheItem.createAttributes(TungstenMaterial.INSTANCE, 2, -3.2f)
-                                    .withModifierAdded(
-                                            Attributes.ENTITY_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("tungsten_scythe_range_bonus"),
-                                                    1.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                                    .withModifierAdded(
-                                            Attributes.BLOCK_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("tungsten_scythe_block_range_bonus"),
-                                                    1.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )
+//                    .attributes(
+//                            ScytheItem.createAttributes(TungstenMaterial.INSTANCE, 2, -3.2f)
+//                                    .withModifierAdded(
+//                                            Attributes.ENTITY_INTERACTION_RANGE,
+//                                            new AttributeModifier(
+//                                                    GooberArsenal.res("tungsten_scythe_range_bonus"),
+//                                                    1.0D,
+//                                                    AttributeModifier.Operation.ADD_VALUE
+//                                            ),
+//                                            EquipmentSlotGroup.MAINHAND
+//                                    )
+//                                    .withModifierAdded(
+//                                            Attributes.BLOCK_INTERACTION_RANGE,
+//                                            new AttributeModifier(
+//                                                    GooberArsenal.res("tungsten_scythe_block_range_bonus"),
+//                                                    1.0D,
+//                                                    AttributeModifier.Operation.ADD_VALUE
+//                                            ),
+//                                            EquipmentSlotGroup.MAINHAND
+//                                    )
+//                    )
             )
     );
 
@@ -1192,6 +1192,15 @@ public class ModItems {
                     super.appendHoverText(stack, context, tooltip, flag);
                 }
             });
+
+    //Shields
+
+//
+//    public static final DeferredItem<GooberShield> ROSE_QUARTZ_SHIELD = ITEMS.register("rose_quartz_shield",
+//            () -> new GooberShield(new Item.Properties()
+//                    .durability(1650)
+//                    .stacksTo(1)
+//            ));
 
     //ItemsWithModels
 
