@@ -35,8 +35,8 @@ public class DaggerItem extends SwordItem {
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (!attacker.level().isClientSide() && target.invulnerableTime > 8) {
-            target.invulnerableTime = 8;
+        if (!attacker.level().isClientSide() && target.invulnerableTime > 10) {
+            target.invulnerableTime = 10;
         }
         return super.hurtEnemy(stack, target, attacker);
     }
