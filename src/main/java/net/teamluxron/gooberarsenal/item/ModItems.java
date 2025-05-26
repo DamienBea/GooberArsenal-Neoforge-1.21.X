@@ -134,35 +134,45 @@ public class ModItems {
 
 
     public static final DeferredItem<Item> SOULPHYRE_SWORD = ITEMS.registerItem("soulphyre_sword",
-            (properties) -> new SwordItem(ModToolTiers.SOULPHYRE_TIER, properties));
+            (properties) -> new SwordItem(SoulphyreMaterial.INSTANCE, properties
+                    .attributes(SwordItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, -3.5f))));
 
     public static final DeferredItem<Item> SOULPHYRE_PICKAXE = ITEMS.registerItem("soulphyre_pickaxe",
-            (properties) -> new PickaxeItem(ModToolTiers.SOULPHYRE_TIER,  properties));
+            (properties) -> new PickaxeItem(SoulphyreMaterial.INSTANCE,  properties
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, 5))));
 
     public static final DeferredItem<Item> SOULPHYRE_SHOVEL = ITEMS.registerItem("soulphyre_shovel",
-            (properties) -> new ShovelItem(ModToolTiers.SOULPHYRE_TIER,  properties));
+            (properties) -> new ShovelItem(SoulphyreMaterial.INSTANCE,  properties
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, 5))));
 
     public static final DeferredItem<Item> SOULPHYRE_AXE = ITEMS.registerItem("soulphyre_axe",
-            (properties) -> new AxeItem(ModToolTiers.SOULPHYRE_TIER,  properties));
+            (properties) -> new AxeItem(SoulphyreMaterial.INSTANCE,  properties
+                    .attributes(AxeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, 5))));
 
     public static final DeferredItem<Item> SOULPHYRE_HOE = ITEMS.registerItem("soulphyre_hoe",
-            (properties) -> new HoeItem(ModToolTiers.SOULPHYRE_TIER,  properties));
+            (properties) -> new HoeItem(SoulphyreMaterial.INSTANCE,  properties
+                    .attributes(HoeItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 5, 5))));
 
 
     public static final DeferredItem<Item> TUNGSTEN_SWORD = ITEMS.registerItem("tungsten_sword",
-            (properties) -> new SwordItem(ModToolTiers.TUNGSTEN_TIER, properties));
+            (properties) -> new SwordItem(ModToolTiers.TUNGSTEN_TIER, properties
+                    .attributes(SwordItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 9, -3.5f))));
 
     public static final DeferredItem<Item> TUNGSTEN_PICKAXE = ITEMS.registerItem("tungsten_pickaxe",
-            (properties) -> new PickaxeItem(ModToolTiers.TUNGSTEN_TIER, properties));
+            (properties) -> new PickaxeItem(ModToolTiers.TUNGSTEN_TIER, properties
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 5, 5))));
 
     public static final DeferredItem<Item> TUNGSTEN_SHOVEL = ITEMS.registerItem("tungsten_shovel",
-            (properties) -> new ShovelItem(ModToolTiers.TUNGSTEN_TIER, properties));
+            (properties) -> new ShovelItem(ModToolTiers.TUNGSTEN_TIER, properties
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 5, 5))));
 
     public static final DeferredItem<Item> TUNGSTEN_AXE = ITEMS.registerItem("tungsten_axe",
-            (properties) -> new AxeItem(ModToolTiers.TUNGSTEN_TIER, properties));
+            (properties) -> new AxeItem(ModToolTiers.TUNGSTEN_TIER, properties
+                    .attributes(AxeItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 5, 5))));
 
     public static final DeferredItem<Item> TUNGSTEN_HOE = ITEMS.registerItem("tungsten_hoe",
-            (properties) -> new HoeItem(ModToolTiers.TUNGSTEN_TIER, properties));
+            (properties) -> new HoeItem(ModToolTiers.TUNGSTEN_TIER, properties
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 5, 5))));
 
 
 

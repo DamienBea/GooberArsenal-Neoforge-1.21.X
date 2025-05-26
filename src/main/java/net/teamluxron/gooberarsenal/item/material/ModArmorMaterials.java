@@ -52,7 +52,7 @@ public class ModArmorMaterials {
             attribute -> {
                 attribute.put(ArmorItem.Type.BOOTS, 1);
                 attribute.put(ArmorItem.Type.LEGGINGS, 2);
-                attribute.put(ArmorItem.Type.CHESTPLATE, 3);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 8);
                 attribute.put(ArmorItem.Type.HELMET, 1);
                 attribute.put(ArmorItem.Type.BODY, 15);
             }), 10, 0f, 0f, () -> Items.LEATHER);

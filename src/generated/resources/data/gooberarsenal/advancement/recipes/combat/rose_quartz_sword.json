@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_soulphyre": {
+    "has_rose_quarty": {
       "conditions": {
         "items": [
           {
-            "items": "gooberarsenal:soulphyre"
+            "items": "gooberarsenal:rose_quartz"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_soulphyre"
+      "has_rose_quarty"
     ]
   ],
   "rewards": {

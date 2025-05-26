@@ -711,22 +711,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
 
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SOULPHYRE_POLEARM.get())
-                .pattern(" AA")
-                .pattern("AAC")
-                .pattern("A C")
-                .define('A', ModItems.SOULPHYRE)
-                .define('C', ModItems.POLE)
-                .unlockedBy("has_soulphyre", has(ModItems.SOULPHYRE))
-                .save(recipeOutput);
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TUNGSTEN_POLEARM.get())
                 .pattern(" AA")
                 .pattern("AAC")
                 .pattern("A C")
                 .define('A', ModItems.DRAGON_SCALED_TUNGSTEN)
                 .define('C', ModItems.POLE)
-                .unlockedBy("has_soulphyre", has(ModItems.DRAGON_SCALED_TUNGSTEN))
+                .unlockedBy("has_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN))
                 .save(recipeOutput);
 
 

@@ -10,7 +10,7 @@ public class ModToolTiers {
     public static final Tier CAGITE_TIER = new SimpleTier(ModTags.Blocks.INCORRECT_FOR_CAGITE_TOOL,
             2000, 4f, 3f, 28, () -> Ingredient.of(ModItems.CAGITE_INGOT));
 
-    public static final Tier SOULPHYRE_TIER = new SimpleTier(Tags.Blocks.NEEDS_GOLD_TOOL,
+    public static final Tier SOULPHYRE_TIER = new SimpleTier(Tags.Blocks.NEEDS_NETHERITE_TOOL,
             1561, 8.0f, 3.0f, 10, () -> Ingredient.of(ModItems.SOULPHYRE));
 
     public static final Tier TUNGSTEN_TIER = new SimpleTier(Tags.Blocks.NEEDS_NETHERITE_TOOL,

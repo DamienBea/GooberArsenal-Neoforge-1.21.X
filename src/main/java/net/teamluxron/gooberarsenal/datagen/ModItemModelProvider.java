@@ -139,7 +139,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.TUNGSTEN_SHOVEL);
             handheldItem(ModItems.TUNGSTEN_AXE);
             handheldItem(ModItems.TUNGSTEN_HOE);
-            handheldItem(ModItems.ROSE_QUARTZ_SWORD);
+            handheldMediumItem(ModItems.ROSE_QUARTZ_SWORD);
 //            handheldItem(ModItems.IRON_RAPIER);
 
 
@@ -256,6 +256,12 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder handheldBroadswordItem(DeferredItem<?> item) {
         return withExistingParent(item.getId().getPath(),
                 modLoc("item/templates/handheld_broadsword"))
+                .texture("layer0", modLoc("item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder handheldMediumItem(DeferredItem<?> item) {
+        return withExistingParent(item.getId().getPath(),
+                modLoc("item/templates/handheld_medium"))
                 .texture("layer0", modLoc("item/" + item.getId().getPath()));
     }
 
