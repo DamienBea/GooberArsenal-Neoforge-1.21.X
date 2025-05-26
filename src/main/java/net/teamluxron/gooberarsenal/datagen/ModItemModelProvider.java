@@ -73,7 +73,8 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.CHAIN_OF_FATE.get());
             basicItem(ModItems.VENOMOUS_FANG.get());
             basicItem(ModItems.ACONITE.get());
-            handheldItem(ModItems.SOULPHYRE);
+            basicItem(ModItems.SOULPHYRE.get());
+            basicItem(ModItems.ROSE_QUARTZ.get());
 
 
             //Armor
