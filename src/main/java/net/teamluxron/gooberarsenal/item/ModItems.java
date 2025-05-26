@@ -20,7 +20,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.item.custom.*;
 import net.teamluxron.gooberarsenal.item.material.*;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
