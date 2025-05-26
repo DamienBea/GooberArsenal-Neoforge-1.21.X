@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "S": {
+      "tag": "minecraft:terracotta"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "SAS",
+    "CCC"
+  ],
+  "result": {
+    "count": 2,
+    "id": "gooberarsenal:transformation_template"
+  }
+}

@@ -15,7 +15,7 @@ import net.teamluxron.gooberarsenal.GooberArsenal;
 public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_KEVIN_ORE = registerKey("add_kevin_ore");
     public static final ResourceKey<BiomeModifier> ADD_SOUPHYRE = registerKey("add_soulphyre");
-    public static final ResourceKey<BiomeModifier> ADD_ROSE_QUARTZ = registerKey("add_soulphyre");
+    public static final ResourceKey<BiomeModifier> ADD_ROSE_QUARTZ = registerKey("add_rose_quartz");
     public static final ResourceKey<BiomeModifier> ADD_CAGITE = registerKey("add_cagite");
     public static final ResourceKey<BiomeModifier> ADD_SCALED = registerKey("add_scaled");
 

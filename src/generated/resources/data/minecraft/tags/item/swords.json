@@ -9,6 +9,7 @@
     "gooberarsenal:diamond_bat",
     "gooberarsenal:soulphyre_bat",
     "gooberarsenal:netherite_bat",
+    "gooberarsenal:tungsten_bat",
     "gooberarsenal:bee_bunny_basher",
     "gooberarsenal:stahp_sign",
     "gooberarsenal:steel_pipe",
@@ -27,6 +28,7 @@
     "gooberarsenal:diamond_scythe",
     "gooberarsenal:soulphyre_scythe",
     "gooberarsenal:netherite_scythe",
+    "gooberarsenal:tungsten_scythe",
     "gooberarsenal:life_saber",
     "gooberarsenal:wooden_dagger",
     "gooberarsenal:stone_dagger",
@@ -35,7 +37,20 @@
     "gooberarsenal:diamond_dagger",
     "gooberarsenal:soulphyre_dagger",
     "gooberarsenal:netherite_dagger",
+    "gooberarsenal:tungsten_dagger",
     "gooberarsenal:spoon",
-    "gooberarsenal:soulphyre_sword"
+    "gooberarsenal:soulphyre_sword",
+    "gooberarsenal:tungsten_sword",
+    "gooberarsenal:rose_quartz_sword",
+    "gooberarsenal:lynns_desolation",
+    "gooberarsenal:aconite_axe",
+    "gooberarsenal:stone_polearm",
+    "gooberarsenal:iron_polearm",
+    "gooberarsenal:golden_polearm",
+    "gooberarsenal:diamond_polearm",
+    "gooberarsenal:soulphyre_polearm",
+    "gooberarsenal:netherite_polearm",
+    "gooberarsenal:tungsten_polearm",
+    "gooberarsenal:wooden_polearm"
   ]
 }

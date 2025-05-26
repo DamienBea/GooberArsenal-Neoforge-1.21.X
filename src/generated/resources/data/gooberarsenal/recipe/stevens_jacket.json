@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "minecraft:pink_wool"
+    },
+    "R": {
+      "item": "gooberarsenal:rose_quartz"
+    },
+    "X": {
+      "item": "minecraft:leather_chestplate"
+    },
+    "Y": {
+      "item": "minecraft:yellow_wool"
+    }
+  },
+  "pattern": [
+    "PXP",
+    "RYR",
+    "PRP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:stevens_jacket"
+  }
+}

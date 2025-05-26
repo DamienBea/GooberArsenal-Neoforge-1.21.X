@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "gooberarsenal:pole"
+    },
+    "S": {
+      "item": "gooberarsenal:soulphyre"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "S D",
+    "  D"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:soulphyre_scythe"
+  }
+}

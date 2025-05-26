@@ -1009,17 +1009,26 @@ public class ModItems {
                     .attributes(
                             ScytheItem.createAttributes(TungstenMaterial.INSTANCE, 2, -3.2f)
                                     .withModifierAdded(
-                                            Attributes.SWEEPING_DAMAGE_RATIO,
+                                            Attributes.ENTITY_INTERACTION_RANGE,
                                             new AttributeModifier(
-                                                    GooberArsenal.res("tungsten_scythe_sweeping_damage"),
+                                                    GooberArsenal.res("tungsten_scythe_range_bonus"),
                                                     1.0D,
                                                     AttributeModifier.Operation.ADD_VALUE
                                             ),
                                             EquipmentSlotGroup.MAINHAND
                                     )
-                    )) {
-            });
-
+                                    .withModifierAdded(
+                                            Attributes.BLOCK_INTERACTION_RANGE,
+                                            new AttributeModifier(
+                                                    GooberArsenal.res("tungsten_scythe_block_range_bonus"),
+                                                    1.0D,
+                                                    AttributeModifier.Operation.ADD_VALUE
+                                            ),
+                                            EquipmentSlotGroup.MAINHAND
+                                    )
+                    )
+            )
+    );
 
     //Hammers
 
