@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "gooberarsenal:dragon_scaled_tungsten"
+    },
+    "C": {
+      "item": "gooberarsenal:pole"
+    }
+  },
+  "pattern": [
+    " AA",
+    "AAC",
+    "A C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:tungsten_polearm"
+  }
+}
