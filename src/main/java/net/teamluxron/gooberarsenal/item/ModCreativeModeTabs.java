@@ -121,9 +121,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ALLOY_SHIELD.get());
                         output.accept(ModItems.DOOR_SHIELD.get());
                         output.accept(ModItems.GRASS_CREST_SHIELD.get());
-                        output.accept(ModItems.KNIGHTS_SHIELD.get());
+//                        output.accept(ModItems.KNIGHTS_SHIELD.get());
                         output.accept(ModItems.PALETTE.get());
-                        output.accept(ModItems.TRASH_CAN.get());
+//                        output.accept(ModItems.TRASH_CAN.get());
 
 
 

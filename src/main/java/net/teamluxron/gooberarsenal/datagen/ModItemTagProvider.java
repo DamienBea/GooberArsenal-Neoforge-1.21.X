@@ -179,9 +179,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.ALLOY_SHIELD.get())
                 .add(ModItems.DOOR_SHIELD.get())
                 .add(ModItems.GRASS_CREST_SHIELD.get())
-                .add(ModItems.KNIGHTS_SHIELD.get())
+//                .add(ModItems.KNIGHTS_SHIELD.get())
                 .add(ModItems.PALETTE.get())
-                .add(ModItems.TRASH_CAN.get())
+//                .add(ModItems.TRASH_CAN.get())
         ;
 
 

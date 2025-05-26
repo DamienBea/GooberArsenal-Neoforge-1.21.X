@@ -1220,11 +1220,11 @@ public class ModItems {
                     .stacksTo(1)
             ));
 
-    public static final DeferredItem<GooberShield> KNIGHTS_SHIELD = ITEMS.register("knights_shield",
-            () -> new GooberShield(new Item.Properties()
-                    .durability(650)
-                    .stacksTo(1)
-            ));
+//    public static final DeferredItem<GooberShield> KNIGHTS_SHIELD = ITEMS.register("knights_shield",
+//            () -> new GooberShield(new Item.Properties()
+//                    .durability(650)
+//                    .stacksTo(1)
+//            ));
 
     public static final DeferredItem<GooberShield> PALETTE = ITEMS.register("palette",
             () -> new GooberShield(new Item.Properties()
@@ -1232,11 +1232,11 @@ public class ModItems {
                     .stacksTo(1)
             ));
 
-    public static final DeferredItem<GooberShield> TRASH_CAN = ITEMS.register("trash_can",
-            () -> new GooberShield(new Item.Properties()
-                    .durability(650)
-                    .stacksTo(1)
-            ));
+//    public static final DeferredItem<GooberShield> TRASH_CAN = ITEMS.register("trash_can",
+//            () -> new GooberShield(new Item.Properties()
+//                    .durability(650)
+//                    .stacksTo(1)
+//            ));
 
     //ItemsWithModels
 
