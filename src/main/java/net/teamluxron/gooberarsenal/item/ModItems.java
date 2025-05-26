@@ -491,7 +491,7 @@ public class ModItems {
             () -> new DaggerItem(Tiers.IRON, -1, -1.5f, new Item.Properties()));
 
     public static final DeferredItem<DaggerItem> REBELS_KNIFE = ITEMS.register("rebels_knife",
-            () -> new DaggerItem(Tiers.NETHERITE, 0, 0.0f, new Item.Properties().fireResistant()) {
+            () -> new DaggerItem(SoulphyreMaterial.INSTANCE, 0, 0.0f, new Item.Properties().fireResistant()) {
                 @Override
                 public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
                     if (!level.isClientSide() && entity instanceof Player player && selected) {

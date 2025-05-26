@@ -904,14 +904,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
-                        Ingredient.of(ModItems.IRON_DAGGER.get()),
+                        Ingredient.of(ModItems.SOULPHYRE_DAGGER.get()),
                         Ingredient.of(ModItems.CHAIN_OF_FATE.get()),
                         RecipeCategory.COMBAT, ModItems.REBELS_KNIFE.get())
                 .unlocks("has_chain_of_fate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CHAIN_OF_FATE.get()))
                 .save(recipeOutput, "rebels_knife");
 
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GOOBER_UPGRADE_TEMPLATE.get()),
-                        Ingredient.of(ModItems.IRON_DAGGER.get()),
+                        Ingredient.of(ModItems.NETHERITE_DAGGER.get()),
                         Ingredient.of(ModItems.VENOMOUS_FANG.get()),
                         RecipeCategory.COMBAT, ModItems.POISONERS_SIDEARM.get())
                 .unlocks("has_venomuos_fang", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.VENOMOUS_FANG.get()))
