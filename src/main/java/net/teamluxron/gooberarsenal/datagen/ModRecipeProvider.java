@@ -237,7 +237,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_copper_ingot", has(Items.COPPER_INGOT))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_POLEARM.get())
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_POLEARM.get())
                 .pattern(" AA")
                 .pattern("AAC")
                 .pattern("A C")
@@ -469,7 +469,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("PXP")
                 .pattern("RYR")
                 .pattern("PRP")
-                .define('X', Items.LEATHER_CHESTPLATE)
+                .define('X', Items.DIAMOND_CHESTPLATE)
                 .define('P', Items.PINK_WOOL)
                 .define('Y', Items.YELLOW_WOOL)
                 .define('R', ModItems.ROSE_QUARTZ)
@@ -556,8 +556,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" S ")
                 .pattern(" D ")
                 .define('D', ModItems.POLE)
-                .define('S', ModItems.ROSE_QUARTZ_SWORD.get())
-                .unlockedBy("has_soulphyre", has(ModItems.SOULPHYRE.get()))
+                .define('S', ModItems.ROSE_QUARTZ.get())
+                .unlockedBy("has_rose_quarty", has(ModItems.ROSE_QUARTZ.get()))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.SOULPHYRE_SWORD.get())
@@ -681,6 +681,54 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', ModItems.DRAGON_SCALED_TUNGSTEN.get())
                 .unlockedBy("has_dragon_scaled_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN.get()))
                 .save(recipeOutput);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TUNGSTEN_BAT.get())
+                .pattern("  S")
+                .pattern(" S ")
+                .pattern("D  ")
+                .define('D', Items.DRIED_KELP)
+                .define('S', ModItems.DRAGON_SCALED_TUNGSTEN)
+                .unlockedBy("has_dragon_scaled_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TUNGSTEN_HAMMER.get())
+                .pattern("SSS")
+                .pattern("SDS")
+                .pattern(" D ")
+                .define('D', Items.STICK)
+                .define('S', ModItems.DRAGON_SCALED_TUNGSTEN)
+                .unlockedBy("has_dragon_scaled_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TUNGSTEN_SCYTHE.get())
+                .pattern("SSS")
+                .pattern("S D")
+                .pattern("  D")
+                .define('D', ModItems.POLE)
+                .define('S', ModItems.DRAGON_SCALED_TUNGSTEN)
+                .unlockedBy("has_dragon_scaled_tungsten", has(ModItems.DRAGON_SCALED_TUNGSTEN))
+                .save(recipeOutput);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SOULPHYRE_POLEARM.get())
+                .pattern(" AA")
+                .pattern("AAC")
+                .pattern("A C")
+                .define('A', ModItems.SOULPHYRE)
+                .define('C', ModItems.POLE)
+                .unlockedBy("has_soulphyre", has(ModItems.SOULPHYRE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TUNGSTEN_POLEARM.get())
+                .pattern(" AA")
+                .pattern("AAC")
+                .pattern("A C")
+                .define('A', ModItems.DRAGON_SCALED_TUNGSTEN)
+                .define('C', ModItems.POLE)
+                .unlockedBy("has_soulphyre", has(ModItems.DRAGON_SCALED_TUNGSTEN))
+                .save(recipeOutput);
+
 
 
 
