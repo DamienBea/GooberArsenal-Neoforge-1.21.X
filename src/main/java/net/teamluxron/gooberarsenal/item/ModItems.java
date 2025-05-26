@@ -1067,22 +1067,22 @@ public class ModItems {
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_HELMET = ITEMS.register("tungsten_helmet",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_CHESTPLATE = ITEMS.register("tungsten_chestplate",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_LEGGINGS = ITEMS.register("tungsten_leggings",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_BOOTS = ITEMS.register("tungsten_boots",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties()){
+                    new Item.Properties().stacksTo(1)){
             });
 
     //Shields
