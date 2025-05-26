@@ -84,6 +84,12 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TUNGSTEN_HAMMER.get());
                         output.accept(ModItems.MOSSY_MASHER.get());
 
+                        //Swords
+                        output.accept(ModItems.OBSIDIAN_SWORD.get());
+                        output.accept(ModItems.ROSE_QUARTZ_SWORD.get());
+
+
+
                         //Armor
 
                         output.accept(ModItems.SOULPHYRE_HELMET.get());
@@ -137,7 +143,6 @@ public class ModCreativeModeTabs {
                         //Misc
                         output.accept(ModItems.SLAPSTICK_SWORD.get());
                         output.accept(ModItems.STAHP_SIGN.get());
-                        output.accept(ModItems.OBSIDIAN_SWORD.get());
                         output.accept(ModItems.FESTIVE_AXE.get());
                         output.accept(ModItems.KENDO_STICK.get());
                         output.accept(ModItems.CHAIR.get());
