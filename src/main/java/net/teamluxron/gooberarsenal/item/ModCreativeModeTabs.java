@@ -64,9 +64,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GOLDEN_DAGGER.get());
                         output.accept(ModItems.DIAMOND_DAGGER.get());
                         output.accept(ModItems.SOULPHYRE_DAGGER.get());
-                        output.accept(ModItems.TUNGSTEN_DAGGER.get());
                         output.accept(ModItems.LIFE_SABER.get());
                         output.accept(ModItems.NETHERITE_DAGGER.get());
+                        output.accept(ModItems.TUNGSTEN_DAGGER.get());
                         output.accept(ModItems.REBELS_KNIFE.get());
                         output.accept(ModItems.THORN_OF_THE_DEAD_GODS.get());
                         output.accept(ModItems.POISONERS_SIDEARM.get());
