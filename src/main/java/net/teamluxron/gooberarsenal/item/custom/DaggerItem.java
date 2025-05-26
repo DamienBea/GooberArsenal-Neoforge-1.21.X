@@ -7,6 +7,8 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 
 import java.util.List;
@@ -37,6 +39,15 @@ public class DaggerItem extends SwordItem {
             target.invulnerableTime = 8;
         }
         return super.hurtEnemy(stack, target, attacker);
+    }
+
+    @Override
+    public boolean canPerformAction(ItemStack stack, ItemAbility ability) {
+        // Disable sweeping attack
+        if (ability == ItemAbilities.SWORD_SWEEP) {
+            return false;
+        }
+        return super.canPerformAction(stack, ability);
     }
 
 
