@@ -210,6 +210,7 @@ public class ModItems {
             () -> new SwordItem(Tiers.DIAMOND, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 4, -2.4f))));
 
+
     public static final DeferredItem<SwordItem> BEE_BUNNY_BASHER = ITEMS.register("bee_bunny_basher",
             () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
                     .fireResistant()
@@ -574,6 +575,7 @@ public class ModItems {
                 }
             });
 
+
     public static final DeferredItem<Item> ACONITE_AXE = ITEMS.register("aconite_axe",
             () -> new PolearmItem(
                     ObsidianSwordMaterial.INSTANCE,
@@ -604,17 +606,24 @@ public class ModItems {
                     if (!target.level().isClientSide()) {
                         target.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 40));
 
-                        MobEffectInstance existingWither = target.getEffect(MobEffects.WITHER);
-                        int amplifier = (existingWither != null)
-                                ? Math.min(existingWither.getAmplifier() + 1, 2)
-                                : 0;
-                        target.addEffect(new MobEffectInstance(
-                                MobEffects.WITHER,
-                                80,
-                                amplifier,
-                                false,
-                                true
-                        ));
+                        // Add player check here
+                        if (attacker instanceof Player player) {
+                            // Now properly access player-specific method
+                            if (player.getAttackStrengthScale(0.5F) >= 1.0F) {
+                                MobEffectInstance existingWither = target.getEffect(MobEffects.WITHER);
+                                int amplifier = (existingWither != null)
+                                        ? Math.min(existingWither.getAmplifier() + 1, 2)
+                                        : 0;
+
+                                target.addEffect(new MobEffectInstance(
+                                        MobEffects.WITHER,
+                                        80,
+                                        amplifier,
+                                        false,
+                                        true
+                                ));
+                            }
+                        }
                     }
                     return super.hurtEnemy(stack, target, attacker);
                 }

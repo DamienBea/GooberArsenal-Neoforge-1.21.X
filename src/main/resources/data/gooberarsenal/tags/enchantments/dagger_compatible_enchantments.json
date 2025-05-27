@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:sharpness",
+    "minecraft:smite",
+    "minecraft:bane_of_arthropods",
+    "minecraft:knockback",
+    "minecraft:looting",
+    "minecraft:sweeping_edge",
+    "minecraft:mending",
+    "minecraft:unbreaking",
+    "minecraft:vanishing_curse"
+  ]
+}

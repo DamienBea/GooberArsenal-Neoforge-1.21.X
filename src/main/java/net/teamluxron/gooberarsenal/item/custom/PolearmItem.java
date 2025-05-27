@@ -2,14 +2,11 @@ package net.teamluxron.gooberarsenal.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
@@ -23,11 +20,21 @@ import net.neoforged.neoforge.common.ItemAbility;
 import java.util.*;
 
 
-public class PolearmItem extends SwordItem{
+public class PolearmItem extends SwordItem {
 
-    public PolearmItem(Tier tier, Properties properties) {
+    public PolearmItem (Tier tier, Properties properties) {
         super(tier, properties);
     }
+
+    @Override
+    public boolean canDisableShield(ItemStack stack, ItemStack shield, LivingEntity entity, LivingEntity attacker) {
+        return true;
+    }
+
+    public float getShieldDisableModifier(ItemStack stack, ItemStack shield) {
+        return 0.5f; // Same value as vanilla axes
+    }
+
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
@@ -99,23 +106,6 @@ public class PolearmItem extends SwordItem{
         return state.is(BlockTags.MINEABLE_WITH_AXE) ? this.getTier().getSpeed() : super.getDestroySpeed(stack, state);
     }
 
-    @Override
-    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        // Check if the target is blocking with a shield
-        if (target.isUsingItem() && target.getUseItem().getItem() instanceof ShieldItem) {
-            target.stopUsingItem(); // Force the shield to stop blocking
-
-            if (target instanceof ServerPlayer serverPlayer) {
-                // Apply a cooldown to the shield (like axes do in vanilla)
-                Item shield = target.getUseItem().getItem();
-                serverPlayer.getCooldowns().addCooldown(shield, 100); // 5 seconds (100 ticks)
-            }
-        }
-        return super.hurtEnemy(stack, target, attacker);
-    }
-
-
-
 //    @Override
 //    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
 //        tooltipComponents.add(Component.translatable("tooltip.gooberarsenal.polearms"));
@@ -160,7 +150,5 @@ public class PolearmItem extends SwordItem{
         return super.useOn(context);
     }
 
+
 }
-
-
-

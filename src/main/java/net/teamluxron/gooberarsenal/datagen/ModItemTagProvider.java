@@ -193,6 +193,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
 //                .add(ModItems.TRASH_CAN.get())
         ;
 
+        tag(ModTags.Items.DAGGER_COMPATIBLE)
+                .add(ModItems.LIFE_SABER.get())
+                .add(ModItems.WOODEN_DAGGER.get())
+                .add(ModItems.STONE_DAGGER.get())
+                .add(ModItems.IRON_DAGGER.get())
+                .add(ModItems.GOLDEN_DAGGER.get())
+                .add(ModItems.DIAMOND_DAGGER.get())
+                .add(ModItems.SOULPHYRE_DAGGER.get())
+                .add(ModItems.NETHERITE_DAGGER.get())
+                .add(ModItems.TUNGSTEN_DAGGER.get())
+        ;
 
 
     }
