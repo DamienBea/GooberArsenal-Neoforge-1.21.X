@@ -1,0 +1,16 @@
+{
+  "hammer_3x3": {
+    "shape": "plane",
+    "radius": 1,
+    "axes": ["x", "z"],
+    "requires_tool": true,
+    "compatible_blocks": "#minecraft:mineable/pickaxe"
+  },
+  "tunnelborn_5x5": {
+    "shape": "plane",
+    "radius": 2,
+    "axes": ["x", "z"],
+    "enchantment_requirement": "gooberarsenal:tunnelborn",
+    "min_enchant_level": 1
+  }
+}

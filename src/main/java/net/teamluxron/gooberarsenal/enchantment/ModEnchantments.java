@@ -1,41 +1,61 @@
 package net.teamluxron.gooberarsenal.enchantment;
 
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.util.ModTags;
+
+import java.util.List;
+import java.util.Optional;
 
 
 public class ModEnchantments {
-    public static final ResourceKey<Enchantment> TUNNELBORN = ResourceKey.create(Registries.ENCHANTMENT,
-            ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "tunnelborn"));
+
+    public static final ResourceKey<Enchantment> TUNNELBORN = ResourceKey.create(
+            Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "tunnelborn")
+    );
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
-        var enchantments = context.lookup(Registries.ENCHANTMENT);
-        var items = context.lookup(Registries.ITEM);
+        ResourceKey<Enchantment> TUNNELBORN = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath("gooberarsenal", "tunnelborn"));
 
-        register(context, TUNNELBORN, Enchantment.enchantment(Enchantment.definition(
-                items.getOrThrow(ModTags.Items.HAMMER_ENCHANTABLE),
-                1,
-                1,
-                Enchantment.dynamicCost(5 ,7),
-                Enchantment.dynamicCost(25, 7),
-                2,
-                EquipmentSlotGroup.MAINHAND
-        ))
+        // Equipment slot group
+        EquipmentSlotGroup mainhand = EquipmentSlotGroup.MAINHAND;
 
-//                        .withEffect(EnchantmentEffectComponents.HIT_BLOCK, EnchantmentTarget.ATTACKER,
-//                                EnchantmentTarget.VICTIM, new TunnelbornEnchantment())
+        // Define supported items
+        HolderSet<Item> supportedItems = HolderSet.direct(); // Empty for now, fill in later
+        HolderSet<Item> primaryItems = HolderSet.direct();   // Optional primary set
 
+        // Define enchantment definition
+        Enchantment.EnchantmentDefinition definition = new Enchantment.EnchantmentDefinition(
+                supportedItems,
+                Optional.of(primaryItems),
+                5,                             // weight
+                3,                             // max level
+                Enchantment.constantCost(10), // min cost
+                Enchantment.constantCost(20), // max cost
+                1,                             // anvil cost
+                List.of(mainhand)             // slots
         );
-    }
-    private static void register(BootstrapContext<Enchantment> registry, ResourceKey<Enchantment> key,
-                                 Enchantment.Builder builder) {
-        registry.register(key, builder.build(key.location()));
+
+        // Build the enchantment
+        Enchantment enchantment = new Enchantment(
+                Component.translatable("enchantment.gooberarsenal.tunnelborn"),
+                definition,
+                HolderSet.direct(),           // exclusiveSet (empty)
+                DataComponentMap.EMPTY        // effects (you can define later)
+        );
+
+        // Register the enchantment
+        context.register(TUNNELBORN, enchantment);
     }
 }
-

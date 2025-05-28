@@ -19,20 +19,16 @@ public class StevensJacketItem extends ArmorItem {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         if (!(entity instanceof Player player) || level.isClientSide) return;
 
-        ItemStack chestItem = player.getItemBySlot(EquipmentSlot.CHEST);
-
-        // Check if the player is wearing the Stevens Jacket
-        if (chestItem.getItem() == this) {
-            // Apply regeneration effect if the player doesn't already have it
+        if (player.getItemBySlot(EquipmentSlot.CHEST).getItem() == this) {
             if (!player.hasEffect(MobEffects.REGENERATION)) {
-                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0, false, false));
+                player.addEffect(new MobEffectInstance(
+                        MobEffects.REGENERATION,
+                        100,  // Duration (5 seconds)
+                        0,    // Amplifier (level I)
+                        false, // Ambient
+                        false // Show particles
+                ));
             }
-
-            // Disable PvP when the jacket is worn
-            player.getPersistentData().putBoolean("DisablePvP", true);
-        } else {
-            // Remove the "DisablePvP" flag when the jacket is not worn
-            player.getPersistentData().remove("DisablePvP");
         }
     }
 }
