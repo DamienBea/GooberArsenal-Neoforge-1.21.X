@@ -1,0 +1,11 @@
+{
+  "name": "Kevin",
+  "icon": "gooberarsenal:kevin_shard",
+  "category": "goober_arsenal_strategy_guide:materials",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "It's the guy from Fortnite!"
+    }
+  ]
+}
