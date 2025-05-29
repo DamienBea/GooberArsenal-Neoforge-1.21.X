@@ -1,7 +1,7 @@
 {
   "name": "Kevin",
   "icon": "gooberarsenal:kevin_shard",
-  "category": "gooberarsenal:gooberarsenal/materials",
+  "category": "gooberarsenal:materials",
   "pages": [
     {
       "type": "patchouli:text",
