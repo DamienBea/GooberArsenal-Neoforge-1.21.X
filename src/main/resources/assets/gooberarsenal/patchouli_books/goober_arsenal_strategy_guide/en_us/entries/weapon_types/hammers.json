@@ -1,0 +1,15 @@
+{
+  "name": "Hammers",
+  "icon": "gooberarsenal:iron_hammer",
+  "category": "gooberarsenal:weapon_types",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Hammers have much more practical use than combat, but is still a force to be reckoned with."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Hammers, when used as a pickaxe, break in a 3x3 area, making it great for creating tunnels and finding more materials. They also do more damage to enemy shields and have massive damage output, only suffering from slow attack speed."
+    }
+  ]
+}

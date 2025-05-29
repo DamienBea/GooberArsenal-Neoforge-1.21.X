@@ -1,0 +1,11 @@
+{
+  "name": "Daggers",
+  "icon": "gooberarsenal:iron_dagger",
+  "category": "gooberarsenal:weapon_types",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Daggers are an assassins best friend. These blades have fast attack speed, with low damage, meaning kills with them can take a little more effort. However, they ignore 25% of invulnerability frames, making them a deadly tool."
+    }
+  ]
+}

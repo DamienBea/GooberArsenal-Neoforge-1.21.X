@@ -1,0 +1,19 @@
+{
+  "name": "Polearms",
+  "icon": "gooberarsenal:iron_polearm",
+  "category": "gooberarsenal:weapon_types",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Polearm is extremely versatile and you might find yourself using it, even if you don't like it for combat."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "It has two extra block and entity reach, making it great for fighting at a distance and tt can disable shields, making it a perfect long range offensive tool."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "It also works as an Axe and can be used to chop down any tree in just a single block break, making it a perfect tool for handling any large forest for wood farming."
+    }
+  ]
+}

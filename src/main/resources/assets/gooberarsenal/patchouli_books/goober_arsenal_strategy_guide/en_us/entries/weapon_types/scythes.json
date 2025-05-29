@@ -1,0 +1,11 @@
+{
+  "name": "Scythes",
+  "icon": "gooberarsenal:iron_scythe",
+  "category": "gooberarsenal:weapon_types",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "If you need to deal with a horde of mobs, the Scythe is what you're looking for. In-built 100% Sweeping Edge, spreading all the damage to every enemy caught in it's range. It can also be used to harvest and re-plant multiple crops in just one click."
+    }
+  ]
+}

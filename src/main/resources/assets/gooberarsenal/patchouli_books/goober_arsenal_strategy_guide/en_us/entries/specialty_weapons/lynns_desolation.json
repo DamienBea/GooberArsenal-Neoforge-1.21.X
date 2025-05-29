@@ -1,0 +1,11 @@
+{
+  "name": "Lynn's Desolation",
+  "icon": "gooberarsenal:lynns_desolation",
+  "category": "gooberarsenal:specialty_weapons",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Once wielded by one half of a powerful duo. This is one of the most powerful Polearms known throughout the world, once thought to be a myth. This weapon will inflict your enemy with Weakness on hit."
+    }
+  ]
+}
