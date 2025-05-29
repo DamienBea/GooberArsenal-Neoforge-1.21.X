@@ -1,0 +1,7 @@
+{
+  "name": "Welcome",
+  "description": "All of Goober Arsenals History and Lore.",
+  "parent": "goober_arsenal_strategy_guide:welcome",
+  "icon": "gooberarsenal:red_eyes_dream",
+  "sortnum": 0
+}

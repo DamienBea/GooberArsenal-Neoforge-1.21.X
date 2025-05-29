@@ -56,7 +56,7 @@ public class ModEvents {
         boolean hasTunnelborn = mainHandItem.getEnchantmentLevel(tunnelbornHolder) > 0;
 
         Set<BlockPos> toBreak = new HashSet<>();
-        for (BlockPos pos : HammerItem.getBlocksToBeDestroyed(0, initialBlockPos, serverPlayer)) {
+        for (BlockPos pos : HammerItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
             if (pos.equals(initialBlockPos)) continue;
 
             BlockState state = level.getBlockState(pos);

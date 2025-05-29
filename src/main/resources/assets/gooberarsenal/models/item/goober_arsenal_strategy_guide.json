@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "gooberarsenal:item/goober_arsenal_strategy_guide"
+  }
+}

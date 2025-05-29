@@ -1,7 +1,8 @@
 {
   "name": "Kevin",
   "icon": "gooberarsenal:kevin_shard",
-  "category": "goober_arsenal_strategy_guide:materials",
+  "category": "goober_arsenal_strategy_guide:materials/materials",
+  "book": "gooberarsenal:goober_arsenal_strategy_guide",
   "pages": [
     {
       "type": "patchouli:text",

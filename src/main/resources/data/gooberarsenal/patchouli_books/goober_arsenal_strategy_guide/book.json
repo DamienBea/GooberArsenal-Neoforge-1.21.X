@@ -1,9 +1,13 @@
 {
-  "name": "Goober Arsenal",
+  "name": "Goober Arsenal Strategy Guide",
   "book_texture": "patchouli:textures/gui/book_red.png",
   "model": "gooberarsenal:goober_arsenal_strategy_guide",
   "landing_text": "Hello Goobs, Goobettes and gender neutral Goobs. Welcome to the Goober Arsenal Strategy Guide! Your one stop shop for all information regarding everything in Goober Arsenal.",
   "version": 1,
+  "subtitle": "Goobing out Edition",
+  "show_progress": false,
   "creative_tab": "gooberarsenal:goober_utility",
-  "use_resource_pack": true
+  "use_blocky_font": true,
+  "use_resource_pack": true,
+  "pause_game": true
 }
