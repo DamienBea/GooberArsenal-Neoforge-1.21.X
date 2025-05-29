@@ -55,22 +55,19 @@ public class ModEvents {
 
             isProcessing.set(true);
             try {
-                int range = 0; // Default 3x3 plane
+                int range = 0;
 
-                // Get the enchantment registry
                 Registry<Enchantment> enchantRegistry = event.getLevel().registryAccess().registryOrThrow(Registries.ENCHANTMENT);
                 ResourceLocation tunnelbornLoc = ModEnchantments.TUNNELBORN.location();
 
                 if (enchantRegistry.containsKey(tunnelbornLoc)) {
-                    // Get Holder reference for the enchantment
                     ResourceKey<Enchantment> key = ResourceKey.create(Registries.ENCHANTMENT, tunnelbornLoc);
                     Holder<Enchantment> tunnelbornHolder = enchantRegistry.getHolder(key).orElse(null);
 
                     if (tunnelbornHolder != null) {
-                        // Check enchantment level using Holder
                         int level = mainHandItem.getEnchantmentLevel(tunnelbornHolder);
                         if (level > 0) {
-                            range = 0; // 5x5 plane
+                            range = 0;
                         }
                     }
                 }
