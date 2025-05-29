@@ -1,19 +1,18 @@
 package net.teamluxron.gooberarsenal.events;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
@@ -24,7 +23,9 @@ import net.teamluxron.gooberarsenal.item.custom.HammerItem;
 import net.teamluxron.gooberarsenal.item.custom.TungstenShovelItem;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
 
 public class ModEvents {
 
@@ -32,31 +33,76 @@ public class ModEvents {
         NeoForge.EVENT_BUS.register(ModEvents.class);
     }
 
+
     private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
     private static boolean isBreakingBlocks = false;
+    private static final ThreadLocal<Boolean> isProcessing = ThreadLocal.withInitial(() -> false);
 
     @SubscribeEvent
     public static void onHammerUsage(BlockEvent.BreakEvent event) {
+        // Prevent recursive calls
+        if (isProcessing.get()) {
+            return;
+        }
+
         Player player = event.getPlayer();
         ItemStack mainHandItem = player.getMainHandItem();
 
-        if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayer serverPlayer) {
+        if (mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayer serverPlayer) {
             BlockPos initialBlockPos = event.getPos();
-            if(HARVESTED_BLOCKS.contains(initialBlockPos)) {
+            if (HARVESTED_BLOCKS.contains(initialBlockPos)) {
                 return;
             }
 
-            for(BlockPos pos : HammerItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
-                if(pos == initialBlockPos || !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
-                    continue;
+            // Set thread flag to prevent recursion
+            isProcessing.set(true);
+            try {
+                // Default range (3x3)
+                int range = 0;
+
+                // Get enchantment registry
+                Registry<Enchantment> enchantRegistry = event.getLevel().registryAccess().registryOrThrow(Registries.ENCHANTMENT);
+                ResourceLocation tunnelbornLoc = ModEnchantments.TUNNELBORN.location();
+
+                // Check if tunnelborn enchantment exists in registry
+                if (enchantRegistry.containsKey(tunnelbornLoc)) {
+                    // Get Holder reference for the enchantment
+                    Holder<Enchantment> tunnelbornHolder = enchantRegistry.getHolderOrThrow(
+                            ResourceKey.create(Registries.ENCHANTMENT, tunnelbornLoc)
+                    );
+
+                    // Check enchantment level using Holder
+                    if (mainHandItem.getEnchantmentLevel(tunnelbornHolder) > 0) {
+                        range = 0; // 5x5 area
+                    }
                 }
 
-                HARVESTED_BLOCKS.add(pos);
-                serverPlayer.gameMode.destroyBlock(pos);
-                HARVESTED_BLOCKS.remove(pos);
+                // Collect all positions first
+                List<BlockPos> positions = HammerItem.getBlocksToBeDestroyed(range, initialBlockPos, serverPlayer);
+
+                // Process blocks
+                for (BlockPos pos : positions) {
+                    if (pos.equals(initialBlockPos) ||
+                            HARVESTED_BLOCKS.contains(pos) ||
+                            !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
+                        continue;
+                    }
+
+                    // Mark position as processed
+                    HARVESTED_BLOCKS.add(pos);
+                    try {
+                        // Break block without triggering our event
+                        serverPlayer.gameMode.destroyBlock(pos);
+                    } finally {
+                        HARVESTED_BLOCKS.remove(pos);
+                    }
+                }
+            } finally {
+                isProcessing.set(false);
             }
         }
     }
+
 
 
     @SubscribeEvent

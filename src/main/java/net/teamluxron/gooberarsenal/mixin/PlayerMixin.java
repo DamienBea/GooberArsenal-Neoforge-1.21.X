@@ -15,7 +15,6 @@ public abstract class PlayerMixin {
         if (player.isSprinting() && player.fallDistance > 0.0F) { // Vanilla critical hit conditions
             float multiplier = TungstenArmorItem.getCriticalDamageMultiplier(player);
             if (multiplier > 1.0f) {
-                // Apply damage bonus to the next attack
                 player.getPersistentData().putFloat("TungstenCritMultiplier", multiplier);
             }
         }
