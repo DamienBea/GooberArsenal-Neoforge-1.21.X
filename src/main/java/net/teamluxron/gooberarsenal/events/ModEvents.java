@@ -13,6 +13,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
@@ -35,7 +36,6 @@ public class ModEvents {
 
 
     private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
-    private static boolean isBreakingBlocks = false;
     private static final ThreadLocal<Boolean> isProcessing = ThreadLocal.withInitial(() -> false);
 
     @SubscribeEvent
@@ -55,18 +55,23 @@ public class ModEvents {
 
             isProcessing.set(true);
             try {
-                int range = 0;
+                int range = 0; // Default 3x3 plane
 
+                // Get the enchantment registry
                 Registry<Enchantment> enchantRegistry = event.getLevel().registryAccess().registryOrThrow(Registries.ENCHANTMENT);
                 ResourceLocation tunnelbornLoc = ModEnchantments.TUNNELBORN.location();
 
                 if (enchantRegistry.containsKey(tunnelbornLoc)) {
-                    Holder<Enchantment> tunnelbornHolder = enchantRegistry.getHolderOrThrow(
-                            ResourceKey.create(Registries.ENCHANTMENT, tunnelbornLoc)
-                    );
+                    // Get Holder reference for the enchantment
+                    ResourceKey<Enchantment> key = ResourceKey.create(Registries.ENCHANTMENT, tunnelbornLoc);
+                    Holder<Enchantment> tunnelbornHolder = enchantRegistry.getHolder(key).orElse(null);
 
-                    if (mainHandItem.getEnchantmentLevel(tunnelbornHolder) > 0) {
-                        range = 0;
+                    if (tunnelbornHolder != null) {
+                        // Check enchantment level using Holder
+                        int level = mainHandItem.getEnchantmentLevel(tunnelbornHolder);
+                        if (level > 0) {
+                            range = 0; // 5x5 plane
+                        }
                     }
                 }
 
@@ -91,6 +96,7 @@ public class ModEvents {
             }
         }
     }
+
 
 
 
