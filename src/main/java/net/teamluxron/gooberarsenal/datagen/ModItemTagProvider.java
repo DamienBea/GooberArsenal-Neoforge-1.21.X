@@ -138,6 +138,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.NETHERITE_HAMMER.get())
                 .add(ModItems.TUNGSTEN_HAMMER.get())
                 .add(ModItems.MOSSY_MASHER.get())
+                .add(ModItems.TUNGSTEN_SHOVEL.get())
         ;
 
         tag(ItemTags.HOES)

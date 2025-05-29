@@ -162,9 +162,9 @@ public class ModItems {
             (properties) -> new PickaxeItem(ModToolTiers.TUNGSTEN_TIER, properties
                     .attributes(PickaxeItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 0.5f, -1.8f))));
 
-    public static final DeferredItem<Item> TUNGSTEN_SHOVEL = ITEMS.registerItem("tungsten_shovel",
-            (properties) -> new ShovelItem(ModToolTiers.TUNGSTEN_TIER, properties
-                    .attributes(ShovelItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 1, -3))));
+    public static final DeferredItem<TungstenShovelItem> TUNGSTEN_SHOVEL = ITEMS.registerItem("tungsten_shovel",
+            (properties) -> new TungstenShovelItem(ModToolTiers.TUNGSTEN_TIER, properties
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, 1.5F, -3.0F))));
 
     public static final DeferredItem<Item> TUNGSTEN_AXE = ITEMS.registerItem("tungsten_axe",
             (properties) -> new AxeItem(ModToolTiers.TUNGSTEN_TIER, properties
@@ -172,7 +172,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> TUNGSTEN_HOE = ITEMS.registerItem("tungsten_hoe",
             (properties) -> new HoeItem(ModToolTiers.TUNGSTEN_TIER, properties
-                    .attributes(ShovelItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, -4.5f, 0))));
+                    .attributes(HoeItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, -4.5f, 0))));
 
 
 

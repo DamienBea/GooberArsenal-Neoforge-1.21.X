@@ -1,5 +1,6 @@
 package net.teamluxron.gooberarsenal.enchantment;
 
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.registries.Registries;
@@ -7,10 +8,9 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 
@@ -26,16 +26,16 @@ public class ModEnchantments {
     );
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
-        ResourceKey<Enchantment> TUNNELBORN = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath("gooberarsenal", "tunnelborn"));
-
-        // Equipment slot group
+        ResourceKey<Enchantment> TUNNELBORN = ResourceKey.create(Registries.ENCHANTMENT,
+                ResourceLocation.fromNamespaceAndPath("gooberarsenal", "tunnelborn"));
         EquipmentSlotGroup mainhand = EquipmentSlotGroup.MAINHAND;
 
-        // Define supported items
-        HolderSet<Item> supportedItems = HolderSet.direct(); // Empty for now, fill in later
-        HolderSet<Item> primaryItems = HolderSet.direct();   // Optional primary set
+        HolderGetter<Item> itemGetter = context.lookup(Registries.ITEM);
+        TagKey<Item> hammerEnchantableTag = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("gooberarsenal", "hammer_enchantable"));
+        HolderSet<Item> supportedItems = itemGetter.getOrThrow(hammerEnchantableTag);
+        HolderSet<Item> primaryItems = HolderSet.direct();
 
-        // Define enchantment definition
+
         Enchantment.EnchantmentDefinition definition = new Enchantment.EnchantmentDefinition(
                 supportedItems,
                 Optional.of(primaryItems),

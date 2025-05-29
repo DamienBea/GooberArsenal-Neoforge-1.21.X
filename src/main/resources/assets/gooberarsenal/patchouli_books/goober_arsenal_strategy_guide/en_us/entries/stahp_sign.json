@@ -1,0 +1,11 @@
+{
+  "name": "Staaaahp Sign",
+  "icon": "gooberarsenal:stahp_sign",
+  "category": "goober_arsenal_strategy_guide:items",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Staaaahp bro!"
+    }
+  ]
+}

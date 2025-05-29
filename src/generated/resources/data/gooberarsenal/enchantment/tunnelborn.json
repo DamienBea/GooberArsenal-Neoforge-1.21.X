@@ -1,20 +1,21 @@
 {
-  "anvil_cost": 2,
+  "anvil_cost": 1,
   "description": {
     "translate": "enchantment.gooberarsenal.tunnelborn"
   },
   "max_cost": {
-    "base": 25,
-    "per_level_above_first": 7
+    "base": 20,
+    "per_level_above_first": 0
   },
-  "max_level": 1,
+  "max_level": 3,
   "min_cost": {
-    "base": 5,
-    "per_level_above_first": 7
+    "base": 10,
+    "per_level_above_first": 0
   },
+  "primary_items": [],
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#gooberarsenal:enchantable/hammer",
-  "weight": 1
+  "supported_items": "#gooberarsenal:hammer_enchantable",
+  "weight": 5
 }
