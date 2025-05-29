@@ -1,7 +1,6 @@
 {
   "name": "Special Blocks",
   "description": "All the Special blocks and what they do.",
-  "parent": "goober_arsenal_strategy_guide:special_blocks",
   "icon": "gooberarsenal:kevin_block",
   "sortnum": 2
 }

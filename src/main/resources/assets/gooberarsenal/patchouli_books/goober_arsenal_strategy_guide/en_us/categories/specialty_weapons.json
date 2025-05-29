@@ -1,7 +1,6 @@
 {
   "name": "Goober Specialty Weapons",
   "description": "All of Goober Arsenals end-game weapons, with special effects.",
-  "parent": "goober_arsenal_strategy_guide:specialty_weapons",
   "icon": "gooberarsenal:red_eyes_dream",
   "sortnum": 3
 }

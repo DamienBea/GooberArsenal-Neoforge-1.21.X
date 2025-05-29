@@ -1,7 +1,6 @@
 {
   "name": "Goober Materials",
   "description": "All of Goober Arsenals materials and what they do.",
-  "parent": "goober_arsenal_strategy_guide:materials",
   "icon": "gooberarsenal:dragon_scaled_tungsten",
   "sortnum": 1
 }

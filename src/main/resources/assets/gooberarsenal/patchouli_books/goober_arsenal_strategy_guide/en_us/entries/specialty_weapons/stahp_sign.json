@@ -1,8 +1,7 @@
 {
   "name": "Stahp Sign",
   "icon": "gooberarsenal:stahp_sign",
-  "category": "gooberarsenal:goober_arsenal_strategy_guide/specialty_weapons/specialty_weapons",
-  "book": "gooberarsenal:goober_arsenal_strategy_guide",
+  "category": "specialty_weapons",
   "pages": [
     {
       "type": "patchouli:text",
