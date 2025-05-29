@@ -13,6 +13,7 @@ import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.teamluxron.gooberarsenal.GooberArsenal;
+import net.teamluxron.gooberarsenal.util.ModTags;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +33,7 @@ public class ModEnchantments {
 
         HolderGetter<Item> itemGetter = context.lookup(Registries.ITEM);
         TagKey<Item> hammerEnchantableTag = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("gooberarsenal", "hammer_enchantable"));
-        HolderSet<Item> supportedItems = itemGetter.getOrThrow(hammerEnchantableTag);
+        HolderSet<Item> supportedItems = itemGetter.getOrThrow(ModTags.Items.HAMMER_ENCHANTABLE);
         HolderSet<Item> primaryItems = HolderSet.direct();
 
 
@@ -40,7 +41,7 @@ public class ModEnchantments {
                 supportedItems,
                 Optional.of(primaryItems),
                 5,                             // weight
-                3,                             // max level
+                1,                             // max level
                 Enchantment.constantCost(10), // min cost
                 Enchantment.constantCost(20), // max cost
                 1,                             // anvil cost

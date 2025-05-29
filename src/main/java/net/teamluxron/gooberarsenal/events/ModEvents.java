@@ -1,6 +1,7 @@
 package net.teamluxron.gooberarsenal.events;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
@@ -11,6 +12,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
@@ -34,50 +37,27 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void onHammerUsage(BlockEvent.BreakEvent event) {
-        if (isBreakingBlocks) return;
-
         Player player = event.getPlayer();
-        if (!(player instanceof ServerPlayer serverPlayer)) return;
-
-        LevelAccessor levelAccessor = event.getLevel();
-        if (!(levelAccessor instanceof Level level)) return;
-
         ItemStack mainHandItem = player.getMainHandItem();
-        if (!(mainHandItem.getItem() instanceof HammerItem hammer)) return;
 
-        BlockPos initialBlockPos = event.getPos();
+        if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayer serverPlayer) {
+            BlockPos initialBlockPos = event.getPos();
+            if(HARVESTED_BLOCKS.contains(initialBlockPos)) {
+                return;
+            }
 
-        if (HARVESTED_BLOCKS.contains(initialBlockPos)) return;
+            for(BlockPos pos : HammerItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
+                if(pos == initialBlockPos || !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
+                    continue;
+                }
 
-        var enchantmentRegistry = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT);
-        var tunnelbornHolder = enchantmentRegistry.getHolder(ModEnchantments.TUNNELBORN).orElse(null);
-        if (tunnelbornHolder == null) return;
-
-        boolean hasTunnelborn = mainHandItem.getEnchantmentLevel(tunnelbornHolder) > 0;
-
-        Set<BlockPos> toBreak = new HashSet<>();
-        for (BlockPos pos : HammerItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
-            if (pos.equals(initialBlockPos)) continue;
-
-            BlockState state = level.getBlockState(pos);
-            if (!hammer.isCorrectToolForDrops(mainHandItem, state)) continue;
-
-            toBreak.add(pos);
+                HARVESTED_BLOCKS.add(pos);
+                serverPlayer.gameMode.destroyBlock(pos);
+                HARVESTED_BLOCKS.remove(pos);
+            }
         }
-
-        HARVESTED_BLOCKS.addAll(toBreak);
-        HARVESTED_BLOCKS.add(initialBlockPos);
-
-        isBreakingBlocks = true;
-
-        for (BlockPos pos : toBreak) {
-            serverPlayer.gameMode.destroyBlock(pos);
-        }
-
-        isBreakingBlocks = false;
-        HARVESTED_BLOCKS.removeAll(toBreak);
-        HARVESTED_BLOCKS.remove(initialBlockPos);
     }
+
 
     @SubscribeEvent
     public static void onTungstenShovelUsage(BlockEvent.BreakEvent event) {
