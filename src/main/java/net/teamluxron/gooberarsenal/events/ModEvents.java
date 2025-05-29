@@ -40,7 +40,6 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void onHammerUsage(BlockEvent.BreakEvent event) {
-        // Prevent recursive calls
         if (isProcessing.get()) {
             return;
         }
@@ -54,33 +53,25 @@ public class ModEvents {
                 return;
             }
 
-            // Set thread flag to prevent recursion
             isProcessing.set(true);
             try {
-                // Default range (3x3)
                 int range = 0;
 
-                // Get enchantment registry
                 Registry<Enchantment> enchantRegistry = event.getLevel().registryAccess().registryOrThrow(Registries.ENCHANTMENT);
                 ResourceLocation tunnelbornLoc = ModEnchantments.TUNNELBORN.location();
 
-                // Check if tunnelborn enchantment exists in registry
                 if (enchantRegistry.containsKey(tunnelbornLoc)) {
-                    // Get Holder reference for the enchantment
                     Holder<Enchantment> tunnelbornHolder = enchantRegistry.getHolderOrThrow(
                             ResourceKey.create(Registries.ENCHANTMENT, tunnelbornLoc)
                     );
 
-                    // Check enchantment level using Holder
                     if (mainHandItem.getEnchantmentLevel(tunnelbornHolder) > 0) {
-                        range = 0; // 5x5 area
+                        range = 0;
                     }
                 }
 
-                // Collect all positions first
                 List<BlockPos> positions = HammerItem.getBlocksToBeDestroyed(range, initialBlockPos, serverPlayer);
 
-                // Process blocks
                 for (BlockPos pos : positions) {
                     if (pos.equals(initialBlockPos) ||
                             HARVESTED_BLOCKS.contains(pos) ||
@@ -88,10 +79,8 @@ public class ModEvents {
                         continue;
                     }
 
-                    // Mark position as processed
                     HARVESTED_BLOCKS.add(pos);
                     try {
-                        // Break block without triggering our event
                         serverPlayer.gameMode.destroyBlock(pos);
                     } finally {
                         HARVESTED_BLOCKS.remove(pos);
