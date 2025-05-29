@@ -1,0 +1,11 @@
+{
+  "name": "Tunnelborn",
+  "icon": "minecraft:enchanted_book",
+  "category": "gooberarsenal:enchantments",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "When this enchantment is placed on a Hammer, it will increase its 3x3 mining radius to a 5x5. When put on to a shovel, it receives the 3x3 mining radius."
+    }
+  ]
+}

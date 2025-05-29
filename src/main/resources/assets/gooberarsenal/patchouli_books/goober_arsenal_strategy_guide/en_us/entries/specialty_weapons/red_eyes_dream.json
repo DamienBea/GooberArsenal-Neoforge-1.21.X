@@ -1,0 +1,11 @@
+{
+  "name": "Red-Eyes Dream",
+  "icon": "gooberarsenal:red_eyes_dream",
+  "category": "gooberarsenal:specialty_weapons",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Once wielded by one half of a powerful duo. This Scythe is made with the Eye of a legendary dragon, who's power is only rivaled by the Ender Dragon herself. On hit, this will inflict your enemy with Slowness."
+    }
+  ]
+}

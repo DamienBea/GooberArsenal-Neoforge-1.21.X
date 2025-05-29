@@ -1,0 +1,15 @@
+{
+  "name": "Getting Started",
+  "icon": "gooberarsenal:wooden_polearm",
+  "category": "gooberarsenal:welcome",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Goober Arsenal can be started as soon as your world begins, every weapon line available has multiple tiers, all starting at wood. It's a good idea to craft the Wooden Variants and trying to find the weapon that syncs well with your play-style."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "For crafting recipes of different weapon lines, we suggest you take a look at the Weapon Types category in this guide."
+    }
+  ]
+}
