@@ -100,31 +100,31 @@ public class ModEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void onPlayerKill(LivingDeathEvent event) {
-        if (event.getEntity() instanceof Player killedPlayer) {
-            DamageSource source = killedPlayer.getLastDamageSource();
-
-            if (source != null && source.getEntity() instanceof Player attacker) {
-                ItemStack weapon = attacker.getMainHandItem();
-
-                if (weapon.getItem() == ModItems.ROSE_QUARTZ_SWORD.get()) {
-                    MobEffectInstance existingRegen = attacker.getEffect(MobEffects.REGENERATION);
-                    int amplifier = existingRegen != null
-                            ? Math.min(existingRegen.getAmplifier() + 1, 2)
-                            : 0;
-
-                    attacker.addEffect(new MobEffectInstance(
-                            MobEffects.REGENERATION,
-                            100,
-                            amplifier,
-                            false,
-                            true
-                    ));
-                }
-            }
-        }
-    }
+//    @SubscribeEvent
+//    public static void onPlayerKill(LivingDeathEvent event) {
+//        if (event.getEntity() instanceof Player killedPlayer) {
+//            DamageSource source = killedPlayer.getLastDamageSource();
+//
+//            if (source != null && source.getEntity() instanceof Player attacker) {
+//                ItemStack weapon = attacker.getMainHandItem();
+//
+//                if (weapon.getItem() == ModItems.ROSE_QUARTZ_SWORD.get()) {
+//                    MobEffectInstance existingRegen = attacker.getEffect(MobEffects.REGENERATION);
+//                    int amplifier = existingRegen != null
+//                            ? Math.min(existingRegen.getAmplifier() + 1, 2)
+//                            : 0;
+//
+//                    attacker.addEffect(new MobEffectInstance(
+//                            MobEffects.REGENERATION,
+//                            100,
+//                            amplifier,
+//                            false,
+//                            true
+//                    ));
+//                }
+//            }
+//        }
+//    }
 
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent.Pre event) {

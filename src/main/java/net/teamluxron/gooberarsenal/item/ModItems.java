@@ -206,10 +206,10 @@ public class ModItems {
             () -> new SwordItem(ChairMaterial.INSTANCE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(ChairMaterial.INSTANCE, 1, -3f))));
 
-    public static final DeferredItem<SwordItem> ROSE_QUARTZ_SWORD = ITEMS.register("rose_quartz_sword",
-            () -> new SwordItem(Tiers.DIAMOND, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 4, -2.4f))));
-
+    public static final DeferredItem<RoseQuartzSwordItem> ROSE_QUARTZ_SWORD = ITEMS.register("rose_quartz_sword",
+            () -> new RoseQuartzSwordItem(Tiers.DIAMOND,
+                    new Item.Properties().attributes(SwordItem.createAttributes(RoseQuartzMaterial.INSTANCE, 4, -2.4f)))
+    );
 
     public static final DeferredItem<SwordItem> STAHP_SIGN = ITEMS.register("stahp_sign",
             () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
@@ -275,8 +275,8 @@ public class ModItems {
             )
     );
 
-    public static final DeferredItem<BatItem> TUNGSTEN_BAT = ITEMS.register("tungsten_bat",
-            () -> new BatItem(TungstenMaterial.INSTANCE, -1, -2.2f, 1.0f,  0.5f,
+    public static final DeferredItem<TungstenBatItem> TUNGSTEN_BAT = ITEMS.register("tungsten_bat",
+            () -> new TungstenBatItem(TungstenMaterial.INSTANCE, -1, -2.2f, 1.0f,  0.5f,
                     new Item.Properties()
             )
     );
@@ -441,308 +441,69 @@ public class ModItems {
                 }
             });
 
-
+//Polearms
 
     public static final DeferredItem<Item> LYNNS_DESOLATION = ITEMS.register("lynns_desolation",
-            () -> new PolearmItem(
-                    ObsidianSwordMaterial.INSTANCE,
-                    new Item.Properties().attributes(
-                            PolearmItem.createAttributes(ObsidianSwordMaterial.INSTANCE, 4, -3f)
-                                    .withModifierAdded(
-                                            Attributes.ENTITY_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("polearm_range_bonus"),
-                                                    2.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                                    .withModifierAdded(
-                                            Attributes.BLOCK_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("polearm_block_range_bonus"),
-                                                    2.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )) {
-
-                @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!target.level().isClientSide()) {
-                        target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 40));
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-            });
-
+            () -> new LynnsDesolationItem(ObsidianSwordMaterial.INSTANCE, 4, -3f, 2.0, 2.0,
+                    new Item.Properties()
+            )
+    );
 
     public static final DeferredItem<Item> ACONITE_AXE = ITEMS.register("aconite_axe",
-            () -> new PolearmItem(
-                    ObsidianSwordMaterial.INSTANCE,
-                    new Item.Properties().attributes(
-                            PolearmItem.createAttributes(ObsidianSwordMaterial.INSTANCE, 4, -3f)
-                                    .withModifierAdded(
-                                            Attributes.ENTITY_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("aconite_axe_range_bonus"),
-                                                    2.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                                    .withModifierAdded(
-                                            Attributes.BLOCK_INTERACTION_RANGE,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("aconite_axe_block_range_bonus"),
-                                                    2.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )) {
-
-                @Override
-                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    if (!target.level().isClientSide()) {
-                        target.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 40));
-
-                        // Add player check here
-                        if (attacker instanceof Player player) {
-                            // Now properly access player-specific method
-                            if (player.getAttackStrengthScale(0.5F) >= 1.0F) {
-                                MobEffectInstance existingWither = target.getEffect(MobEffects.WITHER);
-                                int amplifier = (existingWither != null)
-                                        ? Math.min(existingWither.getAmplifier() + 1, 2)
-                                        : 0;
-
-                                target.addEffect(new MobEffectInstance(
-                                        MobEffects.WITHER,
-                                        80,
-                                        amplifier,
-                                        false,
-                                        true
-                                ));
-                            }
-                        }
-                    }
-                    return super.hurtEnemy(stack, target, attacker);
-                }
-            });
+            () -> new AconiteAxeItem(ObsidianSwordMaterial.INSTANCE, 4, -3f, 2.0, 2.0,
+                    new Item.Properties()
+            )
+    );
 
     public static final DeferredItem<Item> WOODEN_POLEARM = ITEMS.register("wooden_polearm",
-            () -> new PolearmItem(
-                    Tiers.WOOD,
+            () -> new PolearmItem(Tiers.WOOD, 7, -3.4f, 2.0, 2.0,
                     new Item.Properties()
-                            .attributes(
-                                    PolearmItem.createAttributes(Tiers.WOOD, 7, -3.4f)
-                                            .withModifierAdded(
-                                                    Attributes.ENTITY_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("wooden_polearm_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                                            .withModifierAdded(
-                                                    Attributes.BLOCK_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("wooden_polearm_block_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-
-                            )));
+            )
+    );
 
     public static final DeferredItem<Item> STONE_POLEARM = ITEMS.register("stone_polearm",
-            () -> new PolearmItem(
-                    Tiers.STONE,
+            () -> new PolearmItem(Tiers.STONE, 8, -3.4f, 2.0, 2.0,
                     new Item.Properties()
-                            .attributes(
-                                    PolearmItem.createAttributes(Tiers.STONE, 8, -3.4f)
-                                            .withModifierAdded(
-                                                    Attributes.ENTITY_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("stone_polearm_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                                            .withModifierAdded(
-                                                    Attributes.BLOCK_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("stone_polearm_block_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                            )));
+            )
+    );
 
     public static final DeferredItem<Item> IRON_POLEARM = ITEMS.register("iron_polearm",
-            () -> new PolearmItem(
-                    Tiers.IRON,
+            () -> new PolearmItem(Tiers.IRON, 7, -3.3f, 2.0, 2.0,
                     new Item.Properties()
-                            .attributes(
-                                    PolearmItem.createAttributes(Tiers.IRON, 7, -3.3f)
-                                            .withModifierAdded(
-                                                    Attributes.ENTITY_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("iron_polearm_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                                            .withModifierAdded(
-                                                    Attributes.BLOCK_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("iron_polearm_block_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                            )));
+            )
+    );
 
     public static final DeferredItem<Item> GOLDEN_POLEARM = ITEMS.register("golden_polearm",
-            () -> new PolearmItem(
-                    Tiers.GOLD,
+            () -> new PolearmItem(Tiers.GOLD, 7, -3.2f, 2.0, 2.0,
                     new Item.Properties()
-                            .attributes(
-                                    PolearmItem.createAttributes(Tiers.GOLD, 7, -3.2f)
-                                            .withModifierAdded(
-                                                    Attributes.ENTITY_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("golden_polearm_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                                            .withModifierAdded(
-                                                    Attributes.BLOCK_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("golden_polearm_block_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                            )));
+            )
+    );
 
     public static final DeferredItem<Item> DIAMOND_POLEARM = ITEMS.register("diamond_polearm",
-            () -> new PolearmItem(
-                    Tiers.DIAMOND,
+            () -> new PolearmItem(Tiers.DIAMOND, 6, -3.2f, 2.0, 2.0,
                     new Item.Properties()
-                            .attributes(
-                                    PolearmItem.createAttributes(Tiers.DIAMOND, 6, -3.2f)
-                                            .withModifierAdded(
-                                                    Attributes.ENTITY_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("diamond_polearm_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                                            .withModifierAdded(
-                                                    Attributes.BLOCK_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("diamond_polearm_block_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                            )));
+            )
+    );
 
     public static final DeferredItem<Item> SOULPHYRE_POLEARM = ITEMS.register("soulphyre_polearm",
-            () -> new PolearmItem(
-                    SoulphyreMaterial.INSTANCE,
+            () -> new PolearmItem(SoulphyreMaterial.INSTANCE, 6, -3.2f, 2.0, 2.0,
                     new Item.Properties()
-                            .attributes(
-                                    PolearmItem.createAttributes(SoulphyreMaterial.INSTANCE, 6, -3.2f)
-                                            .withModifierAdded(
-                                                    Attributes.ENTITY_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("soulphyre_polearm_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                                            .withModifierAdded(
-                                                    Attributes.BLOCK_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("soulphyre_polearm_block_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                            )){
-            });
+            )
+    );
 
     public static final DeferredItem<Item> NETHERITE_POLEARM = ITEMS.register("netherite_polearm",
-            () -> new PolearmItem(
-                    Tiers.NETHERITE,
+            () -> new PolearmItem(Tiers.NETHERITE, 6, -3.2f, 2.0, 2.0,
                     new Item.Properties()
-                            .attributes(
-                                    PolearmItem.createAttributes(Tiers.NETHERITE, 6, -3.2f)
-                                            .withModifierAdded(
-                                                    Attributes.ENTITY_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("netherite_polearm_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                                            .withModifierAdded(
-                                                    Attributes.BLOCK_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("netherite_polearm_block_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                            )));
+            )
+    );
 
     public static final DeferredItem<Item> TUNGSTEN_POLEARM = ITEMS.register("tungsten_polearm",
-            () -> new PolearmItem(
-                    TungstenMaterial.INSTANCE,
+            () -> new TungstenPolearmItem(TungstenMaterial.INSTANCE, 3, -3.2f, 2.0, 2.0,
                     new Item.Properties()
-                            .attributes(
-                                    PolearmItem.createAttributes(TungstenMaterial.INSTANCE, 3, -3.2f)
-                                            .withModifierAdded(
-                                                    Attributes.ENTITY_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("tungsten_polearm_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                                            .withModifierAdded(
-                                                    Attributes.BLOCK_INTERACTION_RANGE,
-                                                    new AttributeModifier(
-                                                            GooberArsenal.res("tungsten_polearm_block_range_bonus"),
-                                                            2.0D,
-                                                            AttributeModifier.Operation.ADD_VALUE
-                                                    ),
-                                                    EquipmentSlotGroup.MAINHAND
-                                            )
-                            )) {
-            });
+            )
+    );
 
-
+    //Scythes
     public static final DeferredItem<ScytheItem> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
             () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
                     .attributes(
