@@ -15,6 +15,7 @@ import net.teamluxron.gooberarsenal.client.GooberArsenalClient;
 import net.teamluxron.gooberarsenal.client.sound.ClientSoundManager;
 import net.teamluxron.gooberarsenal.enchantment.ModEnchantmentEffects;
 import net.teamluxron.gooberarsenal.events.ModEvents;
+import net.teamluxron.gooberarsenal.handler.ShieldBlockHandler;
 import net.teamluxron.gooberarsenal.item.ModCreativeModeTabs;
 import net.teamluxron.gooberarsenal.item.ModItems;
 import net.teamluxron.gooberarsenal.loot.ModLootModifiers;
@@ -69,6 +70,7 @@ public class GooberArsenal {
         ModRecipeSerializers.register(modEventBus);
         ModEvents.register();
         NeoForge.EVENT_BUS.register(PvPBlockHandler.class);
+        NeoForge.EVENT_BUS.register(ShieldBlockHandler.class);
         LootModifierRegistry.register(modEventBus);
 
         // Register config

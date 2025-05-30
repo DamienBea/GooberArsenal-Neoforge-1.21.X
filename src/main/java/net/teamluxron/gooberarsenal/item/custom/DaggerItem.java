@@ -1,53 +1,22 @@
 package net.teamluxron.gooberarsenal.item.custom;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.ItemAttributeModifiers;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.util.ModTags;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 
-import java.util.List;
-import java.util.Optional;
-
-public class DaggerItem extends SwordItem {
-    private static final AttributeModifier DAGGER_RANGE_MODIFIER = new AttributeModifier(
-            GooberArsenal.res("dagger_range_modifier"), // Use your resource method
-            -0.5,
-            AttributeModifier.Operation.ADD_VALUE
-    );
-
+public class DaggerItem extends DaggerBaseItem{
     public DaggerItem(Tier tier, int baseDamage, float attackSpeed, Properties properties) {
-        super(tier, properties.attributes(createDaggerAttributes(tier, baseDamage, attackSpeed)));
+        super(tier, baseDamage, attackSpeed, properties);
     }
 
-    private static ItemAttributeModifiers createDaggerAttributes(Tier tier, int baseDamage, float attackSpeed) {
-        return SwordItem.createAttributes(tier, baseDamage, attackSpeed)
-                .withModifierAdded(
-                        Attributes.ENTITY_INTERACTION_RANGE,
-                        DAGGER_RANGE_MODIFIER,
-                        EquipmentSlotGroup.MAINHAND
-                );
-    }
 
     @Override
-    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (!attacker.level().isClientSide() && target.invulnerableTime > 8) {
-            target.invulnerableTime = 8;
+    public boolean canPerformAction(ItemStack stack, ItemAbility ability) {
+        if (ability == ItemAbilities.SWORD_SWEEP
+        ) {
+            return false;
         }
-        return super.hurtEnemy(stack, target, attacker);
+        return super.canPerformAction(stack, ability);
     }
-
-
-//    @Override
-//    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-//        tooltip.add(Component.translatable("tooltip.gooberarsenal.daggers"));
-//        super.appendHoverText(stack, context, tooltip, flag);
-//    }
 }

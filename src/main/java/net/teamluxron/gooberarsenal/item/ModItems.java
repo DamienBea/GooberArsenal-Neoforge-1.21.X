@@ -32,6 +32,7 @@ import static net.teamluxron.gooberarsenal.item.custom.PolearmItem.buildAttribut
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(GooberArsenal.MOD_ID);
 
+
     //Ingredients
     public static final DeferredItem<Item> OBSIDIAN_HILT = ITEMS.register("obsidian_hilt",
             () -> new Item(new Item.Properties().fireResistant()));
@@ -132,9 +133,8 @@ public class ModItems {
                 }
             });
 
+
     //Tools
-
-
     public static final DeferredItem<Item> SOULPHYRE_SWORD = ITEMS.registerItem("soulphyre_sword",
             (properties) -> new SwordItem(SoulphyreMaterial.INSTANCE, properties
                     .attributes(SwordItem.createAttributes(ModToolTiers.SOULPHYRE_TIER, 3, -2.4f))));
@@ -332,8 +332,8 @@ public class ModItems {
             () -> new DaggerItem(SoulphyreMaterial.INSTANCE, -1, -1.5f, new Item.Properties()){
             });
 
-    public static final DeferredItem<DaggerItem> TUNGSTEN_DAGGER = ITEMS.register("tungsten_dagger",
-            () -> new DaggerItem(TungstenMaterial.INSTANCE, -4, -1f, new Item.Properties()) {
+    public static final DeferredItem<DaggerBaseItem> TUNGSTEN_DAGGER = ITEMS.register("tungsten_dagger",
+            () -> new DaggerBaseItem(TungstenMaterial.INSTANCE, -4, -1f, new Item.Properties()) {
             });
 
     public static final DeferredItem<DaggerItem> NETHERITE_DAGGER = ITEMS.register("netherite_dagger",
@@ -783,8 +783,8 @@ public class ModItems {
     //Shields
 
 
-    public static final DeferredItem<GooberShield> ROSE_QUARTZ_SHIELD = ITEMS.register("rose_quartz_shield",
-            () -> new GooberShield(new Item.Properties()
+    public static final DeferredItem<RoseQuartzShield> ROSE_QUARTZ_SHIELD = ITEMS.register("rose_quartz_shield",
+            () -> new RoseQuartzShield(new Item.Properties()
                     .durability(1650)
                     .stacksTo(1)
             ));
