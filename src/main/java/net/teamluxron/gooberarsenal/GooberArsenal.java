@@ -22,6 +22,7 @@ import net.teamluxron.gooberarsenal.network.ModMessages;
 import net.teamluxron.gooberarsenal.recipe.ForgingRecipe;
 import net.teamluxron.gooberarsenal.recipe.ModRecipeSerializers;
 import net.teamluxron.gooberarsenal.recipe.ModRecipes;
+import net.teamluxron.gooberarsenal.registry.LootModifierRegistry;
 import net.teamluxron.gooberarsenal.registry.ModDamageTypes;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
 import net.teamluxron.gooberarsenal.util.PvPBlockHandler;
@@ -68,6 +69,7 @@ public class GooberArsenal {
         ModRecipeSerializers.register(modEventBus);
         ModEvents.register();
         NeoForge.EVENT_BUS.register(PvPBlockHandler.class);
+        LootModifierRegistry.register(modEventBus);
 
         // Register config
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

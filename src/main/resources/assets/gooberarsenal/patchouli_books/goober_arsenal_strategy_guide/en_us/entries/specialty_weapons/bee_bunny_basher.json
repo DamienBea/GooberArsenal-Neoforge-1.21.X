@@ -6,6 +6,15 @@
     {
       "type": "patchouli:text",
       "text": "The most powerful Bat, infused with the power of both Bees and Rabbits. When held, the user is imbued with Speed and Jump boost. On hit, the enemy is inflicted with Poison and Slow Falling."
+    },
+    {
+      "title" : "Bee Bunny Basher",
+      "type": "patchouli:spotlight",
+      "item": {
+        "item": "gooberarsenal:bee_bunny_basher"
+      },
+      "scale": "2.0",
+      "link_recipe": true
     }
   ]
 }

@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Kevin is a... strange material. Found in both normal and deep caves, his properties can be used to help with multiple different situations."
+      "text": "$(#800080)Kevin$() is a... strange material. Found in both normal and deep caves, his properties can be used to help with multiple different situations."
     },
     {
       "type": "patchouli:text",
@@ -15,8 +15,11 @@
       "type": "patchouli:text",
       "text": "His main use is for duplicating Goober Upgrade Templates, but you can also use him to craft some weapons, like the Life Saber."
     },
-    {
-      "type": "patchouli:text",
+    {"title" : "Kevin",
+      "type": "patchouli:spotlight",
+      "item": {
+        "item": "gooberarsenal:kevin_shard"
+      },
       "text": "It's the guy from Fortnite!"
     }
   ]

@@ -1,0 +1,13 @@
+{
+  "type": "gooberarsenal:tungsten_hammer_fortune",
+  "conditions": [
+    {
+      "condition": "match_tool",
+      "predicate": {
+        "items": [
+          "gooberarsenal:tungsten_hammer"
+        ]
+      }
+    }
+  ]
+}

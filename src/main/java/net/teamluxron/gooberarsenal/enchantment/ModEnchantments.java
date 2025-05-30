@@ -15,48 +15,33 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.util.ModTags;
 
-import java.util.List;
-import java.util.Optional;
-
 
 public class ModEnchantments {
-
     public static final ResourceKey<Enchantment> TUNNELBORN = ResourceKey.create(
             Registries.ENCHANTMENT,
             ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "tunnelborn")
     );
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
-        ResourceKey<Enchantment> TUNNELBORN = ResourceKey.create(Registries.ENCHANTMENT,
-                ResourceLocation.fromNamespaceAndPath("gooberarsenal", "tunnelborn"));
-        EquipmentSlotGroup mainhand = EquipmentSlotGroup.MAINHAND;
-
-        HolderGetter<Item> itemGetter = context.lookup(Registries.ITEM);
-        TagKey<Item> hammerEnchantableTag = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("gooberarsenal", "hammer_enchantable"));
-        HolderSet<Item> supportedItems = itemGetter.getOrThrow(ModTags.Items.HAMMER_ENCHANTABLE);
-        HolderSet<Item> primaryItems = HolderSet.direct();
+        var enchantments = context.lookup(Registries.ENCHANTMENT);
+        var items = context.lookup(Registries.ITEM);
 
 
-        Enchantment.EnchantmentDefinition definition = new Enchantment.EnchantmentDefinition(
-                supportedItems,
-                Optional.of(primaryItems),
-                5,                             // weight
-                1,                             // max level
-                Enchantment.constantCost(10), // min cost
-                Enchantment.constantCost(20), // max cost
-                1,                             // anvil cost
-                List.of(mainhand)             // slots
-        );
+        register(context, TUNNELBORN, Enchantment.enchantment(Enchantment.definition(
+                items.getOrThrow(ModTags.Items.HAMMER_ENCHANTABLE), // Supported items from tag
+                        HolderSet.direct(),                     // No primary items
+                        5,                                      // Weight
+                        1,                                      // Max level
+                        Enchantment.constantCost(10),           // Min cost
+                        Enchantment.constantCost(20),           // Max cost
+                        1,                                      // Anvil cost
+                        EquipmentSlotGroup.MAINHAND)            // Applicable slot
+        ));
+    }
 
-        // Build the enchantment
-        Enchantment enchantment = new Enchantment(
-                Component.translatable("enchantment.gooberarsenal.tunnelborn"),
-                definition,
-                HolderSet.direct(),           // exclusiveSet (empty)
-                DataComponentMap.EMPTY        // effects (you can define later)
-        );
-
-        // Register the enchantment
-        context.register(TUNNELBORN, enchantment);
+    private static void register(BootstrapContext<Enchantment> registry,
+                                 ResourceKey<Enchantment> key,
+                                 Enchantment.Builder builder) {
+        registry.register(key, builder.build(key.location()));
     }
 }

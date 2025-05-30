@@ -1012,8 +1012,8 @@ public class ModItems {
             () -> new HammerItem(Tiers.NETHERITE, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 3F, -3.5f))));
 
-    public static final DeferredItem<HammerItem> TUNGSTEN_HAMMER = ITEMS.register("tungsten_hammer",
-            () -> new HammerItem(TungstenMaterial.INSTANCE, new Item.Properties()
+    public static final DeferredItem<TungstenHammerItem> TUNGSTEN_HAMMER = ITEMS.register("tungsten_hammer",
+            () -> new TungstenHammerItem(TungstenMaterial.INSTANCE, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(TungstenMaterial.INSTANCE, 0, -3.5f))) {
             });
 
