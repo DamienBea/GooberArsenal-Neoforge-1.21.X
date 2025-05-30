@@ -11,17 +11,13 @@ import net.teamluxron.gooberarsenal.enchantment.effect.TunnelbornEffect;
 import java.util.function.Supplier;
 
 public class ModEnchantmentEffects {
-    public static final DeferredRegister<MapCodec<? extends EnchantmentEntityEffect>> ENTITY_ENCHANTMENT_EFFECTS =
-            DeferredRegister.create(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, GooberArsenal.MOD_ID);
-
-    public static final DeferredRegister<MapCodec<? extends EnchantmentEntityEffect>> ENCHANTMENT_ENTITY_EFFECTS =
+    public static final DeferredRegister<MapCodec<? extends EnchantmentEntityEffect>> ENCHANTMENT_EFFECTS =
             DeferredRegister.create(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, GooberArsenal.MOD_ID);
 
     public static final Supplier<MapCodec<? extends EnchantmentEntityEffect>> TUNNELBORN =
-            ENCHANTMENT_ENTITY_EFFECTS.register("tunnelborn", () -> TunnelbornEffect.CODEC);
-
+            ENCHANTMENT_EFFECTS.register("tunnelborn", () -> TunnelbornEffect.CODEC);
 
     public static void register(IEventBus eventBus) {
-        ENTITY_ENCHANTMENT_EFFECTS.register(eventBus);
+        ENCHANTMENT_EFFECTS.register(eventBus);
     }
 }

@@ -1,5 +1,5 @@
 {
-  "anvil_cost": 1,
+  "anvil_cost": 3,
   "description": {
     "translate": "enchantment.gooberarsenal.tunnelborn"
   },
@@ -7,7 +7,7 @@
     "base": 20,
     "per_level_above_first": 0
   },
-  "max_level": 3,
+  "max_level": 1,
   "min_cost": {
     "base": 10,
     "per_level_above_first": 0
@@ -16,6 +16,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#gooberarsenal:hammer_enchantable",
+  "supported_items": "#gooberarsenal:enchantable/areamining",
   "weight": 5
 }

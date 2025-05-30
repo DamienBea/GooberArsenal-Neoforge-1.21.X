@@ -6,6 +6,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.util.ModTags;
@@ -21,16 +22,15 @@ public class ModEnchantments {
         var enchantments = context.lookup(Registries.ENCHANTMENT);
         var items = context.lookup(Registries.ITEM);
 
-
         register(context, TUNNELBORN, Enchantment.enchantment(Enchantment.definition(
-                items.getOrThrow(ModTags.Items.AREAMININGENCHANTABLE), // Supported items from tag
-                        HolderSet.direct(),                     // No primary items
-                        5,                                      // Weight
-                        1,                                      // Max level
-                        Enchantment.constantCost(10),           // Min cost
-                        Enchantment.constantCost(20),           // Max cost
-                        1,                                      // Anvil cost
-                        EquipmentSlotGroup.MAINHAND)            // Applicable slot
+                        items.getOrThrow(ModTags.Items.AREAMININGENCHANTABLE),
+                        HolderSet.direct(),
+                        5,
+                        1,
+                        Enchantment.constantCost(10),
+                        Enchantment.constantCost(20),
+                        3,
+                        EquipmentSlotGroup.MAINHAND)
         ));
     }
 

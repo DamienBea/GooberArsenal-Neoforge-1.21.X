@@ -14,11 +14,8 @@ public class TunnelbornEffect implements EnchantmentEntityEffect {
 
     @Override
     public void apply(ServerLevel level, int enchantmentLevel, EnchantedItemInUse item, Entity entity, Vec3 pos) {
-        ItemStack stack = item.itemStack();
-        if (stack.isEmpty()) return;
-        if (!(entity instanceof Player player)) return;
-    }
 
+    }
 
     @Override
     public MapCodec<? extends EnchantmentEntityEffect> codec() {

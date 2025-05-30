@@ -34,7 +34,7 @@ public class ModTags {
 
     public static class Enchantments {
         public static final TagKey<Enchantment> DAGGER_COMPATIBLE = createEnchantmentTag("dagger_compatible_enchantments");
-        public static final TagKey<Enchantment> AREAMININGENCHANTABLE = createEnchantmentTag("dagger_compatible_enchantments");
+        public static final TagKey<Enchantment> AREAMINING_COMPATIBLE = createEnchantmentTag("areamining_compatible");
         public static final TagKey<Enchantment> SWORD_ENCHANTMENTS_EXCLUDING_FIRE_ASPECT =
                 createEnchantmentTag("sword_enchantments_excluding_fire_aspect");
 
