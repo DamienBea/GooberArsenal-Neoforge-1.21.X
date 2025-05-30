@@ -1,0 +1,20 @@
+{
+  "name": "Mossy Masher",
+  "icon": "gooberarsenal:mossy_masher",
+  "category": "gooberarsenal:specialty_weapons",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A Hammer forged and imbued with natures power, with the power to transform any nature block into moss with a single right-click. (Designed by Wymare and Timefrog.)"
+    },
+    {
+      "title" : "Mossy Masher",
+      "type": "patchouli:spotlight",
+      "item": {
+        "item": "gooberarsenal:mossy_masher"
+      },
+      "scale": "2.0",
+      "link_recipe": true
+    }
+  ]
+}
