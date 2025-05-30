@@ -2,8 +2,9 @@ package net.teamluxron.gooberarsenal.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.HolderSet;
+import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -15,44 +16,70 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
-import net.teamluxron.gooberarsenal.GooberArsenal;
 
-import javax.tools.Tool;
 import java.util.*;
 
 
 public class PolearmItem extends SwordItem {
-    protected final double rangeBonus;
-    protected final double blockRangeBonus;
 
-    public PolearmItem(Tier tier, int baseDamage, float attackSpeed,
-                       double rangeBonus, double blockRangeBonus,
-                       Item.Properties properties) {
-        super(tier, properties);
-        this.rangeBonus = rangeBonus;
-        this.blockRangeBonus = blockRangeBonus;
-    }
+    public static final ResourceLocation ATTACK_DAMAGE_ID = ResourceLocation.fromNamespaceAndPath("gooberarsenal", "polearm_attack_damage");
+    public static final ResourceLocation ATTACK_SPEED_ID = ResourceLocation.fromNamespaceAndPath("gooberarsenal", "polearm_attack_speed");
+    public static final ResourceLocation ENTITY_REACH_ID = ResourceLocation.fromNamespaceAndPath("gooberarsenal", "polearm_entity_reach");
+    public static final ResourceLocation BLOCK_REACH_ID = ResourceLocation.fromNamespaceAndPath("gooberarsenal", "polearm_block_reach");
 
-    public static Item.Properties createPolearmAttributes(Tier tier, int baseDamage, float attackSpeed,
-                                                          double rangeBonus, double blockRangeBonus) {
-        return new Item.Properties().attributes(
-                createAttributes(tier, baseDamage, attackSpeed)
-                        .withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE,
-                                new AttributeModifier(GooberArsenal.res("polearm_range_bonus"),
-                                        rangeBonus, AttributeModifier.Operation.ADD_VALUE),
-                                EquipmentSlotGroup.MAINHAND)
-                        .withModifierAdded(Attributes.BLOCK_INTERACTION_RANGE,
-                                new AttributeModifier(GooberArsenal.res("polearm_block_range_bonus"),
-                                        blockRangeBonus, AttributeModifier.Operation.ADD_VALUE),
-                                EquipmentSlotGroup.MAINHAND)
+    public PolearmItem(Tier tier, int damage, float speed, Item.Properties props) {
+        super(tier, props
+                .component(DataComponents.TOOL, new Tool(
+                        List.of(),
+                        damage + tier.getAttackDamageBonus(),
+                        (int) speed
+                ))
+                .attributes(buildAttributes(tier, damage, speed))
         );
     }
+
+    public static ItemAttributeModifiers buildAttributes(Tier tier, int baseDamage, float baseSpeed) {
+        return ItemAttributeModifiers.builder()
+                .add(
+                        Attributes.ATTACK_DAMAGE,
+                        new AttributeModifier(ATTACK_DAMAGE_ID,
+                                baseDamage + tier.getAttackDamageBonus(),
+                                AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND
+                )
+                .add(
+                        Attributes.ATTACK_SPEED,
+                        new AttributeModifier(ATTACK_SPEED_ID,
+                                baseSpeed,
+                                AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND
+                )
+                .add(
+                        Attributes.ENTITY_INTERACTION_RANGE,
+                        new AttributeModifier(ENTITY_REACH_ID,
+                                2.0D,
+                                AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND
+                )
+                .add(
+                        Attributes.BLOCK_INTERACTION_RANGE,
+                        new AttributeModifier(BLOCK_REACH_ID,
+                                2.0D,
+                                AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND
+                )
+                .build();
+    }
+
+
 
     @Override
     public boolean canDisableShield(ItemStack stack, ItemStack shield, LivingEntity entity, LivingEntity attacker) {
@@ -170,6 +197,4 @@ public class PolearmItem extends SwordItem {
 
         return super.useOn(context);
     }
-
-
 }

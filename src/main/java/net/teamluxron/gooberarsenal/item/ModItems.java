@@ -26,6 +26,8 @@ import net.teamluxron.gooberarsenal.sound.ModSounds;
 
 import java.util.List;
 
+import static net.teamluxron.gooberarsenal.item.custom.PolearmItem.buildAttributes;
+
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(GooberArsenal.MOD_ID);
@@ -444,64 +446,85 @@ public class ModItems {
 //Polearms
 
     public static final DeferredItem<Item> LYNNS_DESOLATION = ITEMS.register("lynns_desolation",
-            () -> new LynnsDesolationItem(ObsidianSwordMaterial.INSTANCE, 4, -3f, 2.0, 2.0,
-                    new Item.Properties()
+            () -> new LynnsDesolationItem(ObsidianSwordMaterial.INSTANCE, 4, -3f,
+                    new Item.Properties().attributes(
+                            buildAttributes(ObsidianSwordMaterial.INSTANCE, 4, -3f )
+                    )
             )
     );
 
     public static final DeferredItem<Item> ACONITE_AXE = ITEMS.register("aconite_axe",
-            () -> new AconiteAxeItem(ObsidianSwordMaterial.INSTANCE, 4, -3f, 2.0, 2.0,
-                    new Item.Properties()
+            () -> new AconiteAxeItem(ObsidianSwordMaterial.INSTANCE, 4, -3f,
+                    new Item.Properties().attributes(
+                            buildAttributes(ObsidianSwordMaterial.INSTANCE, 4, -3f)
+                    )
             )
     );
 
     public static final DeferredItem<Item> WOODEN_POLEARM = ITEMS.register("wooden_polearm",
-            () -> new PolearmItem(Tiers.WOOD, 7, -3.4f, 2.0, 2.0,
-                    new Item.Properties()
+            () -> new PolearmItem(Tiers.WOOD, 7, -3.4f,
+                    new Item.Properties().attributes(
+                            buildAttributes(Tiers.WOOD, 7, -3.4f)
+                    )
             )
     );
 
     public static final DeferredItem<Item> STONE_POLEARM = ITEMS.register("stone_polearm",
-            () -> new PolearmItem(Tiers.STONE, 8, -3.4f, 2.0, 2.0,
-                    new Item.Properties()
+            () -> new PolearmItem(Tiers.STONE, 8, -3.4f,
+                    new Item.Properties().attributes(
+                            buildAttributes(Tiers.STONE, 8, -3.4f)
+                    )
             )
     );
 
     public static final DeferredItem<Item> IRON_POLEARM = ITEMS.register("iron_polearm",
-            () -> new PolearmItem(Tiers.IRON, 7, -3.3f, 2.0, 2.0,
-                    new Item.Properties()
+            () -> new PolearmItem(Tiers.IRON, 7, -3.3f,
+                    new Item.Properties().attributes(
+                            buildAttributes(Tiers.IRON, 7, -3.3f)
+                    )
             )
     );
 
     public static final DeferredItem<Item> GOLDEN_POLEARM = ITEMS.register("golden_polearm",
-            () -> new PolearmItem(Tiers.GOLD, 7, -3.2f, 2.0, 2.0,
-                    new Item.Properties()
+            () -> new PolearmItem(Tiers.GOLD, 7, -3.2f,
+                    new Item.Properties().attributes(
+                            buildAttributes(Tiers.GOLD, 7, -3.2f)
+                    )
             )
     );
 
     public static final DeferredItem<Item> DIAMOND_POLEARM = ITEMS.register("diamond_polearm",
-            () -> new PolearmItem(Tiers.DIAMOND, 6, -3.2f, 2.0, 2.0,
-                    new Item.Properties()
+            () -> new PolearmItem(Tiers.DIAMOND, 6, -3.2f,
+                    new Item.Properties().attributes(
+                            buildAttributes(Tiers.DIAMOND, 6, -3.2f)
+                    )
             )
     );
 
     public static final DeferredItem<Item> SOULPHYRE_POLEARM = ITEMS.register("soulphyre_polearm",
-            () -> new PolearmItem(SoulphyreMaterial.INSTANCE, 6, -3.2f, 2.0, 2.0,
-                    new Item.Properties()
+            () -> new PolearmItem(SoulphyreMaterial.INSTANCE, 6, -3.2f,
+                    new Item.Properties().attributes(
+                            buildAttributes(SoulphyreMaterial.INSTANCE, 6, -3.2f)
+                    )
             )
     );
 
     public static final DeferredItem<Item> NETHERITE_POLEARM = ITEMS.register("netherite_polearm",
-            () -> new PolearmItem(Tiers.NETHERITE, 6, -3.2f, 2.0, 2.0,
-                    new Item.Properties()
+            () -> new PolearmItem(Tiers.NETHERITE, 6, -3.2f,
+                    new Item.Properties().attributes(
+                            buildAttributes(Tiers.NETHERITE, 6, -3.2f)
+                    )
             )
     );
 
     public static final DeferredItem<Item> TUNGSTEN_POLEARM = ITEMS.register("tungsten_polearm",
-            () -> new TungstenPolearmItem(TungstenMaterial.INSTANCE, 3, -3.2f, 2.0, 2.0,
-                    new Item.Properties()
+            () -> new TungstenPolearmItem(TungstenMaterial.INSTANCE, 3, -3.2f,
+                    new Item.Properties().attributes(
+                            buildAttributes(TungstenMaterial.INSTANCE, 3, -3.2f)
+                    )
             )
     );
+
 
     //Scythes
     public static final DeferredItem<ScytheItem> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",

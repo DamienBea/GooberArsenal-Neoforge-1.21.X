@@ -2,17 +2,14 @@ package net.teamluxron.gooberarsenal.item.custom;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.phys.Vec3;
 
 public class TungstenPolearmItem extends PolearmItem {
 
-    public TungstenPolearmItem(Tier tier, int baseDamage, float attackSpeed,
-                               double rangeBonus, double blockRangeBonus,
-                               Item.Properties properties) {
-        super(tier, baseDamage, attackSpeed, rangeBonus, blockRangeBonus, properties);
+    public TungstenPolearmItem(Tier tier, int damage, float speed, Properties props) {
+        super(tier, damage, speed, props);
     }
 
     @Override
