@@ -121,26 +121,9 @@ public class ModCreativeModeTabs {
 
                     }).build());
 
-    public static final Supplier<CreativeModeTab> GOOBER_TOOLS = CREATIVE_MODE_TAB.register("goober_tools",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SOULPHYRE_PICKAXE.get()))
-                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "goober_utility"))
-                    .title(Component.translatable("creativetab.gooberarsenal.goober_tools"))
-                    .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.SOULPHYRE_PICKAXE.get());
-                        output.accept(ModItems.SOULPHYRE_SHOVEL.get());
-                        output.accept(ModItems.SOULPHYRE_AXE.get());
-                        output.accept(ModItems.SOULPHYRE_HOE.get());
-                        output.accept(ModItems.TUNGSTEN_PICKAXE.get());
-                        output.accept(ModItems.TUNGSTEN_SHOVEL.get());
-                        output.accept(ModItems.TUNGSTEN_AXE.get());
-                        output.accept(ModItems.TUNGSTEN_HOE.get());
-                        output.accept(ModItems.GOOBER_UPGRADE_TEMPLATE.get());
-                        output.accept(ModItems.TRANSFORMATION_TEMPLATE.get());
-
-                    }).build());
-
     public static final Supplier<CreativeModeTab> GOOBERARSENAL_COMBAT_SPECIAL = CREATIVE_MODE_TAB.register("gooberarsenal_combat_special",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SLAPSTICK_SWORD.get()))
+                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "gooberarsenal_combat"))
                     .title(Component.translatable("creativetab.gooberarsenal.gooberarsenal_combat_special"))
                     .displayItems((itemDisplayParameters, output) -> {
 
@@ -156,31 +139,30 @@ public class ModCreativeModeTabs {
 
                     }).build());
 
-    public static final Supplier<CreativeModeTab> GOOBER_BLOCKS = CREATIVE_MODE_TAB.register("goober_blocks",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.KEVIN_BLOCK))
-                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "gooberarsenal_combat"))
-                    .title(Component.translatable("creativetab.gooberarsenal.goober_blocks"))
+
+
+
+    public static final Supplier<CreativeModeTab> GOOBER_TOOLS = CREATIVE_MODE_TAB.register("goober_tools",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SOULPHYRE_PICKAXE.get()))
+                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "gooberarsenal_combat_special"))
+                    .title(Component.translatable("creativetab.gooberarsenal.goober_tools"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModBlocks.KEVIN_ORE.get());
-                        output.accept(ModBlocks.KEVIN_BLOCK.get());
-                        output.accept(ModBlocks.DEEPSLATE_KEVIN_ORE.get());
-                        output.accept(ModBlocks.SOULPHYRE_ORE.get());
-                        output.accept(ModBlocks.SOULPHYRE_BLOCK.get());
-                        output.accept(ModBlocks.ROSE_QUARTZ_ORE.get());
-                        output.accept(ModBlocks.ROSE_QUARTZ_BLOCK.get());
-                        output.accept(ModBlocks.ANCIENT_CAGITE.get());
-                        output.accept(ModBlocks.CAGITE_BLOCK.get());
-                        output.accept(ModBlocks.SCALED_ENDSTONE.get());
-                        output.accept(ModBlocks.DRAGON_SCALED_TUNGSTEN_BLOCK.get());
-                        output.accept(ModBlocks.FORGING_ANVIL.get());
-                        output.accept(ModBlocks.RADIO.get());
-                        output.accept(ModBlocks.BROKEN_RADIO.get());
+                        output.accept(ModItems.SOULPHYRE_PICKAXE.get());
+                        output.accept(ModItems.SOULPHYRE_SHOVEL.get());
+                        output.accept(ModItems.SOULPHYRE_AXE.get());
+                        output.accept(ModItems.SOULPHYRE_HOE.get());
+                        output.accept(ModItems.TUNGSTEN_PICKAXE.get());
+                        output.accept(ModItems.TUNGSTEN_SHOVEL.get());
+                        output.accept(ModItems.TUNGSTEN_AXE.get());
+                        output.accept(ModItems.TUNGSTEN_HOE.get());
+                        output.accept(ModItems.GOOBER_UPGRADE_TEMPLATE.get());
+                        output.accept(ModItems.TRANSFORMATION_TEMPLATE.get());
 
                     }).build());
 
     public static final Supplier<CreativeModeTab> GOOBER_ITEMS = CREATIVE_MODE_TAB.register("goober_items",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.GLEAMING_RED_EYE.get()))
-                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "goober_blocks"))
+                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "goober_tools"))
                     .title(Component.translatable("creativetab.gooberarsenal.goober_items"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.OBSIDIAN_HILT.get());
@@ -220,6 +202,28 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SANDVICH.get());
                         output.accept(ModItems.CHOCOLATE_CHIP_PANCAKES.get());
                         output.accept(ModItems.COPPER_APPLE.get());
+
+                    }).build());
+
+    public static final Supplier<CreativeModeTab> GOOBER_BLOCKS = CREATIVE_MODE_TAB.register("goober_blocks",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.KEVIN_BLOCK))
+                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "goober_consumables"))
+                    .title(Component.translatable("creativetab.gooberarsenal.goober_blocks"))
+                    .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModBlocks.KEVIN_ORE.get());
+                        output.accept(ModBlocks.KEVIN_BLOCK.get());
+                        output.accept(ModBlocks.DEEPSLATE_KEVIN_ORE.get());
+                        output.accept(ModBlocks.SOULPHYRE_ORE.get());
+                        output.accept(ModBlocks.SOULPHYRE_BLOCK.get());
+                        output.accept(ModBlocks.ROSE_QUARTZ_ORE.get());
+                        output.accept(ModBlocks.ROSE_QUARTZ_BLOCK.get());
+                        output.accept(ModBlocks.ANCIENT_CAGITE.get());
+                        output.accept(ModBlocks.CAGITE_BLOCK.get());
+                        output.accept(ModBlocks.SCALED_ENDSTONE.get());
+                        output.accept(ModBlocks.DRAGON_SCALED_TUNGSTEN_BLOCK.get());
+                        output.accept(ModBlocks.FORGING_ANVIL.get());
+                        output.accept(ModBlocks.RADIO.get());
+                        output.accept(ModBlocks.BROKEN_RADIO.get());
 
                     }).build());
 

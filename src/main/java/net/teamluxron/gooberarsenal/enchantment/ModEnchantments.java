@@ -1,16 +1,11 @@
 package net.teamluxron.gooberarsenal.enchantment;
 
-import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.util.ModTags;
@@ -28,7 +23,7 @@ public class ModEnchantments {
 
 
         register(context, TUNNELBORN, Enchantment.enchantment(Enchantment.definition(
-                items.getOrThrow(ModTags.Items.HAMMER_ENCHANTABLE), // Supported items from tag
+                items.getOrThrow(ModTags.Items.AREAMININGENCHANTABLE), // Supported items from tag
                         HolderSet.direct(),                     // No primary items
                         5,                                      // Weight
                         1,                                      // Max level

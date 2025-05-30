@@ -129,7 +129,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.MOSSY_MASHER.get())
         ;
 
-        tag(ModTags.Items.HAMMER_ENCHANTABLE)
+        tag(ModTags.Items.AREAMININGENCHANTABLE)
                 .add(ModItems.WOODEN_HAMMER.get())
                 .add(ModItems.STONE_HAMMER.get())
                 .add(ModItems.IRON_HAMMER.get())

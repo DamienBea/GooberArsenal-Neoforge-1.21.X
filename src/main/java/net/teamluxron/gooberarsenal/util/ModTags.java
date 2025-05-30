@@ -3,7 +3,6 @@ package net.teamluxron.gooberarsenal.util;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -22,7 +21,7 @@ public class ModTags {
     }
 
     public static class Items {
-        public static final TagKey<Item> HAMMER_ENCHANTABLE = createTag("enchantable/hammer");
+        public static final TagKey<Item> AREAMININGENCHANTABLE = createTag("enchantable/areamining");
         public static final TagKey<Item> HAMMERS = createTag("hammers");
 
         public static final TagKey<Item> DAGGER_COMPATIBLE = createTag("enchantable/dagger");
@@ -35,6 +34,7 @@ public class ModTags {
 
     public static class Enchantments {
         public static final TagKey<Enchantment> DAGGER_COMPATIBLE = createEnchantmentTag("dagger_compatible_enchantments");
+        public static final TagKey<Enchantment> AREAMININGENCHANTABLE = createEnchantmentTag("dagger_compatible_enchantments");
         public static final TagKey<Enchantment> SWORD_ENCHANTMENTS_EXCLUDING_FIRE_ASPECT =
                 createEnchantmentTag("sword_enchantments_excluding_fire_aspect");
 
