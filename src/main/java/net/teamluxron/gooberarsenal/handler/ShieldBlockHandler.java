@@ -13,7 +13,7 @@ import net.teamluxron.gooberarsenal.item.custom.GooberShield;
 public class ShieldBlockHandler {
 
     @SubscribeEvent
-    public static void onLivingDamage(LivingDamageEvent.Post event) {
+    public static void onLivingDamage(LivingDamageEvent.Pre event) {
         LivingEntity livingEntity = event.getEntity();
         DamageSource source = event.getSource();
         Holder<DamageType> damageTypeHolder = Holder.direct(source.type());
@@ -27,9 +27,11 @@ public class ShieldBlockHandler {
         if (livingEntity.isUsingItem()) {
             ItemStack stack = livingEntity.getUseItem();
             if (stack.getItem() instanceof GooberShield shield) {
-                boolean brokeShield = event.getShieldDamage() >= stack.getMaxDamage();
+                float shieldDamage = event.getContainer().getShieldDamage();
+                int durabilityLeft = stack.getMaxDamage() - stack.getDamageValue();
+                boolean willBreak = shieldDamage >= durabilityLeft;
 
-                shield.handleBlockEvent(livingEntity, stack, brokeShield);
+                shield.handleBlockEvent(livingEntity, stack, willBreak);
             }
         }
     }

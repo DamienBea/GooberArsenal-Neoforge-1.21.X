@@ -18,6 +18,10 @@ public class ModDataMapProvider extends DataMapProvider {
     protected void gather() {
         this.builder(NeoForgeDataMaps.FURNACE_FUELS)
                 .add(ModItems.WOODEN_BAT.getId(), new FurnaceFuel(200), false)
+                .add(ModItems.WOODEN_DAGGER.getId(), new FurnaceFuel(200), false)
+                .add(ModItems.WOODEN_HAMMER.getId(), new FurnaceFuel(200), false)
+                .add(ModItems.WOODEN_POLEARM.getId(), new FurnaceFuel(200), false)
+                .add(ModItems.WOODEN_SCYTHE.getId(), new FurnaceFuel(200), false)
 //                .add(ModItems.FROSTFIRE_ICE.getId(), new FurnaceFuel(2400), false)
                 ;
     }

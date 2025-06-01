@@ -36,6 +36,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.FORGING_ANVIL.get());
         dropSelf(ModBlocks.RADIO.get());
         dropSelf(ModBlocks.BROKEN_RADIO.get());
+        dropSelf(ModBlocks.FIELD_SWORD.get());
         dropSelf(ModBlocks.SCALED_ENDSTONE.get());
 
 // Ore Drops

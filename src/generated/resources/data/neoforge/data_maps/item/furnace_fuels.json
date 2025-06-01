@@ -2,6 +2,18 @@
   "values": {
     "gooberarsenal:wooden_bat": {
       "burn_time": 200
+    },
+    "gooberarsenal:wooden_dagger": {
+      "burn_time": 200
+    },
+    "gooberarsenal:wooden_hammer": {
+      "burn_time": 200
+    },
+    "gooberarsenal:wooden_polearm": {
+      "burn_time": 200
+    },
+    "gooberarsenal:wooden_scythe": {
+      "burn_time": 200
     }
   }
 }

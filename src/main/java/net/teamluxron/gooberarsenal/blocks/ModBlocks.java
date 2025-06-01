@@ -12,6 +12,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.blocks.custom.BrokenRadioBlock;
+import net.teamluxron.gooberarsenal.blocks.custom.FieldSwordBlock;
 import net.teamluxron.gooberarsenal.blocks.custom.ForgingAnvilBlock;
 import net.teamluxron.gooberarsenal.blocks.custom.RadioBlock;
 import net.teamluxron.gooberarsenal.item.ModItems;
@@ -103,12 +104,13 @@ public class ModBlocks {
                     .sound(SoundType.NETHERITE_BLOCK)
             ));
 
-    // BlockEntities
 
+    // BlockEntities
 
     public static final DeferredBlock<Block> FORGING_ANVIL = registerBlock("forging_anvil",
             () -> new ForgingAnvilBlock(BlockBehaviour.Properties.of()
                     .strength(5f, 1200f)
+                    .noOcclusion()
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.ANVIL)
             ));
@@ -117,14 +119,20 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> RADIO = registerBlock("radio",
             () -> new RadioBlock(BlockBehaviour.Properties.of()
-                    .strength(5f, 1200f)
-                    .requiresCorrectToolForDrops()
+                    .strength(0f, 1200f)
+                    .noOcclusion()
             ));
 
     public static final DeferredBlock<Block> BROKEN_RADIO = registerBlock("broken_radio",
             () -> new BrokenRadioBlock(BlockBehaviour.Properties.of()
-                    .strength(5f, 1200f)
-                    .requiresCorrectToolForDrops()
+                    .strength(0f, 1200f)
+                    .noOcclusion()
+            ));
+
+    public static final DeferredBlock<Block> FIELD_SWORD = registerBlock("field_sword",
+            () -> new FieldSwordBlock(BlockBehaviour.Properties.of()
+                    .strength(0f, 1200f)
+                    .noOcclusion()
             ));
 
 

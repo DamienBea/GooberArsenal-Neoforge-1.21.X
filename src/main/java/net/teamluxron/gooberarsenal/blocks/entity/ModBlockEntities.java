@@ -35,6 +35,10 @@ public class ModBlockEntities {
             ).build(null)
     );
 
+    public static final Supplier<BlockEntityType<FieldSword>> FIELD_SWORD_BE =
+            BLOCK_ENTITIES.register("field_sword", () ->
+                    BlockEntityType.Builder.of(FieldSword::new, ModBlocks.FIELD_SWORD.get()).build(null));
+
 
 
 
