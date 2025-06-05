@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.item.custom;
+package net.teamluxron.gooberarsenal.item.custom.special;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

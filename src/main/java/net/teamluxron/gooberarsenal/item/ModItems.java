@@ -20,13 +20,22 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.item.custom.*;
+import net.teamluxron.gooberarsenal.item.custom.armor.CagiteArmorItem;
+import net.teamluxron.gooberarsenal.item.custom.armor.SoulphyreArmorItem;
+import net.teamluxron.gooberarsenal.item.custom.armor.TungstenArmorItem;
+import net.teamluxron.gooberarsenal.item.custom.special.*;
+import net.teamluxron.gooberarsenal.item.custom.tools.HammerItem;
+import net.teamluxron.gooberarsenal.item.custom.tungsten.TungstenBatItem;
+import net.teamluxron.gooberarsenal.item.custom.tungsten.TungstenHammerItem;
+import net.teamluxron.gooberarsenal.item.custom.tungsten.TungstenPolearmItem;
+import net.teamluxron.gooberarsenal.item.custom.tungsten.TungstenShovelItem;
+import net.teamluxron.gooberarsenal.item.custom.weapon.*;
 import net.teamluxron.gooberarsenal.item.material.*;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
 
 import java.util.List;
 
-import static net.teamluxron.gooberarsenal.item.custom.PolearmItem.buildAttributes;
+import static net.teamluxron.gooberarsenal.item.custom.weapon.PolearmItem.buildAttributes;
 
 
 public class ModItems {
@@ -126,12 +135,10 @@ public class ModItems {
                                 SoundSource.PLAYERS,
                                 1.0F,
                                 1.0F
-
                         );
                     }
                     return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide());
-                }
-            });
+                }});
 
 
     //Tools
@@ -210,12 +217,10 @@ public class ModItems {
 
     public static final DeferredItem<RoseQuartzSwordItem> ROSE_QUARTZ_SWORD = ITEMS.register("rose_quartz_sword",
             () -> new RoseQuartzSwordItem(Tiers.DIAMOND,
-                    new Item.Properties().attributes(SwordItem.createAttributes(RoseQuartzMaterial.INSTANCE, 4, -2.4f)))
-    );
+                    new Item.Properties().attributes(SwordItem.createAttributes(RoseQuartzMaterial.INSTANCE, 4, -2.4f))));
 
     public static final DeferredItem<SwordItem> STAHP_SIGN = ITEMS.register("stahp_sign",
-            () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
-                    .fireResistant()
+            () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties().fireResistant()
                     .attributes(SwordItem.createAttributes(CagiteMaterial.INSTANCE, 1, -2.5f))) {
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -224,70 +229,54 @@ public class ModItems {
                         target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60));
                     }
                     return super.hurtEnemy(stack, target, attacker);
-                }
-            });
+                }});
 
     //Bats
 
     public static final DeferredItem<BeeBunnyBasherItem> BEE_BUNNY_BASHER = ITEMS.register("bee_bunny_basher",
             () -> new BeeBunnyBasherItem(CagiteMaterial.INSTANCE, 0, -2f, 0.5f,  0.3f,
                     new Item.Properties().fireResistant()
-            )
-    );
+            ));
 
     public static final DeferredItem<BatItem> WOODEN_BAT = ITEMS.register("wooden_bat",
             () -> new BatItem(Tiers.WOOD, 2, -2.2f, 0.5f,  0.3f,
                     new Item.Properties()
-            )
-    );
+            ));
 
     public static final DeferredItem<BatItem> STONE_SPIKED_BAT = ITEMS.register("stone_spiked_bat",
             () -> new BatItem(Tiers.STONE, 2, -2.2f, 0.5f,   0.3f,
-                    new Item.Properties()
-            )
-    );
+                    new Item.Properties()));
 
     public static final DeferredItem<BatItem> IRON_BAT = ITEMS.register("iron_bat",
             () -> new BatItem(Tiers.IRON, 2, -2.2f, 0.5f,  0.3f,
-                    new Item.Properties()
-            )
-    );
+                    new Item.Properties()));
 
     public static final DeferredItem<BatItem> GOLDEN_BAT = ITEMS.register("golden_bat",
             () -> new BatItem(Tiers.GOLD, 2, -2.2f, 0.5f, 0.3f,
-                    new Item.Properties()
-            )
-    );
+                    new Item.Properties()));
 
     public static final DeferredItem<BatItem> DIAMOND_BAT = ITEMS.register("diamond_bat",
             () -> new BatItem(Tiers.DIAMOND, 2, 2.2f, 0.5f,  0.3f,
-                    new Item.Properties()
-            )
-    );
+                    new Item.Properties()));
 
     public static final DeferredItem<BatItem> SOULPHYRE_BAT = ITEMS.register("soulphyre_bat",
             () -> new BatItem(SoulphyreMaterial.INSTANCE, 2, -2.2f, 0.5f,  0.3f,
-                    new Item.Properties()
-            )
-    );
+                    new Item.Properties()));
 
     public static final DeferredItem<BatItem> NETHERITE_BAT = ITEMS.register("netherite_bat",
             () -> new BatItem(Tiers.NETHERITE, 2, -2.2f, 0.5f,  0.3f,
-                    new Item.Properties().fireResistant()
-            )
-    );
+                    new Item.Properties().fireResistant()));
 
     public static final DeferredItem<TungstenBatItem> TUNGSTEN_BAT = ITEMS.register("tungsten_bat",
             () -> new TungstenBatItem(TungstenMaterial.INSTANCE, -1, -2.2f, 1.0f,  0.5f,
-                    new Item.Properties()
-            )
-    );
+                    new Item.Properties()));
 
 
-    public static final DeferredItem<SwordItem> OBSIDIAN_SWORD = ITEMS.register("obsidian_sword",
-            () -> new SwordItem(ObsidianSwordMaterial.INSTANCE, new Item.Properties()
-                    .fireResistant()
-                    .attributes(SwordItem.createAttributes(ObsidianSwordMaterial.INSTANCE, 3, -3f))) {
+    public static final DeferredItem<GreatSwordItem> OBSIDIAN_SWORD = ITEMS.register("obsidian_sword",
+            () -> new GreatSwordItem(ObsidianSwordMaterial.INSTANCE, new Item.Properties()
+                    .fireResistant().durability(ObsidianSwordMaterial.INSTANCE.getUses())
+                    .attributes(GreatSwordItem.createAttributes(ObsidianSwordMaterial.INSTANCE, 3, -3f))) {
+
                 @Override
                 public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
                     if (!level.isClientSide() && entity instanceof Player player && selected) {
@@ -303,12 +292,14 @@ public class ModItems {
                     }
                     return super.hurtEnemy(stack, target, attacker);
                 }
-            });
+    });
 
-    public static final DeferredItem<ShovelItem> SPOON = ITEMS.register("spoon",
-            () -> new ShovelItem(Tiers.IRON, new Item.Properties()
-                    .fireResistant()
-                    .attributes(ShovelItem.createAttributes(Tiers.IRON, 5f, -3f))));
+
+    //Spoon Registration
+
+    public static final DeferredItem<SpoonItem> SPOON = ITEMS.register("spoon",
+            () -> new SpoonItem(Tiers.IRON, new Item.Properties()
+                    .fireResistant().attributes(ShovelItem.createAttributes(Tiers.IRON, 5f, -3f))));
 
 
     // Dagger Registration
@@ -329,12 +320,10 @@ public class ModItems {
             () -> new DaggerItem(Tiers.DIAMOND, -1, -1.5f, new Item.Properties()));
 
     public static final DeferredItem<DaggerItem> SOULPHYRE_DAGGER = ITEMS.register("soulphyre_dagger",
-            () -> new DaggerItem(SoulphyreMaterial.INSTANCE, -1, -1.5f, new Item.Properties()){
-            });
+            () -> new DaggerItem(SoulphyreMaterial.INSTANCE, -1, -1.5f, new Item.Properties()));
 
     public static final DeferredItem<DaggerBaseItem> TUNGSTEN_DAGGER = ITEMS.register("tungsten_dagger",
-            () -> new DaggerBaseItem(TungstenMaterial.INSTANCE, -4, -1f, new Item.Properties()) {
-            });
+            () -> new DaggerBaseItem(TungstenMaterial.INSTANCE, -4, -1f, new Item.Properties()));
 
     public static final DeferredItem<DaggerItem> NETHERITE_DAGGER = ITEMS.register("netherite_dagger",
             () -> new DaggerItem(Tiers.NETHERITE, -1, -1.0f, new Item.Properties()));
@@ -352,11 +341,10 @@ public class ModItems {
                     super.inventoryTick(stack, level, entity, slot, selected);
                 }
             }
-    );
+            );
 
     public static final DeferredItem<DaggerItem> THORN_OF_THE_DEAD_GODS = ITEMS.register("thorn_of_the_dead_gods",
-            () -> new DaggerItem(Tiers.NETHERITE, 0, -1.0f, new Item.Properties().fireResistant()) {
-            });
+            () -> new DaggerItem(Tiers.NETHERITE, 0, -1.0f, new Item.Properties().fireResistant()));
 
     public static final DeferredItem<DaggerItem> POISONERS_SIDEARM = ITEMS.register("poisoners_sidearm",
             () -> new DaggerItem(Tiers.NETHERITE, 0, -0.5f, new Item.Properties().fireResistant()) {
@@ -392,8 +380,7 @@ public class ModItems {
 
     public static final DeferredItem<AxeItem> FESTIVE_AXE = ITEMS.register("festive_axe",
             () -> new AxeItem(Tiers.DIAMOND, new Item.Properties()
-                    .attributes(AxeItem.createAttributes(Tiers.DIAMOND, 5f, -3f))) {
-            });
+                    .attributes(AxeItem.createAttributes(Tiers.DIAMOND, 5f, -3f))));
 
 
     public static final DeferredItem<SwordItem> KENDO_STICK = ITEMS.register("kendo_stick",
@@ -404,7 +391,6 @@ public class ModItems {
             () -> new SwordItem(CagiteMaterial.INSTANCE, new Item.Properties()
                     .fireResistant()
                     .attributes(SwordItem.createAttributes(CagiteMaterial.INSTANCE, 1, -2f))) {
-
 
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -422,17 +408,7 @@ public class ModItems {
     public static final DeferredItem<Item> RED_EYES_DREAM = ITEMS.register("red_eyes_dream",
             () -> new ScytheItem(RedEyesDreamMaterial.INSTANCE, new Item.Properties()
                     .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -2.6f)
-                                    .withModifierAdded(
-                                            Attributes.SWEEPING_DAMAGE_RATIO,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("red_eyes_dream_sweeping_damage"),
-                                                    1.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )) {
+                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, 1, -2.6f))) {
 
                 @Override
                 public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -448,196 +424,86 @@ public class ModItems {
     public static final DeferredItem<Item> LYNNS_DESOLATION = ITEMS.register("lynns_desolation",
             () -> new LynnsDesolationItem(ObsidianSwordMaterial.INSTANCE, 4, -3f,
                     new Item.Properties().attributes(
-                            buildAttributes(ObsidianSwordMaterial.INSTANCE, 4, -3f )
-                    )
-            )
-    );
+                            buildAttributes(ObsidianSwordMaterial.INSTANCE, 4, -3f ))));
 
     public static final DeferredItem<Item> ACONITE_AXE = ITEMS.register("aconite_axe",
             () -> new AconiteAxeItem(ObsidianSwordMaterial.INSTANCE, 4, -3f,
                     new Item.Properties().attributes(
-                            buildAttributes(ObsidianSwordMaterial.INSTANCE, 4, -3f)
-                    )
-            )
-    );
+                            buildAttributes(ObsidianSwordMaterial.INSTANCE, 4, -3f))));
 
     public static final DeferredItem<Item> WOODEN_POLEARM = ITEMS.register("wooden_polearm",
             () -> new PolearmItem(Tiers.WOOD, 7, -3.4f,
                     new Item.Properties().attributes(
-                            buildAttributes(Tiers.WOOD, 7, -3.4f)
-                    )
-            )
-    );
+                            buildAttributes(Tiers.WOOD, 7, -3.4f))));
 
     public static final DeferredItem<Item> STONE_POLEARM = ITEMS.register("stone_polearm",
             () -> new PolearmItem(Tiers.STONE, 8, -3.4f,
                     new Item.Properties().attributes(
-                            buildAttributes(Tiers.STONE, 8, -3.4f)
-                    )
-            )
-    );
+                            buildAttributes(Tiers.STONE, 8, -3.4f))));
 
     public static final DeferredItem<Item> IRON_POLEARM = ITEMS.register("iron_polearm",
             () -> new PolearmItem(Tiers.IRON, 7, -3.3f,
                     new Item.Properties().attributes(
-                            buildAttributes(Tiers.IRON, 7, -3.3f)
-                    )
-            )
-    );
+                            buildAttributes(Tiers.IRON, 7, -3.3f))));
 
     public static final DeferredItem<Item> GOLDEN_POLEARM = ITEMS.register("golden_polearm",
             () -> new PolearmItem(Tiers.GOLD, 7, -3.2f,
                     new Item.Properties().attributes(
-                            buildAttributes(Tiers.GOLD, 7, -3.2f)
-                    )
-            )
-    );
+                            buildAttributes(Tiers.GOLD, 7, -3.2f))));
 
     public static final DeferredItem<Item> DIAMOND_POLEARM = ITEMS.register("diamond_polearm",
             () -> new PolearmItem(Tiers.DIAMOND, 6, -3.2f,
                     new Item.Properties().attributes(
-                            buildAttributes(Tiers.DIAMOND, 6, -3.2f)
-                    )
-            )
-    );
+                            buildAttributes(Tiers.DIAMOND, 6, -3.2f))));
 
     public static final DeferredItem<Item> SOULPHYRE_POLEARM = ITEMS.register("soulphyre_polearm",
             () -> new PolearmItem(SoulphyreMaterial.INSTANCE, 6, -3.2f,
                     new Item.Properties().attributes(
-                            buildAttributes(SoulphyreMaterial.INSTANCE, 6, -3.2f)
-                    )
-            )
-    );
+                            buildAttributes(SoulphyreMaterial.INSTANCE, 6, -3.2f))));
 
     public static final DeferredItem<Item> NETHERITE_POLEARM = ITEMS.register("netherite_polearm",
             () -> new PolearmItem(Tiers.NETHERITE, 6, -3.2f,
                     new Item.Properties().attributes(
-                            buildAttributes(Tiers.NETHERITE, 6, -3.2f)
-                    )
-            )
-    );
+                            buildAttributes(Tiers.NETHERITE, 6, -3.2f))));
 
     public static final DeferredItem<Item> TUNGSTEN_POLEARM = ITEMS.register("tungsten_polearm",
             () -> new TungstenPolearmItem(TungstenMaterial.INSTANCE, 3, -3.2f,
                     new Item.Properties().attributes(
-                            buildAttributes(TungstenMaterial.INSTANCE, 3, -3.2f)
-                    )
-            )
-    );
+                            buildAttributes(TungstenMaterial.INSTANCE, 3, -3.2f))));
 
 
     //Scythes
+
     public static final DeferredItem<ScytheItem> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
-            () -> new ScytheItem(Tiers.WOOD, new Item.Properties()
-                    .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, -4, -3f)
-                                    .withModifierAdded(
-                                            Attributes.SWEEPING_DAMAGE_RATIO,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("wooden_scythe_sweeping_damage"),
-                                                    1.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )));
+            () -> new ScytheItem(Tiers.WOOD, new Item.Properties().attributes(
+                    ScytheItem.createAttributes(Tiers.WOOD, -4, -3f))));
 
     public static final DeferredItem<ScytheItem> STONE_SCYTHE = ITEMS.register("stone_scythe",
-            () -> new ScytheItem(Tiers.STONE, new Item.Properties()
-                    .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, -2, -3f)
-                                    .withModifierAdded(
-                                            Attributes.SWEEPING_DAMAGE_RATIO,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("stone_scythe_sweeping_damage"),
-                                                    1.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )));
+            () -> new ScytheItem(Tiers.STONE, new Item.Properties().attributes(
+                    ScytheItem.createAttributes(Tiers.STONE, -2, -3f))));
 
     public static final DeferredItem<ScytheItem> IRON_SCYTHE = ITEMS.register("iron_scythe",
-            () -> new ScytheItem(Tiers.IRON, new Item.Properties()
-                    .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, -2, -2.9f)
-                                    .withModifierAdded(
-                                            Attributes.SWEEPING_DAMAGE_RATIO,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("iron_scythe_sweeping_damage"),
-                                                    1.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )));
+            () -> new ScytheItem(Tiers.IRON, new Item.Properties().attributes(
+                    ScytheItem.createAttributes(Tiers.IRON, -2, -2.9f))));
 
     public static final DeferredItem<ScytheItem> GOLDEN_SCYTHE = ITEMS.register("golden_scythe",
-            () -> new ScytheItem(Tiers.GOLD, new Item.Properties()
-                    .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, -4, -2.8f)
-                                    .withModifierAdded(
-                                            Attributes.SWEEPING_DAMAGE_RATIO,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("gold_scythe_sweeping_damage"),
-                                                    1.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )));
+            () -> new ScytheItem(Tiers.GOLD, new Item.Properties().attributes(
+                    ScytheItem.createAttributes(Tiers.GOLD, -4, -2.8f))));
 
     public static final DeferredItem<ScytheItem> DIAMOND_SCYTHE = ITEMS.register("diamond_scythe",
-            () -> new ScytheItem(Tiers.DIAMOND, new Item.Properties()
-                    .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, -2, -2.8f)
-                                    .withModifierAdded(
-                                            Attributes.SWEEPING_DAMAGE_RATIO,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("diamond_scythe_sweeping_damage"),
-                                                    1.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )));
+            () -> new ScytheItem(Tiers.DIAMOND, new Item.Properties().attributes(
+                    ScytheItem.createAttributes(Tiers.DIAMOND, -2, -2.8f))));
 
     public static final DeferredItem<ScytheItem> SOULPHYRE_SCYTHE = ITEMS.register("soulphyre_scythe",
-            () -> new ScytheItem(SoulphyreMaterial.INSTANCE, new Item.Properties()
-                    .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, -2, -2.8f)
-                                    .withModifierAdded(
-                                            Attributes.SWEEPING_DAMAGE_RATIO,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("soulphyre_scythe_sweeping_damage"),
-                                                    1.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )){
-            });
+            () -> new ScytheItem(SoulphyreMaterial.INSTANCE, new Item.Properties().attributes(
+                    ScytheItem.createAttributes(SoulphyreMaterial.INSTANCE, -2, -2.8f))));
 
     public static final DeferredItem<ScytheItem> NETHERITE_SCYTHE = ITEMS.register("netherite_scythe",
-            () -> new ScytheItem(Tiers.NETHERITE, new Item.Properties()
-                    .fireResistant()
-                    .attributes(
-                            ScytheItem.createAttributes(RedEyesDreamMaterial.INSTANCE, -1, -2.8f)
-                                    .withModifierAdded(
-                                            Attributes.SWEEPING_DAMAGE_RATIO,
-                                            new AttributeModifier(
-                                                    GooberArsenal.res("netherite_scythe_sweeping_damage"),
-                                                    1.0D,
-                                                    AttributeModifier.Operation.ADD_VALUE
-                                            ),
-                                            EquipmentSlotGroup.MAINHAND
-                                    )
-                    )){
-            });
+            () -> new ScytheItem(Tiers.NETHERITE, new Item.Properties().fireResistant().attributes(
+                    ScytheItem.createAttributes(Tiers.NETHERITE, -1, -2.8f))));
 
     public static final DeferredItem<ScytheItem> TUNGSTEN_SCYTHE = ITEMS.register("tungsten_scythe",
-            () -> new ScytheItem(TungstenMaterial.INSTANCE, new Item.Properties()
-                    .attributes(
+            () -> new ScytheItem(TungstenMaterial.INSTANCE, new Item.Properties().attributes(
                             ScytheItem.createAttributes(TungstenMaterial.INSTANCE, 0, -2.8f)
                                     .withModifierAdded(
                                             Attributes.ENTITY_INTERACTION_RANGE,
@@ -656,10 +522,7 @@ public class ModItems {
                                                     AttributeModifier.Operation.ADD_VALUE
                                             ),
                                             EquipmentSlotGroup.MAINHAND
-                                    )
-                    )
-            )
-    );
+                                    ))));
 
     //Hammers
 
@@ -690,8 +553,7 @@ public class ModItems {
 
     public static final DeferredItem<HammerItem> SOULPHYRE_HAMMER = ITEMS.register("soulphyre_hammer",
             () -> new HammerItem(SoulphyreMaterial.INSTANCE, new Item.Properties()
-                    .attributes(PickaxeItem.createAttributes(SoulphyreMaterial.INSTANCE, 3F, -3.5f))){
-            });
+                    .attributes(PickaxeItem.createAttributes(SoulphyreMaterial.INSTANCE, 3F, -3.5f))));
 
 
     public static final DeferredItem<HammerItem> NETHERITE_HAMMER = ITEMS.register("netherite_hammer",
@@ -700,8 +562,7 @@ public class ModItems {
 
     public static final DeferredItem<TungstenHammerItem> TUNGSTEN_HAMMER = ITEMS.register("tungsten_hammer",
             () -> new TungstenHammerItem(TungstenMaterial.INSTANCE, new Item.Properties()
-                    .attributes(PickaxeItem.createAttributes(TungstenMaterial.INSTANCE, 0, -3.5f))) {
-            });
+                    .attributes(PickaxeItem.createAttributes(TungstenMaterial.INSTANCE, 0, -3.5f))));
 
     public static final DeferredItem<MossyMasherItem> MOSSY_MASHER = ITEMS.register("mossy_masher",
             () -> new MossyMasherItem(MossMaterial.INSTANCE, new Item.Properties()
@@ -712,23 +573,19 @@ public class ModItems {
     //Armor
     public static final DeferredItem<ArmorItem> SOULPHYRE_HELMET = ITEMS.register("soulphyre_helmet",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties().stacksTo(1)){
-    });
+                    new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_CHESTPLATE = ITEMS.register("soulphyre_chestplate",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().stacksTo(1)){
-            });
+                    new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_LEGGINGS = ITEMS.register("soulphyre_leggings",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().stacksTo(1)){
-            });
+                    new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_BOOTS = ITEMS.register("soulphyre_boots",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties().stacksTo(1)){
-            });
+                    new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<ArmorItem> CAGITE_HELMET = ITEMS.register("cagite_helmet",
             () -> new CagiteArmorItem(ModArmorMaterials.CAGITE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
@@ -749,63 +606,49 @@ public class ModItems {
 
     public static final DeferredItem<ArmorItem> STEVENS_JACKET = ITEMS.register("stevens_jacket",
             () -> new StevensJacketItem(ModArmorMaterials.STEVENS, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().fireResistant()
-            ) {
+                    new Item.Properties().fireResistant()) {
+
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
                     tooltip.add(Component.translatable("tooltip.gooberarsenal.stevens_jacket").withStyle(ChatFormatting.LIGHT_PURPLE));
                     super.appendHoverText(stack, context, tooltip, flag);
-                }
-            }
-    );
+                }});
 
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_HELMET = ITEMS.register("tungsten_helmet",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties().stacksTo(1)){
-            });
+                    new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_CHESTPLATE = ITEMS.register("tungsten_chestplate",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().stacksTo(1)){
-            });
+                    new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_LEGGINGS = ITEMS.register("tungsten_leggings",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().stacksTo(1)){
-            });
+                    new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<ArmorItem> TUNGSTEN_BOOTS = ITEMS.register("tungsten_boots",
             () -> new TungstenArmorItem(ModArmorMaterials.TUNGSTEN_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties().stacksTo(1)){
-            });
+                    new Item.Properties().stacksTo(1)));
 
     //Shields
 
 
     public static final DeferredItem<RoseQuartzShield> ROSE_QUARTZ_SHIELD = ITEMS.register("rose_quartz_shield",
             () -> new RoseQuartzShield(new Item.Properties()
-                    .durability(1650)
-                    .stacksTo(1)
-            ));
+                    .durability(1650).stacksTo(1)));
 
     public static final DeferredItem<GooberShield> ALLOY_SHIELD = ITEMS.register("alloy_shield",
             () -> new GooberShield(new Item.Properties()
-                    .durability(650)
-                    .stacksTo(1)
-            ));
+                    .durability(650).stacksTo(1)));
 
     public static final DeferredItem<GooberShield> DOOR_SHIELD = ITEMS.register("door_shield",
             () -> new GooberShield(new Item.Properties()
-                    .durability(650)
-                    .stacksTo(1)
-            ));
+                    .durability(650).stacksTo(1)));
 
     public static final DeferredItem<GooberShield> GRASS_CREST_SHIELD = ITEMS.register("grass_crest_shield",
             () -> new GooberShield(new Item.Properties()
-                    .durability(650)
-                    .stacksTo(1)
-            ));
+                    .durability(650).stacksTo(1)));
 
 //    public static final DeferredItem<GooberShield> KNIGHTS_SHIELD = ITEMS.register("knights_shield",
 //            () -> new GooberShield(new Item.Properties()
@@ -815,9 +658,7 @@ public class ModItems {
 
     public static final DeferredItem<GooberShield> PALETTE = ITEMS.register("palette",
             () -> new GooberShield(new Item.Properties()
-                    .durability(650)
-                    .stacksTo(1)
-            ));
+                    .durability(650).stacksTo(1)));
 
 //    public static final DeferredItem<GooberShield> TRASH_CAN = ITEMS.register("trash_can",
 //            () -> new GooberShield(new Item.Properties()

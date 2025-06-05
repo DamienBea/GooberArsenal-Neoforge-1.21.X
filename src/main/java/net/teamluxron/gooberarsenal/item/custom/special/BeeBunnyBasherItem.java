@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.item.custom;
+package net.teamluxron.gooberarsenal.item.custom.special;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -8,6 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
+import net.teamluxron.gooberarsenal.item.custom.weapon.BatItem;
 
 public class BeeBunnyBasherItem extends BatItem {
     public BeeBunnyBasherItem(Tier tier, int attackDamageMod, float attackSpeedMod,

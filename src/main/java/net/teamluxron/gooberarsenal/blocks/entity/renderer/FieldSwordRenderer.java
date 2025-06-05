@@ -44,7 +44,7 @@ public class FieldSwordRenderer extends GeoBlockRenderer<FieldSword> {
 
     @Override
     public ResourceLocation getTextureLocation(FieldSword animatable) {
-        return getSwordTextureFor(animatable); // Default fallback
+        return getSwordTextureFor(animatable);
     }
 
     @Override
@@ -78,16 +78,16 @@ public class FieldSwordRenderer extends GeoBlockRenderer<FieldSword> {
 
             packedLight = LightTexture.pack(15, 15);
 
-            // ✅ Sword bone gets a custom texture
             override = RenderType.entityTranslucent(getSwordTextureFor(animatable));
         }
 
         if ("sword".equals(bone.getName())
-                || "bone".equals(bone.getName())
-                || "bone2".equals(bone.getName())) {
-            bone.setScaleX(bone.getScaleX() * 2.0F);
-            bone.setScaleY(bone.getScaleY() * 2.0F);
-            bone.setScaleZ(bone.getScaleZ() * 2.0F);
+//                || "bone".equals(bone.getName())
+//                || "bone2".equals(bone.getName())
+        ) {
+            bone.setScaleX(bone.getScaleX() * 1.0F);
+            bone.setScaleY(bone.getScaleY() * 1.0F);
+            bone.setScaleZ(bone.getScaleZ() * 1.0F);
         }
 
         if (!isReRender && "base".equals(bone.getName())) {

@@ -15,7 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.item.custom.StevensJacketItem;
+import net.teamluxron.gooberarsenal.item.custom.special.StevensJacketItem;
 
 @EventBusSubscriber(modid = GooberArsenal.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class PvPBlockHandler {

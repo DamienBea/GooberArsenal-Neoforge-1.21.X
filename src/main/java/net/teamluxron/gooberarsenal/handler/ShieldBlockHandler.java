@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.damagesource.DamageSource;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
-import net.teamluxron.gooberarsenal.item.custom.GooberShield;
+import net.teamluxron.gooberarsenal.item.custom.weapon.GooberShield;
 
 public class ShieldBlockHandler {
 

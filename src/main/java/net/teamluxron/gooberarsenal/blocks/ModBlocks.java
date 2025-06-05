@@ -11,10 +11,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.blocks.custom.BrokenRadioBlock;
-import net.teamluxron.gooberarsenal.blocks.custom.FieldSwordBlock;
-import net.teamluxron.gooberarsenal.blocks.custom.ForgingAnvilBlock;
-import net.teamluxron.gooberarsenal.blocks.custom.RadioBlock;
+import net.teamluxron.gooberarsenal.blocks.custom.*;
 import net.teamluxron.gooberarsenal.item.ModItems;
 
 import java.util.function.Supplier;
@@ -134,6 +131,14 @@ public class ModBlocks {
                     .strength(0f, 1200f)
                     .noOcclusion()
             ));
+
+
+    public static final DeferredBlock<Block> BALLS = registerBlock("balls",
+            () -> new Balls(BlockBehaviour.Properties.of()
+                    .strength(0f, 1200f)
+                    .noOcclusion()
+            ));
+
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

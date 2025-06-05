@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.item.custom;
+package net.teamluxron.gooberarsenal.item.custom.special;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -6,6 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import net.teamluxron.gooberarsenal.item.custom.weapon.PolearmItem;
 
 public class AconiteAxeItem extends PolearmItem {
     public AconiteAxeItem(Tier tier, int damage, float speed, Properties props) {

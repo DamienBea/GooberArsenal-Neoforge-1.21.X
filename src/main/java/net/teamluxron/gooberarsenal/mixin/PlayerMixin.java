@@ -1,7 +1,7 @@
 package net.teamluxron.gooberarsenal.mixin;
 
 import net.minecraft.world.entity.player.Player;
-import net.teamluxron.gooberarsenal.item.custom.TungstenArmorItem;
+import net.teamluxron.gooberarsenal.item.custom.armor.TungstenArmorItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

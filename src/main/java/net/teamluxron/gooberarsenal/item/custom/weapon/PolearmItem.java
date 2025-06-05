@@ -1,8 +1,7 @@
-package net.teamluxron.gooberarsenal.item.custom;
+package net.teamluxron.gooberarsenal.item.custom.weapon;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;

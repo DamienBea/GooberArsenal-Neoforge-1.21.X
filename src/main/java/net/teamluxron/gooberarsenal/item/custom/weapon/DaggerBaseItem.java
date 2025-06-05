@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.item.custom;
+package net.teamluxron.gooberarsenal.item.custom.weapon;
 
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;

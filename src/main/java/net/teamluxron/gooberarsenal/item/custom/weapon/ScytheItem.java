@@ -1,24 +1,60 @@
-package net.teamluxron.gooberarsenal.item.custom;
+package net.teamluxron.gooberarsenal.item.custom.weapon;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.List;
-
 
 public class ScytheItem extends SwordItem {
     public ScytheItem(Tier tier, Properties properties) {
         super(tier, properties);
+    }
+
+    public static final ResourceLocation ATTACK_DAMAGE_ID = ResourceLocation.fromNamespaceAndPath("gooberarsenal", "scythe_attack_damage");
+    public static final ResourceLocation ATTACK_SPEED_ID = ResourceLocation.fromNamespaceAndPath("gooberarsenal", "scythe_attack_speed");
+
+
+    public static ItemAttributeModifiers createAttributes(Tier tier, int baseDamage, float baseSpeed) {
+        return ItemAttributeModifiers.builder()
+                .add(
+                        Attributes.ATTACK_DAMAGE,
+                        new AttributeModifier(ATTACK_DAMAGE_ID,
+                                baseDamage + tier.getAttackDamageBonus(),
+                                AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND
+                )
+                .add(
+                        Attributes.ATTACK_SPEED,
+                        new AttributeModifier(ATTACK_SPEED_ID,
+                                baseSpeed,
+                                AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND
+                )
+                .add(
+                        Attributes.SWEEPING_DAMAGE_RATIO,
+                        new AttributeModifier(
+                                ResourceLocation.fromNamespaceAndPath("gooberarsenal", "scythe_sweeping_damage"),
+                                1.0D,
+                                AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND
+                )
+                .build();
+    }
+
+    public ScytheItem(Tier tier, int baseDamage, float baseSpeed, Properties properties) {
+        super(tier, properties.attributes(createAttributes(tier, baseDamage, baseSpeed)));
     }
 
     @Override

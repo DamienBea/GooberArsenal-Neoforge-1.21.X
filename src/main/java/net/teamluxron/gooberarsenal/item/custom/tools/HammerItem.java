@@ -1,8 +1,8 @@
-package net.teamluxron.gooberarsenal.item.custom;
+package net.teamluxron.gooberarsenal.item.custom.tools;
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.*;
-
+import net.teamluxron.gooberarsenal.item.custom.coreitem.AreaMiningItem;
 
 
 public class HammerItem extends AreaMiningItem {

@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.item.custom;
+package net.teamluxron.gooberarsenal.item.custom.armor;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.Holder;

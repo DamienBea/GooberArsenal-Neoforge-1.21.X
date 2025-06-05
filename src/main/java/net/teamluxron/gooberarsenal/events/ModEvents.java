@@ -3,6 +3,7 @@ package net.teamluxron.gooberarsenal.events;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -19,10 +20,12 @@ import net.neoforged.neoforge.common.damagesource.DamageContainer;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerXpEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.item.ModItems;
-import net.teamluxron.gooberarsenal.item.custom.AreaMiningItem;
-import net.teamluxron.gooberarsenal.item.custom.SoulphyreArmorItem;
+import net.teamluxron.gooberarsenal.item.custom.coreitem.AreaMiningItem;
+import net.teamluxron.gooberarsenal.item.custom.weapon.GreatSwordItem;
+import net.teamluxron.gooberarsenal.item.custom.armor.SoulphyreArmorItem;
 import net.teamluxron.gooberarsenal.item.material.SoulphyreMaterial;
 
 import java.util.HashSet;
@@ -173,4 +176,29 @@ public class ModEvents {
             });
         }
     }
+//Code to throw stuff on the ground if G sword
+    @SubscribeEvent
+    public static void onPlayerTick(PlayerTickEvent.Pre event) {
+        Player player = event.getEntity();
+
+        if (player.level().isClientSide()) return;
+
+        ItemStack mainhand = player.getMainHandItem();
+        ItemStack offhand = player.getOffhandItem();
+
+        boolean isMainHandGreatSword = mainhand.getItem() instanceof GreatSwordItem;
+        boolean isOffHandGreatSword = offhand.getItem() instanceof GreatSwordItem;
+
+        if (isOffHandGreatSword) {
+            player.drop(offhand, true);
+            player.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
+            return;
+        }
+
+        if (isMainHandGreatSword && !offhand.isEmpty()) {
+            player.drop(offhand, true);
+            player.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
+        }
+    }
+
 }

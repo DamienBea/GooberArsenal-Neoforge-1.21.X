@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.item.custom;
+package net.teamluxron.gooberarsenal.item.custom.weapon;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;

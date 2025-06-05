@@ -5,6 +5,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.teamluxron.gooberarsenal.item.ModItems;
 
 public class RedEyesDreamMaterial implements Tier {
     public static final RedEyesDreamMaterial INSTANCE = new RedEyesDreamMaterial();
@@ -36,7 +37,7 @@ public class RedEyesDreamMaterial implements Tier {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.of(Items.NETHERITE_INGOT);
+        return Ingredient.of(ModItems.DRAGON_SCALED_TUNGSTEN);
     }
 }
 

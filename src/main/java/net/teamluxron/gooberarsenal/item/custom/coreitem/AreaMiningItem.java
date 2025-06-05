@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.item.custom;
+package net.teamluxron.gooberarsenal.item.custom.coreitem;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
