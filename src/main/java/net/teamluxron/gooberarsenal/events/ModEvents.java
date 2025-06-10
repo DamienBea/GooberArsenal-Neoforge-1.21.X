@@ -3,11 +3,16 @@ package net.teamluxron.gooberarsenal.events;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -24,9 +29,12 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.item.ModItems;
 import net.teamluxron.gooberarsenal.item.custom.coreitem.AreaMiningItem;
+import net.teamluxron.gooberarsenal.item.custom.weapon.GreatAxeItem;
 import net.teamluxron.gooberarsenal.item.custom.weapon.GreatSwordItem;
 import net.teamluxron.gooberarsenal.item.custom.armor.SoulphyreArmorItem;
 import net.teamluxron.gooberarsenal.item.material.SoulphyreMaterial;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -37,6 +45,7 @@ import java.util.Set;
 public class ModEvents {
     private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
     private static final ThreadLocal<Boolean> isProcessing = ThreadLocal.withInitial(() -> false);
+    private static final Logger LOGGER = LoggerFactory.getLogger("GooberArsenal");
 
     public static void register() {
         NeoForge.EVENT_BUS.register(ModEvents.class);
@@ -98,6 +107,24 @@ public class ModEvents {
         }
     }
 
+    @SubscribeEvent
+    public static void onCritBoost(LivingDamageEvent.Pre event) {
+        if (!(event.getSource().getEntity() instanceof Player player)) return;
+        if (!(player.getMainHandItem().getItem() instanceof GreatAxeItem)) return;
+
+        float original = event.getOriginalDamage();
+        float base = (float) player.getAttributes().getBaseValue(Attributes.ATTACK_DAMAGE);
+
+        // Check if this is a crit (vanilla multiplies melee damage by 1.5f)
+        if (Math.abs(original - base * 1.5f) < 0.01f) {
+            float boosted = base * 2.0f;
+            event.setNewDamage(boosted);
+            LOGGER.info("Boosted crit from {} to {}", original, boosted);
+        }
+    }
+
+
+
 //    @SubscribeEvent
 //    public static void onPlayerKill(LivingDeathEvent event) {
 //        if (event.getEntity() instanceof Player killedPlayer) {
@@ -124,6 +151,7 @@ public class ModEvents {
 //        }
 //    }
 
+
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent.Pre event) {
         DamageContainer container = event.getContainer();
@@ -138,6 +166,7 @@ public class ModEvents {
             }
         }
     }
+
 
     @SubscribeEvent
     public static void onXpGain(PlayerXpEvent.XpChange event) {
@@ -200,5 +229,8 @@ public class ModEvents {
             player.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
         }
     }
+
+
+
 
 }

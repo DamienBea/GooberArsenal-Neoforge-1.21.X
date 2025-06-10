@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.blocks.custom;
+package net.teamluxron.gooberarsenal.blocks.custom.functionblock;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;

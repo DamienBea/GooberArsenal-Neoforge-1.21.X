@@ -63,6 +63,27 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.LYNNS_DESOLATION.get());
                         output.accept(ModItems.ACONITE_AXE.get());
 
+
+                        //Greataxes
+                        output.accept(ModItems.WOODEN_GREATAXE.get());
+                        output.accept(ModItems.STONE_GREATAXE.get());
+                        output.accept(ModItems.IRON_GREATAXE.get());
+                        output.accept(ModItems.GOLDEN_GREATAXE.get());
+                        output.accept(ModItems.DIAMOND_GREATAXE.get());
+                        output.accept(ModItems.SOULPHYRE_GREATAXE.get());
+                        output.accept(ModItems.NETHERITE_GREATAXE.get());
+                        output.accept(ModItems.TUNGSTEN_GREATAXE.get());
+
+                        //Greatswords
+                        output.accept(ModItems.WOODEN_GREATSWORD.get());
+                        output.accept(ModItems.STONE_GREATSWORD.get());
+                        output.accept(ModItems.IRON_GREATSWORD.get());
+                        output.accept(ModItems.GOLDEN_GREATSWORD.get());
+                        output.accept(ModItems.DIAMOND_GREATSWORD.get());
+                        output.accept(ModItems.SOULPHYRE_GREATSWORD.get());
+                        output.accept(ModItems.NETHERITE_GREATSWORD.get());
+                        output.accept(ModItems.TUNGSTEN_GREATSWORD.get());
+
                         //Daggers
                         output.accept(ModItems.WOODEN_DAGGER.get());
                         output.accept(ModItems.STONE_DAGGER.get());
@@ -190,6 +211,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.VENOMOUS_FANG.get());
                         output.accept(ModItems.ACONITE.get());
                         output.accept(ModItems.POLE.get());
+                        output.accept(ModItems.MAGICAL_BEAN_SEED.get());
+                        output.accept(ModItems.ZOMBIFIED_BREAD_SPAWN_EGG.get());
+                        output.accept(ModItems.PEASHOOTER_SPAWN_EGG.get());
 
                     }).build());
 

@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.item.custom.weapon;
+package net.teamluxron.gooberarsenal.item.custom.tools;
 
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;

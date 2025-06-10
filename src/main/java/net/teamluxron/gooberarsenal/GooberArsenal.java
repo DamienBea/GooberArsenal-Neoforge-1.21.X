@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.event.level.LevelEvent;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -14,7 +15,9 @@ import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.client.GooberArsenalClient;
 import net.teamluxron.gooberarsenal.client.sound.ClientSoundManager;
 import net.teamluxron.gooberarsenal.enchantment.ModEnchantmentEffects;
+import net.teamluxron.gooberarsenal.entity.ModEntities;
 import net.teamluxron.gooberarsenal.events.ModEvents;
+import net.teamluxron.gooberarsenal.events.PortalConversionHandler;
 import net.teamluxron.gooberarsenal.handler.ShieldBlockHandler;
 import net.teamluxron.gooberarsenal.item.ModCreativeModeTabs;
 import net.teamluxron.gooberarsenal.item.ModItems;
@@ -69,9 +72,15 @@ public class GooberArsenal {
         ModRecipes.TYPES.register(modEventBus);
         ModRecipeSerializers.register(modEventBus);
         ModEvents.register();
+        ModEntities.register(modEventBus);
         NeoForge.EVENT_BUS.register(PvPBlockHandler.class);
         NeoForge.EVENT_BUS.register(ShieldBlockHandler.class);
         LootModifierRegistry.register(modEventBus);
+
+        //Portal bread teleportation
+
+        PortalConversionHandler handler = new PortalConversionHandler();
+        NeoForge.EVENT_BUS.addListener(LevelTickEvent.Post.class, handler::onLevelTick);
 
         // Register config
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

@@ -75,6 +75,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.ACONITE.get());
             basicItem(ModItems.SOULPHYRE.get());
             basicItem(ModItems.ROSE_QUARTZ.get());
+            basicItem(ModItems.MAGICAL_BEAN_SEED.get());
 
 
             //Armor
@@ -112,6 +113,22 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldItem(ModItems.NETHERITE_BAT);
             handheldItem(ModItems.TUNGSTEN_BAT);
             handheldBroadswordItem(ModItems.OBSIDIAN_SWORD);
+            handheldBroadswordItem(ModItems.WOODEN_GREATAXE);
+            handheldBroadswordItem(ModItems.STONE_GREATAXE);
+            handheldBroadswordItem(ModItems.IRON_GREATAXE);
+            handheldBroadswordItem(ModItems.GOLDEN_GREATAXE);
+            handheldBroadswordItem(ModItems.DIAMOND_GREATAXE);
+            handheldBroadswordItem(ModItems.NETHERITE_GREATAXE);
+            handheldBroadswordItem(ModItems.SOULPHYRE_GREATAXE);
+            handheldBroadswordItem(ModItems.TUNGSTEN_GREATAXE);
+            handheldBroadswordItem(ModItems.WOODEN_GREATSWORD);
+            handheldBroadswordItem(ModItems.STONE_GREATSWORD);
+            handheldBroadswordItem(ModItems.IRON_GREATSWORD);
+            handheldBroadswordItem(ModItems.GOLDEN_GREATSWORD);
+            handheldBroadswordItem(ModItems.DIAMOND_GREATSWORD);
+            handheldBroadswordItem(ModItems.NETHERITE_GREATSWORD);
+            handheldBroadswordItem(ModItems.SOULPHYRE_GREATSWORD);
+            handheldBroadswordItem(ModItems.TUNGSTEN_GREATSWORD);
             handheldScaledItem(ModItems.SPOON);
             handheldItem(ModItems.FESTIVE_AXE);
             handheldItem(ModItems.LIFE_SABER);
@@ -174,12 +191,15 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldScaledItem(ModItems.POLE);
 
 
+            //SpawnEggs
+            withExistingParent(ModItems.ZOMBIFIED_BREAD_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+            withExistingParent(ModItems.PEASHOOTER_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
         }
 
         // Shoutout to El_Redstoniano for making this
         private void trimmedArmorItem(DeferredItem<ArmorItem> itemDeferredItem) {
-            final String MOD_ID = GooberArsenal.MOD_ID; // Change this to your mod id
+            final String MOD_ID = GooberArsenal.MOD_ID;
 
             if (itemDeferredItem.get() instanceof ArmorItem armorItem) {
                 trimMaterials.forEach((trimMaterial, value) -> {

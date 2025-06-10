@@ -1,5 +1,6 @@
 package net.teamluxron.gooberarsenal.datagen;
 
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -13,8 +14,11 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
+import net.teamluxron.gooberarsenal.blocks.custom.crops.PeaCropBlock;
 import net.teamluxron.gooberarsenal.item.ModItems;
 
 import java.util.Set;
@@ -38,6 +42,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BROKEN_RADIO.get());
         dropSelf(ModBlocks.FIELD_SWORD.get());
         dropSelf(ModBlocks.SCALED_ENDSTONE.get());
+        dropSelf(ModBlocks.BALLS.get());
 
 // Ore Drops
         add(ModBlocks.KEVIN_ORE.get(),
@@ -51,6 +56,15 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         add(ModBlocks.ROSE_QUARTZ_ORE.get(),
                 block -> createOreDrop(ModBlocks.ROSE_QUARTZ_ORE.get(), ModItems.ROSE_QUARTZ.get()));
+
+
+//Crops
+        LootItemCondition.Builder lootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.MAGICAL_BEAN_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PeaCropBlock.AGE, 3));
+
+        this.add(ModBlocks.MAGICAL_BEAN_CROP.get(), this.createCropDrops(ModBlocks.MAGICAL_BEAN_CROP.get(),
+                ModItems.MAGICAL_BEAN_SEED.get(), ModItems.MAGICAL_BEAN_SEED.get(), lootItemConditionBuilder));
+
 
 
     }

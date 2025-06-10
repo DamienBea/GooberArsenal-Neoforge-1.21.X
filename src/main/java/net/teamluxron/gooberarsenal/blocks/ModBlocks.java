@@ -3,6 +3,7 @@ package net.teamluxron.gooberarsenal.blocks;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -11,7 +12,12 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.blocks.custom.*;
+import net.teamluxron.gooberarsenal.blocks.custom.crops.PeaCropBlock;
+import net.teamluxron.gooberarsenal.blocks.custom.decoblock.Balls;
+import net.teamluxron.gooberarsenal.blocks.custom.decoblock.FieldSwordBlock;
+import net.teamluxron.gooberarsenal.blocks.custom.functionblock.BrokenRadioBlock;
+import net.teamluxron.gooberarsenal.blocks.custom.functionblock.ForgingAnvilBlock;
+import net.teamluxron.gooberarsenal.blocks.custom.functionblock.RadioBlock;
 import net.teamluxron.gooberarsenal.item.ModItems;
 
 import java.util.function.Supplier;
@@ -138,6 +144,13 @@ public class ModBlocks {
                     .strength(0f, 1200f)
                     .noOcclusion()
             ));
+
+
+    //Crops
+
+    public static final DeferredBlock<Block> MAGICAL_BEAN_CROP = BLOCKS.register("radish_crop",
+            () -> new PeaCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BEETROOTS)));
+
 
 
 

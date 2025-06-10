@@ -17,18 +17,19 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
+import net.teamluxron.gooberarsenal.blocks.ModBlocks;
+import net.teamluxron.gooberarsenal.entity.ModEntities;
 import net.teamluxron.gooberarsenal.item.custom.armor.CagiteArmorItem;
 import net.teamluxron.gooberarsenal.item.custom.armor.SoulphyreArmorItem;
 import net.teamluxron.gooberarsenal.item.custom.armor.TungstenArmorItem;
 import net.teamluxron.gooberarsenal.item.custom.special.*;
+import net.teamluxron.gooberarsenal.item.custom.tools.GooberShield;
 import net.teamluxron.gooberarsenal.item.custom.tools.HammerItem;
-import net.teamluxron.gooberarsenal.item.custom.tungsten.TungstenBatItem;
-import net.teamluxron.gooberarsenal.item.custom.tungsten.TungstenHammerItem;
-import net.teamluxron.gooberarsenal.item.custom.tungsten.TungstenPolearmItem;
-import net.teamluxron.gooberarsenal.item.custom.tungsten.TungstenShovelItem;
+import net.teamluxron.gooberarsenal.item.custom.tungsten.*;
 import net.teamluxron.gooberarsenal.item.custom.weapon.*;
 import net.teamluxron.gooberarsenal.item.material.*;
 import net.teamluxron.gooberarsenal.sound.ModSounds;
@@ -141,6 +142,13 @@ public class ModItems {
                 }});
 
 
+
+    //Crops
+
+
+    public static final DeferredItem<Item> MAGICAL_BEAN_SEED = ITEMS.register("magical_bean_seed",
+            () -> new ItemNameBlockItem(ModBlocks.MAGICAL_BEAN_CROP.get(), new Item.Properties()));
+
     //Tools
     public static final DeferredItem<Item> SOULPHYRE_SWORD = ITEMS.registerItem("soulphyre_sword",
             (properties) -> new SwordItem(SoulphyreMaterial.INSTANCE, properties
@@ -184,6 +192,24 @@ public class ModItems {
                     .attributes(HoeItem.createAttributes(ModToolTiers.TUNGSTEN_TIER, -4.5f, 0))));
 
 
+
+    public static final DeferredItem<Item> GUST_JAR = ITEMS.register("gust_jar",
+            () -> new Item(new Item.Properties()));
+
+
+
+
+    //SpawnEggs
+    public static final DeferredItem<Item> ZOMBIFIED_BREAD_SPAWN_EGG = ITEMS.register("zombified_bread_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.ZOMBIFIED_BREAD, 0xcac07d, 0xcac07d,
+                    new Item.Properties()
+            ));
+
+
+    public static final DeferredItem<Item> PEASHOOTER_SPAWN_EGG = ITEMS.register("pea_shooter_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.PEASHOOTER, 0x4b6a1f, 0x94c74d,
+                    new Item.Properties()
+            ));
 
 
     //Foods
@@ -526,7 +552,6 @@ public class ModItems {
 
     //Hammers
 
-
     public static final DeferredItem<HammerItem> WOODEN_HAMMER = ITEMS.register("wooden_hammer",
             () -> new HammerItem(Tiers.WOOD, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(Tiers.WOOD, 3F, -3.5f))));
@@ -567,6 +592,77 @@ public class ModItems {
     public static final DeferredItem<MossyMasherItem> MOSSY_MASHER = ITEMS.register("mossy_masher",
             () -> new MossyMasherItem(MossMaterial.INSTANCE, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(MossMaterial.INSTANCE, 3F, -3.5f))));
+
+
+
+    //Great Swords
+
+    public static final DeferredItem<GreatSwordItem> WOODEN_GREATSWORD = ITEMS.register("wooden_greatsword",
+            () -> new GreatSwordItem(Tiers.WOOD,
+                    new Item.Properties().attributes(buildAttributes(Tiers.WOOD, 8, -3.5f))));
+
+    public static final DeferredItem<GreatSwordItem> STONE_GREATSWORD = ITEMS.register("stone_greatsword",
+            () -> new GreatSwordItem(Tiers.STONE,
+                    new Item.Properties().attributes(buildAttributes(Tiers.STONE, 8, -3.5f))));
+
+    public static final DeferredItem<GreatSwordItem> IRON_GREATSWORD = ITEMS.register("iron_greatsword",
+            () -> new GreatSwordItem(Tiers.IRON,
+                    new Item.Properties().attributes(buildAttributes(Tiers.IRON, 8, -3.5f))));
+
+    public static final DeferredItem<GreatSwordItem> GOLDEN_GREATSWORD = ITEMS.register("golden_greatsword",
+            () -> new GreatSwordItem(Tiers.GOLD,
+                    new Item.Properties().attributes(buildAttributes(Tiers.GOLD, 8, -3.5f))));
+
+    public static final DeferredItem<GreatSwordItem> DIAMOND_GREATSWORD = ITEMS.register("diamond_greatsword",
+            () -> new GreatSwordItem(Tiers.DIAMOND,
+                    new Item.Properties().attributes(buildAttributes(Tiers.DIAMOND, 8, -3.5f))));
+
+    public static final DeferredItem<GreatSwordItem> SOULPHYRE_GREATSWORD = ITEMS.register("soulphyre_greatsword",
+            () -> new GreatSwordItem(SoulphyreMaterial.INSTANCE,
+                    new Item.Properties().attributes(buildAttributes(SoulphyreMaterial.INSTANCE, 8, -3.5f))));
+
+    public static final DeferredItem<GreatSwordItem> NETHERITE_GREATSWORD = ITEMS.register("netherite_greatsword",
+            () -> new GreatSwordItem(Tiers.NETHERITE,
+                    new Item.Properties().attributes(buildAttributes(Tiers.NETHERITE, 8, -3.5f))));
+
+    public static final DeferredItem<TungstenGreatSwordItem> TUNGSTEN_GREATSWORD = ITEMS.register("tungsten_greatsword",
+            () -> new TungstenGreatSwordItem(TungstenMaterial.INSTANCE,
+                    new Item.Properties().attributes(buildAttributes(TungstenMaterial.INSTANCE, 8, -3.5f))));
+
+
+    //Great Axes
+
+    public static final DeferredItem<GreatAxeItem> WOODEN_GREATAXE = ITEMS.register("wooden_greataxe",
+            () -> new GreatAxeItem(Tiers.WOOD, 8, -3.5f,
+                    new Item.Properties().attributes(buildAttributes(Tiers.WOOD, 7, -3.4f))));
+
+    public static final DeferredItem<GreatAxeItem> STONE_GREATAXE = ITEMS.register("stone_greataxe",
+            () -> new GreatAxeItem(Tiers.STONE, 8, -3.5f,
+                    new Item.Properties().attributes(buildAttributes(Tiers.STONE, 8, -3.4f))));
+
+    public static final DeferredItem<GreatAxeItem> IRON_GREATAXE = ITEMS.register("iron_greataxe",
+            () -> new GreatAxeItem(Tiers.IRON, 8, -3.4f,
+                    new Item.Properties().attributes(buildAttributes(Tiers.IRON, 7, -3.3f))));
+
+    public static final DeferredItem<GreatAxeItem> GOLDEN_GREATAXE = ITEMS.register("golden_greataxe",
+            () -> new GreatAxeItem(Tiers.GOLD, 8, -3.3f,
+                    new Item.Properties().attributes(buildAttributes(Tiers.GOLD, 7, -3.2f))));
+
+    public static final DeferredItem<GreatAxeItem> DIAMOND_GREATAXE = ITEMS.register("diamond_greataxe",
+            () -> new GreatAxeItem(Tiers.DIAMOND, 7, -3.3f,
+                    new Item.Properties().attributes(buildAttributes(Tiers.DIAMOND, 6, -3.2f))));
+
+    public static final DeferredItem<GreatAxeItem> SOULPHYRE_GREATAXE = ITEMS.register("soulphyre_greataxe",
+            () -> new GreatAxeItem(SoulphyreMaterial.INSTANCE, 7, -3.3f,
+                    new Item.Properties().attributes(buildAttributes(SoulphyreMaterial.INSTANCE, 6, -3.2f))));
+
+    public static final DeferredItem<GreatAxeItem> NETHERITE_GREATAXE = ITEMS.register("netherite_greataxe",
+            () -> new GreatAxeItem(Tiers.NETHERITE, 7, -3.3f,
+                    new Item.Properties().attributes(buildAttributes(Tiers.NETHERITE, 6, -3.2f))));
+
+    public static final DeferredItem<TungstenGreatAxeItem> TUNGSTEN_GREATAXE = ITEMS.register("tungsten_greataxe",
+            () -> new TungstenGreatAxeItem(TungstenMaterial.INSTANCE, 4, -3.3f,
+                    new Item.Properties().attributes(buildAttributes(TungstenMaterial.INSTANCE, 3, -3.2f))));
 
 
 

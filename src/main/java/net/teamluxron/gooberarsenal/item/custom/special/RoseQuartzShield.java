@@ -6,7 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import net.teamluxron.gooberarsenal.item.custom.weapon.GooberShield;
+import net.teamluxron.gooberarsenal.item.custom.tools.GooberShield;
 
 import java.util.List;
 
