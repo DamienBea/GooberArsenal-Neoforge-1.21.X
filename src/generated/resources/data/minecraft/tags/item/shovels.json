@@ -1,7 +1,12 @@
 {
   "values": [
-    "gooberarsenal:spoon",
     "gooberarsenal:soulphyre_shovel",
-    "gooberarsenal:tungsten_shovel"
+    "gooberarsenal:tungsten_shovel",
+    "gooberarsenal:wooden_spoon",
+    "gooberarsenal:stone_spoon",
+    "gooberarsenal:iron_spoon",
+    "gooberarsenal:golden_spoon",
+    "gooberarsenal:diamond_spoon",
+    "gooberarsenal:netherite_spoon"
   ]
 }

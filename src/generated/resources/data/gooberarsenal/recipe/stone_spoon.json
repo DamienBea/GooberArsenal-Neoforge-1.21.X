@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "pattern": [
+    " MM",
+    " MM",
+    "M  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:stone_spoon"
+  }
+}

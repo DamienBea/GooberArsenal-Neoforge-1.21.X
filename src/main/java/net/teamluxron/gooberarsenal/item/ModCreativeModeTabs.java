@@ -113,6 +113,16 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TUNGSTEN_HAMMER.get());
                         output.accept(ModItems.MOSSY_MASHER.get());
 
+                        //spoons
+
+                        output.accept(ModItems.WOODEN_SPOON.get());
+                        output.accept(ModItems.STONE_SPOON.get());
+                        output.accept(ModItems.IRON_SPOON.get());
+                        output.accept(ModItems.GOLDEN_SPOON.get());
+                        output.accept(ModItems.DIAMOND_SPOON.get());
+                        output.accept(ModItems.NETHERITE_SPOON.get());
+
+
                         //Armor
 
                         output.accept(ModItems.SOULPHYRE_HELMET.get());
@@ -156,7 +166,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CHAIR.get());
                         output.accept(ModItems.FRYING_PAN.get());
                         output.accept(ModItems.STEEL_PIPE.get());
-                        output.accept(ModItems.SPOON.get());
 
                     }).build());
 
@@ -209,6 +218,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MOSSY_GEM.get());
                         output.accept(ModItems.CHAIN_OF_FATE.get());
                         output.accept(ModItems.VENOMOUS_FANG.get());
+                        output.accept(ModItems.AUSTRALIUM_NUGGET.get());
                         output.accept(ModItems.ACONITE.get());
                         output.accept(ModItems.POLE.get());
                         output.accept(ModItems.MAGICAL_BEAN_SEED.get());
@@ -226,6 +236,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SANDVICH.get());
                         output.accept(ModItems.CHOCOLATE_CHIP_PANCAKES.get());
                         output.accept(ModItems.COPPER_APPLE.get());
+                        output.accept(ModItems.ROTTEN_BREAD.get());
 
                     }).build());
 

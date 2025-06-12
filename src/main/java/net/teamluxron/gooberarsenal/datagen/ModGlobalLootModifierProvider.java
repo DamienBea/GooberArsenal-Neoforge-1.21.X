@@ -209,7 +209,7 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         ModItems.CHAIN_OF_FATE.get()
                 ));
 
-        this.add("venomous_fang_from_wither_skeleton",
+        this.add("venomous_fang_from_cave_spider",
                 new AddItemModifier(
                         new LootItemCondition[] {
                                 new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("entities/cave_spider"))
@@ -217,6 +217,26 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                                         .build()
                         },
                         ModItems.VENOMOUS_FANG.get()
+                ));
+
+        this.add("australium_from_zombified_bread",
+                new AddItemModifier(
+                        new LootItemCondition[] {
+                                new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("entities/zombified_bread"))
+                                        .and(LootItemRandomChanceCondition.randomChance(0.05f))
+                                        .build()
+                        },
+                        ModItems.AUSTRALIUM_NUGGET.get()
+                ));
+
+        this.add("rotten_bread_from_zombified_bread",
+                new AddItemModifier(
+                        new LootItemCondition[] {
+                                new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("entities/zombified_bread"))
+                                        .and(LootItemRandomChanceCondition.randomChance(0.8f))
+                                        .build()
+                        },
+                        ModItems.ROTTEN_BREAD.get()
                 ));
 
         //Fishing

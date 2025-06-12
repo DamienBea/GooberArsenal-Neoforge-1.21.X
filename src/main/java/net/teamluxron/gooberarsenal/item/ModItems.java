@@ -122,6 +122,9 @@ public class ModItems {
     public static final DeferredItem<Item> POLE = ITEMS.register("pole",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> AUSTRALIUM_NUGGET = ITEMS.register("australium_nugget",
+            () -> new Item(new Item.Properties()));
+
 
     public static final DeferredItem<Item> SWITCH_CARTRIDGE = ITEMS.register("switch_cartridge",
             () -> new Item(new Item.Properties()) {
@@ -207,7 +210,7 @@ public class ModItems {
 
 
     public static final DeferredItem<Item> PEASHOOTER_SPAWN_EGG = ITEMS.register("pea_shooter_spawn_egg",
-            () -> new DeferredSpawnEggItem(ModEntities.PEASHOOTER, 0x4b6a1f, 0x94c74d,
+            () -> new DeferredSpawnEggItem(ModEntities.PEASHOOTER, 0x94c74d, 0x4b6a1f,
                     new Item.Properties()
             ));
 
@@ -225,6 +228,12 @@ public class ModItems {
 
     public static final DeferredItem<Item>  COPPER_APPLE = ITEMS.register("copper_apple",
             () -> new Item(new Item.Properties().food(ModFoodProperties.COPPER_APPLE).rarity(Rarity.UNCOMMON)));
+
+    public static final DeferredItem<Item>  ROTTEN_BREAD = ITEMS.register("rotten_bread",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.ROTTEN_BREAD)));
+
+
+
 
 
 
@@ -323,9 +332,30 @@ public class ModItems {
 
     //Spoon Registration
 
-    public static final DeferredItem<SpoonItem> SPOON = ITEMS.register("spoon",
+    public static final DeferredItem<SpoonItem> WOODEN_SPOON = ITEMS.register("wooden_spoon",
+            () -> new SpoonItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(ShovelItem.createAttributes(Tiers.WOOD, 5f, -3f))));
+
+    public static final DeferredItem<SpoonItem> STONE_SPOON = ITEMS.register("stone_spoon",
+            () -> new SpoonItem(Tiers.STONE, new Item.Properties()
+                    .attributes(ShovelItem.createAttributes(Tiers.STONE, 5f, -3f))));
+
+    public static final DeferredItem<SpoonItem> IRON_SPOON = ITEMS.register("iron_spoon",
             () -> new SpoonItem(Tiers.IRON, new Item.Properties()
-                    .fireResistant().attributes(ShovelItem.createAttributes(Tiers.IRON, 5f, -3f))));
+                    .attributes(ShovelItem.createAttributes(Tiers.IRON, 5f, -3f))));
+
+    public static final DeferredItem<SpoonItem> GOLDEN_SPOON = ITEMS.register("golden_spoon",
+            () -> new SpoonItem(Tiers.GOLD, new Item.Properties()
+                    .attributes(ShovelItem.createAttributes(Tiers.GOLD, 5f, -3f))));
+
+    public static final DeferredItem<SpoonItem> DIAMOND_SPOON = ITEMS.register("diamond_spoon",
+            () -> new SpoonItem(Tiers.DIAMOND, new Item.Properties()
+                    .attributes(ShovelItem.createAttributes(Tiers.DIAMOND, 5f, -3f))));
+
+    public static final DeferredItem<SpoonItem> NETHERITE_SPOON = ITEMS.register("netherite_spoon",
+            () -> new SpoonItem(Tiers.NETHERITE, new Item.Properties()
+                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 5f, -3f))
+                    .fireResistant()));
 
 
     // Dagger Registration

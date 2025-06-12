@@ -168,13 +168,45 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SPOON.get())
-                .pattern("P")
-                .pattern("I")
-                .pattern("I")
-                .define('I', Items.IRON_INGOT)
-                .define('P', ModItems.IRON_PLATE.get())
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_SPOON.get())
+                .pattern(" MM")
+                .pattern(" MM")
+                .pattern("M  ")
+                .define('M', Items.OAK_PLANKS)
+                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_SPOON.get())
+                .pattern(" MM")
+                .pattern(" MM")
+                .pattern("M  ")
+                .define('M', Items.COBBLESTONE)
+                .unlockedBy("has_cobblestone", has(Items.COBBLESTONE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_SPOON.get())
+                .pattern(" MM")
+                .pattern(" MM")
+                .pattern("M  ")
+                .define('M', Items.IRON_INGOT)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_SPOON.get())
+                .pattern(" MM")
+                .pattern(" MM")
+                .pattern("M  ")
+                .define('M', Items.GOLD_INGOT)
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_SPOON.get())
+                .pattern(" MM")
+                .pattern(" MM")
+                .pattern("M  ")
+                .define('M', Items.DIAMOND)
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.LIFE_SABER.get())
@@ -614,7 +646,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_rose_quartz", has(ModItems.ROSE_QUARTZ.get()))
                 .save(recipeOutput);
 
-
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.FIELD_SWORD.asItem(), 4)
+                .pattern(" S ")
+                .pattern("ATA")
+                .pattern("CCC")
+                .define('C', Items.CHISELED_STONE_BRICKS)
+                .define('A', Items.AMETHYST_SHARD)
+                .define('S', ModItems.STONE_GREATSWORD.get())
+                .define('T', ModItems.TRANSFORMATION_TEMPLATE.get())
+                .unlockedBy("has_chiseled_stone", has(Items.CHISELED_STONE_BRICKS))
+                .save(recipeOutput, "field_sword_block_from_crafting");
 
 
 
@@ -918,6 +959,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlocks("has_diamond_scythe", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DIAMOND_SCYTHE.get()))
                 .save(recipeOutput, "netherite_scythe");
 
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(ModItems.DIAMOND_SPOON.get()),
+                        Ingredient.of(Items.NETHERITE_INGOT),
+                        RecipeCategory.COMBAT, ModItems.NETHERITE_SPOON.get())
+                .unlocks("has_diamond_spoon", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DIAMOND_SPOON.get()))
+                .save(recipeOutput, "netherite_spoon");
+
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
                         Ingredient.of(ModItems.DIAMOND_POLEARM.get()),
                         Ingredient.of(Items.NETHERITE_INGOT),
@@ -1011,6 +1060,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlocks("has_shield",
                         InventoryChangeTrigger.TriggerInstance.hasItems(Items.SHIELD))
                 .save(recipeOutput, "grass_crest_shield_smithing");
+
 
         //Forging
 

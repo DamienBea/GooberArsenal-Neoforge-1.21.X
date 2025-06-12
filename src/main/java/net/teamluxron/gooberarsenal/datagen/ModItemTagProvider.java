@@ -61,7 +61,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.SOULPHYRE_DAGGER.get())
                 .add(ModItems.NETHERITE_DAGGER.get())
                 .add(ModItems.TUNGSTEN_DAGGER.get())
-                .add(ModItems.SPOON.get())
                 .add(ModItems.SOULPHYRE_SWORD.get())
                 .add(ModItems.TUNGSTEN_SWORD.get())
                 .add(ModItems.ROSE_QUARTZ_SWORD.get())
@@ -75,6 +74,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.NETHERITE_HAMMER.get())
                 .add(ModItems.TUNGSTEN_HAMMER.get())
                 .add(ModItems.MOSSY_MASHER.get())
+
+                .add(ModItems.WOODEN_SPOON.get())
+                .add(ModItems.STONE_SPOON.get())
+                .add(ModItems.IRON_SPOON.get())
+                .add(ModItems.GOLDEN_SPOON.get())
+                .add(ModItems.DIAMOND_SPOON.get())
+                .add(ModItems.NETHERITE_SPOON.get())
+
 
 
                 .add(ModItems.LYNNS_DESOLATION.get())
@@ -154,9 +161,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 ;
 
         tag(ItemTags.SHOVELS)
-                .add(ModItems.SPOON.get())
                 .add(ModItems.SOULPHYRE_SHOVEL.get())
                 .add(ModItems.TUNGSTEN_SHOVEL.get())
+                .add(ModItems.WOODEN_SPOON.get())
+                .add(ModItems.STONE_SPOON.get())
+                .add(ModItems.IRON_SPOON.get())
+                .add(ModItems.GOLDEN_SPOON.get())
+                .add(ModItems.DIAMOND_SPOON.get())
+                .add(ModItems.NETHERITE_SPOON.get())
+
         ;
 
         tag(ItemTags.FOOT_ARMOR_ENCHANTABLE)

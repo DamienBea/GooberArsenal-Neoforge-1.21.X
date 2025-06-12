@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    " MM",
+    " MM",
+    "M  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "gooberarsenal:diamond_spoon"
+  }
+}

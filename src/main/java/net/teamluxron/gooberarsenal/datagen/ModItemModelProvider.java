@@ -15,7 +15,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.item.ModItems;
 
 import java.util.LinkedHashMap;
@@ -59,6 +58,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.RUBBER_CHICKEN.get());
             basicItem(ModItems.ENERGY_BAR.get());
             basicItem(ModItems.SANDVICH.get());
+            basicItem(ModItems.ROTTEN_BREAD.get());
             basicItem(ModItems.CHOCOLATE_CHIP_PANCAKES.get());
             basicItem(ModItems.COPPER_APPLE.get());
             basicItem(ModItems.SWITCH_CARTRIDGE.get());
@@ -72,6 +72,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             basicItem(ModItems.MOSSY_GEM.get());
             basicItem(ModItems.CHAIN_OF_FATE.get());
             basicItem(ModItems.VENOMOUS_FANG.get());
+            basicItem(ModItems.AUSTRALIUM_NUGGET.get());
             basicItem(ModItems.ACONITE.get());
             basicItem(ModItems.SOULPHYRE.get());
             basicItem(ModItems.ROSE_QUARTZ.get());
@@ -129,7 +130,12 @@ public class ModItemModelProvider extends ItemModelProvider {
             handheldBroadswordItem(ModItems.NETHERITE_GREATSWORD);
             handheldBroadswordItem(ModItems.SOULPHYRE_GREATSWORD);
             handheldBroadswordItem(ModItems.TUNGSTEN_GREATSWORD);
-            handheldScaledItem(ModItems.SPOON);
+            handheldScaledItem(ModItems.WOODEN_SPOON);
+            handheldScaledItem(ModItems.STONE_SPOON);
+            handheldScaledItem(ModItems.IRON_SPOON);
+            handheldScaledItem(ModItems.GOLDEN_SPOON);
+            handheldScaledItem(ModItems.DIAMOND_SPOON);
+            handheldScaledItem(ModItems.NETHERITE_SPOON);
             handheldItem(ModItems.FESTIVE_AXE);
             handheldItem(ModItems.LIFE_SABER);
             handheldItem(ModItems.KENDO_STICK);

@@ -1,0 +1,19 @@
+{
+  "type": "gooberarsenal:add_item",
+  "conditions": [
+    {
+      "condition": "minecraft:all_of",
+      "terms": [
+        {
+          "condition": "neoforge:loot_table_id",
+          "loot_table_id": "minecraft:entities/zombified_bread"
+        },
+        {
+          "chance": 0.05,
+          "condition": "minecraft:random_chance"
+        }
+      ]
+    }
+  ],
+  "item": "gooberarsenal:australium_nugget"
+}

@@ -43,9 +43,14 @@ public class ModBlockEntities {
             ).build(null)
     );
 
-    public static final Supplier<BlockEntityType<FieldSword>> FIELD_SWORD_BE =
+    public static final Supplier<BlockEntityType<FieldSwordBlockEntity>> FIELD_SWORD_BE =
             BLOCK_ENTITIES.register("field_sword", () ->
-                    BlockEntityType.Builder.of(FieldSword::new, ModBlocks.FIELD_SWORD.get()).build(null));
+                    BlockEntityType.Builder.of(FieldSwordBlockEntity::new, ModBlocks.FIELD_SWORD.get()).build(null));
+
+
+    public static final Supplier<BlockEntityType<FieldSwordBlockEntity>> MAGICAL_BEAN_CROP_BE =
+            BLOCK_ENTITIES.register("magical_bean_crop", () ->
+                    BlockEntityType.Builder.of(FieldSwordBlockEntity::new, ModBlocks.MAGICAL_BEAN_CROP.get()).build(null));
 
 
 

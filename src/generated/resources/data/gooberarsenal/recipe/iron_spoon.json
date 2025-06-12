@@ -2,20 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "I": {
+    "M": {
       "item": "minecraft:iron_ingot"
-    },
-    "P": {
-      "item": "gooberarsenal:iron_plate"
     }
   },
   "pattern": [
-    "P",
-    "I",
-    "I"
+    " MM",
+    " MM",
+    "M  "
   ],
   "result": {
     "count": 1,
-    "id": "gooberarsenal:spoon"
+    "id": "gooberarsenal:iron_spoon"
   }
 }

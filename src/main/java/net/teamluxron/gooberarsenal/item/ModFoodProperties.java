@@ -31,4 +31,9 @@ public class ModFoodProperties {
             .effect(new MobEffectInstance(MobEffects.HUNGER, 600, 1), 1f)
             .build();
 
+    public static final FoodProperties ROTTEN_BREAD = new FoodProperties.Builder()
+            .nutrition(4).saturationModifier(4f)
+            .effect(new MobEffectInstance(MobEffects.HUNGER, 600, 1), 1f)
+            .build();
+
 }

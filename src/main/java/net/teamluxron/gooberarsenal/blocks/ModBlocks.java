@@ -148,7 +148,7 @@ public class ModBlocks {
 
     //Crops
 
-    public static final DeferredBlock<Block> MAGICAL_BEAN_CROP = BLOCKS.register("radish_crop",
+    public static final DeferredBlock<Block> MAGICAL_BEAN_CROP = BLOCKS.register("magical_bean_crop",
             () -> new PeaCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BEETROOTS)));
 
 

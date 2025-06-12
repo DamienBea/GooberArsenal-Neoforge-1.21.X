@@ -6,7 +6,6 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.entity.ModEntities;
-import net.teamluxron.gooberarsenal.entity.client.model.PeaShooterModel;
 import net.teamluxron.gooberarsenal.entity.client.model.ZombifiedBreadModel;
 import net.teamluxron.gooberarsenal.entity.custom.PeaShooterEntity;
 import net.teamluxron.gooberarsenal.entity.custom.ZombifiedBreadEntity;
