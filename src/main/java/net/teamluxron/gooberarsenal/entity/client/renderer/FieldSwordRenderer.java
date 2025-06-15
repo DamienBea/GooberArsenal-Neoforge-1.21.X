@@ -27,7 +27,7 @@ public class FieldSwordRenderer implements BlockEntityRenderer<FieldSwordBlockEn
         ItemStack swordStack = new ItemStack(be.swordItem);
 
         poseStack.pushPose();
-        poseStack.translate(0.5f, 0.01f, 0.5f);
+        poseStack.translate(0.5f, 0.5f, 0.5f);
 
         poseStack.mulPose(Axis.YP.rotationDegrees(be.getSecondaryYRot()));
 

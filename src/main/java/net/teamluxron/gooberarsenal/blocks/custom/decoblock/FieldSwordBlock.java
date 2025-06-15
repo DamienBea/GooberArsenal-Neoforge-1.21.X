@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -45,9 +45,8 @@ public class FieldSwordBlock extends Block implements EntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        ItemStack stack = player.getItemInHand(hand);
-
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit
+    ) {
         // Handle Transformation Template
         if (stack.getItem() == ModItems.TRANSFORMATION_TEMPLATE.get()) {
             if (!level.isClientSide() && level.getBlockEntity(pos) instanceof FieldSwordBlockEntity be) {
@@ -63,23 +62,24 @@ public class FieldSwordBlock extends Block implements EntityBlock {
                 } else if (offhand.is(Items.DIAMOND)) {
                     be.adjustScale(!sneaking);
                 } else {
-                    return InteractionResult.PASS;
+                    return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
                 }
 
                 level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 0.8f, 1.2f);
-                return InteractionResult.sidedSuccess(level.isClientSide());
+                return ItemInteractionResult.SUCCESS;
             }
-            return InteractionResult.PASS;
+            return ItemInteractionResult.sidedSuccess(level.isClientSide());
         }
-        // Handle Sword/Axe/Hammer visual set
+        // Handle Sword/Axe/Hammer replacement
         else if (FieldSwordBlockEntity.isAllowedReplacementItem(stack)) {
             if (!level.isClientSide() && level.getBlockEntity(pos) instanceof FieldSwordBlockEntity be) {
                 be.setSwordItem(stack.getItem());
                 level.playSound(null, pos, SoundEvents.ARMOR_EQUIP_NETHERITE.value(), SoundSource.BLOCKS, 1.0f, 1.2f);
-                return InteractionResult.sidedSuccess(level.isClientSide());
+                return ItemInteractionResult.SUCCESS;
             }
-            return InteractionResult.PASS;
+            return ItemInteractionResult.sidedSuccess(level.isClientSide());
         }
-        return InteractionResult.PASS;
+
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 }
