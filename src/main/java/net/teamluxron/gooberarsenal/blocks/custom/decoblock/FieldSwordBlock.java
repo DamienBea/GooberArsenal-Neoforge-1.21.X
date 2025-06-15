@@ -47,7 +47,6 @@ public class FieldSwordBlock extends Block implements EntityBlock {
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit
     ) {
-        // Handle Transformation Template
         if (stack.getItem() == ModItems.TRANSFORMATION_TEMPLATE.get()) {
             if (!level.isClientSide() && level.getBlockEntity(pos) instanceof FieldSwordBlockEntity be) {
                 ItemStack offhand = player.getOffhandItem();
@@ -70,7 +69,6 @@ public class FieldSwordBlock extends Block implements EntityBlock {
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide());
         }
-        // Handle Sword/Axe/Hammer replacement
         else if (FieldSwordBlockEntity.isAllowedReplacementItem(stack)) {
             if (!level.isClientSide() && level.getBlockEntity(pos) instanceof FieldSwordBlockEntity be) {
                 be.setSwordItem(stack.getItem());
