@@ -1,65 +1,61 @@
 package net.teamluxron.gooberarsenal.entity.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.state.BlockState;
 import net.teamluxron.gooberarsenal.blocks.entity.FieldSwordBlockEntity;
 
 public class FieldSwordRenderer implements BlockEntityRenderer<FieldSwordBlockEntity> {
     private final ItemRenderer itemRenderer;
 
-    public FieldSwordRenderer(BlockEntityRendererProvider.Context ctx) {
-        this.itemRenderer = ctx.getItemRenderer();
+    public FieldSwordRenderer(BlockEntityRendererProvider.Context context) {
+        this.itemRenderer = context.getItemRenderer();
     }
 
     @Override
-    public void render(FieldSwordBlockEntity be, float partialTicks,
-                       PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
+    public void render(FieldSwordBlockEntity be, float partialTick, PoseStack poseStack,
+                       MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        if (be.swordItem == null) return;
 
-        BlockState below = be.getLevel().getBlockState(be.getBlockPos().below());
+        ItemStack swordStack = new ItemStack(be.swordItem);
 
-        ms.pushPose();
-        ms.scale(1f, 1f / 16f, 1f); // Flatten Y to 1px
-        Minecraft.getInstance().getBlockRenderer().renderSingleBlock(
-                below, ms, buffer, light, overlay
-        );
-        ms.popPose();
+        poseStack.pushPose();
+        poseStack.translate(0.5f, 0.01f, 0.5f);
 
-        ms.pushPose();
+        poseStack.mulPose(Axis.YP.rotationDegrees(be.getSecondaryYRot()));
 
-        ms.translate(1.0, 1.5625, 0.5);
-        ms.translate(0, 0, -0.5);
+        poseStack.mulPose(Axis.XP.rotationDegrees(be.getTotalRotationX()));
+        poseStack.mulPose(Axis.YP.rotationDegrees(be.getTotalRotationY()));
+        poseStack.mulPose(Axis.ZP.rotationDegrees(be.getTotalRotationZ()));
 
-        ms.mulPose(Axis.YP.rotationDegrees(be.secondaryYRotDeg));
+        float scale = be.getTotalScale();
+        poseStack.scale(scale, scale, scale);
 
-        ms.mulPose(Axis.XP.rotationDegrees(90f + be.rotationXDeg));
-        ms.mulPose(Axis.YP.rotationDegrees(90f + be.rotationYDeg));
-        ms.mulPose(Axis.ZP.rotationDegrees(135f + be.rotationZDeg));
+        poseStack.translate(0f, 0.5f, 0f);
 
-        ms.translate(0.0, 0.0, 0.0);
-
-        float scale = be.lengthScale / 4f;
-        ms.scale(scale, scale, scale);
-
-        VertexConsumer glow = buffer.getBuffer(RenderType.eyes(
-                Minecraft.getInstance().getItemRenderer().getItemModelShaper()
-                        .getItemModel(be.swordItem).getParticleIcon().atlasLocation()
-        ));
         itemRenderer.renderStatic(
-                new ItemStack(be.swordItem),
-                ItemDisplayContext.NONE,
-                0xF000F0, overlay, ms, buffer, be.getLevel(), 0
+                swordStack,
+                ItemDisplayContext.FIXED,
+                LightTexture.FULL_BRIGHT,
+                OverlayTexture.NO_OVERLAY,
+                poseStack,
+                bufferSource,
+                be.getLevel(),
+                0
         );
+        poseStack.popPose();
+    }
 
-        ms.popPose();
+
+    @Override
+    public boolean shouldRenderOffScreen(FieldSwordBlockEntity be) {
+        return true; // Ensures large swords render properly
     }
 }
