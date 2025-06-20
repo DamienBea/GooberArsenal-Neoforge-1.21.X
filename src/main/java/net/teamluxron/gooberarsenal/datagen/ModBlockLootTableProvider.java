@@ -43,6 +43,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.FIELD_SWORD.get());
         dropSelf(ModBlocks.SCALED_ENDSTONE.get());
         dropSelf(ModBlocks.BALLS.get());
+        dropSelf(ModBlocks.ECHO_FLOWER.get());
 
 // Ore Drops
         add(ModBlocks.KEVIN_ORE.get(),

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chiseled_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:chiseled_stone_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:field_sword_block_from_crafting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chiseled_stone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:field_sword_block_from_crafting"
+    ]
+  }
+}

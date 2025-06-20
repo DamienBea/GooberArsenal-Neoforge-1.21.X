@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.teamluxron.gooberarsenal.blocks.entity.FieldSwordBlockEntity;
+import net.teamluxron.gooberarsenal.blocks.entity.function.FieldSwordBlockEntity;
 import net.teamluxron.gooberarsenal.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,23 +45,50 @@ public class FieldSwordBlock extends Block implements EntityBlock {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit
+    protected ItemInteractionResult useItemOn(
+            ItemStack stack,
+            BlockState state,
+            Level level,
+            BlockPos pos,
+            Player player,
+            InteractionHand hand,
+            BlockHitResult hit
     ) {
-        if (stack.getItem() == ModItems.TRANSFORMATION_TEMPLATE.get()) {
-            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof FieldSwordBlockEntity be) {
-                ItemStack offhand = player.getOffhandItem();
-                boolean sneaking = player.isShiftKeyDown();
+        ItemStack mainHand = player.getItemInHand(InteractionHand.MAIN_HAND);
+        ItemStack offHand = player.getItemInHand(InteractionHand.OFF_HAND);
 
-                if (offhand.is(Items.COPPER_INGOT)) {
-                    be.adjustSecondaryYRot(!sneaking);
-                } else if (offhand.is(Items.IRON_INGOT)) {
-                    be.adjustRotX(!sneaking);
-                } else if (offhand.is(Items.GOLD_INGOT)) {
-                    be.adjustRotZ(!sneaking);
-                } else if (offhand.is(Items.DIAMOND)) {
-                    be.adjustScale(!sneaking);
+        // Check for transformation interaction
+        if ((mainHand.is(ModItems.TRANSFORMATION_TEMPLATE.get()) && offHand.is(Items.COPPER_INGOT)) ||
+                (offHand.is(ModItems.TRANSFORMATION_TEMPLATE.get()) && mainHand.is(Items.COPPER_INGOT)) ||
+                (mainHand.is(ModItems.TRANSFORMATION_TEMPLATE.get()) && offHand.is(Items.IRON_INGOT)) ||
+                (offHand.is(ModItems.TRANSFORMATION_TEMPLATE.get()) && mainHand.is(Items.IRON_INGOT)) ||
+                (mainHand.is(ModItems.TRANSFORMATION_TEMPLATE.get()) && offHand.is(Items.GOLD_INGOT)) ||
+                (offHand.is(ModItems.TRANSFORMATION_TEMPLATE.get()) && mainHand.is(Items.GOLD_INGOT)) ||
+                (mainHand.is(ModItems.TRANSFORMATION_TEMPLATE.get()) && offHand.is(Items.DIAMOND)) ||
+                (offHand.is(ModItems.TRANSFORMATION_TEMPLATE.get()) && mainHand.is(Items.DIAMOND))) {
+
+            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof FieldSwordBlockEntity be) {
+                boolean increase;
+                ItemStack modifierStack;
+
+                // Determine transformation direction based on hand placement
+                if (mainHand.is(ModItems.TRANSFORMATION_TEMPLATE.get())) {
+                    increase = true;  // Template in main hand = increase
+                    modifierStack = offHand;
                 } else {
-                    return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+                    increase = false; // Template in offhand = decrease
+                    modifierStack = mainHand;
+                }
+
+                // Apply transformation based on modifier item
+                if (modifierStack.is(Items.COPPER_INGOT)) {
+                    be.adjustSecondaryYRot(increase);
+                } else if (modifierStack.is(Items.IRON_INGOT)) {
+                    be.adjustRotX(increase);
+                } else if (modifierStack.is(Items.GOLD_INGOT)) {
+                    be.adjustRotZ(increase);
+                } else if (modifierStack.is(Items.DIAMOND)) {
+                    be.adjustScale(increase);
                 }
 
                 level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 0.8f, 1.2f);
@@ -69,6 +96,7 @@ public class FieldSwordBlock extends Block implements EntityBlock {
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide());
         }
+        // Handle Sword/Axe/Hammer replacement
         else if (FieldSwordBlockEntity.isAllowedReplacementItem(stack)) {
             if (!level.isClientSide() && level.getBlockEntity(pos) instanceof FieldSwordBlockEntity be) {
                 be.setSwordItem(stack.getItem());
@@ -80,4 +108,5 @@ public class FieldSwordBlock extends Block implements EntityBlock {
 
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
+
 }

@@ -16,6 +16,7 @@ import net.teamluxron.gooberarsenal.blocks.custom.crops.PeaCropBlock;
 import net.teamluxron.gooberarsenal.blocks.custom.decoblock.Balls;
 import net.teamluxron.gooberarsenal.blocks.custom.decoblock.FieldSwordBlock;
 import net.teamluxron.gooberarsenal.blocks.custom.functionblock.BrokenRadioBlock;
+import net.teamluxron.gooberarsenal.blocks.custom.functionblock.EchoFlowerBlock;
 import net.teamluxron.gooberarsenal.blocks.custom.functionblock.ForgingAnvilBlock;
 import net.teamluxron.gooberarsenal.blocks.custom.functionblock.RadioBlock;
 import net.teamluxron.gooberarsenal.item.ModItems;
@@ -136,7 +137,12 @@ public class ModBlocks {
             () -> new FieldSwordBlock(BlockBehaviour.Properties.of()
                     .strength(0f, 1200f)
                     .noOcclusion()
+                    .sound(SoundType.STONE)
             ));
+
+
+    public static final DeferredBlock<Block> ECHO_FLOWER = registerBlock("echo_flower",
+            () -> new EchoFlowerBlock());
 
 
     public static final DeferredBlock<Block> BALLS = registerBlock("balls",

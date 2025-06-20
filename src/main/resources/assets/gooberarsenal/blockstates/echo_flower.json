@@ -1,0 +1,12 @@
+{
+  "multipart": [
+    {
+      "when": { "half": "lower" },
+      "apply": { "model": "gooberarsenal:block/echo_flower_bottom" }
+    },
+    {
+      "when": { "half": "upper" },
+      "apply": { "model": "gooberarsenal:block/echo_flower_top" }
+    }
+  ]
+}

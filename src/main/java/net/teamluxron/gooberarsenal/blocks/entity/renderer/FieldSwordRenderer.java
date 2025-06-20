@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.entity.client.renderer;
+package net.teamluxron.gooberarsenal.blocks.entity.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.teamluxron.gooberarsenal.blocks.entity.FieldSwordBlockEntity;
+import net.teamluxron.gooberarsenal.blocks.entity.function.FieldSwordBlockEntity;
 
 public class FieldSwordRenderer implements BlockEntityRenderer<FieldSwordBlockEntity> {
     private final ItemRenderer itemRenderer;
@@ -27,19 +27,27 @@ public class FieldSwordRenderer implements BlockEntityRenderer<FieldSwordBlockEn
         ItemStack swordStack = new ItemStack(be.swordItem);
 
         poseStack.pushPose();
-        poseStack.translate(0.5f, 0.5f, 0.5f);
 
+        // Base position
+        poseStack.translate(0.5f, 0.0f, 0.5f);
+
+        // Pivot adjustments
+        poseStack.translate(-0.5f, -0.5f, 0f);
+
+        // Apply rotations
         poseStack.mulPose(Axis.YP.rotationDegrees(be.getSecondaryYRot()));
-
+        poseStack.mulPose(Axis.ZP.rotationDegrees(be.getTotalRotationZ()));
         poseStack.mulPose(Axis.XP.rotationDegrees(be.getTotalRotationX()));
         poseStack.mulPose(Axis.YP.rotationDegrees(be.getTotalRotationY()));
-        poseStack.mulPose(Axis.ZP.rotationDegrees(be.getTotalRotationZ()));
 
+        // Apply scale
         float scale = be.getTotalScale();
         poseStack.scale(scale, scale, scale);
 
-        poseStack.translate(0f, 0.5f, 0f);
+        // Final pivot adjustment
+        poseStack.translate(0f, -0.5f, 0f);
 
+        // Render with glow effect
         itemRenderer.renderStatic(
                 swordStack,
                 ItemDisplayContext.FIXED,
@@ -50,12 +58,12 @@ public class FieldSwordRenderer implements BlockEntityRenderer<FieldSwordBlockEn
                 be.getLevel(),
                 0
         );
+
         poseStack.popPose();
     }
 
-
     @Override
     public boolean shouldRenderOffScreen(FieldSwordBlockEntity be) {
-        return true; // Ensures large swords render properly
+        return true;
     }
 }

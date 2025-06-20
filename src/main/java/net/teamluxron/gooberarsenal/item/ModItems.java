@@ -699,19 +699,23 @@ public class ModItems {
     //Armor
     public static final DeferredItem<ArmorItem> SOULPHYRE_HELMET = ITEMS.register("soulphyre_helmet",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties().stacksTo(1)));
+                    new Item.Properties().stacksTo(1)
+                            .durability(ArmorItem.Type.HELMET.getDurability(33))));
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_CHESTPLATE = ITEMS.register("soulphyre_chestplate",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().stacksTo(1)));
+                    new Item.Properties().stacksTo(1)
+                            .durability(ArmorItem.Type.CHESTPLATE.getDurability(33))));
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_LEGGINGS = ITEMS.register("soulphyre_leggings",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().stacksTo(1)));
+                    new Item.Properties().stacksTo(1)
+                            .durability(ArmorItem.Type.LEGGINGS.getDurability(33))));
 
     public static final DeferredItem<ArmorItem> SOULPHYRE_BOOTS = ITEMS.register("soulphyre_boots",
             () -> new SoulphyreArmorItem(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties().stacksTo(1)));
+                    new Item.Properties().stacksTo(1)
+                            .durability(ArmorItem.Type.BOOTS.getDurability(33))));
 
     public static final DeferredItem<ArmorItem> CAGITE_HELMET = ITEMS.register("cagite_helmet",
             () -> new CagiteArmorItem(ModArmorMaterials.CAGITE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
@@ -732,7 +736,7 @@ public class ModItems {
 
     public static final DeferredItem<ArmorItem> STEVENS_JACKET = ITEMS.register("stevens_jacket",
             () -> new StevensJacketItem(ModArmorMaterials.STEVENS, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().fireResistant()) {
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.CHESTPLATE.getDurability(19))) {
 
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {

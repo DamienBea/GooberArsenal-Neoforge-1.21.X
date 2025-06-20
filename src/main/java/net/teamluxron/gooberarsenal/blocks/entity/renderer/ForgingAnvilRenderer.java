@@ -14,7 +14,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
-import net.teamluxron.gooberarsenal.blocks.entity.ForgingAnvilBlockEntity;
+import net.teamluxron.gooberarsenal.blocks.entity.function.ForgingAnvilBlockEntity;
 
 public class ForgingAnvilRenderer implements BlockEntityRenderer<ForgingAnvilBlockEntity> {
     public ForgingAnvilRenderer(BlockEntityRendererProvider.Context context) {

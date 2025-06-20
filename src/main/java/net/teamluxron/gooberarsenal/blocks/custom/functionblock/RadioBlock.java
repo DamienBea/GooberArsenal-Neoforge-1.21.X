@@ -28,7 +28,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
-import net.teamluxron.gooberarsenal.blocks.entity.RadioBlockEntity;
+import net.teamluxron.gooberarsenal.blocks.entity.function.RadioBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 public class RadioBlock extends BaseEntityBlock {

@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.blocks.entity;
+package net.teamluxron.gooberarsenal.blocks.entity.function;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -19,6 +19,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.recipe.ForgingRecipe;
 import net.teamluxron.gooberarsenal.recipe.ForgingRecipeInput;
 import net.teamluxron.gooberarsenal.recipe.ModRecipeTypes;

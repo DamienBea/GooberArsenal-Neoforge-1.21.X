@@ -5,8 +5,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.teamluxron.gooberarsenal.GooberArsenal;
@@ -14,6 +17,8 @@ import net.teamluxron.gooberarsenal.blocks.ModBlocks;
 import net.teamluxron.gooberarsenal.blocks.custom.crops.PeaCropBlock;
 
 import java.util.function.Function;
+
+import static net.minecraft.world.level.block.DoublePlantBlock.HALF;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -35,7 +40,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
 
+
+
         makeCrop(((CropBlock) ModBlocks.MAGICAL_BEAN_CROP.get()), "magical_bean_crop_stage", "magical_bean_crop_stage");
+
+
+
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {
@@ -47,6 +57,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         getVariantBuilder(block).forAllStates(function);
     }
+
+
+
+
+
 
     private ConfiguredModel[] states(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];

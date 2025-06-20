@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "C": {
+      "item": "minecraft:chiseled_stone_bricks"
+    },
+    "S": {
+      "item": "gooberarsenal:stone_greatsword"
+    },
+    "T": {
+      "item": "gooberarsenal:transformation_template"
+    }
+  },
+  "pattern": [
+    " S ",
+    "ATA",
+    "CCC"
+  ],
+  "result": {
+    "count": 4,
+    "id": "gooberarsenal:field_sword"
+  }
+}

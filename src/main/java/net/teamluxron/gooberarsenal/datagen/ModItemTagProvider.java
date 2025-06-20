@@ -81,6 +81,12 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.GOLDEN_SPOON.get())
                 .add(ModItems.DIAMOND_SPOON.get())
                 .add(ModItems.NETHERITE_SPOON.get())
+                .add(ModItems.WOODEN_GREATSWORD.get())
+                .add(ModItems.STONE_GREATSWORD.get())
+                .add(ModItems.IRON_GREATSWORD.get())
+                .add(ModItems.GOLDEN_GREATSWORD.get())
+                .add(ModItems.DIAMOND_GREATSWORD.get())
+                .add(ModItems.NETHERITE_GREATSWORD.get())
 
 
 

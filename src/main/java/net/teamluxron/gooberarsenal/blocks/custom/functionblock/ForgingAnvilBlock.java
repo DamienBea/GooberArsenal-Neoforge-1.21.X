@@ -23,7 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.teamluxron.gooberarsenal.blocks.entity.ForgingAnvilBlockEntity;
+import net.teamluxron.gooberarsenal.blocks.entity.function.ForgingAnvilBlockEntity;
 import net.teamluxron.gooberarsenal.recipe.ForgingRecipe;
 import net.teamluxron.gooberarsenal.util.ModTags;
 import org.jetbrains.annotations.Nullable;

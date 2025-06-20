@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.blocks.entity;
+package net.teamluxron.gooberarsenal.blocks.entity.function;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -9,10 +9,10 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.network.ModMessages;
 import net.teamluxron.gooberarsenal.network.packet.ClientboundRadioTogglePacket;
 import net.teamluxron.gooberarsenal.network.packet.PlayRadioSoundPacket;
@@ -25,7 +25,7 @@ public class BrokenRadioBlockEntity extends BlockEntity {
     private long nextPlayTick = 0L;
 
     public BrokenRadioBlockEntity(BlockPos pos, BlockState state) {
-        super((BlockEntityType)ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state);
+        super((BlockEntityType) ModBlockEntities.BROKEN_RADIO_BE.get(), pos, state);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, BrokenRadioBlockEntity blockEntity) {

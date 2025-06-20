@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.blocks.entity.RadioBlockEntity;
+import net.teamluxron.gooberarsenal.blocks.entity.function.RadioBlockEntity;
 
 public record ServerboundRadioTogglePacket(BlockPos pos, boolean isOn) implements CustomPacketPayload {
     public static final ResourceLocation ID =

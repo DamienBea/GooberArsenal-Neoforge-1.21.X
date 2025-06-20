@@ -19,7 +19,7 @@ public class SoulphyreArmorItem extends ArmorItem {
     private static final Map<Holder<ArmorMaterial>, List<MobEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<Holder<ArmorMaterial>, List<MobEffectInstance>>())
                     .put(ModArmorMaterials.SOULPHYRE_ARMOR_MATERIAL,
-                            List.of(new MobEffectInstance(MobEffects.NIGHT_VISION, 300, 0, false, false)))
+                            List.of(new MobEffectInstance(MobEffects.NIGHT_VISION, 400, 0, false, false)))
                     .build();
 
     public SoulphyreArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
@@ -45,15 +45,21 @@ public class SoulphyreArmorItem extends ArmorItem {
     }
 
     private void addEffectToPlayer(Player player, List<MobEffectInstance> mapEffect) {
-        boolean hasPlayerEffect = mapEffect.stream().allMatch(effect -> player.hasEffect(effect.getEffect()));
+        for (MobEffectInstance effect : mapEffect) {
+            MobEffectInstance currentEffect = player.getEffect(effect.getEffect());
 
-        if(!hasPlayerEffect) {
-            for (MobEffectInstance effect : mapEffect) {
-                player.addEffect(new MobEffectInstance(effect.getEffect(),
-                        effect.getDuration(), effect.getAmplifier(), effect.isAmbient(), effect.isVisible()));
+            if (currentEffect == null || currentEffect.getDuration() <= 250) {
+                player.addEffect(new MobEffectInstance(
+                        effect.getEffect(),
+                        effect.getDuration(),       // usually 300 ticks = 15 sec
+                        effect.getAmplifier(),
+                        effect.isAmbient(),
+                        effect.isVisible()
+                ));
             }
         }
     }
+
 
     private boolean hasPlayerCorrectArmorOn(Holder<ArmorMaterial> mapArmorMaterial, Player player) {
         for(ItemStack armorStack : player.getArmorSlots()) {

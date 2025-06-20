@@ -1,4 +1,4 @@
-package net.teamluxron.gooberarsenal.blocks.entity;
+package net.teamluxron.gooberarsenal.blocks.entity.function;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
+import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.network.ModMessages;
 import net.teamluxron.gooberarsenal.network.packet.ClientboundRadioTogglePacket;
 import net.teamluxron.gooberarsenal.network.packet.PlayRadioSoundPacket;

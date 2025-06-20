@@ -7,6 +7,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.teamluxron.gooberarsenal.GooberArsenal;
 import net.teamluxron.gooberarsenal.blocks.ModBlocks;
+import net.teamluxron.gooberarsenal.blocks.entity.function.*;
 
 import java.util.function.Supplier;
 
@@ -48,10 +49,14 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(FieldSwordBlockEntity::new, ModBlocks.FIELD_SWORD.get()).build(null));
 
 
-    public static final Supplier<BlockEntityType<FieldSwordBlockEntity>> MAGICAL_BEAN_CROP_BE =
+    public static final Supplier<BlockEntityType<PeaCropBlockEntity>> MAGICAL_BEAN_CROP_BE =
             BLOCK_ENTITIES.register("magical_bean_crop", () ->
-                    BlockEntityType.Builder.of(FieldSwordBlockEntity::new, ModBlocks.MAGICAL_BEAN_CROP.get()).build(null));
+                    BlockEntityType.Builder.of(PeaCropBlockEntity::new, ModBlocks.MAGICAL_BEAN_CROP.get()).build(null));
 
+
+    public static final Supplier<BlockEntityType<EchoFlowerBlockEntity>> ECHO_FLOWER_BE =
+            BLOCK_ENTITIES.register("echo_flower", () ->
+                    BlockEntityType.Builder.of(EchoFlowerBlockEntity::new, ModBlocks.ECHO_FLOWER.get()).build(null));
 
 
 
