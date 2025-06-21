@@ -5,13 +5,9 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-import net.neoforged.neoforge.network.handling.ServerPayloadContext;
 import net.teamluxron.gooberarsenal.GooberArsenal;
-import net.teamluxron.gooberarsenal.blocks.entity.function.EchoFlowerBlockEntity;
+import net.teamluxron.gooberarsenal.client.screen.EchoFlowerEditScreen;
+import net.teamluxron.gooberarsenal.menu.EchoFlowerOpenScreenMessage;
 
 public class EchoFlowerUpdateMessage implements CustomPacketPayload {
 
@@ -55,18 +51,12 @@ public class EchoFlowerUpdateMessage implements CustomPacketPayload {
         return TYPE;
     }
 
-    public static void handle(EchoFlowerUpdateMessage msg, IPayloadContext context) {
-        if (!(context instanceof ServerPayloadContext serverCtx)) return;
-
-        serverCtx.enqueueWork(() -> {
-            ServerPlayer player = serverCtx.player();
-            Level level = player.level();
-            BlockEntity be = level.getBlockEntity(msg.getPos());
-            if (be instanceof EchoFlowerBlockEntity flower) {
-                flower.setCustomMessage(msg.getMessage());
-                flower.setPlacedByPlayer(true);
-                flower.setChanged();
-            }
+    public static void handle(EchoFlowerOpenScreenMessage message, net.minecraft.client.Minecraft client, net.minecraft.client.multiplayer.ClientPacketListener handler, net.neoforged.neoforge.network.handling.ClientPlayPayloadContext context) {
+        context.workHandler().submitAsync(() -> {
+            System.out.println("[EchoFlower] Handling open screen packet.");
+            System.out.println("[EchoFlower] Pos = " + message.pos + ", Message = " + message.message);
+            client.setScreen(new EchoFlowerEditScreen(message.pos, message.message));
         });
     }
+
 }

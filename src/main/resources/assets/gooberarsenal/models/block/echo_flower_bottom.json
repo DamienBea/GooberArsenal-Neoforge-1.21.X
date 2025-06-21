@@ -3,15 +3,22 @@
   "textures": {
     "cross": "gooberarsenal:block/echo_flower_bottom"
   },
+  "overrides": [],
   "elements": [
     {
-      "from": [0, 0, 0],
-      "to": [16, 16, 16],
+      "from": [ 0.8, 0, 8 ],
+      "to": [ 15.2, 16, 8 ],
       "faces": {
         "north": { "uv": [0, 0, 16, 16], "texture": "#cross", "tintindex": 0 },
-        "south": { "uv": [0, 0, 16, 16], "texture": "#cross", "tintindex": 0 },
-        "east":  { "uv": [0, 0, 16, 16], "texture": "#cross", "tintindex": 0 },
-        "west":  { "uv": [0, 0, 16, 16], "texture": "#cross", "tintindex": 0 }
+        "south": { "uv": [0, 0, 16, 16], "texture": "#cross", "tintindex": 0 }
+      }
+    },
+    {
+      "from": [ 8, 0, 0.8 ],
+      "to": [ 8, 16, 15.2 ],
+      "faces": {
+        "west": { "uv": [0, 0, 16, 16], "texture": "#cross", "tintindex": 0 },
+        "east": { "uv": [0, 0, 16, 16], "texture": "#cross", "tintindex": 0 }
       }
     }
   ]

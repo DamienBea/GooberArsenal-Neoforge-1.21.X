@@ -1,7 +1,5 @@
 package net.teamluxron.gooberarsenal.network;
 
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -38,17 +36,17 @@ public class ModNetwork {
         );
     }
 
-    // ✅ Generic version for ANY client-bound packet
+    // Generic version for ANY client-bound packet
     public static void sendToPlayer(CustomPacketPayload packet, ServerPlayer player) {
         PacketDistributor.sendToPlayer(player, packet);
     }
 
-    // ✅ Generic version for broadcasting to ALL players
+    // Generic version for broadcasting to ALL players
     public static void sendToClients(CustomPacketPayload packet) {
         PacketDistributor.sendToAllPlayers(packet);
     }
 
-    // ✅ Generic version for server-bound messages
+    // Generic version for server-bound messages
     public static void sendToServer(CustomPacketPayload message) {
         PacketDistributor.sendToServer(message);
     }

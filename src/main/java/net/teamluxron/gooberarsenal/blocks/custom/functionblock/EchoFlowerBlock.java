@@ -28,7 +28,6 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.teamluxron.gooberarsenal.blocks.entity.ModBlockEntities;
 import net.teamluxron.gooberarsenal.blocks.entity.function.EchoFlowerBlockEntity;
-import net.teamluxron.gooberarsenal.menu.EchoFlowerEditMenu;
 import net.teamluxron.gooberarsenal.menu.EchoFlowerOpenScreenMessage;
 import net.teamluxron.gooberarsenal.network.ModNetwork;
 import org.jetbrains.annotations.Nullable;
@@ -118,10 +117,7 @@ public class EchoFlowerBlock extends TallFlowerBlock implements EntityBlock {
                 }
                 if (placer instanceof ServerPlayer serverPlayer) {
                     echo.setPlacedByPlayer(true);
-                    serverPlayer.openMenu(new SimpleMenuProvider(
-                            (id, inv, ply) -> new EchoFlowerEditMenu(id, inv, pos),
-                            Component.translatable("screen.gooberarsenal.echo_flower")
-                    ));
+                    ModNetwork.sendToPlayer(new EchoFlowerOpenScreenMessage(pos, echo.getCustomMessage()), serverPlayer);
                 }
             }
         }
@@ -130,7 +126,10 @@ public class EchoFlowerBlock extends TallFlowerBlock implements EntityBlock {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
-            ModNetwork.sendToPlayer(new EchoFlowerOpenScreenMessage(pos), serverPlayer);
+            BlockEntity be = level.getBlockEntity(pos);
+            if (be instanceof EchoFlowerBlockEntity echo) {
+                ModNetwork.sendToPlayer(new EchoFlowerOpenScreenMessage(pos, echo.getCustomMessage()), serverPlayer);
+            }
         }
         return InteractionResult.sidedSuccess(level.isClientSide());
     }

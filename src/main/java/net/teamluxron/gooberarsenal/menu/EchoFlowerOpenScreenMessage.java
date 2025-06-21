@@ -1,12 +1,12 @@
 package net.teamluxron.gooberarsenal.menu;
 
+import com.mojang.serialization.Codec;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.network.handling.ClientPayloadContext;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.teamluxron.gooberarsenal.GooberArsenal;
@@ -17,33 +17,34 @@ public class EchoFlowerOpenScreenMessage implements CustomPacketPayload {
     public static final Type<EchoFlowerOpenScreenMessage> TYPE = new Type<>(ID);
 
     private final BlockPos pos;
+    private final String message;
 
-    public EchoFlowerOpenScreenMessage(BlockPos pos) {
+    public EchoFlowerOpenScreenMessage(BlockPos pos, String message) {
         this.pos = pos;
+        this.message = message;
+    }
+
+    public BlockPos getPos() {
+        return pos;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public static final StreamCodec<RegistryFriendlyByteBuf, EchoFlowerOpenScreenMessage> STREAM_CODEC =
             StreamCodec.composite(
                     BlockPos.STREAM_CODEC,
                     EchoFlowerOpenScreenMessage::getPos,
+                    StreamCodec.fromCodec(Codec.STRING),
+                    EchoFlowerOpenScreenMessage::getMessage,
                     EchoFlowerOpenScreenMessage::new
             );
 
-    public BlockPos getPos() {
-        return pos;
-    }
 
     @Override
     public Type<? extends CustomPacketPayload> type() {
         return TYPE;
-    }
-
-    public static void encode(RegistryFriendlyByteBuf buf, EchoFlowerOpenScreenMessage msg) {
-        buf.writeBlockPos(msg.pos);
-    }
-
-    public static EchoFlowerOpenScreenMessage decode(RegistryFriendlyByteBuf buf) {
-        return new EchoFlowerOpenScreenMessage(buf.readBlockPos());
     }
 
     public static void handle(EchoFlowerOpenScreenMessage msg, IPayloadContext context) {
@@ -51,11 +52,7 @@ public class EchoFlowerOpenScreenMessage implements CustomPacketPayload {
 
         clientCtx.enqueueWork(() -> {
             Minecraft mc = Minecraft.getInstance();
-            Player player = mc.player;
-            if (player == null) return;
-
-            EchoFlowerEditMenu menu = new EchoFlowerEditMenu(0, player.getInventory(), msg.getPos());
-            mc.setScreen(new EchoFlowerEditScreen(menu));
+            mc.setScreen(new EchoFlowerEditScreen(msg.getPos(), msg.getMessage()));
         });
     }
 }
