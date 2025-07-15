@@ -16,8 +16,8 @@ public class EchoFlowerOpenScreenMessage implements CustomPacketPayload {
     public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(GooberArsenal.MOD_ID, "echo_flower_open");
     public static final Type<EchoFlowerOpenScreenMessage> TYPE = new Type<>(ID);
 
-    private final BlockPos pos;
-    private final String message;
+    public final BlockPos pos;
+    public final String message;
 
     public EchoFlowerOpenScreenMessage(BlockPos pos, String message) {
         this.pos = pos;
